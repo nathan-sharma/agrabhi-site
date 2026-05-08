@@ -149,7 +149,7 @@ export default function Home() {
           AgraBhi
         </h1>
         <h2 className="text-xl md:text-3xl font-medium mb-4 tracking-tight text-slate-300 max-w-7xl mx-auto leading-tight animate-slide-slow">
-         A Low Cost Drone-Based Soil Moisture Mapping System for <span className="text-emerald-400">Smarter Irrigation.</span>
+         Autonomous Drone-Based Moisture Mapping for <span className="text-emerald-400">Smarter Planting.</span>
         </h2>
       </header>
 
@@ -202,19 +202,20 @@ export default function Home() {
           </h2>
           <div className="text-base font-light text-slate-300 leading-relaxed space-y-6">
             <p>
-              AgraBhi is a low-cost drone system designed to help farmers better understand soil moisture patterns on their farm fields. Rather than solely relying on camera images, AgraBhi uses a physical soil sensor to measure moisture at the root level of crops, significantly improving measurement accuracy. It then uses interpolation models to predict moisture across the rest of the farm field.
+              AgraBhi is a low-cost drone system designed to help farmers better understand soil moisture patterns on their farm fields before seeds are planted. Rather than solely relying on camera images, AgraBhi uses a physical soil sensor to measure moisture at the root level, significantly improving measurement accuracy. It then uses interpolation models to predict moisture across the rest of the farm field.
             </p>
             
             <p>
-              The goal of our project is to make irrigation decisions more precise, efficient, and affordable for farmers.
-            </p>
+              The primary goal of our project is to provide farmers with highly accurate moisture data before sowing to guide planting decisions.
 
+            </p>
+<p className = "font-bold">Note: AgraBhi 2026 was originally designed to help farmers make more accurate irrigation management decisions throughout the season, but we later refocused the project to providing data before seeds are planted.</p>
             <div className="pt-4">
               <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-4">
                 Why This Matters
               </h2>
               <p className="mb-4">
-                Soil moisture varies dramatically across farm fields, and today, many farmers are simply guessing on how to irrigate their crops. This leads to overwatering, underwatering, wasted resources, and unhealthy yield. 
+                Today, many farmers are simply guessing on where to plant their crops. This leads to wasted resources and unhealthy yield. Farmers need accurate moisture data to decide where they should and shouldn't plant their seeds.
               </p>
               <p>
                 AgraBhi is being created to make moisture mapping more affordable, accurate, and practical, especially in places where high quality agricultural tools are too expensive to afford.
@@ -226,11 +227,11 @@ export default function Home() {
                 onClick={() => setShowFullAbstract(true)}
                 className="mt-4 px-6 py-2 bg-slate-800 hover:bg-slate-700 text-emerald-400 text-xs font-bold uppercase tracking-widest rounded-full border border-slate-700 transition-all"
               >
-                Read full abstract
+                Read abstract
               </button>
             ) : (
               <div className="animate-fade-in pt-4 border-t border-slate-800">
-                <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">2025-26 Science Fair Abstract</h3>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">2025-26 Abstract</h3>
                 <div className="space-y-6">
                   <p>
                     Variation in soil moisture across agricultural fields reduces crop yields and leads to inefficient water management. Climate change has increased the variability of soil moisture, intensifying this problem. Existing soil moisture gauging methods fail to capture moisture at the root level of crops.
@@ -281,10 +282,10 @@ export default function Home() {
             <div>
               <h3 className="text-white font-bold mb-3 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
-                Image Analysis
+                3D Mapping
               </h3>
               <p className="text-slate-400 font-light text-sm leading-relaxed">
-                The drone will take multiple GPS-tagged images to stitch into a field map. Then, an image model will identify overly dry areas by color (if they are very brown or yellow) and mark them as points of interest. This will allow the drone to quickly identify underwatered areas on farm fields and provide farmers with accurate data at those points.
+                Rather than simply taking a single measurement at points, the drone will take multiple measurements at different depths per point to calculate a moisture gradient at that location. This allows our models to extend moisture predictions to beneath the soil rather than just being a flat heatmap, which gives farmers more information on what depths underneath the soil are most optimal for seed growth. 
               </p>
             </div>
             <div>
@@ -293,8 +294,10 @@ export default function Home() {
                 Adaptive Path Planning
               </h3>
               <p className="text-slate-400 font-light text-sm leading-relaxed">
-                The drone will initially measure 15-20 randomly scattered points on the field. Then, our model will create a heatmap from these measurements. From here, the drone will fly to the areas on the heatmap the model is the most uncertain about, repeating the process until uncertainty is approximately the same across the field. We think this will let the drone improve its own predictive accuracy.
-              </p>
+                
+We think our drone can improve its own predictive accuracy by flying to the highest uncertainty areas in its predictions in real time. For example, the drone could start with an initial set of moisture measurements across the field, generate a heatmap, then fly to the most uncertain point on this heatmap and take a measurement there, repeating the process until accuracy is significantly improved and uncertainty is evenly distributed.
+
+               </p>
             </div>
           </div>
         </section>
