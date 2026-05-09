@@ -411,20 +411,13 @@ async function simulateData() {
           </div>
 
           <div className="hidden md:flex items-center gap-8">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/nathan-sharma/Agrabhi"
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500"
-            >
-              GitHub
-            </a>
+         
 
             <Link
               to="/"
               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500"
             >
-              Back to Home
+              Back To Home
             </Link>
           </div>
 
@@ -456,24 +449,13 @@ async function simulateData() {
       </nav>
 
       {/* INFO */}
-      <div className="mb-6 p-4 border border-[#333] rounded bg-[#111]">
-        <h2 className="text-xl font-semibold mb-3 text-white">
+      <div className="mb-6">
+        <h2 className="text-3xl font-bold mb-3 text-white">
           AgraBhi Data Hub
         </h2>
 
         <div className="space-y-2 text-sm text-gray-300 leading-relaxed">
-          <p>Make sure your Pi and device you are using the Data Hub on are both registered with <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://tailscale.com/"
-              className="underline hover:text-gray-500"
-            >
-              Tailscale
-            </a> before attempting to connect.</p>
-          <p>The program will refuse to log if your sample points are too close together. Use Force Log to bypass this.</p>
-          <p>The Data Hub is only for analyzing and collecting moisture data. Please see Mission Planner for drone telemetry data.</p>
-          <p>Enter sprinkler coordinates to improve the model's predictions.</p>
-          <p>Click 'Read Sensors' before logging data to avoid blank logs!</p>
+      <p>Control the drone and monitor data remotely from this page!</p>
          <div className = "mt-2">
           <a
               target="_blank"
@@ -481,7 +463,7 @@ async function simulateData() {
               href="https://docs.google.com/document/d/1S0mL2VNIkHVH2baN0HFV6N_pfqVgpON1sv6gE_mZ1rs/edit?usp=sharing"
               className="underline hover:text-gray-500"
             >
-              More Troubleshooting
+              Troubleshooting & FAQs
             </a>
             </div>
         </div>

@@ -4,6 +4,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import DataHub from "./DataHub";
 import "leaflet/dist/leaflet.css";
+import About from "./About";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
 
         {/* DataHub page */}
         <Route path="/data-hub" element={<DataHub />} />
+          <Route path="/about" element={<About/>} />
       </Routes>
     </HashRouter>
   );

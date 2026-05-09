@@ -24,40 +24,19 @@ export default function Home() {
           
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-8">
+             <Link 
+              to="/" 
+              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
+            
+             Home
+            </Link>
 
-            <HashLink
-              smooth
-              to="#abstract"
-              onClick={() => setShowFullAbstract(true)}
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-400 transition-colors"
-            >
-              Abstract
-            </HashLink>
-
-            <HashLink
-              smooth
-              to="#development"
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-400 transition-colors"
-            >
-              Current Work
-            </HashLink>
-
-            <HashLink
-              smooth
-              to="#poster"
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-400 transition-colors"
-            >
-              Poster
-            </HashLink>
-
-            <HashLink
-              smooth
-              to="#support"
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-            >
-              Support Us
-            </HashLink>
-
+                <Link 
+              to="/about" 
+              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
+            
+              Our Team
+            </Link>
             <a target="_blank" rel="noopener noreferrer" href="https://github.com/nathan-sharma/Agrabhi" className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
               GitHub
             </a>
@@ -66,12 +45,14 @@ export default function Home() {
             </a>
 
             {/* ✅ UPDATED DATA HUB BUTTON */}
+       
             <Link 
               to="/data-hub" 
               className="text-xs uppercase tracking-widest font-bold px-4 py-2 rounded-full bg-blue-500 text-[#0D1117] hover:bg-blue-400 transition-all"
             >
               Data Hub
             </Link>
+              
 
           </div>
 
@@ -93,15 +74,6 @@ export default function Home() {
         {isMenuOpen && (
           <div className="md:hidden bg-[#0D1117] border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
 
-            <HashLink smooth to="#abstract" onClick={() => { setShowFullAbstract(true); toggleMenu(); }}
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-400">
-              Abstract
-            </HashLink>
-
-            <HashLink smooth to="#development" onClick={toggleMenu}
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-400">
-              Current Work
-            </HashLink>
 
           <a 
   href="https://drive.google.com/file/d/1TR2aueFCylzw7Rai_YTZquHvooWqFICa/view?usp=sharing"
@@ -112,11 +84,12 @@ export default function Home() {
   Poster
 </a>
 
-
-            <HashLink smooth to="#support" onClick={toggleMenu}
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500">
-              Support Us
-            </HashLink>
+     <Link 
+              to="/about" 
+              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
+            
+              Our Team
+            </Link>
 
             <a href="https://github.com/nathan-sharma/Agrabhi" onClick={toggleMenu}
               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500">
@@ -209,7 +182,7 @@ export default function Home() {
               The primary goal of our project is to provide farmers with highly accurate moisture data before sowing to guide planting decisions.
 
             </p>
-<p className = "font-bold">Note: AgraBhi 2026 was originally designed to help farmers make more accurate irrigation management decisions throughout the season, but we later refocused the project to providing data before seeds are planted.</p>
+<p className = "font-bold">Note: AgraBhi 2026 was originally made to help farmers make more accurate irrigation management decisions throughout the season, but we later refocused the project to providing data before seeds are planted.</p>
             <div className="pt-4">
               <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-4">
                 Why This Matters
@@ -276,7 +249,7 @@ export default function Home() {
         {/* CURRENT DEVELOPMENT SECTION */}
         <section id="development" className="py-5 scroll-mt-24 ">
           <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-8">
-            What we're working on now
+            What we're working on now (2026-27)
           </h2>
           <div className="grid md:grid-cols-2 gap-12">
             <div>
