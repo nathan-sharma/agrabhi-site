@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import logo from "/blogo.png";
+import image1 from "/image1.jpg";
+import image2 from "/image2.png"
 export default function About() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showFullAbstract, setShowFullAbstract] = useState(false);
@@ -164,7 +166,7 @@ export default function About() {
           <div className="w-full md:w-1/2 h-80  rounded-2xl flex items-center justify-center text-slate-500 text-lg font-semibold">
             <img
          
-    src="src/image1.jpg"
+    src={image1}
     alt="Placeholder 1"
     className="h-full w-relative"
   />
@@ -190,7 +192,7 @@ export default function About() {
           <div className="w-full md:w-1/2 h-80 rounded-2xl flex items-center justify-center text-slate-500 text-lg font-semibold">
             <img
          
-    src="src/image2.png"
+    src={image2}
     alt="Placeholder 2"
     className="h-[90%] w-relative mt-8"
   />
