@@ -5,6 +5,7 @@ import Home from "./Home";
 import DataHub from "./DataHub";
 import "leaflet/dist/leaflet.css";
 import About from "./About";
+import Updates from "./Updates"
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         {/* DataHub page */}
         <Route path="/data-hub" element={<DataHub />} />
           <Route path="/about" element={<About/>} />
+          <Route path="/updates" element={<Updates/>} />
       </Routes>
     </HashRouter>
   );
