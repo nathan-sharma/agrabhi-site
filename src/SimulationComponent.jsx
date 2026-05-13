@@ -47,7 +47,7 @@ const SimulationComponent = () => {
     <div className="w-full h-full border border-gray-200 rounded-lg overflow-hidden">
       <iframe
         ref={iframeRef}
-        src="/kriging.html"
+        src="kriging.html"
         title="3D Moisture Simulation"
         className="w-full h-full border-none"
         onLoad={handleActions}
