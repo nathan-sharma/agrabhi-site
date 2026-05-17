@@ -186,6 +186,7 @@ export default function Home() {
             What AgraBhi Does
           </h2>
           <div className="text-base font-light text-slate-300 leading-relaxed space-y-6">
+            <p className = "font-bold">Note: AgraBhi 2026 was originally made to help farmers make more accurate irrigation management decisions throughout the season, but we later refocused the project to providing data before seeds are planted.</p>
             <p>
               AgraBhi is a low-cost drone system designed to help farmers better understand soil moisture patterns on their farm fields before seeds are planted. Rather than solely relying on camera images, AgraBhi uses a physical soil sensor to measure moisture at the root level, significantly improving measurement accuracy. It then uses interpolation models to predict moisture across the rest of the farm field.
             </p>
@@ -194,7 +195,7 @@ export default function Home() {
               The primary goal of our project is to provide farmers with highly accurate moisture data before sowing to guide planting decisions.
 
             </p>
-<p className = "font-bold">Note: AgraBhi 2026 was originally made to help farmers make more accurate irrigation management decisions throughout the season, but we later refocused the project to providing data before seeds are planted.</p>
+
             <div className="pt-4">
               <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-4">
                 Why This Matters
