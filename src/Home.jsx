@@ -302,7 +302,7 @@ export default function Home() {
     {/* Stylized Video Player Wrapper */}
     <div className="w-full rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl transition-all duration-300 hover:border-slate-700/80">
       <video 
-        src="droneidea.mp4" 
+        src="droneidea1.mp4" 
         controls 
         muted
         preload="metadata"
