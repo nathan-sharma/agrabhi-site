@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#0D1117] text-[#E2E8F0] font-sans overflow-x-hidden">
       
-   <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
+  <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
           <div className="max-w-full mx-auto px-6 h-16 flex items-center justify-between">
             
             <div className="flex items-center text-xl font-bold tracking-tighter text-white">
@@ -119,6 +119,7 @@ export default function Home() {
             </div>
           )}
         </nav>
+
       {/* EVERYTHING BELOW IS COMPLETELY UNCHANGED */}
       {/* (rest of your file remains exactly the same) */}
 
@@ -134,7 +135,7 @@ export default function Home() {
           AgraBhi
         </h1>
         <h2 className="text-xl md:text-3xl font-medium mb-4 tracking-tight text-slate-300 max-w-7xl mx-auto leading-tight animate-slide-slow">
-         Autonomous Drone-Based Moisture Mapping for <span className="text-emerald-400">Smarter Planting.</span>
+         A Low Cost Drone-Based Soil Moisture Mapping System for <span className="text-emerald-400">Smarter Irrigation.</span>
         </h2>
       </header>
 
@@ -186,14 +187,12 @@ export default function Home() {
             What AgraBhi Does
           </h2>
           <div className="text-base font-light text-slate-300 leading-relaxed space-y-6">
-            <p className = "font-bold">Note: AgraBhi 2026 was originally made to help farmers make more accurate irrigation management decisions throughout the season, but we later refocused the project to providing data before seeds are planted.</p>
             <p>
-              AgraBhi is a low-cost drone system designed to help farmers better understand soil moisture patterns on their farm fields before seeds are planted. Rather than solely relying on camera images, AgraBhi uses a physical soil sensor to measure moisture at the root level, significantly improving measurement accuracy. It then uses interpolation models to predict moisture across the rest of the farm field.
+              AgraBhi is a low-cost drone system designed to help farmers better understand soil moisture patterns on their farm fields. Rather than solely relying on camera images, AgraBhi uses a physical soil sensor to measure moisture at the root level of crops, significantly improving measurement accuracy. It then uses interpolation models to predict moisture across the rest of the farm field.
             </p>
             
             <p>
-              The primary goal of our project is to provide farmers with highly accurate moisture data before sowing to guide planting decisions.
-
+              The goal of our project is to make irrigation decisions more precise, efficient, and affordable for farmers.
             </p>
 
             <div className="pt-4">
@@ -201,7 +200,7 @@ export default function Home() {
                 Why This Matters
               </h2>
               <p className="mb-4">
-                Today, many farmers are simply guessing on where to plant their crops. This leads to wasted resources and unhealthy yield. Farmers need accurate moisture data to decide where they should and shouldn't plant their seeds.
+                Soil moisture varies dramatically across farm fields, and today, many farmers are simply guessing on how to irrigate their crops. This leads to overwatering, underwatering, wasted resources, and unhealthy yield. 
               </p>
               <p>
                 AgraBhi is being created to make moisture mapping more affordable, accurate, and practical, especially in places where high quality agricultural tools are too expensive to afford.
@@ -213,11 +212,11 @@ export default function Home() {
                 onClick={() => setShowFullAbstract(true)}
                 className="mt-4 px-6 py-2 bg-slate-800 hover:bg-slate-700 text-emerald-400 text-xs font-bold uppercase tracking-widest rounded-full border border-slate-700 transition-all"
               >
-                Read abstract
+                Read full abstract
               </button>
             ) : (
               <div className="animate-fade-in pt-4 border-t border-slate-800">
-                <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">2025-26 Abstract</h3>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">2025-26 Science Fair Abstract</h3>
                 <div className="space-y-6">
                   <p>
                     Variation in soil moisture across agricultural fields reduces crop yields and leads to inefficient water management. Climate change has increased the variability of soil moisture, intensifying this problem. Existing soil moisture gauging methods fail to capture moisture at the root level of crops.
@@ -260,33 +259,60 @@ export default function Home() {
         <hr className="border-slate-900" />
 
         {/* CURRENT DEVELOPMENT SECTION */}
-        <section id="development" className="py-5 scroll-mt-24 ">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-8">
-            What we're working on now (2026-27)
-          </h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-white font-bold mb-3 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
-                3D Mapping
-              </h3>
-              <p className="text-slate-400 font-light text-sm leading-relaxed">
-                Rather than simply taking a single measurement at points, the drone will take multiple measurements at different depths per point to calculate a moisture gradient at that location. This allows our models to extend moisture predictions to beneath the soil rather than just being a flat heatmap, which gives farmers more information on what depths underneath the soil are most optimal for seed growth. 
-              </p>
-            </div>
-            <div>
-              <h3 className="text-white font-bold mb-3 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
-                Adaptive Path Planning
-              </h3>
-              <p className="text-slate-400 font-light text-sm leading-relaxed">
-                
-We think our drone can improve its own predictive accuracy by flying to the highest uncertainty areas in its predictions in real time. For example, the drone could start with an initial set of moisture measurements across the field, generate a heatmap, then fly to the most uncertain point on this heatmap and take a measurement there, repeating the process until accuracy is significantly improved and uncertainty is evenly distributed.
+       <section id="development" className="py-5 scroll-mt-24">
+  <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-8">
+    This year (2026-27 continuation)
+  </h2>
+  
+  {/* The 2-column grid now holds the first two balanced items */}
+  <div className="grid md:grid-cols-2 gap-12 mb-12">
+    <div>
+      <h3 className="text-white font-bold mb-3 flex items-center gap-2">
+        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+        3D Mapping
+      </h3>
+      <p className="text-slate-400 font-light text-sm leading-relaxed">
+        Rather than simply taking a single measurement at points, the drone will take multiple measurements at different depths per point to calculate a moisture gradient at that location. This allows our models to extend moisture predictions to beneath the soil rather than just being a flat heatmap, which gives farmers significantly more information on their field's moisture patterns.
+      </p>
+    </div>
+    
+    <div>
+      <h3 className="text-white font-bold mb-3 flex items-center gap-2">
+        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+        Adaptive Path Planning
+      </h3>
+      <p className="text-slate-400 font-light text-sm leading-relaxed">
+        We think our drone can improve its own predictive accuracy by flying to the highest uncertainty areas in its predictions in real time. For example, the drone could start with an initial set of moisture measurements across the field, generate a heatmap, then fly to the most uncertain point on this heatmap and take a measurement there, repeating the process until accuracy is significantly improved and uncertainty is evenly distributed.
+      </p>
+    </div>
+  </div>
 
-               </p>
-            </div>
-          </div>
-        </section>
+  {/* Full-width section for the Rover design and Video Player */}
+  <div className=" max-w-4xl">
+    <div className="mb-6">
+      <h3 className="text-white font-bold mb-3 flex items-center gap-2">
+        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+        Rover Drone Hybrid Design 
+      </h3>
+      <p className="text-slate-400 font-light text-sm leading-relaxed">
+        In order for the drone to be able to sample anywhere it wants while crops are still growing, we thought of a rover-drone design where the drone would lower a small rover to navigate between the gaps in the crops and take a measurement. The video below explains our design (still largely an idea!)
+      </p>
+    </div>
+
+    {/* Stylized Video Player Wrapper */}
+    <div className="w-full rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl transition-all duration-300 hover:border-slate-700/80">
+      <video 
+        src="droneidea.mp4" 
+        controls 
+        muted
+        preload="metadata"
+        className="w-full h-auto aspect-video object-cover block"
+      >
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
 
         <hr className="border-slate-900" />
 

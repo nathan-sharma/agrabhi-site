@@ -74,7 +74,7 @@ export default function About() {
                 <SimulationComponent />
               </div>
               <p className="mt-3 text-xs text-slate-500 text-center">
-                Heatmap may take a few seconds to load.
+                Heatmap might take a few seconds to load.
               </p>
             </div>
 
@@ -91,13 +91,16 @@ export default function About() {
               </p>
               <p className="flex items-center gap-3 text-slate-400 leading-relaxed">
                 <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
-                May 17th, 2026: Two important ideas were thought of today that we may implement in our project.
+                May 17th, 2026: Two important ideas were thought of today that we may implement in our project:
               </p>
               <p className="flex items-center gap-3 text-slate-400 leading-relaxed">
-            Idea #1: Use Heteroscedastic Gaussian Process Regression (HGPR) to quantify uncertainty. This way, the variance at any point on the map will also take into consideration the actual values of those points. For example, consider two pairs of points: pair 1 has points A and B, 10 feet from each other, and pair 2 has points X and Y, also 10 feet from each other. Now, say the moisture at points A and B is 5%, while in pair 2, the moisture at X is 5% and the moisture at Y is 50%. Kriging variance assumes uncertainty between pair 1 is the same as that between pair 2 since they are the same distance from each other, but pair 2 should have a much higher uncertainty because of the greater variation in moisture. This is because kriging variance only considers the geometry and spatial information to calculate uncertainty, not the fluctuation in the actual moisture values themselves. HGPR solves this problem by combining information from two GPR models: one to predict moisture and the second to predict variance.
-            </p>
+            Idea #1: Use Gaussian Process Regression instead of Regression Kriging so we don't have to eyeball the variogram. Uncertainty is also much more adaptable to our data because it optimizes its parameters automatically, while Kriging mostly relies on the fixed sill, nugget, and range.</p>
               <p className="flex items-center gap-3 text-slate-400 leading-relaxed">
                Idea #2: Have the drone create a path to sample at points it thinks will contribute the most information to the heatmap model, while also flying the shortest distance to minimize battery usage. This could be achieved by calculating an acquisition function with a travel cost penalty to sample the most optimal areas as it flies through the field.
+              </p>
+              <p className="flex items-center gap-3 text-slate-400 leading-relaxed">
+                <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
+                May 18th, 2026: Rover-Drone Hybrid design idea (see video on homepage), bought a better soil sensor.
               </p>
             </div>
 
