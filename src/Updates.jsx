@@ -102,6 +102,10 @@ export default function About() {
                 <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
                 May 18th, 2026: Rover-Drone Hybrid design idea (see video on homepage), bought a better soil sensor.
               </p>
+                        <p className="flex items-center gap-3 text-slate-400 leading-relaxed">
+                <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
+                May 20th, 2026: First farm visit for data collection confirmed.
+              </p>
             </div>
 
           </div>
