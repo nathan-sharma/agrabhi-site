@@ -49,7 +49,7 @@ const MONTHS_DATA = [
           <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
           May 24th, 2026: Pre drilling holes can cause the sensor we are using to give us faulty moisture measurements because of air pockets. We created a design that fixes this issue that could be used on the rovers after they pre-drill a hole into the ground (short video is shown below). The rover would drill a hole, then insert a hollow cylinder tube with a soil sensor and motors inside of it to sample at multiple depths without needing to worry about air pockets affecting results. The video uses linear actuators to demonstrate our idea, but we will likely not use linear actuators in the actual design.
          </p>
-          <div className="w-[30%] rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl transition-all duration-300 hover:border-slate-700/80">
+          <div className="md:w-[30%] w-[70%] rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl transition-all duration-300 hover:border-slate-700/80">
       <video 
         src="droneidea2.mp4" 
         controls 
