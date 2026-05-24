@@ -46,9 +46,7 @@ export default function Home() {
               <a target="_blank" rel="noopener noreferrer" href="https://github.com/nathan-sharma/Agrabhi" className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
                 GitHub
               </a>
-                 <a target="_blank" rel="noopener noreferrer" href="https://www.gofundme.com/manage/agrabhi-smarter-soil-moisture-for-farmers" className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
-                GoFundMe
-              </a>
+                
   
               {/* ✅ UPDATED DATA HUB BUTTON */}
          
@@ -56,7 +54,7 @@ export default function Home() {
                 to="/data-hub" 
                 className="text-xs uppercase tracking-widest font-bold px-4 py-2 rounded-full bg-blue-500 text-[#0D1117] hover:bg-blue-400 transition-all"
               >
-                Data Hub
+               Data Hub
               </Link>
                 
   
@@ -108,10 +106,7 @@ export default function Home() {
                 className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500">
                 GitHub
               </a>
-               <a href="https://www.gofundme.com/manage/agrabhi-smarter-soil-moisture-for-farmers" onClick={toggleMenu}
-                className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500">
-                GoFundMe
-              </a>
+             
   
               {/* ✅ UPDATED MOBILE DATA HUB BUTTON */}
             
@@ -135,7 +130,7 @@ export default function Home() {
           AgraBhi
         </h1>
         <h2 className="text-xl md:text-3xl font-medium mb-4 tracking-tight text-slate-300 max-w-7xl mx-auto leading-tight animate-slide-slow">
-         A Low Cost Drone-Based Soil Moisture Mapping System for <span className="text-emerald-400">Smarter Irrigation.</span>
+         A Low Cost Soil Moisture Mapping System for <span className="text-emerald-400">Smarter Irrigation.</span>
         </h2>
       </header>
 
@@ -188,7 +183,7 @@ export default function Home() {
           </h2>
           <div className="text-base font-light text-slate-300 leading-relaxed space-y-6">
             <p>
-              AgraBhi is a low-cost drone system designed to help farmers better understand soil moisture patterns on their farm fields. Rather than solely relying on camera images, AgraBhi uses a physical soil sensor to measure moisture at the root level of crops, significantly improving measurement accuracy. It then uses interpolation models to predict moisture across the rest of the farm field.
+              AgraBhi is a low-cost system designed to help farmers better understand soil moisture patterns on their farm fields. Rather than solely relying on camera images, AgraBhi uses a physical soil sensor to measure moisture at the root level of crops, significantly improving measurement accuracy. It then uses interpolation models to predict moisture across the rest of the farm field.
             </p>
             
             <p>
@@ -257,66 +252,6 @@ export default function Home() {
         </section>
 
         <hr className="border-slate-900" />
-
-        {/* CURRENT DEVELOPMENT SECTION */}
-       <section id="development" className="py-5 scroll-mt-24">
-  <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-8">
-    This year (2026-27 continuation)
-  </h2>
-  
-  {/* The 2-column grid now holds the first two balanced items */}
-  <div className="grid md:grid-cols-2 gap-12 mb-12">
-    <div>
-      <h3 className="text-white font-bold mb-3 flex items-center gap-2">
-        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
-        3D Mapping
-      </h3>
-      <p className="text-slate-400 font-light text-sm leading-relaxed">
-        Rather than simply taking a single measurement at points, the drone will take multiple measurements at different depths per point to calculate a moisture gradient at that location. This allows our models to extend moisture predictions to beneath the soil rather than just being a flat heatmap, which gives farmers significantly more information on their field's moisture patterns.
-      </p>
-    </div>
-    
-    <div>
-      <h3 className="text-white font-bold mb-3 flex items-center gap-2">
-        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
-        Adaptive Path Planning
-      </h3>
-      <p className="text-slate-400 font-light text-sm leading-relaxed">
-        We think our drone can improve its own predictive accuracy by flying to the highest uncertainty areas in its predictions in real time. For example, the drone could start with an initial set of moisture measurements across the field, generate a heatmap, then fly to the most uncertain point on this heatmap and take a measurement there, repeating the process until accuracy is significantly improved and uncertainty is evenly distributed.
-      </p>
-    </div>
-  </div>
-
-  {/* Full-width section for the Rover design and Video Player */}
-  <div className=" max-w-4xl">
-    <div className="mb-6">
-      <h3 className="text-white font-bold mb-3 flex items-center gap-2">
-        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
-        Rover Drone Hybrid Design 
-      </h3>
-      <p className="text-slate-400 font-light text-sm leading-relaxed">
-        In order for the drone to be able to sample anywhere it wants while crops are still growing, we thought of a rover-drone design where the drone would lower a small rover to navigate between the gaps in the crops and take a measurement. The video below explains our design (still largely an idea!)
-      </p>
-    </div>
-
-    {/* Stylized Video Player Wrapper */}
-    <div className="w-full rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl transition-all duration-300 hover:border-slate-700/80">
-      <video 
-        src="droneidea1.mp4" 
-        controls 
-        muted
-        preload="metadata"
-        className="w-full h-auto aspect-video object-cover block"
-      >
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </div>
-</section>
-
-        <hr className="border-slate-900" />
-
-        {/* RESEARCH POSTER SECTION */}
         <section id="poster" className="hidden md:block py-5 scroll-mt-24">
           <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-6">
             2025-26 Poster Board
@@ -345,6 +280,56 @@ export default function Home() {
             </div>
           </div>
         </section>
+        {/* CURRENT DEVELOPMENT SECTION */}
+       <section id="development" className="py-5 scroll-mt-24">
+  <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-8">
+    This year (2026-27 continuation)
+  </h2>
+  
+  {/* The 2-column grid now holds the first two balanced items */}
+  <div className="grid md:grid-cols-2 gap-12 mb-12">
+    <div>
+      <h3 className="text-white font-bold mb-3 flex items-center gap-2">
+        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+        Drone to Rovers
+      </h3>
+      <p className="text-slate-400 font-light text-sm leading-relaxed">
+       An important limitation of our project last year was the drone struggled to get through the crop canopy. Its blades could easily damage crops, and designing a solution, such as lowering a pod using a tether while the drone hovers above the crops, would cost significant battery life and be very difficult to build. To fix this, we decided to switch our project to creating a swarm of five rovers. Each rover would cost ~$400, be autonomous, and would communicate with one another to take samples effectively.
+      </p>
+    </div>
+    <div>
+      <h3 className="text-white font-bold mb-3 flex items-center gap-2">
+        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+        3D Mapping
+      </h3>
+      <p className="text-slate-400 font-light text-sm leading-relaxed">
+        Rather than simply taking a single measurement at points, the rovers will take multiple measurements at different depths per point to calculate a moisture gradient at that location. This allows our models to extend moisture predictions to beneath the soil rather than just being a flat heatmap, which gives farmers significantly more information on their field's moisture patterns.
+      </p>
+    </div>
+    
+
+  </div>
+
+  {/* Full-width section for the Rover design and Video Player */}
+  <div className=" max-w-4xl">
+    <div className="mb-6">
+      <h3 className="text-white font-bold mb-3 flex items-center gap-2">
+        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+        Adaptive Path Planning
+      </h3>
+      <p className="text-slate-400 font-light text-sm leading-relaxed">
+        We think our rovers can improve their own predictive accuracy by driving to the highest uncertainty areas in its predictions in real time. For example, the system could start with an initial set of moisture measurements across the field, generate a heatmap, then tell each rover  to go to the most uncertain point on this heatmap and take a measurement there, repeating the process until accuracy is significantly improved and uncertainty is evenly distributed.
+        </p>
+    </div>
+
+    {/* Stylized Video Player Wrapper */}
+    
+  </div>
+</section>
+
+        <hr className="border-slate-900" />
+
+        {/* RESEARCH POSTER SECTION */}
 
         <hr className="border-slate-900" />
 
@@ -388,7 +373,7 @@ export default function Home() {
               </h2>
             </div>
             <p className="text-xs text-slate-400">
-              Created by <span className="text-slate-200">Nathan Sharma, Naitik Patel, & Evan Quach</span>
+              Created by <span className="text-slate-200">Nathan Sharma, Naitik Patel, & Landon Morrison</span>
             </p>
           </div>
 
@@ -399,9 +384,7 @@ export default function Home() {
             <a href="mailto:naitik.s.patel10@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
               naitik.s.patel10@gmail.com
             </a>
-            <a href="mailto:quachevan@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
-              quachevan@gmail.com
-            </a>
+           
           </div>
         </div>
       </footer>

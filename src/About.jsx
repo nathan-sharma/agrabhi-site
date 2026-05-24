@@ -47,9 +47,7 @@ export default function About() {
                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/nathan-sharma/Agrabhi" className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
                      GitHub
                    </a>
-                      <a target="_blank" rel="noopener noreferrer" href="https://www.gofundme.com/manage/agrabhi-smarter-soil-moisture-for-farmers" className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
-                     GoFundMe
-                   </a>
+                    
        
                    {/* ✅ UPDATED DATA HUB BUTTON */}
               
@@ -109,10 +107,7 @@ export default function About() {
                      className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500">
                      GitHub
                    </a>
-                    <a href="https://www.gofundme.com/manage/agrabhi-smarter-soil-moisture-for-farmers" onClick={toggleMenu}
-                     className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500">
-                     GoFundMe
-                   </a>
+                   
        
                    {/* ✅ UPDATED MOBILE DATA HUB BUTTON */}
                  
@@ -186,7 +181,7 @@ export default function About() {
               </h2>
             </div>
             <p className="text-xs text-slate-400">
-              Created by <span className="text-slate-200">Nathan Sharma, Naitik Patel, & Evan Quach</span>
+              Created by <span className="text-slate-200">Nathan Sharma, Naitik Patel, & Landon Morrison</span>
             </p>
           </div>
 
@@ -196,9 +191,6 @@ export default function About() {
             </a>
             <a href="mailto:naitik.s.patel10@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
               naitik.s.patel10@gmail.com
-            </a>
-            <a href="mailto:quachevan@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
-              quachevan@gmail.com
             </a>
           </div>
         </div>

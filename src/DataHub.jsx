@@ -397,56 +397,125 @@ async function simulateData() {
   }, [connected]);
 
   return (
-    <div className="min-h-screen bg-[#1a1a1a] text-[#eee] p-5 font-sans pt-20">
+    <div className="relative min-h-screen bg-[#1a1a1a] text-[#eee] p-5 font-sans pt-20">
+      {/* 🛠️ WORK IN PROGRESS OVERLAY */}
+<div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60  pointer-events-auto">
+  <div className="bg-[#1c2331]/90 border p-8 max-w-md text-center shadow-2xl mx-4">
+  
+    <p className="text-gray-300 text-sm leading-relaxed mb-6">
+     We're working on this right now. Should be ready by the end of this summer!   </p>
+    <Link 
+      to="/" 
+      className="inline-block bg-emerald-500 hover:bg-emerald-600 text-black font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-lg transition-colors"
+    >
+     Back To Home
+    </Link>
+  </div>
+</div>
 
       {/* NAVBAR */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
-        <div className="max-w-full mx-auto px-6 h-16 flex items-center justify-between">
-
-          <div className="flex items-center text-xl font-bold tracking-tighter text-white">
-            <img src={logo} alt="AgraBhi Logo" className="h-6 w-auto translate-y-[1px]" />
-            <div>
-              <Link to="/">Agra<span className="text-emerald-400">Bhi</span></Link>
+   <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
+            <div className="max-w-full mx-auto px-6 h-16 flex items-center justify-between">
+              
+              <div className="flex items-center text-xl font-bold tracking-tighter text-white">
+                <img src={logo} alt="AgraBhi Logo" className="h-6 w-auto translate-y-[1px]" />
+                <div>
+                  <Link to="/">Agra<span className="text-emerald-400">Bhi</span></Link>
+                </div>
+              </div>
+              
+              {/* Desktop Nav Links */}
+              <div className="hidden md:flex items-center gap-8">
+                 <Link 
+                  to="/" 
+                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
+                
+                 Home
+                </Link>
+    
+                    <Link 
+                  to="/about" 
+                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
+                
+                  Our Team
+                </Link>
+                 <Link 
+                  to="/updates" 
+                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
+                
+                  Updates
+                </Link>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/nathan-sharma/Agrabhi" className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
+                  GitHub
+                </a>
+                   
+    
+                {/* ✅ UPDATED DATA HUB BUTTON */}
+           
+                <Link 
+                  to="/data-hub" 
+                  className="text-xs uppercase tracking-widest font-bold px-4 py-2 rounded-full bg-blue-500 text-[#0D1117] hover:bg-blue-400 transition-all"
+                >
+                  Data Hub
+                </Link>
+                  
+    
+              </div>
+    
+              <button 
+                onClick={toggleMenu}
+                className="md:hidden text-slate-400 hover:text-white focus:outline-none"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {isMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+                  )}
+                </svg>
+              </button>
             </div>
-          </div>
-
-          <div className="hidden md:flex items-center gap-8">
-         
-
-            <Link
-              to="/"
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500"
-            >
-              Back To Home
-            </Link>
-          </div>
-
-          <button
-            onClick={toggleMenu}
-            className="md:hidden text-slate-400 hover:text-white"
-          >
-            ☰
-          </button>
-        </div>
-
-        {isMenuOpen && (
-          <div className="md:hidden bg-[#0D1117] border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
-
-            <a
-              href="https://github.com/nathan-sharma/Agrabhi"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={toggleMenu}
-            >
-              GitHub
-            </a>
-
-            <Link to="/" onClick={toggleMenu}>
-              Back To Home
-            </Link>
-          </div>
-        )}
-      </nav>
+    
+            {/* Mobile Nav Links */}
+            {isMenuOpen && (
+              <div className="md:hidden bg-[#0D1117] border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
+    
+    
+              <a 
+      href="https://drive.google.com/file/d/1TR2aueFCylzw7Rai_YTZquHvooWqFICa/view?usp=sharing"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-400 transition-colors"
+    >
+      Poster
+    </a>
+    
+         <Link 
+                  to="/about" 
+                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
+                
+                  Our Team
+                </Link>
+                
+         <Link 
+                  to="/updates" 
+                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
+                
+                  Updates
+                </Link>
+    
+                <a href="https://github.com/nathan-sharma/Agrabhi" onClick={toggleMenu}
+                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500">
+                  GitHub
+                </a>
+              
+    
+                {/* ✅ UPDATED MOBILE DATA HUB BUTTON */}
+              
+    
+              </div>
+            )}
+          </nav>
 
       {/* INFO */}
       <div className="mb-6">
@@ -455,7 +524,7 @@ async function simulateData() {
         </h2>
 
         <div className="space-y-2 text-sm text-gray-300 leading-relaxed">
-      <p>Control the drone and monitor data remotely from this page!</p>
+      <p>Control all rovers and monitor data remotely from this page!</p>
          <div className = "mt-2">
           <a
               target="_blank"
@@ -476,7 +545,7 @@ async function simulateData() {
             className="bg-[#444] px-3 py-2 mb-2"
             onClick={connectToPi}
           >
-            Connect to Drone
+            Connect to Rovers
           </button>
         )}
 
@@ -516,7 +585,7 @@ async function simulateData() {
         </div>
 
         <p className="mb-2">
-          Drone: <strong>{droneStatus}</strong>
+          Connection: <strong>{droneStatus}</strong>
         </p>
 
         <div className="mb-4 flex flex-col md:flex-row gap-2">
@@ -707,45 +776,7 @@ async function simulateData() {
 
     <div className="flex flex-col md:flex-row flex-wrap gap-4 justify-between">
 
-      <select
-        className="bg-[#222] text-white p-2 rounded-md border border-[#333] cursor-pointer focus:outline-none focus:ring-1 focus:ring-yellow-400"
-        value={modelConfig.regression}
-        onChange={(e) =>
-          setModelConfig({ ...modelConfig, regression: e.target.value })
-        }
-      >
-        <option value="linear">Linear Regression</option>
-        <option value="quadratic">Quadratic Regression</option>
-        <option value="cubic">Cubic Regression</option>
-      </select>
-
-      <select
-        className="bg-[#222] text-white p-2 rounded-md border border-[#333] cursor-pointer focus:outline-none focus:ring-1 focus:ring-yellow-400"
-        value={modelConfig.uncertainty_mode}
-        onChange={(e) =>
-          setModelConfig({
-            ...modelConfig,
-            uncertainty_mode: e.target.value
-          })
-        }
-      >
-        <option value="kriging_only">Kriging Only</option>
-        <option value="variance_distance">Variance × Distance</option>
-        <option value="top10_farthest">Top N Farthest</option>
-      </select>
-
-      <select
-        className="bg-[#222] text-white p-2 rounded-md border border-[#333] cursor-pointer focus:outline-none focus:ring-1 focus:ring-yellow-400"
-        value={modelConfig.variogram}
-        onChange={(e) =>
-          setModelConfig({ ...modelConfig, variogram: e.target.value })
-        }
-      >
-        <option value="linear">Linear Variogram</option>
-        <option value="exponential">Exponential Variogram</option>
-        <option value="gaussian">Gaussian Variogram</option>
-        <option value="spherical">Spherical Variogram</option>
-      </select>
+    
 
     </div>
 

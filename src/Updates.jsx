@@ -1,134 +1,242 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
 import logo from "/blogo.png";
-import image1 from "/image1.jpg";
-import image2 from "/image2.png";
-import plot from "/plot.png";
-import SimulationComponent from './SimulationComponent';
+
+// Structured array containing your timeline data across 2026 and 2027
+const MONTHS_DATA = [
+  {
+    name: "May",
+    year: "2026",
+    content: (
+      <div className="space-y-4 mb-8">
+          <p className="text-slate-400 leading-relaxed">
+          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+          May 1st, 2026: Landon Morrison joins the team.
+         </p>
+        <p className="text-slate-400 leading-relaxed">
+          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+          May 11th, 2026: Project research plan and deadlines draft finished. See research plan draft<span> </span>
+          <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1VkqSs9pfrUfAJ6HdsIUOUExkudNJI-WOK1dk6pclt1k/edit?usp=sharing" className="underline hover:text-gray-500 ">here.</a>
+        </p>
+        <p className="flex items-center gap-3 text-slate-400 leading-relaxed">
+          <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
+          May 17th, 2026: Two important ideas were thought of today that we may implement in our project:
+        </p>
+        <p className="flex items-center gap-3 text-slate-400 leading-relaxed pl-5">
+          Idea #1: Use Gaussian Process Regression instead of Regression Kriging so we don't have to eyeball the variogram. Uncertainty is also much more adaptable to our data because it optimizes its parameters automatically, while Kriging mostly relies on the fixed sill, nugget, and range.
+        </p>
+        <p className="flex items-center gap-3 text-slate-400 leading-relaxed pl-5">
+          Idea #2: Have the drone create a path to sample at points it thinks will contribute the most information to the heatmap model, while also flying the shortest distance to minimize battery usage. This could be achieved by calculating an acquisition function with a travel cost penalty to sample the most optimal areas as it flies through the field.
+        </p>
+        <p className="flex items-center gap-3 text-slate-400 leading-relaxed">
+          <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
+          May 18th, 2026: Rover-Drone Hybrid design idea (scrapped 5/23), bought a better soil sensor.
+        </p>
+        <p className="flex items-center gap-3 text-slate-400 leading-relaxed">
+          <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
+          May 20th, 2026: Naitik confirmed a date for the first farm visit. Also got info on how the farm is irrigated.
+        </p>
+        <p className="text-slate-400 leading-relaxed">
+          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+          May 22nd, 2026: Nathan made an acquisition function for adaptive sampling. Learn more about it<span> </span>
+          <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1o6kB64x-la7LfA9-zpvW1XvdDKNfi7HZQpoSRrUACMo/edit?tab=t.0" className="underline hover:text-gray-500 ">here.</a>
+        </p>
+          <p className="text-slate-400 leading-relaxed">
+          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+          May 23rd, 2026: Idea to switch the project from a drone  to a swarm of five rovers that can communicate with one another. Rovers will be autonomous and will still adaptively sample the field. Each rover would cost approximately $400 for a total cost of $2000. The data and math are still the same, we're just changing the way data is being collected.
+          </p>
+            <p className="text-slate-400 leading-relaxed">
+          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+          May 24th, 2026: Pre drilling holes can cause the sensor we are using to give us faulty moisture measurements because of air pockets. We created a design that fixes this issue that could be used on the rovers after they pre-drill a hole into the ground (short video is shown below). The rover would drill a hole, then insert a hollow cylinder tube with a soil sensor and motors inside of it to sample at multiple depths without needing to worry about air pockets affecting results. The video uses linear actuators to demonstrate our idea, but we will likely not use linear actuators in the actual design.
+         </p>
+          <div className="w-[30%] rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl transition-all duration-300 hover:border-slate-700/80">
+      <video 
+        src="droneidea2.mp4" 
+        controls 
+        muted
+        preload="metadata"
+        className="w-full h-auto aspect-video object-cover block"
+      >
+        Your browser does not support the video tag.
+      </video>
+    </div>
+      </div>
+    )
+  },
+  { name: "June", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
+  { name: "July", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
+  { name: "August", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
+  { name: "September", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
+  { name: "October", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
+  { name: "November", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
+  { name: "December", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
+  { name: "January", year: "2027", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
+  { name: "February", year: "2027", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
+  { name: "March", year: "2027", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
+  { name: "April", year: "2027", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
+  { name: "May", year: "2027", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> }
+];
 
 export default function About() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showFullAbstract, setShowFullAbstract] = useState(false);
+  const [currentMonthIndex, setCurrentMonthIndex] = useState(0);
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  const handlePrev = () => {
+    if (currentMonthIndex > 0) {
+      setCurrentMonthIndex(currentMonthIndex - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentMonthIndex < MONTHS_DATA.length - 1) {
+      setCurrentMonthIndex(currentMonthIndex + 1);
+    }
+  };
+
+  const activeMonth = MONTHS_DATA[currentMonthIndex];
+
   return (
-    <div className="min-h-screen bg-[#0D1117] text-[#E2E8F0] font-sans overflow-x-hidden">
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
-        <div className="max-w-full mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center text-xl font-bold tracking-tighter text-white">
-            <img src={logo} alt="AgraBhi Logo" className="h-6 w-auto translate-y-[1px]" />
-            <div>
-              <Link to="/">Agra<span className="text-emerald-400">Bhi</span></Link>
-            </div>
-          </div>
-          
-          {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-8">
-            <Link to="/" className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">Home</Link>
-            <Link to="/about" className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">Our Team</Link>
-            <Link to="/updates" className="text-xs uppercase tracking-widest font-bold text-emerald-400 hover:text-emerald-500 transition-colors">Updates</Link>
-            <a target="_blank" rel="noopener noreferrer" href="https://github.com/nathan-sharma/Agrabhi" className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">GitHub</a>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.gofundme.com/manage/agrabhi-smarter-soil-moisture-for-farmers" className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">GoFundMe</a>
-            <Link to="/data-hub" className="text-xs uppercase tracking-widest font-bold px-4 py-2 rounded-full bg-blue-500 text-[#0D1117] hover:bg-blue-400 transition-all">Data Hub</Link>
-          </div>
+    <div className="min-h-screen bg-[#0D1117] text-[#E2E8F0] font-sans overflow-x-hidden flex flex-col justify-between">
+      {/* Dynamic style tag to ensure scrollbar hiding behaves cleanly on all mobile web views */}
+      <style>{`
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      `}</style>
 
-          <button onClick={toggleMenu} className="md:hidden text-slate-400 hover:text-white focus:outline-none">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {isMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-              )}
-            </svg>
-          </button>
-        </div>
-
-        {/* Mobile Nav Links */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-[#0D1117] border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
-            <a href="https://drive.google.com/file/d/1TR2aueFCylzw7Rai_YTZquHvooWqFICa/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-400 transition-colors">Poster</a>
-            <Link to="/about" className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">Our Team</Link>
-            <Link to="/updates" className="text-xs uppercase tracking-widest font-bold text-emerald-400 hover:text-emerald-500 transition-colors">Updates</Link>
-            <a href="https://github.com/nathan-sharma/Agrabhi" onClick={toggleMenu} className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500">GitHub</a>
-            <a href="https://www.gofundme.com/manage/agrabhi-smarter-soil-moisture-for-farmers" onClick={toggleMenu} className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500">GoFundMe</a>
-          </div>
-        )}
-      </nav>
-
-      <main className="pt-32 px-6 py-10 max-w-6xl mx-auto space-y-16">
-        {/* Main wrapper altered to layout the title structure cleanly */}
-        <div className="flex flex-col gap-6">
-          
-          {/* Header Title Section */}
-          <div className="flex items-center gap-3">
-            <h2 className="text-3xl font-bold text-white">May</h2>
-          </div>
-
-          {/* Grid Layout Container: Heatmap left, Text right */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-            
-            {/* Heatmap Element - Pinning to top left next to updates list */}
-            <div className="md:col-span-5 flex flex-col items-center">
-              <div className="h-[300px] w-full rounded-2xl overflow-hidden border border-slate-700 bg-[#5c4033] shadow-2xl">
-                <SimulationComponent />
+      <div className="flex-1 flex flex-col">
+        {/* Navigation Bar */}
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
+          <div className="max-w-full mx-auto px-6 h-16 flex items-center justify-between">
+            <div className="flex items-center text-xl font-bold tracking-tighter text-white">
+              <img src={logo} alt="AgraBhi Logo" className="h-6 w-auto translate-y-[1px] mr-2" />
+              <div>
+                <Link to="/">Agra<span className="text-emerald-400">Bhi</span></Link>
               </div>
-              <p className="mt-3 text-xs text-slate-500 text-center">
-                Heatmap might take a few seconds to load.
-              </p>
+            </div>
+            
+            {/* Desktop Nav Links */}
+            <div className="hidden md:flex items-center gap-8">
+              <Link to="/" className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">Home</Link>
+              <Link to="/about" className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">Our Team</Link>
+              <Link to="/updates" className="text-xs uppercase tracking-widest font-bold text-emerald-400 hover:text-emerald-500 transition-colors">Updates</Link>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/nathan-sharma/Agrabhi" className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">GitHub</a>
+             
+              <Link to="/data-hub" className="text-xs uppercase tracking-widest font-bold px-4 py-2 rounded-full bg-blue-500 text-[#0D1117] hover:bg-blue-400 transition-all">Data Hub</Link>
             </div>
 
-            {/* Updates list text column */}
-            <div className="md:col-span-7 space-y-4">
-              <p className="text-slate-400 leading-relaxed">
-                <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-                May 11th, 2026: Project research plan and deadlines draft finished. See research plan draft<span> </span>
-                <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1VkqSs9pfrUfAJ6HdsIUOUExkudNJI-WOK1dk6pclt1k/edit?usp=sharing" className="underline hover:text-gray-500 ">here.</a>
-              </p>
-              <p className="flex items-center gap-3 text-slate-400 leading-relaxed">
-                <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
-                May 13th, 2026: Coded and created a 3D regression kriging heatmap on simulated data, got a feel for how 3D maps work.
-              </p>
-              <p className="flex items-center gap-3 text-slate-400 leading-relaxed">
-                <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
-                May 17th, 2026: Two important ideas were thought of today that we may implement in our project:
-              </p>
-              <p className="flex items-center gap-3 text-slate-400 leading-relaxed">
-            Idea #1: Use Gaussian Process Regression instead of Regression Kriging so we don't have to eyeball the variogram. Uncertainty is also much more adaptable to our data because it optimizes its parameters automatically, while Kriging mostly relies on the fixed sill, nugget, and range.</p>
-              <p className="flex items-center gap-3 text-slate-400 leading-relaxed">
-               Idea #2: Have the drone create a path to sample at points it thinks will contribute the most information to the heatmap model, while also flying the shortest distance to minimize battery usage. This could be achieved by calculating an acquisition function with a travel cost penalty to sample the most optimal areas as it flies through the field.
-              </p>
-              <p className="flex items-center gap-3 text-slate-400 leading-relaxed">
-                <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
-                May 18th, 2026: Rover-Drone Hybrid design idea (see video on homepage), bought a better soil sensor.
-              </p>
-                        <p className="flex items-center gap-3 text-slate-400 leading-relaxed">
-                <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
-                May 20th, 2026: First farm visit for data collection confirmed.
-              </p>
-              <p className="flex items-center gap-3 text-slate-400 leading-relaxed">
-                <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
-                May 21st: Final copy of research plan finished.
-              </p>
-            </div>
-
+            <button onClick={toggleMenu} className="md:hidden text-slate-400 hover:text-white focus:outline-none">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {isMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+                )}
+              </svg>
+            </button>
           </div>
-        </div>
-      </main>
 
-      <footer className="border-t border-slate-800 bg-[#0D1117] py-8">
-        <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-2 md:gap-6">
+          {/* Mobile Nav Links */}
+          {isMenuOpen && (
+            <div className="md:hidden bg-[#0D1117] border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
+              <a href="https://drive.google.com/file/d/1TR2aueFCylzw7Rai_YTZquHvooWqFICa/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-400 transition-colors">Poster</a>
+              <Link to="/about" className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">Our Team</Link>
+              <Link to="/updates" className="text-xs uppercase tracking-widest font-bold text-emerald-400 hover:text-emerald-500 transition-colors">Updates</Link>
+              <a href="https://github.com/nathan-sharma/Agrabhi" onClick={toggleMenu} className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500">GitHub</a>
+            
+            </div>
+          )}
+        </nav>
+
+        {/* Main Content Area */}
+        <main className="pt-24 px-6 max-w-6xl w-full mx-auto flex-1 flex flex-col">
+          {/* Content block grows dynamically to fill space */}
+          <div className="flex-1 flex flex-col">
+            {/* Header Title Section for Active Month */}
+            <div className="flex items-center gap-3 mb-6 shrink-0">
+              <h2 className="text-3xl font-bold text-white">{activeMonth.name}</h2>
+            </div>
+
+            {/* Dynamic content rendering */}
+            <div className="transition-all duration-300 ease-in-out">
+              {activeMonth.content}
+            </div>
+          </div>
+
+          {/* Tight Controls Section - Spacing variables match your original exact settings */}
+          <div className="flex flex-col items-center justify-center border-t border-slate-800/60 shrink-0 py-3 gap-1">
+            <div className="flex items-center gap-6 max-w-full justify-center">
+              {/* Previous Arrow Button */}
+              <button 
+                onClick={handlePrev} 
+                disabled={currentMonthIndex === 0}
+                className={`flex items-center justify-center p-2 rounded-full border transition-all shrink-0 ${
+                  currentMonthIndex === 0 
+                    ? "border-slate-800 text-slate-600 cursor-not-allowed" 
+                    : "border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-emerald-400"
+                }`}
+                aria-label="Previous Month"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+
+              {/* Pagination Dots - Constrained to prevent device window blowout */}
+              <div className="flex items-center gap-2.5 max-w-[145px] xs:max-w-[200px] sm:max-w-md overflow-x-auto py-1 px-2 no-scrollbar flex-nowrap">
+                {MONTHS_DATA.map((month, idx) => (
+                  <button
+                    key={`${month.name}-${month.year}-${idx}`}
+                    onClick={() => setCurrentMonthIndex(idx)}
+                    title={`${month.name} ${month.year}`}
+                    className={`h-2.5 rounded-full transition-all duration-300 shrink-0 ${
+                      idx === currentMonthIndex 
+                        ? "w-6 bg-emerald-400" 
+                        : "w-2.5 bg-slate-600 hover:bg-slate-400"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              {/* Next Arrow Button */}
+              <button 
+                onClick={handleNext} 
+                disabled={currentMonthIndex === MONTHS_DATA.length - 1}
+                className={`flex items-center justify-center p-2 rounded-full border transition-all shrink-0 ${
+                  currentMonthIndex === MONTHS_DATA.length - 1 
+                    ? "border-slate-800 text-slate-600 cursor-not-allowed" 
+                    : "border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-emerald-400"
+                }`}
+                aria-label="Next Month"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+            
+            {/* Contextual indicator label right below the dots */}
+            <span className="text-xs tracking-wider font-semibold uppercase text-slate-500 select-none">
+              {activeMonth.name} {activeMonth.year}
+            </span>
+          </div>
+        </main>
+      </div>
+
+      {/* Tighter Bottom Footer */}
+      <footer className="border-t border-slate-800 bg-[#0D1117] py-6 shrink-0">
+        <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-4 md:gap-6">
           <div className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start mb-1">
-              <img src="blogo.png" alt="Logo" className="h-5 w-auto" />
+              <img src="blogo.png" alt="Logo" className="h-5 w-auto mr-1" />
               <h2 className="text-lg font-bold text-white leading-none">Agra<span className="text-emerald-400">Bhi</span></h2>
             </div>
-            <p className="text-xs text-slate-400">Created by <span className="text-slate-200">Nathan Sharma, Naitik Patel, & Evan Quach</span></p>
+            <p className="text-xs text-slate-400">Created by <span className="text-slate-200">Nathan Sharma, Naitik Patel, & Landon Morrison</span></p>
           </div>
-          <div className="flex flex-col md:flex-row gap-x-6 gap-y-0 md:gap-y-1 text-center">
+          <div className="flex flex-col md:flex-row gap-x-6 gap-y-1 text-center">
             <a href="mailto:nathansharma007@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">nathansharma007@gmail.com</a>
             <a href="mailto:naitik.s.patel10@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">naitik.s.patel10@gmail.com</a>
-            <a href="mailto:quachevan@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">quachevan@gmail.com</a>
           </div>
         </div>
       </footer>
