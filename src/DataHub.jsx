@@ -405,7 +405,7 @@ async function simulateData() {
     <p className="text-gray-300 text-sm leading-relaxed mb-6">
      Work in progress!  </p>
     <Link 
-      to="/" 
+      to="https://nathan-sharma.github.io/agrabhi-website/" 
       className="inline-block bg-emerald-500 hover:bg-emerald-600 text-black font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-lg transition-colors"
     >
      Back To Home
