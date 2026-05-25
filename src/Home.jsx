@@ -367,7 +367,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-2 md:gap-6">
           <div className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start  mb-1">
-              <img src="blogo.png" alt="Logo" className="h-5 w-auto" />
+              <img src={logo} alt="Logo" className="h-5 w-auto" />
               <h2 className="text-lg font-bold text-white leading-none">
                 Agra<span className="text-emerald-400">Bhi</span>
               </h2>
