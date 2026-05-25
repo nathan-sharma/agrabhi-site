@@ -1,0 +1,1 @@
+import{c as e,r as t,s as n,t as r,u as i}from"./jsx-runtime-BRbRmC1b.js";import{t as a}from"./DataHub-D1Ppnw-i.js";var o=i(e(),1),s=i(n(),1),c=r();s.createRoot(document.getElementById(`root`)).render((0,c.jsx)(o.StrictMode,{children:(0,c.jsx)(t,{basename:`/agrabhi-website`,children:(0,c.jsx)(a,{})})}));
