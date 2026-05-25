@@ -399,20 +399,18 @@ async function simulateData() {
   return (
     <div className="relative min-h-screen bg-[#1a1a1a] text-[#eee] p-5 font-sans pt-20">
       {/* 🛠️ WORK IN PROGRESS OVERLAY */}
-<div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60  pointer-events-auto">
-  <div className="bg-[#1c2331]/90 border p-8 max-w-md text-center shadow-2xl mx-4">
-  
-    <p className="text-gray-300 text-sm leading-relaxed mb-6">
-     Work in progress!  </p>
-    <Link 
-      to="https://nathan-sharma.github.io/agrabhi-website/" 
-      className="inline-block bg-emerald-500 hover:bg-emerald-600 text-black font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-lg transition-colors"
-    >
-     Back To Home
-    </Link>
-  </div>
-</div>
-
+<div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 pointer-events-auto">
+        <div className="bg-[#1c2331]/90 border p-8 max-w-md text-center shadow-2xl mx-4">
+          <p className="text-gray-300 text-sm leading-relaxed mb-6">Work in progress!</p>
+          <a 
+            href="https://nathan-sharma.github.io/agrabhi-website/" 
+            onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-website/"; }}
+            className="inline-block bg-emerald-500 hover:bg-emerald-600 text-black font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-lg transition-colors cursor-pointer"
+          >
+            Back To Home
+          </a>
+        </div>
+      </div>
       {/* NAVBAR */}
    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
             <div className="max-w-full mx-auto px-6 h-16 flex items-center justify-between">

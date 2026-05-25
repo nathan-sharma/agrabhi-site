@@ -108,74 +108,86 @@ export default function About() {
 
       <div className="flex-1 flex flex-col">
         {/* Navigation Bar */}
-       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
-                <div className="max-w-full mx-auto px-6 h-16 flex items-center justify-between">
-                  
-                  <div className="flex items-center text-xl font-bold tracking-tighter text-white">
-                    <img src={logo} alt="AgraBhi Logo" className="h-6 w-auto translate-y-[1px]" />
-                    <div>
-                      <Link to="https://nathan-sharma.github.io/agrabhi-website/">Agra<span className="text-emerald-400">Bhi</span></Link>
-                    </div>
-                  </div>
-                  
-                  {/* Desktop Nav Links */}
-                  <div className="hidden md:flex items-center gap-8">
-                     <Link 
-                      to="https://nathan-sharma.github.io/agrabhi-website/" 
-                      className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
-                    
-                     Home
-                    </Link>
-        
-                        <Link 
-                      to="https://nathan-sharma.github.io/agrabhi-website/about" 
-                      className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
-                    
-                      Our Team
-                    </Link>
-                     <Link 
-                      to="https://nathan-sharma.github.io/agrabhi-website/updates" 
-                      className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
-                    
-                      Updates
-                    </Link>
-                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/nathan-sharma/Agrabhi" className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
-                      GitHub
-                    </a>
-                      
-        
-                    {/* ✅ UPDATED DATA HUB BUTTON */}
-               
-                    <Link 
-                      to="https://nathan-sharma.github.io/agrabhi-website/data-hub" 
-                      className="text-xs uppercase tracking-widest font-bold px-4 py-2 rounded-full bg-blue-500 text-[#0D1117] hover:bg-blue-400 transition-all"
-                    >
-                     Data Hub
-                    </Link>
-                      
-        
-                  </div>
-        
-                  <button 
-                    onClick={toggleMenu}
-                    className="md:hidden text-slate-400 hover:text-white focus:outline-none"
-                  >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      {isMenuOpen ? (
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                      ) : (
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-                      )}
-                    </svg>
-                  </button>
-                </div>
-        
-                {/* Mobile Nav Links */}
-                {isMenuOpen && (
-                  <div className="md:hidden bg-[#0D1117] border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
-        
-        
-                  <a 
+<nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
+    <div className="max-w-full mx-auto px-6 h-16 flex items-center justify-between">
+      
+      {/* Logo Link */}
+      <div className="flex items-center text-xl font-bold tracking-tighter text-white">
+        <img src={logo} alt="AgraBhi Logo" className="h-6 w-auto translate-y-[1px]" />
+        <div>
+          <a 
+            href="https://nathan-sharma.github.io/agrabhi-website/" 
+            onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-website/"; }}
+            className="cursor-pointer"
+          >
+            Agra<span className="text-emerald-400">Bhi</span>
+          </a>
+        </div>
+      </div>
+
+      {/* Desktop Nav Links */}
+      <div className="hidden md:flex items-center gap-8">
+        <a 
+          href="https://nathan-sharma.github.io/agrabhi-website/" 
+          onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-website/"; }}
+          className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+        >
+          Home
+        </a>
+
+        <a 
+          href="https://nathan-sharma.github.io/agrabhi-website/about.html" 
+          onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-website/about.html"; }}
+          className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+        >
+          Our Team
+        </a>
+
+        <a 
+          href="https://nathan-sharma.github.io/agrabhi-website/updates.html" 
+          onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-website/updates.html"; }}
+          className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+        >
+          Updates
+        </a>
+
+        <a 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          href="https://github.com/nathan-sharma/Agrabhi" 
+          className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+        >
+          GitHub
+        </a>
+           
+        <a 
+          href="https://nathan-sharma.github.io/agrabhi-website/data-hub.html" 
+          onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-website/data-hub.html"; }}
+          className="text-xs uppercase tracking-widest font-bold px-4 py-2 rounded-full bg-blue-500 text-[#0D1117] hover:bg-blue-400 transition-all"
+        >
+          Data Hub
+        </a>
+      </div>
+
+      {/* Mobile Menu Toggle Button */}
+      <button 
+        onClick={toggleMenu}
+        className="md:hidden text-slate-400 hover:text-white focus:outline-none"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          {isMenuOpen ? (
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+          ) : (
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+          )}
+        </svg>
+      </button>
+    </div>
+
+    {/* Mobile Nav Links */}
+    {isMenuOpen && (
+      <div className="md:hidden bg-[#0D1117] border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
+        <a 
           href="https://drive.google.com/file/d/1TR2aueFCylzw7Rai_YTZquHvooWqFICa/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
@@ -183,33 +195,43 @@ export default function About() {
         >
           Poster
         </a>
+
+        <a 
+          href="https://nathan-sharma.github.io/agrabhi-website/about.html" 
+          onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-website/about.html"; }}
+          className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+        >
+          Our Team
+        </a>
         
-             <Link 
-                      to="https://nathan-sharma.github.io/agrabhi-website/about" 
-                      className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
-                    
-                      Our Team
-                    </Link>
-                    
-             <Link 
-                      to="https://nathan-sharma.github.io/agrabhi-website/updates" 
-                      className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
-                    
-                      Updates
-                    </Link>
-        
-                    <a href="https://github.com/nathan-sharma/Agrabhi" onClick={toggleMenu}
-                      className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500">
-                      GitHub
-                    </a>
-                   
-        
-                    {/* ✅ UPDATED MOBILE DATA HUB BUTTON */}
-                  
-        
-                  </div>
-                )}
-              </nav>
+        <a 
+          href="https://nathan-sharma.github.io/agrabhi-website/updates.html" 
+          onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-website/updates.html"; }}
+          className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+        >
+          Updates
+        </a>
+
+        <a 
+          href="https://nathan-sharma.github.io/agrabhi-website/data-hub.html" 
+          onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-website/data-hub.html"; }}
+          className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+        >
+          Data Hub
+        </a>
+
+        <a 
+          href="https://github.com/nathan-sharma/Agrabhi" 
+          onClick={toggleMenu}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+        >
+          GitHub
+        </a>
+      </div>
+    )}
+  </nav>
 
         {/* Main Content Area */}
         <main className="pt-24 px-6 max-w-6xl w-full mx-auto flex-1 flex flex-col">
