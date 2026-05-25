@@ -403,7 +403,7 @@ async function simulateData() {
   <div className="bg-[#1c2331]/90 border p-8 max-w-md text-center shadow-2xl mx-4">
   
     <p className="text-gray-300 text-sm leading-relaxed mb-6">
-     We're working on this right now. Should be ready by the end of this summer!   </p>
+     Work in progress!  </p>
     <Link 
       to="/" 
       className="inline-block bg-emerald-500 hover:bg-emerald-600 text-black font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-lg transition-colors"

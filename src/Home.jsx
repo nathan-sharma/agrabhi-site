@@ -384,7 +384,9 @@ export default function Home() {
             <a href="mailto:naitik.s.patel10@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
               naitik.s.patel10@gmail.com
             </a>
-           
+               <a href="mailto:morrisonlandon51@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
+          morrisonlandon51@gmail.com
+            </a>
           </div>
         </div>
       </footer>

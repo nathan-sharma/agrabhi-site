@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import logo from "/blogo.png";
 import image1 from "/image1.jpg";
-import image2 from "/image2.png"
+import image2 from "/image2.png";
+import image3 from "/image3.PNG";
 export default function About() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showFullAbstract, setShowFullAbstract] = useState(false);
@@ -169,7 +170,30 @@ export default function About() {
           </div>
 
         </div>
+      <div className="flex flex-col md:flex-row gap-8 items-center mb-8">
+          
+          {/* Image Placeholder */}
+          <div className="w-full md:w-1/2 h-80  rounded-2xl flex items-center justify-center text-slate-500 text-lg font-semibold">
+            <img
+         
+    src={image3}
+    alt="Placeholder 1"
+    className="h-full w-relative"
+  />
+          </div>
 
+          {/* Paragraph Placeholder */}
+          <div className="w-full md:w-1/2">
+            <h2 className="text-2xl font-bold text-white mb-4">
+              Landon Morrison
+            </h2>
+
+            <p className="text-slate-400 leading-relaxed">
+          Hi, I'm Landon and I'm a student at Cinco Ranch High School and design lead at AgraBhi. I've always been interested in anything related to technology, and I've created lots of 3d models and designs using various programs like CAD and Blender. In my free time, I enjoy chess, gaming, and spending time with family and friends.
+            </p>
+          </div>
+
+        </div>
       </main>
          <footer className="border-t border-slate-800 bg-[#0D1117] py-8">
         <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-2 md:gap-6">
@@ -191,6 +215,9 @@ export default function About() {
             </a>
             <a href="mailto:naitik.s.patel10@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
               naitik.s.patel10@gmail.com
+            </a>
+              <a href="mailto:morrisonlandon51@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
+          morrisonlandon51@gmail.com
             </a>
           </div>
         </div>

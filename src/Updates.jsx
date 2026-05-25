@@ -9,14 +9,10 @@ const MONTHS_DATA = [
     year: "2026",
     content: (
       <div className="space-y-4 mb-8">
-          <p className="text-slate-400 leading-relaxed">
-          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          May 1st, 2026: Landon Morrison joins the team.
-         </p>
+         
         <p className="text-slate-400 leading-relaxed">
           <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          May 11th, 2026: Project research plan and deadlines draft finished. See research plan draft<span> </span>
-          <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1VkqSs9pfrUfAJ6HdsIUOUExkudNJI-WOK1dk6pclt1k/edit?usp=sharing" className="underline hover:text-gray-500 ">here.</a>
+          May 11th, 2026: Project research plan and deadlines draft finished.
         </p>
         <p className="flex items-center gap-3 text-slate-400 leading-relaxed">
           <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
@@ -60,6 +56,11 @@ const MONTHS_DATA = [
         Your browser does not support the video tag.
       </video>
     </div>
+     <p className="text-slate-400 leading-relaxed">
+          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+          May 24th, 2026: Final copy of research plan finished. See it <span> </span> 
+            <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1VkqSs9pfrUfAJ6HdsIUOUExkudNJI-WOK1dk6pclt1k/edit?usp=sharing" className="underline hover:text-gray-500 ">here.</a>
+          </p>
       </div>
     )
   },
@@ -237,6 +238,9 @@ export default function About() {
           <div className="flex flex-col md:flex-row gap-x-6 gap-y-1 text-center">
             <a href="mailto:nathansharma007@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">nathansharma007@gmail.com</a>
             <a href="mailto:naitik.s.patel10@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">naitik.s.patel10@gmail.com</a>
+              <a href="mailto:morrisonlandon51@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
+          morrisonlandon51@gmail.com
+            </a>
           </div>
         </div>
       </footer>
