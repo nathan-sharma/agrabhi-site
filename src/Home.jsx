@@ -18,27 +18,27 @@ export default function Home() {
             <div className="flex items-center text-xl font-bold tracking-tighter text-white">
               <img src={logo} alt="AgraBhi Logo" className="h-6 w-auto translate-y-[1px]" />
               <div>
-                <Link to="/">Agra<span className="text-emerald-400">Bhi</span></Link>
+                <Link to="https://nathan-sharma.github.io/agrabhi-website/">Agra<span className="text-emerald-400">Bhi</span></Link>
               </div>
             </div>
             
             {/* Desktop Nav Links */}
             <div className="hidden md:flex items-center gap-8">
                <Link 
-                to="/" 
+                to="https://nathan-sharma.github.io/agrabhi-website/" 
                 className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
               
                Home
               </Link>
   
                   <Link 
-                to="/about" 
+                to="https://nathan-sharma.github.io/agrabhi-website/about" 
                 className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
               
                 Our Team
               </Link>
                <Link 
-                to="/updates" 
+                to="https://nathan-sharma.github.io/agrabhi-website/updates" 
                 className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
               
                 Updates
@@ -51,7 +51,7 @@ export default function Home() {
               {/* ✅ UPDATED DATA HUB BUTTON */}
          
               <Link 
-                to="/data-hub" 
+                to="https://nathan-sharma.github.io/agrabhi-website/data-hub" 
                 className="text-xs uppercase tracking-widest font-bold px-4 py-2 rounded-full bg-blue-500 text-[#0D1117] hover:bg-blue-400 transition-all"
               >
                Data Hub
@@ -89,14 +89,14 @@ export default function Home() {
   </a>
   
        <Link 
-                to="/about" 
+                to="https://nathan-sharma.github.io/agrabhi-website/about" 
                 className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
               
                 Our Team
               </Link>
               
        <Link 
-                to="/updates" 
+                to="https://nathan-sharma.github.io/agrabhi-website/updates" 
                 className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors">
               
                 Updates
