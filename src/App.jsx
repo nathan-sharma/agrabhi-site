@@ -11,7 +11,7 @@ import Updates from "./Updates";
 export default function App() {
   return (
     // 2. Added basename so paths map correctly to your GitHub repository URL
-    <BrowserRouter basename="/agrabhi-website">
+    <BrowserRouter basename="/">
       <Routes>
         {/* Main page */}
         <Route path="/" element={<Home />} />
