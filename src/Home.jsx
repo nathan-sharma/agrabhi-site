@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#0D1117] text-[#E2E8F0] font-sans overflow-x-hidden">
       
-<nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
+ <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
     <div className="max-w-full mx-auto px-6 h-16 flex items-center justify-between">
       
       {/* Logo Link */}
@@ -20,8 +20,8 @@ export default function Home() {
         <img src={logo} alt="AgraBhi Logo" className="h-6 w-auto translate-y-[1px]" />
         <div>
           <a 
-            href="https://nathan-sharma.github.io/agrabhi-website/" 
-            onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-website/"; }}
+            href="https://agrabhi.com" 
+            onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com"; }}
             className="cursor-pointer"
           >
             Agra<span className="text-emerald-400">Bhi</span>
@@ -32,24 +32,24 @@ export default function Home() {
       {/* Desktop Nav Links */}
       <div className="hidden md:flex items-center gap-8">
         <a 
-          href="https://nathan-sharma.github.io/agrabhi-website/" 
-          onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-website/"; }}
+          href="https://agrabhi.com" 
+          onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com"; }}
           className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
         >
           Home
         </a>
 
         <a 
-          href="https://nathan-sharma.github.io/agrabhi-website/about.html" 
-          onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-website/about.html"; }}
+          href="https://agrabhi.com/about.html" 
+          onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/about.html"; }}
           className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
         >
           Our Team
         </a>
 
         <a 
-          href="https://nathan-sharma.github.io/agrabhi-website/updates.html" 
-          onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-website/updates.html"; }}
+          href="https://agrabhi.com/updates.html" 
+          onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/updates.html"; }}
           className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
         >
           Updates
@@ -65,8 +65,8 @@ export default function Home() {
         </a>
            
         <a 
-          href="https://nathan-sharma.github.io/agrabhi-website/data-hub.html" 
-          onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-website/data-hub.html"; }}
+          href="https://agrabhi.com/data-hub.html" 
+          onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/data-hub.html"; }}
           className="text-xs uppercase tracking-widest font-bold px-4 py-2 rounded-full bg-blue-500 text-[#0D1117] hover:bg-blue-400 transition-all"
         >
           Data Hub
@@ -101,24 +101,24 @@ export default function Home() {
         </a>
 
         <a 
-          href="https://nathan-sharma.github.io/agrabhi-website/about.html" 
-          onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-website/about.html"; }}
+          href="https://agrabhi.com/about.html" 
+          onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/about.html"; }}
           className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
         >
           Our Team
         </a>
         
         <a 
-          href="https://nathan-sharma.github.io/agrabhi-website/updates.html" 
-          onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-website/updates.html"; }}
+          href="https://agrabhi.com/updates.html" 
+          onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/updates.html"; }}
           className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
         >
           Updates
         </a>
 
         <a 
-          href="https://nathan-sharma.github.io/agrabhi-website/data-hub.html" 
-          onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-website/data-hub.html"; }}
+          href="https://agrabhi.com/data-hub.html" 
+          onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/data-hub.html"; }}
           className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
         >
           Data Hub
