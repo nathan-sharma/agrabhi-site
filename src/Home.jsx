@@ -411,9 +411,7 @@ export default function Home() {
             </p>
             
           </div>
-          <div className="text-xs text-slate-500 hover:text-emerald-400 transition-colors bg-slate-900/40 px-3 py-1.5 rounded-md border border-slate-800/60">
-      <a href='https://www.counters-free.net/' className="hover:underline">Counters-Free</a>
-    </div>
+          
 
           <div className="flex flex-col md:flex-row gap-x-6 gap-y-0 md:gap-y-1 text-center">
             <a href="mailto:nathansharma007@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
