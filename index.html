@@ -6,17 +6,20 @@
     
     <title>AgraBhi</title>
 
+    <!-- Updated to your new custom domain for Google Search Console -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "AgraBhi",
-      "url": "https://nathan-sharma.github.io/agrabhi-website/"
+      "url": "https://agrabhi.com/"
     }
     </script>
 
-    <link rel="icon" type="image/png" sizes="512x512" href="/agrabhi-website/blogo.png" />
+    <!-- Fixed favicon path to remove the old subfolder -->
+    <link rel="icon" type="image/png" sizes="512x512" href="/blogo.png" />
 
+    <!-- SPA Single Page Application Routing Redirect Script -->
     <script type="text/javascript">
       (function(l) {
         if (l.search[1] === '/' ) {
@@ -30,7 +33,7 @@
       }(window.location));
     </script>
     
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Note: Removed cdn.tailwindcss.com script tag. See step below to ensure Tailwind functions correctly via Vite. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
