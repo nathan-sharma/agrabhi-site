@@ -7,27 +7,7 @@ export default function Home() {
   
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showFullAbstract, setShowFullAbstract] = useState(false);
-  useEffect(() => {
-    // Load the authentication script
-    const authScript = document.createElement('script');
-    authScript.type = 'text/javascript';
-    authScript.src = 'https://www.freevisitorcounters.com/auth.php?id=9f84b476d70089b0ce8c550290a27356c333d1d6';
-    authScript.async = true;
-    document.body.appendChild(authScript);
-
-    // Load the counter rendering script
-    const counterScript = document.createElement('script');
-    counterScript.type = 'text/javascript';
-    counterScript.src = 'https://www.freevisitorcounters.com/en/home/counter/1560330/t/2';
-    counterScript.async = true;
-    document.body.appendChild(counterScript);
-
-    // Cleanup scripts when the component unmounts to prevent multiple instances
-    return () => {
-      document.body.removeChild(authScript);
-      document.body.removeChild(counterScript);
-    };
-  }, []);
+  
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
