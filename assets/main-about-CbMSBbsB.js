@@ -1,1 +1,0 @@
-import{c as e,d as t,i as n,l as r,n as i,t as a}from"./About-C86yN_jv.js";var o=t(r(),1),s=t(e(),1),c=i();s.createRoot(document.getElementById(`root`)).render((0,c.jsx)(o.StrictMode,{children:(0,c.jsx)(n,{basename:`/agrabhi-website`,children:(0,c.jsx)(a,{})})}));
