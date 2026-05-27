@@ -1,6 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@source "../index.html";
+@source "../*.html";
+@source "./**/*.{js,ts,jsx,tsx}";
 
 :root {
   /* Retaining color-scheme and base rendering setups */
