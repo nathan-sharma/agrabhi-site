@@ -1,11 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import logo from "/blogo.png";
 import { HashLink } from 'react-router-hash-link';
 
 export default function Home() {
+  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showFullAbstract, setShowFullAbstract] = useState(false);
+  useEffect(() => {
+    // Load the authentication script
+    const authScript = document.createElement('script');
+    authScript.type = 'text/javascript';
+    authScript.src = 'https://www.freevisitorcounters.com/auth.php?id=9f84b476d70089b0ce8c550290a27356c333d1d6';
+    authScript.async = true;
+    document.body.appendChild(authScript);
+
+    // Load the counter rendering script
+    const counterScript = document.createElement('script');
+    counterScript.type = 'text/javascript';
+    counterScript.src = 'https://www.freevisitorcounters.com/en/home/counter/1560330/t/2';
+    counterScript.async = true;
+    document.body.appendChild(counterScript);
+
+    // Cleanup scripts when the component unmounts to prevent multiple instances
+    return () => {
+      document.body.removeChild(authScript);
+      document.body.removeChild(counterScript);
+    };
+  }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -395,6 +417,7 @@ export default function Home() {
       </main>
 
    <footer className="border-t border-slate-800 bg-[#0D1117] py-8">
+    
         <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-2 md:gap-6">
           <div className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start  mb-1">
@@ -406,7 +429,11 @@ export default function Home() {
             <p className="text-xs text-slate-400">
               Created by <span className="text-slate-200">Nathan Sharma, Naitik Patel, & Landon Morrison</span>
             </p>
+            
           </div>
+          <div className="text-xs text-slate-500 hover:text-emerald-400 transition-colors bg-slate-900/40 px-3 py-1.5 rounded-md border border-slate-800/60">
+      <a href='https://www.counters-free.net/' className="hover:underline">Counters-Free</a>
+    </div>
 
           <div className="flex flex-col md:flex-row gap-x-6 gap-y-0 md:gap-y-1 text-center">
             <a href="mailto:nathansharma007@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
