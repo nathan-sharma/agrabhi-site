@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "/blogo.png";
+import api from "/api.png"
 
 // Structured array containing your timeline data across 2026 and 2027
 const MONTHS_DATA = [
@@ -43,8 +44,9 @@ const MONTHS_DATA = [
           </p>
             <p className="text-slate-400 leading-relaxed">
           <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          May 24th, 2026: Pre drilling holes can cause the sensor we are using to give us faulty moisture measurements because of air pockets. We created a design that fixes this issue that could be used on the rovers after they pre-drill a hole into the ground (short video is shown below). The rover would drill a hole, then insert a hollow cylinder tube with a soil sensor and motors inside of it to sample at multiple depths without needing to worry about air pockets affecting results. The video uses linear actuators to demonstrate our idea, but we will likely not use linear actuators in the actual design.
+          May 24th, 2026: Pre drilling holes can cause the sensor we are using to give us faulty moisture measurements because of air pockets. We created a design that fixes this issue that could be used on the rovers after they pre-drill a hole into the ground (short video is shown below). The rover would drill a hole, then insert a hollow cylinder tube with a soil sensor and motors inside of it to sample at multiple depths without needing to worry about air pockets affecting results. The video below uses linear actuators to demonstrate our idea.
          </p>
+         
           <div className="md:w-[30%] w-[70%] rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl transition-all duration-300 hover:border-slate-700/80">
       <video 
         src="droneidea2.mp4" 
@@ -61,6 +63,17 @@ const MONTHS_DATA = [
           May 24th, 2026: Final copy of research plan finished. See it <span> </span> 
             <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1VkqSs9pfrUfAJ6HdsIUOUExkudNJI-WOK1dk6pclt1k/edit?usp=sharing" className="underline hover:text-gray-500 ">here.</a>
           </p>
+           <p className="text-slate-400 leading-relaxed">
+          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+          May 28th, 2026: Coded an API that connects to Google Earth Engine to get NDVI data for any GPS coordinate! This will be used in our heatmap model as a covariate with predicted soil moisture. 
+          </p>
+  <img
+         
+    src={api}
+    alt="Placeholder 1"
+    className="w-[50%] h-relative"
+  />
+
       </div>
     )
   },
