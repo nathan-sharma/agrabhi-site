@@ -154,7 +154,7 @@ export default function Home() {
           AgraBhi
         </h1>
         <h2 className="text-xl md:text-3xl font-medium mb-4 tracking-tight text-slate-300 max-w-7xl mx-auto leading-tight animate-slide-slow">
-         A Low Cost Soil Moisture Mapping System for <span className="text-emerald-400">Smarter Irrigation.</span>
+         Accurate, Low Cost Soil Moisture Mapping for <span className="text-emerald-400">Smarter Irrigation.</span>
         </h2>
       </header>
 
