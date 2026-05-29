@@ -20,7 +20,7 @@ const MONTHS_DATA = [
           May 17th, 2026: Two important ideas were thought of today that we may implement in our project:
         </p>
         <p className="flex items-center gap-3 text-slate-400 leading-relaxed pl-5">
-          Idea #1: Use Gaussian Process Regression instead of Regression Kriging so we don't have to eyeball the variogram. Uncertainty is also much more adaptable to our data because it optimizes its parameters automatically, while Kriging mostly relies on the fixed sill, nugget, and range.
+          Idea #1 (scrapped 5/29): Use Gaussian Process Regression instead of Regression Kriging so we don't have to eyeball the variogram. Uncertainty is also much more adaptable to our data because it optimizes its parameters automatically, while Kriging mostly relies on the fixed sill, nugget, and range.
         </p>
         <p className="flex items-center gap-3 text-slate-400 leading-relaxed pl-5">
           Idea #2: Have the drone create a path to sample at points it thinks will contribute the most information to the heatmap model, while also flying the shortest distance to minimize battery usage. This could be achieved by calculating an acquisition function with a travel cost penalty to sample the most optimal areas as it flies through the field.
@@ -67,12 +67,18 @@ const MONTHS_DATA = [
           <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
           May 28th, 2026: Coded an API that connects to Google Earth Engine to get NDVI data for any GPS coordinate! This will be used in our heatmap model as a covariate with predicted soil moisture. 
           </p>
+
   <img
          
     src={api}
     alt="Placeholder 1"
     className="w-[50%] h-relative"
   />
+
+  <p className="text-slate-400 leading-relaxed">
+          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+          May 29th, 2026: GPR is extremely complicated and hard for us to code ourselves. Additionally, our farm field will likely not have proper sprinkler heads, so irrigation proximity becomes difficult to use as a covariate. Satellite data is outdated by weeks (the photo above shows data from May 13th), so it can't be used reliably either. We think the best way to move forward is to switch our model to 3D Ordinary Kriging. There are examples online, it doesn't need covariates so it is simpler to code, and it will still be much better than multispectral imagery for getting moisture data beneath the canopy to use for irrigation.
+          </p>
 
       </div>
     )
