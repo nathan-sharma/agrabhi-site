@@ -111,7 +111,7 @@ const MONTHS_DATA = [
 
 export default function About() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentMonthIndex, setCurrentMonthIndex] = useState(0);
+  const [currentMonthIndex, setCurrentMonthIndex] = useState(1);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
