@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "/blogo.png";
-import api from "/api.png"
+import api from "/api.png";
+import map from "/3dslices.png"
 
 // Structured array containing your timeline data across 2026 and 2027
 const MONTHS_DATA = [
@@ -72,13 +73,24 @@ const MONTHS_DATA = [
          
     src={api}
     alt="Placeholder 1"
-    className="w-[50%] h-relative"
+    className="md:w-[50%] md:h-relative h-full w-relative"
   />
 
   <p className="text-slate-400 leading-relaxed">
           <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
           May 29th, 2026: GPR is extremely complicated and hard for us to code ourselves. Additionally, our farm field will likely not have proper sprinkler heads, so irrigation proximity becomes difficult to use as a covariate. Satellite data is outdated by weeks (the photo above shows data from May 13th), so it can't be used reliably either. We think the best way to move forward is to switch our model to 3D Ordinary Kriging. There are examples online, it doesn't need covariates so it is simpler to code, and it will still be much better than multispectral imagery for getting moisture data beneath the canopy to use for irrigation.
           </p>
+           <p className="text-slate-400 leading-relaxed">
+          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+          May 31st, 2026: Finished coding the 3D Ordinary Kriging heatmap. The idea is we take multiple slices at specific depths and then analyze each of those 2d heatmaps individually. Check out the full code on the github!
+          </p>
+
+ <img
+         
+    src={map}
+    alt="Placeholder 1"
+    className="md:w-[50%] md:h-relative h-full w-relative"
+  />
 
       </div>
     )
