@@ -94,6 +94,14 @@ export default function About() {
     {isMenuOpen && (
       <div className="md:hidden bg-[#0D1117] border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
         <a 
+          href="https://agrabhi.com/" 
+          onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/"; }}
+          className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+        >
+          Home
+        </a>
+        
+        <a 
           href="https://drive.google.com/file/d/1TR2aueFCylzw7Rai_YTZquHvooWqFICa/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
@@ -161,7 +169,7 @@ export default function About() {
             </h2>
 
             <p className="text-slate-400 leading-relaxed">
-           Hi, I'm Nathan, and I am the founder and team lead of AgraBhi. I am an incoming junior at Cinco Ranch High School and love research, mathematics, and science. I am very involved in and have won multiple awards in science fairs, math competitions, and TMEA and other music competitions. In my free time, I enjoy running, playing the cello, and spending time with my family.
+           Hi, I'm Nathan, and I am the founder and team lead of AgraBhi, a research project helping farmers better manage their irrigation with accurate soil moisture data. I am an incoming junior at Cinco Ranch High School and love research, mathematics, and science. I am very involved in and have won multiple awards in science fairs, math competitions, and TMEA and other music competitions. In my free time, I enjoy running, playing the cello, and spending time with my family.
             </p>
           </div>
 
