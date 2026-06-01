@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import logo from "/blogo.png";
-import image1 from "/image1.jpg";
+import image1 from "/image1.png";
 import image2 from "/image2.png";
 import image3 from "/image3.PNG";
 export default function About() {
@@ -158,7 +158,7 @@ export default function About() {
          
     src={image1}
     alt="Placeholder 1"
-    className="h-full w-relative"
+    className="w-80 h-relative"
   />
           </div>
 
