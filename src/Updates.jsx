@@ -95,7 +95,7 @@ const MONTHS_DATA = [
       </div>
     )
   },
-  { name: "June", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
+  { name: "June", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet. Check last month's tab for the most recent update!</div> },
   { name: "July", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
   { name: "August", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
   { name: "September", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
