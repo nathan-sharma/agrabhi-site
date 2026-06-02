@@ -101,15 +101,7 @@ export default function Home() {
            Home
          </a>
          
-         <a 
-           href="https://drive.google.com/file/d/1TR2aueFCylzw7Rai_YTZquHvooWqFICa/view?usp=sharing"
-           target="_blank"
-           rel="noopener noreferrer"
-           className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-400 transition-colors"
-         >
-           Poster
-         </a>
- 
+         
          <a 
            href="https://agrabhi.com/about.html" 
            onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/about.html"; }}
@@ -126,13 +118,7 @@ export default function Home() {
            Updates
          </a>
  
-         <a 
-           href="https://agrabhi.com/data-hub.html" 
-           onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/data-hub.html"; }}
-           className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-         >
-           Data Hub
-         </a>
+         
  
          <a 
            href="https://github.com/nathan-sharma/Agrabhi" 
@@ -142,6 +128,21 @@ export default function Home() {
            className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
          >
            GitHub
+         </a>
+         <a 
+           href="https://drive.google.com/file/d/1TR2aueFCylzw7Rai_YTZquHvooWqFICa/view?usp=sharing"
+           target="_blank"
+           rel="noopener noreferrer"
+           className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-400 transition-colors"
+         >
+           Poster
+         </a>
+ <a 
+           href="https://agrabhi.com/data-hub.html" 
+           onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/data-hub.html"; }}
+           className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+         >
+           Data Hub
          </a>
        </div>
      )}
@@ -223,22 +224,22 @@ export default function Home() {
           </h2>
           <div className="text-base font-light text-slate-300 leading-relaxed space-y-6">
             <p>
-              AgraBhi is a low-cost system designed to help farmers better understand soil moisture patterns on their farm fields. Rather than solely relying on camera images, AgraBhi uses a physical soil sensor to measure moisture at the root level of crops, significantly improving measurement accuracy. It then uses interpolation models to predict moisture across the rest of the farm field.
+              AgraBhi is a low-cost system being made to help farmers better understand soil moisture patterns on their farm fields. Rather than solely relying on camera images, AgraBhi uses a physical soil sensor to measure moisture at the root level of crops, significantly improving measurement accuracy. It then uses interpolation models to predict moisture across the rest of the farm field.
             </p>
             
             <p>
-              The goal of our project is to make irrigation decisions more precise, efficient, and affordable for farmers.
+              The goal of our project is to make irrigation decisions more precise, efficient, and affordable for farmers with this data.
             </p>
 
             <div className="pt-4">
               <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-4">
-                Why This Matters
+                Why Does This Matter?
               </h2>
               <p className="mb-4">
-                Soil moisture varies dramatically across farm fields, and today, many farmers are simply guessing on how to irrigate their crops. This leads to overwatering, underwatering, wasted resources, and unhealthy yield. 
+                Soil moisture significantly changes across farm fields, and yet today, many farmers are simply guessing how to irrigate their crops. This leads to overwatering, underwatering, wasted resources, and low yield. 
               </p>
               <p>
-                AgraBhi is being created to make moisture mapping more affordable, accurate, and practical, especially in places where high quality agricultural tools are too expensive to afford.
+                AgraBhi is being created to make moisture mapping more affordable, accurate, and practical when good agricultural tools are too expensive for many to afford.
               </p>
             </div>
 
@@ -247,7 +248,7 @@ export default function Home() {
                 onClick={() => setShowFullAbstract(true)}
                 className="mt-4 px-6 py-2 bg-slate-800 hover:bg-slate-700 text-emerald-400 text-xs font-bold uppercase tracking-widest rounded-full border border-slate-700 transition-all"
               >
-                Read full abstract
+                Read last year's abstract
               </button>
             ) : (
               <div className="animate-fade-in pt-4 border-t border-slate-800">
