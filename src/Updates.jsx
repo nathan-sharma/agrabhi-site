@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "/blogo.png";
 import api from "/api.png";
 import map from "/3dslices.png"
-
+import funct from "/acquisitionfunction.png"
 // Structured array containing your timeline data across 2026 and 2027
 const MONTHS_DATA = [
   {
@@ -13,42 +13,33 @@ const MONTHS_DATA = [
       <div className="space-y-4 mb-8">
          
         <p className="text-slate-400 leading-relaxed">
-          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          May 11th, 2026: Project research plan and deadlines draft finished.
-        </p>
-        <p className="flex items-center gap-3 text-slate-400 leading-relaxed">
-          <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
-          May 17th, 2026: Two important ideas were thought of today that we may implement in our project:
-        </p>
-        <p className="flex items-center gap-3 text-slate-400 leading-relaxed pl-5">
-          Idea #1 (scrapped 5/29): Use Gaussian Process Regression instead of Regression Kriging so we don't have to eyeball the variogram. Uncertainty is also much more adaptable to our data because it optimizes its parameters automatically, while Kriging mostly relies on the fixed sill, nugget, and range.
-        </p>
-        <p className="flex items-center gap-3 text-slate-400 leading-relaxed pl-5">
-          Idea #2: Have the drone create a path to sample at points it thinks will contribute the most information to the heatmap model, while also flying the shortest distance to minimize battery usage. This could be achieved by calculating an acquisition function with a travel cost penalty to sample the most optimal areas as it flies through the field.
-        </p>
-        <p className="flex items-center gap-3 text-slate-400 leading-relaxed">
-          <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
-          May 18th, 2026: Rover-Drone Hybrid design idea (scrapped 5/23), bought a better soil sensor.
-        </p>
-        <p className="flex items-center gap-3 text-slate-400 leading-relaxed">
-          <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
-          May 20th, 2026: Naitik confirmed a date for the first farm visit. Also got info on how the farm is irrigated.
-        </p>
-        <p className="text-slate-400 leading-relaxed">
-          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          May 22nd, 2026: Nathan made an acquisition function for adaptive sampling. Learn more about it<span> </span>
-          <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1o6kB64x-la7LfA9-zpvW1XvdDKNfi7HZQpoSRrUACMo/edit?tab=t.0" className="underline hover:text-gray-500 ">here.</a>
-        </p>
           <p className="text-slate-400 leading-relaxed">
           <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          May 23rd, 2026: Idea to switch the project from a drone  to a swarm of five rovers that can communicate with one another. Rovers will be autonomous and will still adaptively sample the field. Each rover would cost approximately $400 for a total cost of $2000. The data and math are still the same, we're just changing the way data is being collected.
+          May 31st, 2026: Finished coding the 3D Ordinary Kriging heatmap. The idea is we take multiple slices at specific depths and then analyze each of those 2d heatmaps individually. Check out the full code on the github!
           </p>
+
+ <img
+         
+    src={map}
+    alt="Placeholder 1"
+    className="md:w-[50%] md:h-relative h-full w-relative mb-4 mt-4"
+  />
+   <p className="text-slate-400 leading-relaxed mb-4">
+          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+          May 29th, 2026: GPR is extremely complicated and hard for us to code ourselves. Additionally, our farm field will likely not have proper sprinkler heads, so irrigation proximity becomes difficult to use as a covariate. Satellite data is outdated by weeks (the photo above shows data from May 13th), so it can't be used reliably either. We think the best way to move forward is to switch our model to 3D Ordinary Kriging. There are examples online, it doesn't need covariates so it is simpler to code, and it will still be much better than multispectral imagery for getting moisture data beneath the canopy to use for irrigation.
+          </p>
+
             <p className="text-slate-400 leading-relaxed">
+          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+          May 24th, 2026: Final copy of research plan finished. See it <span> </span> 
+            <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1VkqSs9pfrUfAJ6HdsIUOUExkudNJI-WOK1dk6pclt1k/edit?usp=sharing" className="underline hover:text-gray-500 ">here.</a>
+          </p>
+ <p className="text-slate-400 leading-relaxed mb-4">
           <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
           May 24th, 2026: Pre drilling holes can cause the sensor we are using to give us faulty moisture measurements because of air pockets. We created a design that fixes this issue that could be used on the rovers after they pre-drill a hole into the ground (short video is shown below). The rover would drill a hole, then insert a hollow cylinder tube with a soil sensor and motors inside of it to sample at multiple depths without needing to worry about air pockets affecting results. The video below uses linear actuators to demonstrate our idea.
          </p>
          
-          <div className="md:w-[30%] w-[70%] rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl transition-all duration-300 hover:border-slate-700/80">
+          <div className="md:w-[30%] w-[70%] rounded-xl mb-4 overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl transition-all duration-300 hover:border-slate-700/80">
       <video 
         src="droneidea2.mp4" 
         controls 
@@ -59,43 +50,69 @@ const MONTHS_DATA = [
         Your browser does not support the video tag.
       </video>
     </div>
-     <p className="text-slate-400 leading-relaxed">
+   <p className="text-slate-400 leading-relaxed mb-4">
           <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          May 24th, 2026: Final copy of research plan finished. See it <span> </span> 
-            <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1VkqSs9pfrUfAJ6HdsIUOUExkudNJI-WOK1dk6pclt1k/edit?usp=sharing" className="underline hover:text-gray-500 ">here.</a>
+          May 23rd, 2026: Idea to switch the project from a drone  to a swarm of five rovers that can communicate with one another. Rovers will be autonomous and will still adaptively sample the field. Each rover would cost approximately $400 for a total cost of $2000. The data and math are still the same, we're just changing the way data is being collected.
           </p>
-           <p className="text-slate-400 leading-relaxed">
+          <p className="text-slate-400 leading-relaxed mb-4">
           <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          May 28th, 2026: Coded an API that connects to Google Earth Engine to get NDVI data for any GPS coordinate! This will be used in our heatmap model as a covariate with predicted soil moisture. 
-          </p>
-
-  <img
-         
-    src={api}
-    alt="Placeholder 1"
-    className="md:w-[50%] md:h-relative h-full w-relative"
-  />
-
-  <p className="text-slate-400 leading-relaxed">
+          May 22nd, 2026: Nathan made an acquisition function for adaptive sampling. Learn more about it<span> </span>
+          <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1o6kB64x-la7LfA9-zpvW1XvdDKNfi7HZQpoSRrUACMo/edit?tab=t.0" className="underline hover:text-gray-500 ">here.</a>
+        </p>
+        
+        <p className="flex items-center gap-3 text-slate-400 leading-relaxed mb-4">
+          <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
+          May 20th, 2026: Naitik confirmed a date for the first farm visit. Also got info on how the farm is irrigated.
+        </p>
+        <p className="flex items-center gap-3 text-slate-400 leading-relaxed mb-4">
+          <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
+          May 18th, 2026: Rover-Drone Hybrid design idea (scrapped 5/23), bought a better soil sensor.
+        </p>
+ <p className="flex items-center gap-3 text-slate-400 leading-relaxed mb-4">
+          <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
+          May 17th, 2026: Two important ideas were thought of today that we may implement in our project:
+        </p>
+        <p className="flex items-center gap-3 text-slate-400 leading-relaxed pl-5 mb-4">
+          Idea #1 (scrapped 5/29): Use Gaussian Process Regression instead of Regression Kriging so we don't have to eyeball the variogram. Uncertainty is also much more adaptable to our data because it optimizes its parameters automatically, while Kriging mostly relies on the fixed sill, nugget, and range.
+        </p>
+        <p className="flex items-center gap-3 text-slate-400 leading-relaxed pl-5 mb-4">
+          Idea #2: Have the drone create a path to sample at points it thinks will contribute the most information to the heatmap model, while also flying the shortest distance to minimize battery usage. This could be achieved by calculating an acquisition function with a travel cost penalty to sample the most optimal areas as it flies through the field.
+        </p>
           <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          May 29th, 2026: GPR is extremely complicated and hard for us to code ourselves. Additionally, our farm field will likely not have proper sprinkler heads, so irrigation proximity becomes difficult to use as a covariate. Satellite data is outdated by weeks (the photo above shows data from May 13th), so it can't be used reliably either. We think the best way to move forward is to switch our model to 3D Ordinary Kriging. There are examples online, it doesn't need covariates so it is simpler to code, and it will still be much better than multispectral imagery for getting moisture data beneath the canopy to use for irrigation.
-          </p>
-           <p className="text-slate-400 leading-relaxed">
-          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          May 31st, 2026: Finished coding the 3D Ordinary Kriging heatmap. The idea is we take multiple slices at specific depths and then analyze each of those 2d heatmaps individually. Check out the full code on the github!
-          </p>
-
- <img
-         
-    src={map}
-    alt="Placeholder 1"
-    className="md:w-[50%] md:h-relative h-full w-relative"
-  />
+          May 11th, 2026: Project research plan and deadlines draft finished.
+        </p>
+       
+        
+        
+        
+          
+           
+           
+            
 
       </div>
     )
   },
-  { name: "June", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet. Check last month's tab for the most recent update!</div> },
+  { name: "June", year: "2026", content: <div className="text-slate-500 pt-1">
+      <p className="text-slate-400 leading-relaxed">
+          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+          June 3rd, 2026: Coded the basic parts of the acquisition function. Some code output is shown below. Right now it's assuming every term is weighted equally. We will later run tests to see if it will work in different scenarios and how we should optimize weights.
+        </p>
+      
+        
+
+  <img
+         
+    src={funct}
+    alt="Placeholder 1"
+    className="md:w-[50%] md:h-relative h-full w-relative mt-4 mb-4"
+  />
+  
+  
+  
+  
+  
+  </div> },
   { name: "July", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
   { name: "August", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
   { name: "September", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
