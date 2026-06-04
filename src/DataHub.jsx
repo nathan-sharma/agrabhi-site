@@ -401,7 +401,7 @@ async function simulateData() {
     
 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 pointer-events-auto">
         <div className="p-8 max-w-md text-center shadow-2xl mx-4">
-          <p className="text-gray-300  text-sm leading-relaxed mb-6">We haven't enabled this page yet!</p>
+          <p className="text-gray-300  text-sm leading-relaxed mb-6">This is a work in progress right now!</p>
           
         </div>
       </div>
