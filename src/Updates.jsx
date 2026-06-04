@@ -97,7 +97,7 @@ const MONTHS_DATA = [
   { name: "June", year: "2026", content: <div className="text-slate-500 pt-1">
       <p className="text-slate-400 leading-relaxed">
           <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          June 3rd, 2026: Coded the basic parts of the acquisition function. The code finds the point with the highest A(x) value out of all points on the heatmap. A higher A(x) value means that point will offer the most information and the rovers should go there to take a sample. Some code output is shown below (based on simulated data). Our function in the code assumes every term has a weight of 1. We will later run tests to see if it will work in all scenarios and how we should optimize weights.
+          June 3rd, 2026: Coded the basic parts of the acquisition function process. The code loops through all points on the field and finds the one with the highest A(x) value. A higher A(x) value means that point will offer the most information, so rovers prefer to go there to take a sample. Some code output is shown below (based on simulated data). Our function in the code assumes every term has a weight of 1, we will later run tests to see if it will realistically work in different scenarios on the farm and how we should optimize our weights so it does.
         </p>
       
         
