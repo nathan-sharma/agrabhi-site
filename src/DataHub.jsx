@@ -398,17 +398,11 @@ async function simulateData() {
 
   return (
     <div className="relative min-h-screen bg-[#1a1a1a] text-[#eee] p-5 font-sans pt-20">
-      {/* 🛠️ WORK IN PROGRESS OVERLAY */}
-<div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 pointer-events-auto">
-        <div className="bg-[#1c2331]/90 border p-8 max-w-md text-center shadow-2xl mx-4">
-          <p className="text-gray-300 text-sm leading-relaxed mb-6">Work in progress!</p>
-          <a 
-            href="https://agrabhi.com/" 
-            onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com"; }}
-            className="inline-block bg-emerald-500 hover:bg-emerald-600 text-black font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-lg transition-colors cursor-pointer"
-          >
-            Back To Home
-          </a>
+    
+<div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 pointer-events-auto">
+        <div className="p-8 max-w-md text-center shadow-2xl mx-4">
+          <p className="text-gray-300  text-sm leading-relaxed mb-6">We haven't enabled this page yet!</p>
+          
         </div>
       </div>
       {/* NAVBAR */}
@@ -605,16 +599,16 @@ async function simulateData() {
 
           <button className="bg-[#444] px-3 py-2 mr-2" onClick={collect}>Read Sensors</button>
           <button className="bg-[#4169E1] px-3 py-2 mr-2" onClick={() => logData(false)}>Log Sensor Data</button>
-          <button className="bg-[#9335db] px-3 py-2 mr-2" onClick={() => logData(true)}>Force Log</button>
+          <button className="bg-blue-900 px-3 py-2 mr-2" onClick={() => logData(true)}>Force Log</button>
           <button className="bg-[#444] px-3 py-2 mr-2" onClick={() => sendCommand("extend")}>Extend Sensor</button>
           <button className="bg-[#444] px-3 py-2 mr-2" onClick={() => sendCommand("retract")}>Retract Sensor</button>
           <button className="bg-[#444] px-3 py-2 mr-2" onClick={downloadLogs}>Download All Logs</button>
           <button className="bg-[#e63946] px-3 py-2 mr-2" onClick={clearLogs}>ERASE ALL LOGS</button>
-          <button className="bg-[#008800] px-3 py-2" onClick={openSprinklers}>Enter Sprinklers</button>
+
         </div>
 
         <p className="mb-2">
-          Connection: <strong>{droneStatus}</strong>
+          <strong>{droneStatus}</strong>
         </p>
 
         <div className="mb-4 flex flex-col md:flex-row gap-2">
@@ -637,11 +631,11 @@ async function simulateData() {
             className="bg-blue-600 px-3 py-2"
             onClick={predictMoisture}
           >
-            Predict Moisture
+            Predict
           </button>
         </div>
 <div className="mt-4 mb-4">
-  <div className="text-white font-bold mb-2">Simulate</div>
+  
 
   <div className="flex flex-col md:flex-row gap-2">
     <input
@@ -666,10 +660,10 @@ async function simulateData() {
     />
 
     <button
-      className="bg-yellow-600 px-3 py-2"
+      className="bg-blue-600 px-3 py-2"
       onClick={simulateData}
     >
-      Log Simulated Point
+      Simulate
     </button>
   </div>
 </div>
