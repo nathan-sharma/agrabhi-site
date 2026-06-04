@@ -27,7 +27,7 @@ const MONTHS_DATA = [
   />
    <p className="text-slate-400 leading-relaxed mb-4">
           <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          May 29th, 2026: GPR is extremely complicated and hard for us to code ourselves. Additionally, our farm field will likely not have proper sprinkler heads, so irrigation proximity becomes difficult to use as a covariate. Satellite data is outdated by weeks (the photo above shows data from May 13th), so it can't be used reliably either. We think the best way to move forward is to switch our model to 3D Ordinary Kriging. There are examples online, it doesn't need covariates so it is simpler to code, and it will still be much better than multispectral imagery for getting moisture data beneath the canopy to use for irrigation.
+          May 29th, 2026: GPR is extremely complicated and hard for us to code ourselves. Additionally, our farm field will likely not have proper sprinkler heads, so irrigation proximity becomes difficult to use as a covariate. Satellite data is outdated by weeks (the most recent satellite data we can find online for our field is from May 13th), so it can't be used reliably either. We think the best way to move forward is to switch our model to 3D Ordinary Kriging. There are examples online to help us code it, it doesn't need to worry about other covariates, and we think it will still offer significantly more information on moisture patterns than multispectral imagery to use for irrigation.
           </p>
 
             <p className="text-slate-400 leading-relaxed">
