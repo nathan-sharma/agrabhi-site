@@ -4,6 +4,7 @@ import logo from "/blogo.png";
 import api from "/api.png";
 import map from "/3dslices.png"
 import funct from "/acquisitionfunction.png"
+import formula from "/formula.png"
 // Structured array containing your timeline data across 2026 and 2027
 const MONTHS_DATA = [
   {
@@ -96,7 +97,7 @@ const MONTHS_DATA = [
   { name: "June", year: "2026", content: <div className="text-slate-500 pt-1">
       <p className="text-slate-400 leading-relaxed">
           <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          June 3rd, 2026: Coded the basic parts of the acquisition function. Some code output is shown below. Right now it's assuming every term is weighted equally. We will later run tests to see if it will work in different scenarios and how we should optimize weights.
+          June 3rd, 2026: Coded the basic parts of the acquisition function. The code finds the point with the highest A(x) value out of all points on the heatmap. A higher A(x) value means that point will offer the most information and the rovers should go there to take a sample. Some code output is shown below (based on simulated data). Our function in the code assumes every term has a weight of 1. We will later run tests to see if it will work in all scenarios and how we should optimize weights.
         </p>
       
         
@@ -107,6 +108,18 @@ const MONTHS_DATA = [
     alt="Placeholder 1"
     className="md:w-[50%] md:h-relative h-full w-relative mt-4 mb-4"
   />
+ 
+<figure>
+  <img
+         
+    src={formula}
+    alt="Placeholder 1"
+    className="md:w-[50%] md:h-relative h-full w-relative mt-4 mb-4"
+  />
+  <figcaption className = "mb-4"> 
+    Our acquisition function formula is shown above. The variables and how this will be used in the project are explained  <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1o6kB64x-la7LfA9-zpvW1XvdDKNfi7HZQpoSRrUACMo/edit?usp=sharing" className="underline hover:text-gray-500 ">here.</a>
+  </figcaption>
+</figure>
   
   
   
