@@ -263,7 +263,7 @@ export default function DataHub() {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://github.com/nathan-sharma/Agrabhi"
+              href="https://github.com/nathan-sharma/AgraBhi"
               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
             >
               GitHub
@@ -334,7 +334,7 @@ export default function DataHub() {
             </a>
 
             <a
-              href="https://github.com/nathan-sharma/Agrabhi"
+              href="https://github.com/nathan-sharma/AgraBhi"
               onClick={toggleMenu}
               target="_blank"
               rel="noopener noreferrer"
