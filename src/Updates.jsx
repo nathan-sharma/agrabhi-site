@@ -116,7 +116,7 @@ const MONTHS_DATA = [
         className="w-full h-full object-cover"
       />
     </div>
-    <figcaption className="mt-4 text-sm text-slate-400 leading-relaxed"> 
+    <figcaption className="mt-4 text-sm leading-relaxed"> 
       This is the arduino + raspberry pi + GPS antenna + soil sensor setup we will be using to collect data on the farms next week!
     </figcaption>
   </figure>
@@ -134,7 +134,7 @@ const MONTHS_DATA = [
         Your browser does not support the video tag.
       </video>
     </div>
-    <figcaption className="mt-4 text-sm text-slate-400 leading-relaxed"> 
+    <figcaption className="mt-4 text-sm leading-relaxed"> 
       This is a video of our data hub finding the best point to sample at using our acquisition function process, just like our Python code, only now the calculation is being done on the raspberry pi and can be recalculated every time we log a new point.
     </figcaption>
   </figure>
