@@ -1,25 +1,20 @@
 import { useEffect, useState, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { Link } from "react-router-dom";
 import logo from "/blogo.png";
 
 export default function DataHub() {
-  const [gpsInput, setGpsInput] = useState({ lat: "", lon: "" });
- const [prediction, setPrediction] = useState(null);
-const [maxUncertainty, setMaxUncertainty] = useState(null);
   const [connected, setConnected] = useState(false);
   const [statusMsg, setStatusMsg] = useState("");
   const [logs, setLogs] = useState([]);
-  const [droneStatus, setDroneStatus] = useState("Unknown");
-const [rmse, setRmse] = useState(null);
-const [rmseCount, setRmseCount] = useState(0);
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen((v) => !v);
 
-  const [heatmapImg, setHeatmapImg] = useState(null);
-  const [piIp, setPiIp] = useState("100.78.133.78");
+  const [piIp, setPiIp] = useState("67.67.67.67");
+  
+  // --- Optimization Engine States ---
+  const [optimalPoint, setOptimalPoint] = useState(null);
+  const [optimalLoading, setOptimalLoading] = useState(false);
 
   const piIpRef = useRef(piIp);
   useEffect(() => {
@@ -31,20 +26,6 @@ const [rmseCount, setRmseCount] = useState(0);
   const mapRef = useRef(null);
   const leafletMap = useRef(null);
   const markersRef = useRef([]);
-const [simInput, setSimInput] = useState({
-  lat: "",
-  lon: "",
-  moisture: ""
-});
-const [modelConfig, setModelConfig] = useState({
-  regression: "cubic",
-  variogram: "spherical",
-  uncertainty_mode: "kriging_only"
-});
-const [regressionImg, setRegressionImg] = useState(null);
-const [variogramImg, setVariogramImg] = useState(null);
-const [r2, setR2] = useState(null);
-const [varError, setVarError] = useState(null);
 
   useEffect(() => {
     if (!connected) return;
@@ -57,23 +38,12 @@ const [varError, setVarError] = useState(null);
       { attribution: "Tiles © Esri" }
     ).addTo(leafletMap.current);
   }, [connected]);
-useEffect(() => {
-  if (!connected) return;
-  loadHeatmap();
-}, [modelConfig]);
-
-
-useEffect(() => {
-  if (!connected) return;
-
-  updateRMSE();
-}, [connected, modelConfig.regression, modelConfig.variogram]);
-
 
   function drawMarker(point) {
     if (!leafletMap.current) return;
 
-    const [ID, lat, lon, moist] = point;
+    const [ID, lat, lon, depth, moist, temp] = point;
+    if (lat === 0 && lon === 0) return;
 
     const marker = L.circleMarker([lat, lon], {
       radius: 8,
@@ -90,7 +60,7 @@ useEffect(() => {
       fillOpacity: 0.8,
     })
       .addTo(leafletMap.current)
-      .bindPopup(`Sample ${ID}<br>Moisture: ${moist}%`);
+      .bindPopup(`Sample ${ID}<br>Depth: ${depth} cm<br>Moisture: ${moist}%<br>Temp: ${temp}°C`);
 
     markersRef.current.push(marker);
 
@@ -105,117 +75,62 @@ useEffect(() => {
     const time = new Date().toLocaleTimeString();
     setLogs((prev) => [{ time, message, type }, ...prev]);
   }
-async function triggerLocalNetworkPrompt() {
-  try {
-    const pc = new RTCPeerConnection({
-      iceServers: [] // no external servers needed
-    });
-
-    // Create a dummy data channel
-    pc.createDataChannel("trigger");
-
-    // Create and set local description (this starts ICE gathering)
-    const offer = await pc.createOffer();
-    await pc.setLocalDescription(offer);
-
-    // Give it a moment to gather ICE candidates
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    pc.close();
-  } catch (e) {
-    console.log("Local network permission trigger failed:", e);
-  }
-}
 
   async function connectToPi() {
-  const url = `http://${piIpRef.current}:5000`;
-
- 
-
-  // 👇 Trigger iOS local network prompt
- 
-
-  setStatusMsg("Connecting...");
-
-  try {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 4000);
-
-    const res = await fetch(`${url}/get_latest_point`, {
-      signal: controller.signal
-    });
-
-    clearTimeout(timeout);
-
-    if (res.ok) {
-      setConnected(true);
-      addLog("Connected successfully!", "success");
-      setStatusMsg("Connected!");
-
-      setTimeout(() => loadHeatmap(), 200);
-    } else {
-      throw new Error();
-    }
-  } catch {
-    setConnected(false);
-    addLog("Unable to connect", "error");
-    setStatusMsg(
-      "Failed to connect. Check your IP address and make sure all components are powered on and connected to the internet."
-    )
-  }
-}
-
-
-  async function sendCommand(cmd) {
-    addLog(`Sending ${cmd.toUpperCase()} command...`);
+    setStatusMsg("Connecting...");
     try {
-      const res = await fetch(`${baseURL}/${cmd}`);
-      const text = await res.text();
-      addLog(text, text.includes("SUCCESS") ? "success" : "error");
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 4000);
+
+      const res = await fetch(`${baseURL}/get_latest_point`, {
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeout);
+
+      if (res.ok) {
+        setConnected(true);
+        addLog("Connected successfully!", "success");
+        setStatusMsg("Connected!");
+      } else {
+        throw new Error();
+      }
     } catch {
-      addLog("Command failed", "error");
+      setConnected(false);
+      addLog("Unable to connect", "error");
+      setStatusMsg(
+        "Failed to connect. Check your IP address and make sure all components are powered on and connected to the internet."
+      );
     }
   }
 
   async function logData(force = false) {
-    const endpoint = force ? "/log?override=true" : "/log";
-    addLog(force ? "Force logging data..." : "Logging data...");
+    const targetDepth = prompt("Enter depth in centimeters:", "0");
+    if (targetDepth === null) {
+      addLog("Logging cancelled by user.", "warn");
+      return;
+    }
+
+    let targetURL = `${baseURL}/log?depth=${encodeURIComponent(targetDepth)}`;
+    if (force) {
+      targetURL += "&override=true";
+    }
+
+    addLog(force ? `Force logging profile at ${targetDepth}cm...` : `Logging profile at ${targetDepth}cm...`);
 
     try {
-      const res = await fetch(`${baseURL}${endpoint}`);
+      const res = await fetch(targetURL);
       const data = await res.json();
 
       if (data.status === "warning") return addLog(data.message, "warn");
       if (data.status === "error") return addLog(data.message, "error");
 
-      addLog(`Logged Sample ${data.new_point[0]}`, "success");
+      addLog(`Logged Sample ${data.new_point[0]} [Depth: ${targetDepth}cm]`, "success");
       drawMarker(data.new_point);
-      loadHeatmap();
-      updateRMSE();
     } catch {
       addLog("Log failed", "error");
     }
   }
-async function updateRMSE() {
-  try {
-    const res = await fetch(`${baseURL}/loocv_rmse`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(modelConfig)
-    });
-
-    const data = await res.json();
-
-    if (data.error) return;
-
-    setRmse(data.rmse);
-    setRmseCount(data.n_points_used);
-  } catch {
-    addLog("Failed to compute LOOCV RMSE", "error");
-  }
-}
-
-
 
   async function collect() {
     addLog("Requesting live sensor data...");
@@ -223,7 +138,7 @@ async function updateRMSE() {
       const res = await fetch(`${baseURL}/collect`);
       const data = await res.json();
       addLog(
-        `READOUT: Lat ${data.lat}, Lon ${data.lon} | Moisture ${data.moisture}% | Elev ${data.elevation}m`,
+        `READOUT: Lat ${data.lat}, Lon ${data.lon} | Moisture ${data.moisture}% | Temp ${data.temperature}°C`,
         "info"
       );
     } catch {
@@ -231,83 +146,48 @@ async function updateRMSE() {
     }
   }
 
-  async function loadHeatmap() {
-  try {
-    const res = await fetch(`${baseURL}/heatmap`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(modelConfig),
-      cache: "no-store"
-    });
-
-    const data = await res.json();
-
-    if (!data || data.error) {
-      addLog(data.error || "Heatmap missing response", "error");
-      return;
-    }
-
-    if (!data.image) {
-      addLog("Heatmap missing image field", "error");
-      return;
-    }
-
-    setHeatmapImg(`data:image/png;base64,${data.image}`);
-
-    if (data.regression_plot) {
-      setRegressionImg(`data:image/png;base64,${data.regression_plot}`);
-    }
-
-    if (data.variogram_plot) {
-      setVariogramImg(`data:image/png;base64,${data.variogram_plot}`);
-    }
-
-    if (data.max_uncertainty) {
-      setMaxUncertainty(data.max_uncertainty);
-    }
-    if (data.regression_r2 !== undefined) {
-  setR2(data.regression_r2);
-}
-
-    if (data.variogram_fit_error !== undefined) {
-  setVarError(data.variogram_fit_error);
-}
-
-
-    updateRMSE();
-  } catch (err) {
-    console.log(err);
-    addLog("Failed to load heatmap", "error");
-  }
-}
-
-
-  async function predictMoisture() {
+  // --- Manual Spatial Engine Trigger ---
+  async function handleCalculateOptimal() {
+    setOptimalLoading(true);
+    addLog("Calculating the best point", "info");
     try {
-      const res = await fetch(`${baseURL}/predict`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          lat: parseFloat(gpsInput.lat),
-          lon: parseFloat(gpsInput.lon)
-        })
-      });
-
+      const res = await fetch(`${baseURL}/optimal_point`);
       const data = await res.json();
-
-      if (data.error) {
-        addLog(data.error, "error");
-        return;
+      
+      if (data.status === "success") {
+        setOptimalPoint(data.optimal_point);
+        addLog(`Found the best point!`, "success");
+      } else {
+        setOptimalPoint(null);
+        addLog(`Engine Rejected: ${data.message}`, "warn");
+        alert(`Cannot calculate optimal point: ${data.message}`);
       }
+    } catch (err) {
+      setOptimalPoint(null);
+      addLog("Failed to communicate with calculation engine server.", "error");
+    } finally {
+      setOptimalLoading(false);
+    }
+  }
 
-      setPrediction(data.predicted_moisture);
+  async function downloadLogs() {
+    try {
+      const res = await fetch(`${baseURL}/view_logs`);
+      if (!res.ok) throw new Error("Failed download");
 
-      addLog(
-        `Predicted moisture at (${data.lat}, ${data.lon}) = ${data.predicted_moisture.toFixed(2)}%`,
-        "success"
-      );
-    } catch {
-      addLog("Prediction failed", "error");
+      const blob = await res.blob();
+      const url = window.URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "data.csv";
+      document.body.appendChild(a);
+      a.click();
+
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      addLog("Failed to download logs", "error");
     }
   }
 
@@ -317,257 +197,188 @@ async function updateRMSE() {
       const res = await fetch(`${baseURL}/clear_logs`);
       const text = await res.text();
       addLog(text, "success");
+      markersRef.current.forEach((m) => m.remove());
+      markersRef.current = [];
+      setOptimalPoint(null); // Clear previous engine targets upon data wipe
     } catch {
       addLog("Failed to clear logs", "error");
     }
   }
-async function simulateData() {
-  addLog("Simulating point...");
-
-  try {
-    const res = await fetch(`${baseURL}/simulate`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        lat: parseFloat(simInput.lat),
-        lon: parseFloat(simInput.lon),
-        moisture: parseFloat(simInput.moisture)
-      })
-    });
-
-    const data = await res.json();
-
-    if (data.status === "error") {
-      addLog(data.message, "error");
-      return;
-    }
-
-    addLog(`Simulated Sample ${data.new_point[0]}`, "success");
-
-    drawMarker(data.new_point);
-    loadHeatmap();
-    updateRMSE();
-
-  } catch {
-    addLog("Simulation failed", "error");
-  }
-}
-
-  async function downloadLogs() {
-  try {
-    const res = await fetch(`${baseURL}/view_logs`);
-
-    if (!res.ok) throw new Error("Failed download");
-
-    const blob = await res.blob();
-    const url = window.URL.createObjectURL(blob);
-
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "data.csv"; // or whatever your file is
-    document.body.appendChild(a);
-    a.click();
-
-    a.remove();
-    window.URL.revokeObjectURL(url);
-  } catch (err) {
-    addLog("Failed to download logs", "error");
-  }
-}
-
-
-  function openSprinklers() {
-    window.open(`${baseURL}/covariates`, "_blank");
-  }
-
-  useEffect(() => {
-    if (!connected) return;
-
-    const interval = setInterval(async () => {
-      try {
-        const res = await fetch(`${baseURL}/check_landing`);
-        const data = await res.json();
-        setDroneStatus(data.landed ? "LANDED" : "AIRBORNE");
-      } catch {}
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, [connected]);
 
   return (
     <div className="relative min-h-screen bg-[#1a1a1a] text-[#eee] p-5 font-sans pt-20">
-    
-<div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 pointer-events-auto">
-        <div className="p-8 max-w-md text-center shadow-2xl mx-4">
-          <p className="text-gray-300  text-sm leading-relaxed mb-6">This is a work in progress right now!</p>
-          
-        </div>
-      </div>
       {/* NAVBAR */}
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
-       <div className="max-w-full mx-auto px-6 h-16 flex items-center justify-between">
-         
-         {/* Logo Link */}
-         <div className="flex items-center text-xl font-bold tracking-tighter text-white">
-           <img src={logo} alt="AgraBhi Logo" className="h-6 w-auto translate-y-[1px]" />
-           <div>
-             <a 
-               href="https://agrabhi.com" 
-               onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com"; }}
-               className="cursor-pointer"
-             >
-               Agra<span className="text-emerald-400">Bhi</span>
-             </a>
-           </div>
-         </div>
-   
-         {/* Desktop Nav Links */}
-         <div className="hidden md:flex items-center gap-8">
-           <a 
-             href="https://agrabhi.com" 
-             onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com"; }}
-             className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-           >
-             Home
-           </a>
-   
-           <a 
-             href="https://agrabhi.com/about.html" 
-             onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/about.html"; }}
-             className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-           >
-             Our Team
-           </a>
-   
-           <a 
-             href="https://agrabhi.com/updates.html" 
-             onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/updates.html"; }}
-             className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-           >
-             Updates
-           </a>
-   
-           <a 
-             target="_blank" 
-             rel="noopener noreferrer" 
-             href="https://github.com/nathan-sharma/Agrabhi" 
-             className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-           >
-             GitHub
-           </a>
-              
-           <a 
-             href="https://agrabhi.com/data-hub.html" 
-             onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/data-hub.html"; }}
-             className="text-xs uppercase tracking-widest font-bold px-4 py-2 rounded-full bg-blue-500 text-[#0D1117] hover:bg-blue-400 transition-all"
-           >
-             Data Hub
-           </a>
-         </div>
-   
-         {/* Mobile Menu Toggle Button */}
-         <button 
-           onClick={toggleMenu}
-           className="md:hidden text-slate-400 hover:text-white focus:outline-none"
-         >
-           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-             {isMenuOpen ? (
-               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-             ) : (
-               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-             )}
-           </svg>
-         </button>
-       </div>
-   
-       {/* Mobile Nav Links */}
-       {isMenuOpen && (
-         <div className="md:hidden bg-[#0D1117] border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
-           <a 
-             href="https://agrabhi.com/" 
-             onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/"; }}
-             className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-           >
-             Home
-           </a>
-           
-           
-           <a 
-             href="https://agrabhi.com/about.html" 
-             onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/about.html"; }}
-             className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-           >
-             Our Team
-           </a>
-           
-           <a 
-             href="https://agrabhi.com/updates.html" 
-             onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/updates.html"; }}
-             className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-           >
-             Updates
-           </a>
-   
-           
-   
-           <a 
-             href="https://github.com/nathan-sharma/Agrabhi" 
-             onClick={toggleMenu}
-             target="_blank"
-             rel="noopener noreferrer"
-             className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-           >
-             GitHub
-           </a>
-           <a 
-             href="https://drive.google.com/file/d/1TR2aueFCylzw7Rai_YTZquHvooWqFICa/view?usp=sharing"
-             target="_blank"
-             rel="noopener noreferrer"
-             className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-400 transition-colors"
-           >
-             Poster
-           </a>
-   <a 
-             href="https://agrabhi.com/data-hub.html" 
-             onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/data-hub.html"; }}
-             className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-           >
-             Data Hub
-           </a>
-         </div>
-       )}
-     </nav>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
+        <div className="max-w-full mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="flex items-center text-xl font-bold tracking-tighter text-white">
+            <img src={logo} alt="AgraBhi Logo" className="h-6 w-auto translate-y-[1px] mr-2" />
+            <div>
+              <a
+                href="https://agrabhi.com"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = "https://agrabhi.com";
+                }}
+                className="cursor-pointer"
+              >
+                Agra<span className="text-emerald-400">Bhi</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="hidden md:flex items-center gap-8">
+            <a
+              href="https://agrabhi.com"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "https://agrabhi.com";
+              }}
+              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+            >
+              Home
+            </a>
+
+            <a
+              href="https://agrabhi.com/about.html"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "https://agrabhi.com/about.html";
+              }}
+              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+            >
+              Our Team
+            </a>
+
+            <a
+              href="https://agrabhi.com/updates.html"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "https://agrabhi.com/updates.html";
+              }}
+              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+            >
+              Updates
+            </a>
+
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/nathan-sharma/Agrabhi"
+              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+            >
+              GitHub
+            </a>
+
+            <a
+              href="https://agrabhi.com/data-hub.html"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "https://agrabhi.com/data-hub.html";
+              }}
+              className="text-xs uppercase tracking-widest font-bold px-4 py-2 rounded-full bg-blue-500 text-[#0D1117] hover:bg-blue-400 transition-all"
+            >
+              Data Hub
+            </a>
+          </div>
+
+          <button
+            onClick={toggleMenu}
+            className="md:hidden text-slate-400 hover:text-white focus:outline-none"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {isMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+              )}
+            </svg>
+          </button>
+        </div>
+
+        {isMenuOpen && (
+          <div className="md:hidden bg-[#0D1117] border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
+            <a
+              href="https://agrabhi.com/"
+              onClick={(e) => {
+                e.preventDefault();
+                toggleMenu();
+                window.location.href = "https://agrabhi.com/";
+              }}
+              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+            >
+              Home
+            </a>
+
+            <a
+              href="https://agrabhi.com/about.html"
+              onClick={(e) => {
+                e.preventDefault();
+                toggleMenu();
+                window.location.href = "https://agrabhi.com/about.html";
+              }}
+              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+            >
+              Our Team
+            </a>
+
+            <a
+              href="https://agrabhi.com/updates.html"
+              onClick={(e) => {
+                e.preventDefault();
+                toggleMenu();
+                window.location.href = "https://agrabhi.com/updates.html";
+              }}
+              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+            >
+              Updates
+            </a>
+
+            <a
+              href="https://github.com/nathan-sharma/Agrabhi"
+              onClick={toggleMenu}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://agrabhi.com/data-hub.html"
+              onClick={(e) => {
+                e.preventDefault();
+                toggleMenu();
+                window.location.href = "https://agrabhi.com/data-hub.html";
+              }}
+              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+            >
+              Data Hub
+            </a>
+          </div>
+        )}
+      </nav>
 
       {/* INFO */}
       <div className="mb-6">
-        <h2 className="text-3xl font-bold mb-3 text-white">
-          AgraBhi Data Hub
-        </h2>
-
+        <h2 className="text-3xl font-bold mb-3 text-white">AgraBhi Data Hub</h2>
         <div className="space-y-2 text-sm text-gray-300 leading-relaxed">
-      <p>Control all rovers and monitor data remotely from this page!</p>
-         <div className = "mt-2">
-          <a
+          <p>We will be using this page to collect our project data on the farm fields.</p>
+          <div className="mt-2">
+            <a
               target="_blank"
               rel="noopener noreferrer"
               href="https://docs.google.com/document/d/1S0mL2VNIkHVH2baN0HFV6N_pfqVgpON1sv6gE_mZ1rs/edit?usp=sharing"
               className="underline hover:text-gray-500"
             >
-              Troubleshooting & FAQs
+              Troubleshooting & FAQs coming soon, once we have this ready for everyone else to use!
             </a>
-            </div>
+          </div>
         </div>
       </div>
 
-      {/* CONNECT ALWAYS CLICKABLE */}
+      {/* CONNECT */}
       <div className="mb-6">
         {!connected && (
-          <button
-            className="bg-[#444] px-3 py-2 mb-2"
-            onClick={connectToPi}
-          >
+          <button className="bg-[#444] px-3 py-2 mb-2" onClick={connectToPi}>
             Connect to Rovers
           </button>
         )}
@@ -581,234 +392,73 @@ async function simulateData() {
                 setPiIp(newIp);
                 setConnected(false);
                 setStatusMsg("");
+                setOptimalPoint(null);
               }
             }}
           >
-            Edit IP Address
+            Edit IP Address 
           </button>
         </div>
 
-        {statusMsg && (
-          <p className="text-sm text-yellow-400 mt-2">{statusMsg}</p>
-        )}
+        {statusMsg && <p className="text-sm text-yellow-400 mt-2">{statusMsg}</p>}
       </div>
 
-      {/* EVERYTHING BELOW NOW ALWAYS RENDERS (NO MORE connected CONDITION) */}
-      <>
-       <div className="mb-4 flex flex-wrap gap-2">
+      {/* CONTROL ACTIONS */}
+      <div className="mb-4 flex flex-wrap gap-2">
+        <button className="bg-[#444] px-3 py-2 mr-2" onClick={collect}>
+          Read Sensors
+        </button>
+        <button className="bg-[#4169E1] px-3 py-2 mr-2" onClick={() => logData(false)}>
+          Log Sensor Data
+        </button>
+        <button className="bg-purple-700 hover:bg-purple-800 text-white font-semibold px-3 py-2 mr-2 transition-colors" onClick={handleCalculateOptimal} disabled={optimalLoading}>
+          {optimalLoading ? "Computing Grid..." : "Find Best Point"}
+        </button>
+        <button className="bg-[#444] px-3 py-2 mr-2" onClick={downloadLogs}>
+          Download All Logs
+        </button>
+        <button className="bg-[#e63946] px-3 py-2 mr-2" onClick={clearLogs}>
+          ERASE ALL LOGS
+        </button>
+      </div>
 
-          <button className="bg-[#444] px-3 py-2 mr-2" onClick={collect}>Read Sensors</button>
-          <button className="bg-[#4169E1] px-3 py-2 mr-2" onClick={() => logData(false)}>Log Sensor Data</button>
-          <button className="bg-blue-900 px-3 py-2 mr-2" onClick={() => logData(true)}>Force Log</button>
-          <button className="bg-[#444] px-3 py-2 mr-2" onClick={() => sendCommand("extend")}>Extend Sensor</button>
-          <button className="bg-[#444] px-3 py-2 mr-2" onClick={() => sendCommand("retract")}>Retract Sensor</button>
-          <button className="bg-[#444] px-3 py-2 mr-2" onClick={downloadLogs}>Download All Logs</button>
-          <button className="bg-[#e63946] px-3 py-2 mr-2" onClick={clearLogs}>ERASE ALL LOGS</button>
-
+      {/* TARGET OPTIMIZATION METRICS PANEL */}
+      {optimalPoint && (
+        <div className="mb-6 p-4 text-sm max-w-2xl ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 text-gray-300">
+            <p><span className="text-gray-500">Latitude:</span> {optimalPoint.best_lat.toFixed(7)}</p>
+            <p><span className="text-gray-500">Longitude:</span> {optimalPoint.best_lon.toFixed(7)}</p>
+            <p><span className="text-gray-500">Predicted Moisture at 5 cm:</span> {optimalPoint.predicted_moisture.toFixed(2)}%</p>
+            <p><span className="text-gray-500">Acquisition A(x):</span> {optimalPoint.acquisition_value.toFixed(4)}</p>
+          </div>
         </div>
+      )}
 
-        <p className="mb-2">
-          <strong>{droneStatus}</strong>
-        </p>
-
-        <div className="mb-4 flex flex-col md:flex-row gap-2">
-
-          <input
-            className="bg-[#222] p-2 text-white"
-            placeholder="Latitude"
-            value={gpsInput.lat}
-            onChange={(e) => setGpsInput({ ...gpsInput, lat: e.target.value })}
-          />
-
-          <input
-            className="bg-[#222] p-2 text-white"
-            placeholder="Longitude"
-            value={gpsInput.lon}
-            onChange={(e) => setGpsInput({ ...gpsInput, lon: e.target.value })}
-          />
-
-          <button
-            className="bg-blue-600 px-3 py-2"
-            onClick={predictMoisture}
+      {/* SYSTEM MESSAGES LOG */}
+      <h3 className="text-xl mb-2">Messages:</h3>
+      <div className="bg-black text-green-400 p-3 h-[200px] overflow-y-scroll border border-[#333] font-mono mb-6">
+        {logs.map((log, i) => (
+          <div
+            key={i}
+            className={
+              log.type === "error"
+                ? "text-red-400"
+                : log.type === "warn"
+                ? "text-yellow-400"
+                : log.type === "success"
+                ? "text-green-400"
+                : "text-blue-400"
+            }
           >
-            Predict
-          </button>
-        </div>
-<div className="mt-4 mb-4">
-  
-
-  <div className="flex flex-col md:flex-row gap-2">
-    <input
-      className="bg-[#222] p-2 text-white"
-      placeholder="Latitude"
-      value={simInput.lat}
-      onChange={(e) => setSimInput({ ...simInput, lat: e.target.value })}
-    />
-
-    <input
-      className="bg-[#222] p-2 text-white"
-      placeholder="Longitude"
-      value={simInput.lon}
-      onChange={(e) => setSimInput({ ...simInput, lon: e.target.value })}
-    />
-
-    <input
-      className="bg-[#222] p-2 text-white"
-      placeholder="Moisture"
-      value={simInput.moisture}
-      onChange={(e) => setSimInput({ ...simInput, moisture: e.target.value })}
-    />
-
-    <button
-      className="bg-blue-600 px-3 py-2"
-      onClick={simulateData}
-    >
-      Simulate
-    </button>
-  </div>
-</div>
-
-        <h3 className="text-xl mb-2">System messages:</h3>
-        <div className="bg-black text-green-400 p-3 h-[200px] overflow-y-scroll border border-[#333] font-mono">
-          {logs.map((log, i) => (
-            <div
-              key={i}
-              className={
-                log.type === "error"
-                  ? "text-red-400"
-                  : log.type === "warn"
-                  ? "text-yellow-400"
-                  : log.type === "success"
-                  ? "text-green-400"
-                  : "text-blue-400"
-              }
-            >
-              [{log.time}] {log.message}
-            </div>
-          ))}
-        </div>
-      </>
-
-    <div className="flex flex-col md:flex-row gap-4 w-full mb-4">
-
-        
-        <div
-          ref={mapRef}
-         className="w-full md:w-1/2 h-[300px] md:h-[400px] border border-[#333] rounded"
-
-        />
-
-        {heatmapImg && (
-          <div className="w-full md:w-1/2 border border-[#333] rounded flex flex-col">
-
-        <div className="h-[300px] md:h-[400px] flex items-center justify-center">
-
-              <img
-                src={heatmapImg}
-                className="w-full h-full object-fill"
-                alt="Heatmap"
-              />
-            </div>
-
-
-
-      </div>
-      
-        )}
-
-      </div>
-
-<div className="mt-10 space-y-10 text-sm text-yellow-300 relative z-20">
-
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-    {regressionImg && (
-      <div className="bg-[#111] border border-[#2a2a2a] rounded-xl p-4">
-        <div className="text-white font-bold mb-2">
-          Regression Model (Moisture vs Distance)
-        </div>
-
-        <div className="text-xs text-gray-300 mb-3">
-          r² (correlation strength): {r2 !== null ? r2.toFixed(4) : ""}
-        </div>
-
-        <img
-          src={regressionImg}
-          className="w-full h-[260px] object-contain rounded"
-          alt="Regression Plot"
-        />
-      </div>
-    )}
-
-    {variogramImg && (
-      <div className="bg-[#111] border border-[#2a2a2a] rounded-xl p-4">
-        <div className="text-white font-bold mb-2">
-          Variogram
-        </div>
-
-        <div className="text-xs text-gray-300 mb-3">
-          Variogram MSE: {varError !== null ? varError.toFixed(4) : ""}
-        </div>
-
-        <img
-          src={variogramImg}
-          className="w-full h-[260px] object-contain rounded"
-          alt="Variogram Plot"
-        />
-      </div>
-    )}
-
-  </div>
-
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-    <div className="bg-[#111] border border-[#2a2a2a] rounded-xl p-4">
-      {maxUncertainty && (
-        <>
-          <div className="text-white font-semibold mb-2">
-            Highest Uncertainty Area
+            [{log.time}] {log.message}
           </div>
+        ))}
+      </div>
 
-          <div className="text-yellow-200 space-y-1">
-            <div>Lat: {maxUncertainty.lat}</div>
-            <div>Lon: {maxUncertainty.lon}</div>
-            <div>Score: {maxUncertainty.value.toFixed(2)}</div>
-          </div>
-        </>
-      )}
+      {/* MAP FIELD LAYER */}
+      <div className="flex flex-col md:flex-row gap-4 w-full mb-4">
+        <div ref={mapRef} className="w-full h-[400px] border border-[#333] rounded" />
+      </div>
     </div>
-
-    <div className="bg-[#111] border border-[#2a2a2a] rounded-xl p-4">
-      {rmse !== null && (
-        <>
-          <div className="text-white font-semibold mb-2">
-            LOOCV RMSE
-          </div>
-
-          <div className="text-yellow-200 space-y-1">
-            <div>RMSE: {rmse.toFixed(3)} % VWC</div>
-            <div>Samples: {rmseCount}</div>
-          </div>
-        </>
-      )}
-    </div>
-
-  </div>
-
-  <div className="bg-[#111] border border-[#2a2a2a] rounded-xl p-4">
-
-    <div className="flex flex-col md:flex-row flex-wrap gap-4 justify-between">
-
-    
-
-    </div>
-
-  </div>
-
-</div>
-
-</div>
-
-  
   );
 }
