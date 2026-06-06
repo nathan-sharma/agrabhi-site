@@ -361,7 +361,7 @@ export default function DataHub() {
       <div className="mb-6">
         <h2 className="text-3xl font-bold mb-3 text-white">AgraBhi Data Hub</h2>
         <div className="space-y-2 text-sm text-gray-300 leading-relaxed">
-          <p>We will be using this page to collect our project data on the farm fields.</p>
+          <p>We will be using this page to collect our project data on farm fields.</p>
           <div className="mt-2">
             <a
               target="_blank"
@@ -379,7 +379,7 @@ export default function DataHub() {
       <div className="mb-6">
         {!connected && (
           <button className="bg-[#444] px-3 py-2 mb-2" onClick={connectToPi}>
-            Connect to Rovers
+            Connect to pi
           </button>
         )}
 
@@ -406,16 +406,16 @@ export default function DataHub() {
       {/* CONTROL ACTIONS */}
       <div className="mb-4 flex flex-wrap gap-2">
         <button className="bg-[#444] px-3 py-2 mr-2" onClick={collect}>
-          Read Sensors
+          Read sensors
         </button>
         <button className="bg-[#4169E1] px-3 py-2 mr-2" onClick={() => logData(false)}>
-          Log Sensor Data
+          Log 
         </button>
-        <button className="bg-purple-700 hover:bg-purple-800 text-white font-semibold px-3 py-2 mr-2 transition-colors" onClick={handleCalculateOptimal} disabled={optimalLoading}>
-          {optimalLoading ? "Computing Grid..." : "Find Best Point"}
+        <button className="bg-purple-700 hover:bg-purple-800 text-white px-3 py-2 mr-2 transition-colors" onClick={handleCalculateOptimal} disabled={optimalLoading}>
+          {optimalLoading ? "Computing Grid..." : "Find the best point to sample at"}
         </button>
         <button className="bg-[#444] px-3 py-2 mr-2" onClick={downloadLogs}>
-          Download All Logs
+          Download all logs
         </button>
         <button className="bg-[#e63946] px-3 py-2 mr-2" onClick={clearLogs}>
           ERASE ALL LOGS

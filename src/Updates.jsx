@@ -5,6 +5,8 @@ import api from "/api.png";
 import map from "/3dslices.png"
 import funct from "/acquisitionfunction.png"
 import formula from "/formula.png"
+import setup from "/fullsetup.png"
+import roverfromamazon from "/wavesharerover.png"
 // Structured array containing your timeline data across 2026 and 2027
 const MONTHS_DATA = [
   {
@@ -95,10 +97,64 @@ const MONTHS_DATA = [
     )
   },
   { name: "June", year: "2026", content: <div className="text-slate-500 pt-1">
+    
+
+  <p className="text-slate-400 leading-relaxed mb-6">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  June 6th, 2026: Full setup! Arduino connects to the new soil sensor which connects to the pi to send its data. The acquisition function is also now coded on the raspberry pi and returns this information to the AgraBhi Data Hub. All we need to do now is simulate the rover's battery life in the code, update the rover's location variable to be where the Pi is in real time, and make a way for us to manually input the charging station's GPS coordinates.
+</p>
+
+{/* Container to handle horizontal layout on medium screens and larger */}
+<div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
+  
+  {/* Image Figure */}
+  <figure className="flex flex-col flex-1">
+    <div className="w-full aspect-video overflow-hidden  bg-slate-900">
+      <img
+        src={setup}
+        alt="Arduino and Raspberry Pi Setup"
+        className="w-full h-full object-cover"
+      />
+    </div>
+    <figcaption className="mt-4 text-sm text-slate-400 leading-relaxed"> 
+      This is the arduino + raspberry pi + GPS antenna + soil sensor setup we will be using to collect data on the farms next week!
+    </figcaption>
+  </figure>
+
+  {/* Video Figure */}
+  <figure className="flex flex-col flex-1">
+    <div className="w-full aspect-video overflow-hidden  bg-slate-900">
+      <video 
+        src="datahubvid.mp4" 
+        controls 
+        muted
+        preload="metadata"
+        className="w-full h-full"
+      >
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <figcaption className="mt-4 text-sm text-slate-400 leading-relaxed"> 
+      This is a video of our data hub finding the best point to sample at using our acquisition function process, just like our Python code, only now the calculation is being done on the raspberry pi and can be recalculated every time we log a new point.
+    </figcaption>
+  </figure>
+
+</div>
+<p className="text-slate-400 leading-relaxed mb-6">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  June 5th, 2026: Landon found a rover kit to use to start building the first prototype. It's around $230 and is very customizable! He also plans to use a LIDAR scanner on the rover.
+</p>
+<img
+         
+    src={roverfromamazon}
+    alt="Placeholder 1"
+    className="md:w-[50%] md:h-relative h-full w-relative mt-4 mb-4"
+  />
       <p className="text-slate-400 leading-relaxed">
           <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
           June 3rd, 2026: Coded the basic parts of the acquisition function process. The code loops through all points on the field and finds the one with the highest A(x) value. A higher A(x) value means that point will offer the most information, so rovers prefer to go there to take a sample. Some code output is shown below (based on simulated data). Our function in the code assumes every term has a weight of 1, we will later run tests to see if it will realistically work in different scenarios on the farm and how we should optimize our weights so it does.
         </p>
+
       
         
 
@@ -116,12 +172,13 @@ const MONTHS_DATA = [
     alt="Placeholder 1"
     className="md:w-[50%] md:h-relative h-full w-relative mt-4 mb-4"
   />
-  <figcaption className = "mb-4"> 
+  <figcaption className = "mb-4 text-sm"> 
     Our acquisition function formula is shown above. The variables and how this will be used in the project are explained  <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1o6kB64x-la7LfA9-zpvW1XvdDKNfi7HZQpoSRrUACMo/edit?usp=sharing" className="underline hover:text-gray-500 ">here.</a>
   </figcaption>
 </figure>
   
   
+ 
   
   
   
