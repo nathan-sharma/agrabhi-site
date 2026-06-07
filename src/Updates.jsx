@@ -7,6 +7,7 @@ import funct from "/acquisitionfunction.png"
 import formula from "/formula.png"
 import setup from "/fullsetup.png"
 import roverfromamazon from "/wavesharerover.png"
+import multiplerovers from "/multiplerovers.png"
 // Structured array containing your timeline data across 2026 and 2027
 const MONTHS_DATA = [
   {
@@ -99,8 +100,21 @@ const MONTHS_DATA = [
   { name: "June", year: "2026", content: <div className="text-slate-500 pt-1">
     
 
-  <p className="text-slate-400 leading-relaxed mb-6">
+ <p className="text-slate-400 leading-relaxed mb-6">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  June 7th, 2026: Almost ready for the farm! We got the Data Hub to calculate the best points for 5 simulated rovers in real time.
+Our code essentially calculates where the five rovers in our swarm should travel. It looks at where the rovers currently are, finds the areas on the farm that offer the most information, and calculates an "optimal" point for each rover to sample at in these areas (this is what our acquisition function calculates, but it's only for one individual rover!) We then collect data at those spots, update the code, and let it calculate the next 5 optimal points for the rovers to take samples at until we have enough points sampled.
+Now we just need to test everything on small fields and parks nearby before we go to the farm!
+  </p>
+  
+      <img
+        src={multiplerovers}
+        alt="Multiple simulated rovers shown on data hub!"
+        className="w-[50%] h-relative"
+      />
+  
+  <p className="text-slate-400 leading-relaxed mb-6">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px] mt-6"></span>
   June 6th, 2026: Full setup! Arduino connects to the new soil sensor which connects to the pi to send its data. The acquisition function is also now coded on the raspberry pi and returns this information to the AgraBhi Data Hub. All we need to do now is simulate the rover's battery life in the code, update the rover's location variable to be where the Pi is in real time, and make a way for us to manually input the charging station's GPS coordinates.
 </p>
 
