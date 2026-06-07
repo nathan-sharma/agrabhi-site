@@ -241,7 +241,7 @@ export default function DataHub() {
 
   async function handleCalculateSwarmOptimal() {
     setSwarmLoading(true);
-    addLog("Calculating best positions for all rovers", "info");
+    addLog("Calculating best positions for the rovers", "info");
     try {
       const res = await fetch(`${baseURL}/swarm_optimal_point`);
       const data = await res.json();
