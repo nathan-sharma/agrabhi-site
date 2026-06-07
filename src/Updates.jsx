@@ -115,7 +115,7 @@ Now we just need to test everything on small fields and parks nearby before we g
   
   <p className="text-slate-400 leading-relaxed mb-6">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px] mt-6"></span>
-  June 6th, 2026: Full setup! Arduino connects to the new soil sensor which connects to the pi to send its data. The acquisition function is also now coded on the raspberry pi and returns this information to the AgraBhi Data Hub. All we need to do now is simulate the rover's battery life in the code, update the rover's location variable to be where the Pi is in real time, and make a way for us to manually input the charging station's GPS coordinates.
+  June 6th, 2026: Full setup! Arduino connects to the new soil sensor which connects to the pi to send its data. The acquisition function is also now coded on the raspberry pi and returns this information to the AgraBhi Data Hub. All we need to do now is make it work for multiple rovers, simulate battery life in the code, update the rover's location variable to be where the Pi is in real time, and make a way for us to manually input the charging station's GPS coordinates.
 </p>
 
 {/* Container to handle horizontal layout on medium screens and larger */}
@@ -149,7 +149,7 @@ Now we just need to test everything on small fields and parks nearby before we g
       </video>
     </div>
     <figcaption className="mt-4 text-sm leading-relaxed"> 
-      This is a video of our data hub finding the best point to sample at using our acquisition function process, just like our Python code, only now the calculation is being done on the raspberry pi and can be recalculated every time we log a new point.
+      This is a video of our data hub finding the best point to sample at using our acquisition function process, just like our Python code, only now the calculation is being done on the raspberry pi and can be recalculated every time we log a new point. However, this still only assumes there is a single rover on the field, we still need to code it to work for a swarm of rovers.
     </figcaption>
   </figure>
 
