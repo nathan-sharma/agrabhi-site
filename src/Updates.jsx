@@ -108,7 +108,7 @@ const MONTHS_DATA = [
       <img
         src={multiplerovers}
         alt="Multiple simulated rovers shown on data hub!"
-        className="w-[50%] h-relative"
+        className="md:w-[50%] w-full h-relative"
       />
   
   <p className="text-slate-400 leading-relaxed mb-6">
