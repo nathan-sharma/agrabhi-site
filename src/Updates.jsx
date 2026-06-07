@@ -102,10 +102,8 @@ const MONTHS_DATA = [
 
  <p className="text-slate-400 leading-relaxed mb-6">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  June 7th, 2026: Almost ready for the farm! We got the Data Hub to calculate the best points for 5 simulated rovers in real time.
-Our code essentially calculates where the five rovers in our swarm should travel. It looks at where the rovers currently are, finds the areas on the farm that offer the most information, and calculates an "optimal" point for each rover to sample at in these areas (this is what our acquisition function calculates, but it's only for one individual rover!) We then collect data at those spots, update the code, and let it calculate the next 5 optimal points for the rovers to take samples at until we have enough points sampled.
-Now we just need to test everything on small fields and parks nearby before we go to the farm!
-  </p>
+ June 7th, 2026: Data Hub code finished! It essentially calculates the optimal path for the five rovers in our swarm to follow. It looks at where the rovers currently are, finds the areas on the farm that either haven't been measured or have a lot of variability in nearby moisture measurements, and calculates an "optimal" point for each rover to measure at in these areas (this is what our acquisition function calculates, but it only does this for one individual rover.) We then collect data at those "optimal" spots, update the code, and let it calculate the next 5 optimal points for the rovers to take measurements at until we have enough points sampled. This was the last major thing to finish before the farm visit, now we just need to test everything works before we go!
+ </p>
   
       <img
         src={multiplerovers}
