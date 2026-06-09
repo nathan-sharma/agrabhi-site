@@ -7,7 +7,7 @@ import './index.css'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* Wrap it in BrowserRouter with your repository basename */}
-    <BrowserRouter basename="/">
+    <BrowserRouter basename="/agrabhi-site">
       <About />
     </BrowserRouter>
   </React.StrictMode>,
