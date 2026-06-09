@@ -1,1 +1,0 @@
-import{l as e,o as t,r as n,s as r,t as i}from"./jsx-runtime-Cowi4ap7.js";import{t as a}from"./DataHub-Ca12fauu.js";var o=e(r(),1),s=e(t(),1),c=i();s.createRoot(document.getElementById(`root`)).render((0,c.jsx)(o.StrictMode,{children:(0,c.jsx)(n,{basename:`/`,children:(0,c.jsx)(a,{})})}));
