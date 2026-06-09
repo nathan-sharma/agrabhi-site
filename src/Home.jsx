@@ -314,7 +314,7 @@ export default function Home() {
           <div className="hidden md:block bg-[#161B22] border border-slate-800 p-1 rounded-xl shadow-xl">
             <div className="bg-[#0D1117] w-full h-[800px] overflow-hidden rounded-lg">
               <iframe
-                src="/poster.pdf"
+                src="/agrabhi-site/poster.pdf"
                 className="w-full h-full border-none"
                 title="AgraBhi Research Poster"
               ></iframe>
