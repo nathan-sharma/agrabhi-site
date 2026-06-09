@@ -2,7 +2,7 @@
   "name": "my-website",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://agrabhi.com",
+  "homepage": "https://nathan-sharma.github.io/agrabhi-site",
   "type": "module",
   "scripts": {
     "dev": "vite",
