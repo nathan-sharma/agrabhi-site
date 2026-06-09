@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://agrabhi.com/</loc>
+    <loc>https://nathan-sharma.github.io/agrabhi-site/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://agrabhi.com/about.html</loc>
+    <loc>https://nathan-sharma.github.io/agrabhi-site/about.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://agrabhi.com/updates.html</loc>
+    <loc>https://nathan-sharma.github.io/agrabhi-site/updates.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://agrabhi.com/data-hub.html</loc>
+    <loc>https://nathan-sharma.github.io/agrabhi-site/data-hub.html</loc>
     <priority>0.8</priority>
   </url>
 </urlset>
