@@ -41,22 +41,22 @@ export default function Home() {
               Home
             </a>
     
-            <a 
-              href="https://nathan-sharma.github.io/agrabhi-site/about.html" 
-              onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/about.html"; }}
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-            >
-              Our Team
-            </a>
+           
     
             <a 
               href="https://nathan-sharma.github.io/agrabhi-site/updates.html" 
               onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/updates.html"; }}
               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
             >
-              Updates
+             Project Updates
             </a>
-    
+     <a 
+              href="https://nathan-sharma.github.io/agrabhi-site/about.html" 
+              onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/about.html"; }}
+              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+            >
+              Our Team
+            </a>
             <a 
               target="_blank" 
               rel="noopener noreferrer" 
@@ -102,20 +102,22 @@ export default function Home() {
             </a>
             
             
-            <a 
-              href="https://nathan-sharma.github.io/agrabhi-site/about.html" 
-              onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/about.html"; }}
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-            >
-              Our Team
-            </a>
+            
             
             <a 
               href="https://nathan-sharma.github.io/agrabhi-site/updates.html" 
               onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/updates.html"; }}
               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
             >
-              Updates
+             Project Updates
+            </a>
+
+            <a 
+              href="https://nathan-sharma.github.io/agrabhi-site/about.html" 
+              onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/about.html"; }}
+              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+            >
+              Our Team
             </a>
     
             
@@ -195,15 +197,7 @@ export default function Home() {
         
         {/* PROJECT VIDEO SECTION */}
         <section className="py-8 flex flex-col items-center justify-center">
-          <div className="relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black w-[70%] h-relative">
-            <iframe
-              className="absolute top-0 left-0 w-full h-full"
-              src="https://www.youtube.com/embed/Bgpvw7TuoMc"
-              title="AgraBhi 2026 Project"
-              frameBorder="0"
-              allowFullScreen
-            ></iframe>
-          </div>
+         
           <div className="mt-6 relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black w-[70%] h-relative">
             <iframe
               className="absolute top-0 left-0 w-full h-full"
@@ -243,88 +237,13 @@ export default function Home() {
               </p>
             </div>
 
-            {!showFullAbstract ? (
-              <button 
-                onClick={() => setShowFullAbstract(true)}
-                className="mt-4 px-6 py-2 bg-slate-800 hover:bg-slate-700 text-emerald-400 text-xs font-bold uppercase tracking-widest rounded-full border border-slate-700 transition-all"
-              >
-                Read last year's abstract
-              </button>
-            ) : (
-              <div className="animate-fade-in pt-4 border-t border-slate-800">
-                <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">2025-26 Science Fair Abstract</h3>
-                <div className="space-y-6">
-                  <p>
-                    Variation in soil moisture across agricultural fields reduces crop yields and leads to inefficient water management. Climate change has increased the variability of soil moisture, intensifying this problem. Existing soil moisture gauging methods fail to capture moisture at the root level of crops.
-                  </p>
-                  
-                  <p>
-                    An autonomous drone system, built for under $1000, collects soil moisture data and generates high-resolution field maps using various interpolation models and environmental covariates. The drone uses:
-                  </p>
-
-                  <ul className="list-disc list-inside space-y-3 text-slate-400 pl-4 border-l border-emerald-500/30">
-                    <li>A custom <span className="font-bold">linear actuator-driven soil sensor probe</span>, extending the sensor 11 centimeters into the ground.</li>
-                    <li>A <span className="font-bold">Real-Time Kinematic (RTK) GPS</span> system providing centimeter-level accuracy using corrections from a fixed base station.</li>
-                    <li>Raspberry Pi / Pixhawk communication for hands-free data collection upon landing.</li>
-                  </ul>
-
-                  <p>
-                    The drone can be controlled completely hands-free via a custom-coded application called the <span className="font-bold">AgraBhi Data Hub</span>, which is accessible on any web browser with a stable internet connection. 
-                  </p>
-
-                  <p>
-                    Regarding data analysis, among Ordinary Kriging, Regression Kriging, and Inverse Distance Weighted Interpolation, <span className="font-bold">Regression Kriging</span> demonstrated the smallest Root-Mean-Square Error (RMSE) in Leave-One-Out-Cross-Validation (LOOCV) and reasonable Mean Error (ME) when coupled with elevation data.
-                  </p>
-
-                  <p>
-                    Field validation shows interpolated moisture values are within experimental uncertainty of ground-truth measurements. While commercial agricultural drones cost several thousand dollars, our relatively low-cost system provides high-resolution, spatially explicit moisture mapping, revealing detailed patterns of soil moisture variation and potentially supporting improved irrigation decision-making and water efficiency.
-                  </p>
-                  
-                  <button 
-                    onClick={() => setShowFullAbstract(false)}
-                    className="text-xs text-slate-500 hover:text-emerald-400 underline underline-offset-4 transition-colors"
-                  >
-                    Show less
-                  </button>
-                </div>
-              </div>
-            )}
+           
           </div>
         </section>
-
-        <hr className="border-slate-900" />
-        <section id="poster" className="hidden md:block py-5 scroll-mt-24">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-6">
-            2025-26 Poster Board
-          </h2>
-          
-          {/* Button for smaller screens */}
-          <div className="md:hidden">
-            <a 
-              href="https://drive.google.com/file/d/1TR2aueFCylzw7Rai_YTZquHvooWqFICa/view?usp=sharing" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="block w-full text-center py-2 bg-emerald-500 hover:bg-emerald-600 text-[#0D1117] font-bold uppercase tracking-widest transition-all "
-            >
-             Open in new tab
-            </a>
-          </div>
-
-          {/* Hidden on small screens, shown on md and up */}
-          <div className="hidden md:block bg-[#161B22] border border-slate-800 p-1 rounded-xl shadow-xl">
-            <div className="bg-[#0D1117] w-full h-[800px] overflow-hidden rounded-lg">
-              <iframe
-                src="/agrabhi-site/poster.pdf"
-                className="w-full h-full border-none"
-                title="AgraBhi Research Poster"
-              ></iframe>
-            </div>
-          </div>
-        </section>
-        {/* CURRENT DEVELOPMENT SECTION */}
-       <section id="development" className="py-5 scroll-mt-24">
+           <hr className="border-slate-900" />
+ <section id="development" className="py-5 scroll-mt-24">
   <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-8">
-    This year (2026-27 continuation)
+    Current work (Rover project)
   </h2>
   
   {/* The 2-column grid now holds the first two balanced items */}
@@ -332,7 +251,7 @@ export default function Home() {
     <div>
       <h3 className="text-white font-bold mb-3 flex items-center gap-2">
         <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
-        Drone to Rovers
+         Drone to Swarm of Autonomous Rovers
       </h3>
       <p className="text-slate-400 font-light text-sm leading-relaxed">
        An important limitation of our project last year was the drone struggled to get through the crop canopy. Its blades could easily damage crops, and designing a solution, such as lowering a pod using a tether while the drone hovers above the crops, would cost significant battery life and be very difficult to build. To fix this, we decided to switch our project to creating a swarm of five rovers. Each rover would cost ~$400, be autonomous, and would communicate with one another to take samples effectively.
@@ -367,6 +286,37 @@ export default function Home() {
     
   </div>
 </section>
+        <hr className="border-slate-900" />
+        <section id="poster" className="hidden md:block py-5 scroll-mt-24">
+          <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-6">
+           Old Work (Drone Project)
+          </h2>
+          
+          {/* Button for smaller screens */}
+          <div className="md:hidden">
+            <a 
+              href="https://drive.google.com/file/d/1TR2aueFCylzw7Rai_YTZquHvooWqFICa/view?usp=sharing" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block w-full text-center py-2 bg-emerald-500 hover:bg-emerald-600 text-[#0D1117] font-bold uppercase tracking-widest transition-all "
+            >
+             Open in new tab
+            </a>
+          </div>
+
+          {/* Hidden on small screens, shown on md and up */}
+          <div className="hidden md:block bg-[#161B22] border border-slate-800 p-1 rounded-xl shadow-xl">
+            <div className="bg-[#0D1117] w-full h-[800px] overflow-hidden rounded-lg">
+              <iframe
+                src="/agrabhi-site/poster.pdf"
+                className="w-full h-full border-none"
+                title="AgraBhi Research Poster"
+              ></iframe>
+            </div>
+          </div>
+        </section>
+        {/* CURRENT DEVELOPMENT SECTION */}
+      
 
         <hr className="border-slate-900" />
 
