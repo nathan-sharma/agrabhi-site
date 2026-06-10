@@ -207,15 +207,7 @@ export default function Home() {
               allowFullScreen
             ></iframe>
           </div>
-          <div className="mt-6 relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black w-[70%] h-relative">
-            <iframe
-              className="absolute top-0 left-0 w-full h-full"
-              src="https://www.youtube.com/embed/6z2zjyPJekY"
-              title="AgraBhi 2027 Process on Farms"
-              frameBorder="0"
-              allowFullScreen
-            ></iframe>
-          </div>
+          
         </section>
 
         <hr className="border-slate-900" />
@@ -290,10 +282,21 @@ export default function Home() {
         We think our rovers can improve their own predictive accuracy by driving to the highest uncertainty areas in its predictions in real time. For example, the system could start with an initial set of moisture measurements across the field, generate a heatmap, then tell each rover  to go to the most uncertain point on this heatmap and take a measurement there, repeating the process until accuracy is significantly improved and uncertainty is evenly distributed.
         </p>
     </div>
-
+   <hr className="border-slate-900" />
     {/* Stylized Video Player Wrapper */}
     
   </div>
+  <section className = "py-8 flex flex-col items-center justify-center">
+  <div className="mt-6 relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black w-[70%] h-relative">
+            <iframe
+              className="absolute top-0 left-0 w-full h-full"
+              src="https://www.youtube.com/embed/6z2zjyPJekY"
+              title="AgraBhi 2027 Process on Farms"
+              frameBorder="0"
+              allowFullScreen
+            ></iframe>
+          </div>
+          </section>
 </section>
         <hr className="border-slate-900" />
         <section id="poster" className="hidden md:block py-5 scroll-mt-24">
