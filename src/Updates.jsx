@@ -8,6 +8,10 @@ import formula from "/formula.png"
 import setup from "/fullsetup.png"
 import roverfromamazon from "/wavesharerover.png"
 import multiplerovers from "/multiplerovers.png"
+import newformula from "/newformula.png"
+import separate from "/batterylifeseparate.png" 
+import inequation from "/batterylifeinequation.png"
+import june12datahub from "/6-12-datahub.png"
 // Structured array containing your timeline data across 2026 and 2027
 const MONTHS_DATA = [
   {
@@ -98,11 +102,64 @@ const MONTHS_DATA = [
     )
   },
   { name: "June", year: "2026", content: <div className="text-slate-500 pt-1">
+    <div className = "translate-y-3">
+     <p className="text-slate-400 leading-relaxed mb-3">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  June 12th, 2026:
+ </p>
+  <img
+        src={newformula}
+        alt="Multiple simulated rovers shown on data hub!"
+        className="md:w-[50%] w-full h-relative mb-3"
+      />
+  
+  <ul className="text-slate-400 list-disc pl-6 space-y-2 mb-6 text-sm">
+    <li><span className = "font-bold mb-1 mt-1">Acquisition Function: </span> The acquisition function (shown above) will not consider battery life in each calculation anymore. Instead, the 5 points will be calculated only using kriging and local moisture variance. Then, once these 5 points are selected, the program will consider battery life costs separately. Rovers will be ordered from least to most battery life, and the ones with the smallest battery lives will be assigned to the closest points. This will reduce the amount of distance each rover has to travel because it always adjusts to find the closest points after the calculations (a visual of this is shown below.) Also, the a and (1-a) weights in the acquisition function formula will dynamically change as we sample the farm field. a will start at a larger value to give less priority to local moisture variance since there haven't been many points measured, so everything is spaced apart and local variance matters less. As more points get sampled, a will gradually increase until moisture variance is prioritized. This is because local moisture variance loses its meaning if we are too far away from any sampled point.
     
+    </li>
+    <p className = "font-bold mb-5">Maroon = rover's current locations, blue = previously measured points, green = calculated optimal points, line = path of rovers</p>
+    <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
+  
+  {/* Image Figure */}
+  <figure className="flex flex-col flex-1">
+    <div className="w-full aspect-video overflow-hidden  bg-slate-900">
+      <img
+        src={inequation}
+        alt="Arduino and Raspberry Pi Setup"
+        className="w-full h-full object-cover"
+      />
+    </div>
+    <figcaption className="mt-4 text-sm leading-relaxed text-slate-500"> 
+      When battery life penalties are calculated in the equation and each rover is assigned to their calculated spot, they can end up stretching across the field unnecessarily, which makes the battery life penalty essentially useless.
+    </figcaption>
+  </figure>
 
+  <figure className="flex flex-col flex-1">
+    <div className="w-full aspect-video overflow-hidden  bg-slate-900">
+   <img
+        src={separate}
+        alt="Arduino and Raspberry Pi Setup"
+        className="w-full h-full object-cover"
+      />
+    </div>
+    <figcaption className="mt-4 text-sm leading-relaxed text-slate-500"> 
+      When the optimal points are calculated first and battery life is considered separately afterwards, rovers are assigned to the closest optimal point, reducing the distance each rover needs to drive.
+    </figcaption>
+  </figure>
+
+</div> 
+    <li className = "mb-5"><span className = "font-bold">Data Hub: </span>Fixed the battery life calculation. Before, it was deducting a lot of battery even though the rover would only travel a few meters. The acquisition function was also updated and tested successfully. </li>
+  <img
+        src={june12datahub}
+        alt="June 12th, 2026 Updated Data Hub"
+        className="md:w-[50%] w-full h-relative"
+      />
+  <li className = "mt-5"><span className = "font-bold">Heatmap: </span>3D Ordinary Kriging also turned out to be inconvenient and unnecessarily complicated. Because it doesn't have perfect resolution, sometimes we can't slice the map at perfect depths. For example, we end up slicing the map at 4.8 centimeters deep when we wanted to slice is at 5.0 centimeters deep because it doesn't have detailed enough resolution to have data at exactly 5 centimeters. Additionally, if we were to use 3D ordinary kriging, we would have to account for vertical anisotropy, or the fact that moisture changes more quickly vertically than it does horizontally. But this value cannot be directly measured with our rover setup and varies depending on the field, making it hard to use. We will instead create discrete 2D Ordinary Kriging heatmaps at multiple depths. </li>
+  </ul>
+</div>
  <p className="text-slate-400 leading-relaxed mb-6">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
- June 7th, 2026: Data Hub code finished! It essentially calculates the optimal path for the five rovers in our swarm to follow. It looks at where the rovers currently are, finds the areas on the farm that either haven't been measured or have a lot of variability in nearby moisture measurements, and calculates an "optimal" point for each rover to measure at in these areas (this is what our acquisition function calculates, but it only does this for one individual rover.) We then collect data at those "optimal" spots, update the code, and let it calculate the next 5 optimal points for the rovers to take measurements at until we have enough points sampled. This was the last major thing to finish before the farm visit, now we just need to test everything works before we go!
+ June 7th, 2026: Data Hub code is making great progess! It essentially calculates the optimal path for the five rovers in our swarm to follow. It looks at where the rovers currently are, finds the areas on the farm that either haven't been measured or have a lot of variability in nearby moisture measurements, and calculates an "optimal" point for each rover to measure at in these areas (this is what our acquisition function calculates, but it only does this for one individual rover.) We then collect data at those "optimal" spots, update the code, and let it calculate the next 5 optimal points for the rovers to take measurements at until we have enough points sampled. This is the last major thing to finish before the farm visit!
  </p>
   
       <img
