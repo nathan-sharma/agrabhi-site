@@ -201,7 +201,7 @@ export default function Home() {
           <div className="mt-6 relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black w-[70%] h-relative">
             <iframe
               className="absolute top-0 left-0 w-full h-full"
-              src="https://www.youtube.com/embed/EgAU6IJLXnM"
+              src="https://www.youtube.com/embed/Bgpvw7TuoMc"
               title="AgraBhi 2027 Ideas Presentation"
               frameBorder="0"
               allowFullScreen
@@ -286,19 +286,9 @@ export default function Home() {
     {/* Stylized Video Player Wrapper */}
     
   </div>
-  <section className = "py-8 flex flex-col items-center justify-center">
-  <div className="mt-6 relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black w-[70%] h-relative">
-            <iframe
-              className="absolute top-0 left-0 w-full h-full"
-              src="https://www.youtube.com/embed/6z2zjyPJekY"
-              title="AgraBhi 2027 Process on Farms"
-              frameBorder="0"
-              allowFullScreen
-            ></iframe>
-          </div>
-          </section>
+ <hr className="border-slate-900" />
 </section>
-        <hr className="border-slate-900" />
+       
         <section id="poster" className="hidden md:block py-5 scroll-mt-24">
           <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-6">
            Old Work (Drone Project)
