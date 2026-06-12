@@ -26,17 +26,25 @@ export default function DataHub() {
 
   // --- Swarm Local Manual Configuration Control Mirror ---
   const [swarmInputs, setSwarmInputs] = useState({
-    "Rover_1": { lat: "27.59413", lon: "-97.89429", battery: "100.0" },
-    "Rover_2": { lat: "27.59415", lon: "-97.89435", battery: "100.0" },
-    "Rover_3": { lat: "27.59418", lon: "-97.89440", battery: "100.0" },
-    "Rover_4": { lat: "27.59420", lon: "-97.89445", battery: "100.0" },
-    "Rover_5": { lat: "27.59422", lon: "-97.89450", battery: "100.0" }
+    "Rover_1": { lat: "0", lon: "0", battery: "100.0" },
+    "Rover_2": { lat: "0", lon: "0", battery: "100.0" },
+    "Rover_3": { lat: "0", lon: "0", battery: "100.0" },
+    "Rover_4": { lat: "0", lon: "0", battery: "100.0" },
+    "Rover_5": { lat: "0", lon: "0", battery: "100.0" }
   });
 
+  const [independentBatteries, setIndependentBatteries] = useState({
+  "Rover_1": 100.0,
+  "Rover_2": 100.0,
+  "Rover_3": 100.0,
+  "Rover_4": 100.0,
+  "Rover_5": 100.0
+});
   // --- Kriging Single Point Query States ---
   const [queryLat, setQueryLat] = useState("");
   const [queryLon, setQueryLon] = useState("");
   const [predictedMoisture, setPredictedMoisture] = useState(null);
+   const [variance, setVariance] = useState(null);
   const [predictLoading, setPredictLoading] = useState(false);
 
   const piIpRef = useRef(piIp);
@@ -73,6 +81,21 @@ export default function DataHub() {
   }, 250);
 
 }, []); // Run exactly once on page component mount
+
+function getHaversineDistance(lat1, lon1, lat2, lon2) {
+  const R = 6371e3; // Earth's radius in meters
+  const φ1 = (lat1 * Math.PI) / 180;
+  const φ2 = (lat2 * Math.PI) / 180;
+  const Δφ = ((lat2 - lat1) * Math.PI) / 180;
+  const Δλ = ((lon2 - lon1) * Math.PI) / 180;
+
+  const a =
+    Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+    Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+  return R * c; // Distance in meters
+}
 
   function drawMarker(point) {
     if (!leafletMap.current) return;
@@ -149,30 +172,63 @@ export default function DataHub() {
       },
     }));
   };
-
   // --- Push Form Updates across Tailscale Link to Pi Network Registry ---
-  const handleSyncSwarmPositions = async () => {
+ // --- Push Form Updates across Tailscale Link to Pi Network Registry ---
+  async function syncSwarmPositionsToBackend() {
     setSwarmSyncLoading(true);
-    addLog("Pushing rover data...", "info");
+    addLog("Synchronizing swarm GPS coordinates to backend...", "info");
+    
     try {
+      const payload = { swarm_data: {} };
+      
+      Object.entries(swarmInputs).forEach(([roverId, values]) => {
+        // Force conversion to clean floats, falling back to 0.0 if empty or invalid
+        const cleanLat = parseFloat(values.lat);
+        const cleanLon = parseFloat(values.lon);
+        const cleanBattery = parseFloat(values.battery);
+
+        payload.swarm_data[roverId] = {
+          lat: isNaN(cleanLat) ? 0.0 : cleanLat,
+          lon: isNaN(cleanLon) ? 0.0 : cleanLon,
+          battery: isNaN(cleanBattery) ? 100.0 : cleanBattery
+        };
+      });
+
+      // Log the payload locally in your browser console so you can see exactly what is being sent
+      console.log("Sending payload to backend:", payload);
+
       const res = await fetch(`${baseURL}/update_swarm_positions`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ swarm_data: swarmInputs }),
+        body: JSON.stringify(payload),
       });
+
       const data = await res.json();
+
       if (data.status === "success") {
-        addLog("Updated rover info!", "success");
-        alert("Updated rover info successfully!");
+        addLog("Backend swarm position variables updated successfully!", "success");
+        // Update the local input fields to match what the server acknowledged
+        const acknowledgedInputs = {};
+        Object.entries(data.current_state).forEach(([rId, rVals]) => {
+          acknowledgedInputs[rId] = {
+            lat: rVals.lat.toString(),
+            lon: rVals.lon.toString(),
+            battery: rVals.battery.toString()
+          };
+        });
+        setSwarmInputs(acknowledgedInputs);
       } else {
-        addLog(`Server Rejected Manual Input Payload: ${data.message}`, "error");
+        addLog(`Sync Warning: ${data.message}`, "warn");
       }
-    } catch {
-      addLog("Couldn't push that data", "error");
+    } catch (err) {
+      console.error("Sync Error:", err);
+      addLog("Failed to push GPS configuration updates to backend.", "error");
     } finally {
       setSwarmSyncLoading(false);
     }
-  };
+  }
+  // --- Push Form Updates across Tailscale Link to Pi Network Registry ---
+  
 
   async function logData(force = false) {
     const targetDepth = prompt("Enter depth in centimeters:", "0");
@@ -216,43 +272,91 @@ export default function DataHub() {
     }
   }
 
-  async function handleCalculateOptimal() {
-    setOptimalLoading(true);
-    addLog("Calculating the best point", "info");
-    try {
-      const res = await fetch(`${baseURL}/optimal_point`);
-      const data = await res.json();
-      
-      if (data.status === "success") {
-        setOptimalPoint(data.optimal_point);
-        addLog(`Found the best point!`, "success");
-      } else {
-        setOptimalPoint(null);
-        addLog(`Engine Rejected: ${data.message}`, "warn");
-        alert(`Cannot calculate optimal point: ${data.message}`);
-      }
-    } catch (err) {
-      setOptimalPoint(null);
-      addLog("Failed to communicate with calculation engine server.", "error");
-    } finally {
-      setOptimalLoading(false);
-    }
-  }
-
+ 
   async function handleCalculateSwarmOptimal() {
     setSwarmLoading(true);
     addLog("Calculating best positions for the rovers", "info");
     try {
-      const res = await fetch(`${baseURL}/swarm_optimal_point`);
+      
+      const specsRes = await fetch(`${baseURL}/get_system_specs`);
+      const specsData = await specsRes.json();
+      const fleet = specsData.specs.swarm_fleet_status;
+       const res = await fetch(`${baseURL}/swarm_optimal_point`); 
       const data = await res.json();
       
       if (data.status === "success") {
-        setSwarmAssignments(data.swarm_assignments);
-        addLog("Got new rover positions!", "success");
+        addLog("Got raw target points. Optimizing assignments...", "info");
+
+        // Extract current coordinates
+   const rovers = Object.entries(fleet).map(([roverId, values]) => ({
+  id: roverId,
+  lat: values.lat,  // Pulls the 27.59... numbers straight from server.py
+  lon: values.lon,
+}));
+
+        // Extract backend targets
+        const targets = Object.values(data.swarm_assignments).map((target) => ({
+          target_lat: target.target_lat,
+          target_lon: target.target_lon,
+          predicted_moisture: target.predicted_moisture,
+          remaining_battery: target.remaining_battery,
+          
+        }));
+
+        const finalAssignments = {};
+        const assignedTargets = new Set();
+        const updatedBatteries = { ...independentBatteries };
+
+        // Pair match closest unassigned coordinates
+        rovers.forEach((rover) => {
+          let bestTargetIdx = -1;
+          let minDistance = Infinity;
+
+          targets.forEach((target, idx) => {
+            if (assignedTargets.has(idx)) return;
+
+            const dist = getHaversineDistance(
+              rover.lat,
+              rover.lon,
+              target.target_lat,
+              target.target_lon
+            );
+
+            if (dist < minDistance) {
+              minDistance = dist;
+              bestTargetIdx = idx;
+            }
+          });
+ 
+          if (bestTargetIdx !== -1) {
+            assignedTargets.add(bestTargetIdx);
+            const matchedTarget = targets[bestTargetIdx];
+            const currentBat = independentBatteries[rover.id];
+    const decay = (100 * minDistance) / 4590;
+    const nextBat = Math.max(0, currentBat - decay);
+    
+    // 3. Save it to our local tracking container
+    updatedBatteries[rover.id] = nextBat;
+            
+            // WE ARE EXPLICITLY SAVING THE POINT NUMBER (1-5) HERE
+            finalAssignments[rover.id] = {
+              target_lat: matchedTarget.target_lat,
+              target_lon: matchedTarget.target_lon,
+              predicted_moisture: matchedTarget.predicted_moisture,
+              remaining_battery: matchedTarget.remaining_battery,
+              point_number: bestTargetIdx + 1, 
+              distance: minDistance,
+              tracked_battery: nextBat.toFixed(1)
+            };
+          }
+        });
+       setIndependentBatteries(updatedBatteries);
+        setSwarmAssignments(finalAssignments);
+        addLog("Rover assignments updated successfully!", "success");
         
-        // Feed calculated updates back into input fields so forms always reflect reality
+        // Sync back up into manual text inputs automatically
         const freshInputs = { ...swarmInputs };
-        Object.entries(data.swarm_assignments).forEach(([roverId, assignedData]) => {
+        Object.entries(finalAssignments).forEach(([roverId, assignedData]) => {
           freshInputs[roverId] = {
             lat: assignedData.target_lat.toFixed(5),
             lon: assignedData.target_lon.toFixed(5),
@@ -260,62 +364,20 @@ export default function DataHub() {
           };
         });
         setSwarmInputs(freshInputs);
+
       } else {
         setSwarmAssignments(null);
         addLog(`Swarm Engine Error: ${data.message}`, "warn");
-        alert(`Swarm calculation rejected: ${data.message}`);
       }
     } catch (err) {
       setSwarmAssignments(null);
-      addLog("Could not calculate new rover positions. ", "error");
+      addLog("Could not calculate new rover positions.", "error");
     } finally {
       setSwarmLoading(false);
     }
   }
 
-  async function handleUpdateBattery() {
-    const coordsInput = prompt("Enter target coordinates to move the Pi to (Format: Latitude, Longitude):", "27.59422, -97.89437");
-    if (!coordsInput) return;
-
-    const parts = coordsInput.split(",");
-    if (parts.length !== 2) {
-      alert("Invalid format! Please enter values split cleanly by a comma.");
-      return;
-    }
-
-    const lat = parts[0].trim();
-    const lon = parts[1].trim();
-
-    addLog(`Calculating dynamic route depletion adjustments to target location...`, "info");
-    try {
-      const res = await fetch(`${baseURL}/update_battery`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ lat, lon }),
-      });
-      const data = await res.json();
-
-      if (data.status === "success") {
-        setBatteryLife(data.current_battery);
-        addLog(`Rover moved ${data.distance_moved_m}m. Subtracted ${data.battery_lost_pct}% battery. Remaining: ${data.current_battery}%`, "success");
-        
-        if (swarmAssignments) {
-          const updatedSwarm = { ...swarmAssignments };
-          Object.keys(updatedSwarm).forEach((roverId) => {
-            if (updatedSwarm[roverId].remaining_battery !== undefined) {
-              updatedSwarm[roverId].remaining_battery = updatedSwarm[roverId].remaining_battery;
-            }
-          });
-          setSwarmAssignments(updatedSwarm);
-          addLog("All active swarm fleet units synchronized to updated state calculations.", "info");
-        }
-      } else {
-        alert(`Error: ${data.message}`);
-      }
-    } catch {
-      addLog("Failed to update battery array stats on the server.", "error");
-    }
-  }
+ 
 
   async function downloadLogs() {
     try {
@@ -360,6 +422,7 @@ export default function DataHub() {
     
     setPredictLoading(true);
     setPredictedMoisture(null);
+    setVariance(null);
     addLog(`Trying to predict at 5 cm at (${queryLat}, ${queryLon})...`, "info");
 
     try {
@@ -375,6 +438,7 @@ export default function DataHub() {
 
       if (data.status === "success") {
         setPredictedMoisture(data.predicted_moisture_pct);
+        setVariance(data.variance);
         addLog(`Successfully estimated moisture: ${data.predicted_moisture_pct}% at 5cm depth slice!`, "success");
       } else {
         addLog(`Engine Error: ${data.message}`, "warn");
@@ -549,60 +613,13 @@ export default function DataHub() {
     Edit IP Address
   </button>
   
-  <button 
-    onClick={handleSyncSwarmPositions}
-    disabled={swarmSyncLoading}
-    className="bg-[#444] px-3 py-2 disabled:opacity-50"
-  >
-    {swarmSyncLoading ? "Pushing Changes..." : "Push rover info to Pi"}
-  </button>
+  
   
   {statusMsg && (
     <p className="text-sm text-yellow-400 whitespace-nowrap">{statusMsg}</p>
   )}
 </div>
-      {/* MANUAL ENTRY PANEL */}
-      <div className="mb-8 p-4  max-w-4xl">
-      
-        
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
-          {Object.entries(swarmInputs).map(([roverId, values]) => (
-            <div key={roverId} className="p-3 bg-[#111] rounded border border-slate-800 flex flex-col gap-2">
-              <label className="font-bold text-xs text-white block border-b border-slate-800 pb-1">{roverId.replace("_", " ")}</label>
-              <div>
-                <span className="text-[10px] text-gray-500 block uppercase">Lat</span>
-                <input 
-                  type="number" 
-                  step="0.00001" 
-                  value={values.lat} 
-                  onChange={(e) => handleInputChange(roverId, "lat", e.target.value)}
-                  className="bg-[#222] text-white border border-[#444] p-1 text-xs w-full rounded focus:outline-none focus:border-blue-500"
-                />
-              </div>
-              <div>
-                <span className="text-[10px] text-gray-500 block uppercase">Lon</span>
-                <input 
-                  type="number" 
-                  step="0.00001" 
-                  value={values.lon} 
-                  onChange={(e) => handleInputChange(roverId, "lon", e.target.value)}
-                  className="bg-[#222] text-white border border-[#444] p-1 text-xs w-full rounded focus:outline-none focus:border-blue-500"
-                />
-              </div>
-              <div>
-                <span className="text-[10px] text-gray-500 block uppercase">Battery (%)</span>
-                <input 
-                  type="number" 
-                  step="1" 
-                  value={values.battery} 
-                  onChange={(e) => handleInputChange(roverId, "battery", e.target.value)}
-                  className="bg-[#222] text-white border border-[#444] p-1 text-xs w-full rounded focus:outline-none focus:border-blue-500"
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+   
 
       {/* CONTROL ACTIONS */}
       <div className="mb-4 flex flex-wrap gap-2">
@@ -624,7 +641,6 @@ export default function DataHub() {
             <p><span className="text-gray-500">Latitude:</span> {optimalPoint.best_lat.toFixed(7)}</p>
             <p><span className="text-gray-500">Longitude:</span> {optimalPoint.best_lon.toFixed(7)}</p>
             <p><span className="text-gray-500">Predicted Moisture at 5 cm:</span> {optimalPoint.predicted_moisture.toFixed(2)}%</p>
-            <p><span className="text-gray-500">Acquisition A(x):</span> {optimalPoint.acquisition_value.toFixed(4)}</p>
           </div>
         </div>
       )}
@@ -634,21 +650,104 @@ export default function DataHub() {
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {Object.entries(swarmAssignments).map(([roverId, data]) => (
               <div key={roverId} className="p-3 bg-black text-xs flex flex-col gap-1 text-gray-300">
-                <p className="font-bold text-white border-b border-slate-800 pb-1 mb-1">{roverId.replace("_", " ")}</p>
+<p className="font-bold text-white border-b border-slate-800 pb-1 mb-1">{roverId.replace("Rover_", "Position ")}</p>
                 <p><span className="text-gray-500">Lat:</span> {data.target_lat.toFixed(5)}</p>
                 <p><span className="text-gray-500">Lon:</span> {data.target_lon.toFixed(5)}</p>
                 <p><span className="text-gray-500">Est Moist:</span> {data.predicted_moisture.toFixed(1)}%</p>
-                <p><span className="text-gray-500">Distance:</span> {data.distance_m}m</p>
-                <p><span> - {data.drain_pct}% Battery</span> </p>
+                <p className="text-[11px] font-medium text-cyan-400">
+           
+          </p>
                 <p className="mt-1 pt-1 border-t border-slate-800 font-semibold text-emerald-400">
-                  <span className="text-gray-500 font-normal">Battery:</span> {data.remaining_battery}%
                 </p>
               </div>
             ))}
           </div>
         </div>
       )}
+{swarmAssignments && (
+        <div className="mb-6 max-w-4xl mt-6">
+          <h3 className="text-sm font-bold uppercase tracking-wider mb-3">Rovers:</h3>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+            {Object.entries(swarmAssignments).map(([roverId, data]) => (
+              <div key={roverId} className="p-4 bg-black border border-slate-800 rounded flex flex-col gap-1 text-gray-300">
+                {/* Visual Header */}
+                <p className="font-bold text-white border-b border-slate-800 pb-1 mb-1 text-xs">
+                  {roverId.replace("_", " ")}
+                </p>
+                
+                {/* Assignment Output */}
+                <p className="text-xs text-center">
+                  Position {data.point_number}
+                </p>
+<p className="mb-1 text-xs text-center">
+           Distance: {data.distance ? `${data.distance.toFixed(1)} m` : "0 m"}
+          </p>
+                {/* Battery Status Monitoring */}
+                
+                <p className="text-[11px] text-center"><span className="text-gray-500">Target Lat:</span> {data.target_lat.toFixed(5)}</p>
+                <p className="text-[11px] text-center"><span className="text-gray-500">Target Lon:</span> {data.target_lon.toFixed(5)}</p>
+                <p className="text-[11px] text-center"><span className="text-gray-500">Est Moist:</span> {data.predicted_moisture.toFixed(1)}%</p>
+                <p className="text-[11px] text-center">
+              <span className="text-gray-500">Battery:</span> {data.tracked_battery}%
+</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      {/* SWARM COORDINATE MANAGEMENT PANEL */}
+<div className="my-6">
+  <p className="text-xs text-gray-400 mb-6">
+For keeping track of battery life, update each rover's location after you collect a measurement there.
+  </p>
 
+  <div className="space-y-4">
+    {Object.keys(swarmInputs).map((roverId) => (
+      <div key={roverId} className="flex flex-col md:flex-row gap-4 items-start md:items-center ">
+        <span className="text-sm font-semibold text-white min-w-[80px]">{roverId}</span>
+        
+        {/* Latitude Input Field */}
+        <div className="flex items-center gap-2 w-full md:w-auto">
+          <label className="text-xs text-gray-400">Lat:</label>
+          <input
+            type="number"
+            step="0.00001"
+            className="bg-[#333] border border-slate-600 rounded px-2 py-1 text-sm text-white w-full md:w-36 focus:outline-none focus:border-emerald-500"
+            value={swarmInputs[roverId].lat}
+            onChange={(e) => handleInputChange(roverId, "lat", e.target.value)}
+          />
+        </div>
+
+        {/* Longitude Input Field */}
+        <div className="flex items-center gap-2 w-full md:w-auto">
+          <label className="text-xs text-gray-400">Lon:</label>
+          <input
+            type="number"
+            step="0.00001"
+            className="bg-[#333] border border-slate-600 rounded px-2 py-1 text-sm text-white w-full md:w-36 focus:outline-none focus:border-emerald-500"
+            value={swarmInputs[roverId].lon}
+            onChange={(e) => handleInputChange(roverId, "lon", e.target.value)}
+          />
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {/* Execution Trigger Button */}
+  <div className="mt-6">
+    <button
+      onClick={syncSwarmPositionsToBackend}
+      disabled={swarmSyncLoading}
+      className={`px-6 py-2.5 bg-black text-white rounded text-sm tracking-wide transition-all ${
+        swarmSyncLoading 
+          ? "text-black" 
+          : "hover:text-gray-500"
+      }`}
+    >
+      {swarmSyncLoading ? "Pushing to Server..." : "Update"}
+    </button>
+  </div>
+</div>
       <h3 className="text-xl mb-2">Messages:</h3>
       <div className="bg-black text-green-400 p-3 h-[200px] overflow-y-scroll border border-[#333] font-mono mb-6">
         {logs.map((log, i) => (
@@ -658,8 +757,8 @@ export default function DataHub() {
         ))}
       </div>
 
-      {/* MANUAL 5CM KRIGING ENGINE PREDICTOR PANEL 
-      <div className="mb-6 rounded max-w-2xl">
+      
+       {/*<div className="mb-6 rounded max-w-2xl">
         <div className="flex flex-wrap gap-4 items-end">
           <div className="flex flex-col gap-1 flex-1 min-w-[150px]">
             <label className="text-xs text-gray-400 uppercase tracking-wider">Latitude</label>
@@ -676,7 +775,8 @@ export default function DataHub() {
         {predictedMoisture !== null && (
           <div className="mt-4 p-3 bg-[#111] border border-emerald-900 rounded text-center">
             <p className="text-gray-400 text-xs uppercase tracking-widest">Calculated Root Moisture Target</p>
-            <p className="text-2xl font-black text-emerald-400 mt-1">{predictedMoisture}%</p>
+     <p className="text-2xl font-black text-emerald-400 mt-1">{predictedMoisture}%</p>
+      <p className="text-2xl font-black text-emerald-400 mt-1">{variance}</p>
           </div>
         )}
       </div> */}
