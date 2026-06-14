@@ -15,6 +15,7 @@ export default function DataHub() {
   // --- Optimization Engine States ---
   const [optimalPoint, setOptimalPoint] = useState(null);
   const [optimalLoading, setOptimalLoading] = useState(false);
+  const [meanVariance, setMeanVariance] = useState(null);
   
   // --- Added Backend State Tracker Only ---
   const [batteryLife, setBatteryLife] = useState(100.0);
@@ -23,6 +24,8 @@ export default function DataHub() {
   const [swarmAssignments, setSwarmAssignments] = useState(null);
   const [swarmLoading, setSwarmLoading] = useState(false);
   const [swarmSyncLoading, setSwarmSyncLoading] = useState(false);
+  const [acquisitionAlpha, setAcquisitionAlpha] = useState(0.8);
+const [alphaSyncLoading, setAlphaSyncLoading] = useState(false);
 
   // --- Swarm Local Manual Configuration Control Mirror ---
   const [swarmInputs, setSwarmInputs] = useState({
@@ -57,6 +60,8 @@ export default function DataHub() {
   const mapRef = useRef(null);
   const leafletMap = useRef(null);
   const markersRef = useRef([]);
+  const [variogramModel, setVariogramModel] = useState("gaussian");
+  const [variogramSyncLoading, setVariogramSyncLoading] = useState(false);
 
  useEffect(() => {
   // If the map HTML container element doesn't exist yet, wait
@@ -174,6 +179,60 @@ function getHaversineDistance(lat1, lon1, lat2, lon2) {
   };
   // --- Push Form Updates across Tailscale Link to Pi Network Registry ---
  // --- Push Form Updates across Tailscale Link to Pi Network Registry ---
+async function syncVariogramToBackend(chosenModel) {
+  setVariogramSyncLoading(true);
+  addLog(`Changing mathematical variogram profile to ${chosenModel}...`, "info");
+  
+  try {
+    const res = await fetch(`${baseURL}/update_variogram`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ model: chosenModel }),
+    });
+
+    const data = await res.json();
+
+    if (data.status === "success") {
+      addLog(`Backend matrix model successfully switched to ${data.current_model}!`, "success");
+      setVariogramModel(data.current_model);
+    } else {
+      addLog(`Variogram Error: ${data.message}`, "warn");
+    }
+  } catch (err) {
+    console.error("Variogram Sync Error:", err);
+    addLog("Failed to push custom variogram to backend.", "error");
+  } finally {
+    setVariogramSyncLoading(false);
+  }
+}
+
+ async function syncAlphaToBackend(value) {
+  setAlphaSyncLoading(true);
+  addLog(`Synchronizing acquisition alpha (${value}) to backend...`, "info");
+  
+  try {
+    const res = await fetch(`${baseURL}/update_alpha`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ alpha: parseFloat(value) }),
+    });
+
+    const data = await res.json();
+
+    if (data.status === "success") {
+      addLog(`Backend acquisition alpha successfully updated to ${data.current_alpha}!`, "success");
+      setAcquisitionAlpha(data.current_alpha);
+    } else {
+      addLog(`Alpha Sync Warning: ${data.message}`, "warn");
+    }
+  } catch (err) {
+    console.error("Alpha Sync Error:", err);
+    addLog("Failed to push Alpha configuration to backend.", "error");
+  } finally {
+    setAlphaSyncLoading(false);
+  }
+}
+
   async function syncSwarmPositionsToBackend() {
     setSwarmSyncLoading(true);
     addLog("Synchronizing swarm GPS coordinates to backend...", "info");
@@ -286,6 +345,9 @@ function getHaversineDistance(lat1, lon1, lat2, lon2) {
       
       if (data.status === "success") {
         addLog("Got raw target points. Optimizing assignments...", "info");
+        if (data.mean_kriging_variance !== undefined) {
+          setMeanVariance(data.mean_kriging_variance);
+        }
 
         // Extract current coordinates
    const rovers = Object.entries(fleet).map(([roverId, values]) => ({
@@ -645,25 +707,30 @@ function getHaversineDistance(lat1, lon1, lat2, lon2) {
         </div>
       )}
 
-      {swarmAssignments && (
-        <div className="mb-6  max-w-4xl mt-6">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-            {Object.entries(swarmAssignments).map(([roverId, data]) => (
-              <div key={roverId} className="p-3 bg-black text-xs flex flex-col gap-1 text-gray-300">
-<p className="font-bold text-white border-b border-slate-800 pb-1 mb-1">{roverId.replace("Rover_", "Position ")}</p>
-                <p><span className="text-gray-500">Lat:</span> {data.target_lat.toFixed(5)}</p>
-                <p><span className="text-gray-500">Lon:</span> {data.target_lon.toFixed(5)}</p>
-                <p><span className="text-gray-500">Est Moist:</span> {data.predicted_moisture.toFixed(1)}%</p>
-                <p className="text-[11px] font-medium text-cyan-400">
-           
-          </p>
-                <p className="mt-1 pt-1 border-t border-slate-800 font-semibold text-emerald-400">
-                </p>
-              </div>
-            ))}
+<p className="text-xs text-yellow-500 mb-2">
+  {meanVariance !== null ? `Mean Kriging Variance: ${meanVariance.toFixed(6)}` : ""}
+</p>
+   {/* Change the first block to sort by point_number so they show up sequentially (1, 2, 3, 4, 5) */}
+{swarmAssignments && (
+  <div className="mb-6 max-w-4xl mt-6">
+    <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+      {Object.entries(swarmAssignments)
+        .sort((a, b) => a[1].point_number - b[1].point_number) // <-- Sort by actual target sequence
+        .map(([roverId, data]) => (
+          <div key={roverId} className="p-3 bg-black text-xs flex flex-col gap-1 text-gray-300">
+            <p className="font-bold text-white border-b border-slate-800 pb-1 mb-1">
+              Position {data.point_number} {/* <-- Show true Position number */}
+            </p>
+            <p><span className="text-gray-500">Lat:</span> {data.target_lat.toFixed(5)}</p>
+            <p><span className="text-gray-500">Lon:</span> {data.target_lon.toFixed(5)}</p>
+            <p><span className="text-gray-500">Est Moist:</span> {data.predicted_moisture.toFixed(1)}%</p>
+            <p className="text-xs text-cyan-400">Assigned to: {roverId.replace("_", " ")}</p>
           </div>
-        </div>
-      )}
+        ))}
+    </div>
+  </div>
+)}
+
 {swarmAssignments && (
         <div className="mb-6 max-w-4xl mt-6">
           <h3 className="text-sm font-bold uppercase tracking-wider mb-3">Rovers:</h3>
@@ -698,7 +765,7 @@ function getHaversineDistance(lat1, lon1, lat2, lon2) {
       {/* SWARM COORDINATE MANAGEMENT PANEL */}
 <div className="my-6">
   <p className="text-xs text-gray-400 mb-6">
-For keeping track of battery life, update each rover's location after you collect a measurement there.
+If you want to keep track of battery life to make sure it doesn't reach 0 while you're sampling, update each rover's location after you collect measurements there.
   </p>
 
   <div className="space-y-4">
@@ -748,6 +815,66 @@ For keeping track of battery life, update each rover's location after you collec
     </button>
   </div>
 </div>
+<div>
+  <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-2">
+   Alpha
+  </label>
+  
+  <div className="flex gap-3 items-center">
+    <div className="relative flex-1 max-w-[180px]">
+      <input
+        type="number"
+        min="0.0"
+        max="1.0"
+        step="0.01"
+        value={acquisitionAlpha}
+        onChange={(e) => setAcquisitionAlpha(e.target.value)}
+        placeholder="0.8"
+        className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 text-sm"
+      />
+   
+    </div>
+    
+    <button
+      onClick={() => {
+        const val = parseFloat(acquisitionAlpha);
+        if (isNaN(val) || val < 0.0 || val > 1.0) {
+          alert("Please enter a decimal value between 0.0 and 1.0");
+          return;
+        }
+        syncAlphaToBackend(acquisitionAlpha);
+      }}
+      disabled={alphaSyncLoading}
+      className="px-6 py-2.5 bg-black text-white rounded text-sm tracking-wide transition-all"
+    >
+      {alphaSyncLoading ? "Syncing..." : "Update"}
+    </button>
+  </div>
+  
+  <p className="text-[11px] text-slate-500 mt-2 leading-relaxed mb-2">
+    a = 0.2 + 0.6*(current mean kriging variance/initial mean kriging variance)
+  </p>
+</div>
+<div>
+    <label className="block text-[11px] uppercase tracking-wider font-bold text-slate-500 mb-1.5">
+      Variogram
+    </label>
+    <div className="flex gap-3 items-center mb-4">
+      <select
+        value={variogramModel}
+        onChange={(e) => syncVariogramToBackend(e.target.value)}
+        disabled={variogramSyncLoading}
+        className="px-6 py-2.5 bg-black text-white rounded text-sm tracking-wide transition-all"
+      >
+        <option value="gaussian">Gaussian</option>
+        <option value="exponential">Exponential</option>
+        <option value="spherical">Spherical</option>
+        <option value="linear">Linear</option>
+      </select>
+      
+
+    </div>
+  </div>
       <h3 className="text-xl mb-2">Messages:</h3>
       <div className="bg-black text-green-400 p-3 h-[200px] overflow-y-scroll border border-[#333] font-mono mb-6">
         {logs.map((log, i) => (
