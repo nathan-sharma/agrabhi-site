@@ -764,9 +764,7 @@ async function syncVariogramToBackend(chosenModel) {
       )}
       {/* SWARM COORDINATE MANAGEMENT PANEL */}
 <div className="my-6">
-  <p className="text-xs text-gray-400 mb-6">
-If you want to keep track of battery life to make sure it doesn't reach 0 while you're sampling, update each rover's location after you collect measurements there.
-  </p>
+
 
   <div className="space-y-4">
     {Object.keys(swarmInputs).map((roverId) => (
