@@ -12,6 +12,7 @@ import newformula from "/newformula.png"
 import separate from "/batterylifeseparate.png" 
 import inequation from "/batterylifeinequation.png"
 import june12datahub from "/6-12-datahub.png"
+import newfunc from "/newacquisitionfunc.png"
 // Structured array containing your timeline data across 2026 and 2027
 const MONTHS_DATA = [
   {
@@ -104,8 +105,18 @@ const MONTHS_DATA = [
   { name: "June", year: "2026", content: <div className="text-slate-500 pt-1">
     <div className = "translate-y-3">
       <p className="text-slate-400 leading-relaxed mb-3">
+         
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  June 14th, 2026: The alpha weight in the acquisition function and the variogram model can now be adjusted from the data hub. The alpha weight decides 
+  June 14th, 2026:  We updated the acquisition function to replace the moisture variance of the N closest points with the magnitude of the moisture gradient vector. Essentially, it more clearly tells us the boundaries of the map (the areas where moisture is changing quickly). The moisture variance didn't specifically tell us about a point where moisture was changing quickly, it only told us that there were a lot of differences in moisture between the sampled points. The gradient uses the heatmap's predictions to calculate the exact points where moisture is changing the most. The updated acquisition function is further explained in <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1o6kB64x-la7LfA9-zpvW1XvdDKNfi7HZQpoSRrUACMo/edit?usp=sharing" className="underline hover:text-gray-500 "> this </a>document.
+ </p>
+ <img
+        src={newfunc}
+        alt="Multiple simulated rovers shown on data hub!"
+        className="md:w-[50%] w-full h-relative mb-3"
+      />
+      <p className="text-slate-400 leading-relaxed mb-3">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  June 13th, 2026: The alpha weight in the acquisition function and the variogram model can now be adjusted from the data hub. The alpha weight decides 
   whether to prioritize kriging variance or local moisture variance, and the variogram model is important 
   because we need to make sure it fits the data well so we have an accurate kriging variance to use in our acquisition function.
   We download logs from the Pi using the Data Hub and run the data in our computer program to visually look at the variogram and make sure it fits the experimental variogram well before calculating the optimal points.
