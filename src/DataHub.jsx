@@ -70,7 +70,7 @@ const [alphaSyncLoading, setAlphaSyncLoading] = useState(false);
   if (leafletMap.current) return;
 
   // 1. Build the map container right away
-  leafletMap.current = L.map(mapRef.current).setView([27.59413, -97.89429], 16); // Center on your actual farm field coordinates instead of [0,0] ocean!
+  leafletMap.current = L.map(mapRef.current).setView([51.91677159446089, -1.5372346136493975], 16); // Center on your actual farm field coordinates instead of [0,0] ocean!
 
   // 2. Bind the tile asset layers
   L.tileLayer(
@@ -200,7 +200,7 @@ async function syncVariogramToBackend(chosenModel) {
     }
   } catch (err) {
     console.error("Variogram Sync Error:", err);
-    addLog("Failed to push custom variogram to backend.", "error");
+    addLog("Failed to update variogram.", "error");
   } finally {
     setVariogramSyncLoading(false);
   }
@@ -227,7 +227,7 @@ async function syncVariogramToBackend(chosenModel) {
     }
   } catch (err) {
     console.error("Alpha Sync Error:", err);
-    addLog("Failed to push Alpha configuration to backend.", "error");
+    addLog("Failed to update Alpha.", "error");
   } finally {
     setAlphaSyncLoading(false);
   }
@@ -281,7 +281,7 @@ async function syncVariogramToBackend(chosenModel) {
       }
     } catch (err) {
       console.error("Sync Error:", err);
-      addLog("Failed to push GPS configuration updates to backend.", "error");
+      addLog("Failed to update", "error");
     } finally {
       setSwarmSyncLoading(false);
     }
@@ -816,7 +816,7 @@ If you want to keep track of battery life to make sure it doesn't reach 0 while 
   </div>
 </div>
 <div>
-  <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-2">
+  <label className="text-slate-500 mb-1.5">
    Alpha
   </label>
   
@@ -856,7 +856,7 @@ If you want to keep track of battery life to make sure it doesn't reach 0 while 
   </p>
 </div>
 <div>
-    <label className="block text-[11px] uppercase tracking-wider font-bold text-slate-500 mb-1.5">
+    <label className="text-slate-500 mb-1.5">
       Variogram
     </label>
     <div className="flex gap-3 items-center mb-4">
