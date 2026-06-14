@@ -193,7 +193,7 @@ async function syncVariogramToBackend(chosenModel) {
     const data = await res.json();
 
     if (data.status === "success") {
-      addLog(`Backend matrix model successfully switched to ${data.current_model}!`, "success");
+      addLog(`Variogram successfully switched to ${data.current_model}!`, "success");
       setVariogramModel(data.current_model);
     } else {
       addLog(`Variogram Error: ${data.message}`, "warn");

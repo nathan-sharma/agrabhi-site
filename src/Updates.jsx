@@ -103,6 +103,13 @@ const MONTHS_DATA = [
   },
   { name: "June", year: "2026", content: <div className="text-slate-500 pt-1">
     <div className = "translate-y-3">
+      <p className="text-slate-400 leading-relaxed mb-3">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  June 14th, 2026: The alpha weight in the acquisition function and the variogram model can now be adjusted from the data hub. The alpha weight decides 
+  whether to prioritize kriging variance or local moisture variance, and the variogram model is important 
+  because we need to make sure it fits the data well so we have an accurate kriging variance to use in our acquisition function.
+  We download logs from the Pi using the Data Hub and run the data in our computer program to visually look at the variogram and make sure it fits the experimental variogram well before calculating the optimal points.
+ </p>
      <p className="text-slate-400 leading-relaxed mb-3">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
   June 12th, 2026:
