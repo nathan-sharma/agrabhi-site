@@ -198,6 +198,15 @@ export default function Home() {
         {/* PROJECT VIDEO SECTION */}
         <section className="py-8 flex flex-col items-center justify-center">
          
+         <div className="mt-6 relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black w-[70%] h-relative">
+            <iframe
+              className="absolute top-0 left-0 w-full h-full"
+              src="https://www.youtube.com/embed/i61x3b99Wog"
+              title="AgraBhi 2027 Ideas Presentation"
+              frameBorder="0"
+              allowFullScreen
+            ></iframe>
+          </div>
           <div className="mt-6 relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black w-[70%] h-relative">
             <iframe
               className="absolute top-0 left-0 w-full h-full"
@@ -207,6 +216,7 @@ export default function Home() {
               allowFullScreen
             ></iframe>
           </div>
+             
           
         </section>
 
