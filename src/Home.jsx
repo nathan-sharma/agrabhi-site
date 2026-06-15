@@ -202,7 +202,7 @@ export default function Home() {
             <iframe
               className="absolute top-0 left-0 w-full h-full"
               src="https://www.youtube.com/embed/i61x3b99Wog"
-              title="AgraBhi 2027 Ideas Presentation"
+              title="AgraBhi 2027 Overview Presentation by Nathan"
               frameBorder="0"
               allowFullScreen
             ></iframe>
@@ -211,7 +211,7 @@ export default function Home() {
             <iframe
               className="absolute top-0 left-0 w-full h-full"
               src="https://www.youtube.com/embed/Bgpvw7TuoMc"
-              title="AgraBhi 2027 Ideas Presentation"
+              title="AgraBhi 2026 Video"
               frameBorder="0"
               allowFullScreen
             ></iframe>
