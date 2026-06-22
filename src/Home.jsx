@@ -201,7 +201,7 @@ export default function Home() {
          <div className="mt-6 relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black w-[70%] h-relative">
             <iframe
               className="absolute top-0 left-0 w-full h-full"
-              src="https://www.youtube.com/embed/D416cM3tq_M"
+              src="https://www.youtube.com/embed/DFLhrhK0u_E"
               title="AgraBhi 2027 Overview Presentation by Nathan"
               frameBorder="0"
               allowFullScreen
