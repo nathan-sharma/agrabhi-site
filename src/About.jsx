@@ -185,20 +185,20 @@ export default function About() {
           <div className="w-full md:w-1/2 h-80 rounded-2xl flex items-center justify-center text-slate-500 text-lg font-semibold">
             <img
          
-    src={image2}
+    src={image3}
     alt="Placeholder 2"
-    className="h-[90%] w-relative mt-8"
+    className="h-80 w-relative mt-8"
   />
           </div>
 
           {/* Paragraph Placeholder */}
           <div className="w-full md:w-1/2">
             <h2 className="text-2xl font-bold text-white mb-4">
-              Naitik Patel
+             Landon Morrison
             </h2>
 
             <p className="text-slate-400 leading-relaxed">
-       I'm Naitik Patel, a student researcher at Cinco Ranch High School and co-founder of AgraBhi. I stay busy as Class Treasurer and lead weekly youth sessions at HSS. In my free time, I also enjoy playing guitar and tennis.
+          Hi, I'm Landon and I'm a student at Cinco Ranch High School and co-founder of AgraBhi. I've always been interested in anything related to technology, and I've created lots of 3d models and designs using various programs like CAD and Blender. In my free time, I enjoy chess, gaming, and spending time with family and friends.
             </p>
           </div>
 
@@ -206,25 +206,10 @@ export default function About() {
       <div className="flex flex-col md:flex-row gap-8 items-center mb-8">
           
           {/* Image Placeholder */}
-          <div className="w-full md:w-1/2 h-80  rounded-2xl flex items-center justify-center text-slate-500 text-lg font-semibold">
-            <img
-         
-    src={image3}
-    alt="Placeholder 1"
-    className="h-full w-relative"
-  />
-          </div>
+        
 
           {/* Paragraph Placeholder */}
-          <div className="w-full md:w-1/2">
-            <h2 className="text-2xl font-bold text-white mb-4">
-              Landon Morrison
-            </h2>
-
-            <p className="text-slate-400 leading-relaxed">
-          Hi, I'm Landon and I'm a student at Cinco Ranch High School and design lead at AgraBhi. I've always been interested in anything related to technology, and I've created lots of 3d models and designs using various programs like CAD and Blender. In my free time, I enjoy chess, gaming, and spending time with family and friends.
-            </p>
-          </div>
+         
 
         </div>
       </main>
@@ -238,7 +223,7 @@ export default function About() {
               </h2>
             </div>
             <p className="text-xs text-slate-400">
-              Created by <span className="text-slate-200">Nathan Sharma, Naitik Patel, & Landon Morrison</span>
+              Created by <span className="text-slate-200">Nathan Sharma & Landon Morrison</span>
             </p>
           </div>
 
@@ -246,9 +231,7 @@ export default function About() {
             <a href="mailto:nathansharma007@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
               nathansharma007@gmail.com
             </a>
-            <a href="mailto:naitik.s.patel10@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
-              naitik.s.patel10@gmail.com
-            </a>
+         
               <a href="mailto:morrisonlandon51@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
           morrisonlandon51@gmail.com
             </a>

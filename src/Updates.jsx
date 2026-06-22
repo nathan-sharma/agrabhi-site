@@ -69,10 +69,7 @@ const MONTHS_DATA = [
           <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1o6kB64x-la7LfA9-zpvW1XvdDKNfi7HZQpoSRrUACMo/edit?tab=t.0" className="underline hover:text-gray-500 ">here.</a>
         </p>
         
-        <p className="flex items-center gap-3 text-slate-400 leading-relaxed mb-4">
-          <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
-          May 20th, 2026: Naitik confirmed a date for the first farm visit. Also got info on how the farm is irrigated.
-        </p>
+       
         <p className="flex items-center gap-3 text-slate-400 leading-relaxed mb-4">
           <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
           May 18th, 2026: Rover-Drone Hybrid design idea (scrapped 5/23), bought a better soil sensor.
@@ -531,11 +528,11 @@ export default function About() {
               <img src={logo} alt="Logo" className="h-5 w-auto mr-1" />
               <h2 className="text-lg font-bold text-white leading-none">Agra<span className="text-emerald-400">Bhi</span></h2>
             </div>
-            <p className="text-xs text-slate-400">Created by <span className="text-slate-200">Nathan Sharma, Naitik Patel, & Landon Morrison</span></p>
+            <p className="text-xs text-slate-400">Created by <span className="text-slate-200">Nathan Sharma & Landon Morrison</span></p>
           </div>
           <div className="flex flex-col md:flex-row gap-x-6 gap-y-1 text-center">
             <a href="mailto:nathansharma007@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">nathansharma007@gmail.com</a>
-            <a href="mailto:naitik.s.patel10@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">naitik.s.patel10@gmail.com</a>
+           
               <a href="mailto:morrisonlandon51@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
           morrisonlandon51@gmail.com
             </a>
