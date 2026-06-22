@@ -172,7 +172,7 @@ export default function About() {
             </h2>
 
             <p className="text-slate-400 leading-relaxed">
-           Hi, I'm Nathan, and I am the founder and team lead of AgraBhi, a research project helping farmers better manage their irrigation with accurate soil moisture data. I am an incoming junior at Cinco Ranch High School and love research, mathematics, and science. I am very involved in and have won multiple awards in science fairs, math competitions, and TMEA and other music competitions. In my free time, I enjoy running, playing the cello, and spending time with my family.
+           Hi, I'm Nathan, and I am the founder and team lead of AgraBhi, a project helping farmers better manage their irrigation with accurate soil moisture data. I am an incoming junior at Cinco Ranch High School and love research, mathematics, and science. I am very involved in and have won multiple awards in science fairs, math competitions, and TMEA and other music competitions. In my free time, I enjoy running, playing the cello, and spending time with my family.
             </p>
           </div>
 
@@ -203,15 +203,7 @@ export default function About() {
           </div>
 
         </div>
-      <div className="flex flex-col md:flex-row gap-8 items-center mb-8">
-          
-          {/* Image Placeholder */}
-        
-
-          {/* Paragraph Placeholder */}
-         
-
-        </div>
+      
       </main>
          <footer className="border-t border-slate-800 bg-[#0D1117] py-8">
         <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-2 md:gap-6">
