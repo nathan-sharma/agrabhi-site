@@ -557,7 +557,7 @@ async function syncVariogramToBackend(chosenModel) {
                   onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/about.html"; }}
                   className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
                 >
-                  Our Team
+                  About Us
                 </a>
                 <a 
                   target="_blank" 
@@ -619,7 +619,7 @@ async function syncVariogramToBackend(chosenModel) {
                   onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/about.html"; }}
                   className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
                 >
-                  Our Team
+                  About Us
                 </a>
         
                 
