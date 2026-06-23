@@ -105,8 +105,20 @@ const MONTHS_DATA = [
         
          
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  June 22nd, 2026: Rover kit was delivered, and a farm visit has been scheduled for Thursday!
+  June 22nd, 2026: Rover kit was delivered to Landon, and our first farm visit has been scheduled for Thursday with AgriLife.
   </p>
+
+  <div className="md:w-[30%] w-[70%] rounded-xl mb-4 overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl transition-all duration-300 hover:border-slate-700/80">
+      <video 
+        src="kit.mov" 
+        controls 
+        muted
+        preload="metadata"
+        className="w-full h-auto aspect-video object-cover block"
+      >
+        Your browser does not support the video tag.
+      </video>
+    </div>
       <p className="text-slate-400 leading-relaxed mb-3">
         
          
