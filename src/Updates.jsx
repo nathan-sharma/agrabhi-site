@@ -102,6 +102,13 @@ const MONTHS_DATA = [
   { name: "June", year: "2026", content: <div className="text-slate-500 pt-1">
     <div className = "translate-y-3">
       <p className="text-slate-400 leading-relaxed mb-3">
+        
+         
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  June 22nd, 2026: Rover kit was delivered, and a farm visit has been scheduled for Thursday!
+  </p>
+      <p className="text-slate-400 leading-relaxed mb-3">
+        
          
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
   June 14th, 2026:  We updated the acquisition function to replace the moisture variance of the N closest points with the magnitude of the moisture gradient vector. Essentially, it more clearly tells us the boundaries of the map (the areas where moisture is changing quickly). The moisture variance didn't specifically tell us about a point where moisture was changing quickly, it only told us that there were a lot of differences in moisture between the sampled points. The gradient uses the heatmap's predictions to calculate the exact points where moisture is changing the most. The updated acquisition function is further explained in <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1o6kB64x-la7LfA9-zpvW1XvdDKNfi7HZQpoSRrUACMo/edit?usp=sharing" className="underline hover:text-gray-500 "> this </a>document.
