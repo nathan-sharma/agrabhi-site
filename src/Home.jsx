@@ -353,7 +353,7 @@ export default function Home() {
               </h2>
             </div>
             <p className="text-xs text-slate-400">
-              Created by <span className="text-slate-200">Nathan Sharma & Landon Morrison</span>
+              Created by <span className="text-slate-200">Nathan Sharma, Landon Morrison, & Adam Crossey</span>
             </p>
             
           </div>
@@ -366,6 +366,9 @@ export default function Home() {
           
                <a href="mailto:morrisonlandon51@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
           morrisonlandon51@gmail.com
+            </a>
+             <a href="mailto:ancrossey17@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
+          ancrossey17@gmail.com
             </a>
           </div>
         </div>

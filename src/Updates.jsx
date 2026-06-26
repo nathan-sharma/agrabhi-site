@@ -584,24 +584,37 @@ export default function About() {
       </div>
 
       {/* Tighter Bottom Footer */}
-      <footer className="border-t border-slate-800 bg-[#0D1117] py-6 shrink-0">
-        <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-4 md:gap-6">
-          <div className="text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start mb-1">
-              <img src={logo} alt="Logo" className="h-5 w-auto mr-1" />
-              <h2 className="text-lg font-bold text-white leading-none">Agra<span className="text-emerald-400">Bhi</span></h2>
+    <footer className="border-t border-slate-800 bg-[#0D1117] py-8">
+        
+            <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-2 md:gap-6">
+              <div className="text-center md:text-left">
+                <div className="flex items-center justify-center md:justify-start  mb-1">
+                  <img src={logo} alt="Logo" className="h-5 w-auto" />
+                  <h2 className="text-lg font-bold text-white leading-none">
+                    Agra<span className="text-emerald-400">Bhi</span>
+                  </h2>
+                </div>
+                <p className="text-xs text-slate-400">
+                  Created by <span className="text-slate-200">Nathan Sharma, Landon Morrison, & Adam Crossey</span>
+                </p>
+                
+              </div>
+              
+    
+              <div className="flex flex-col md:flex-row gap-x-6 gap-y-0 md:gap-y-1 text-center">
+                <a href="mailto:nathansharma007@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
+                  nathansharma007@gmail.com
+                </a>
+              
+                   <a href="mailto:morrisonlandon51@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
+              morrisonlandon51@gmail.com
+                </a>
+                 <a href="mailto:ancrossey17@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
+              ancrossey17@gmail.com
+                </a>
+              </div>
             </div>
-            <p className="text-xs text-slate-400">Created by <span className="text-slate-200">Nathan Sharma & Landon Morrison</span></p>
-          </div>
-          <div className="flex flex-col md:flex-row gap-x-6 gap-y-1 text-center">
-            <a href="mailto:nathansharma007@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">nathansharma007@gmail.com</a>
-           
-              <a href="mailto:morrisonlandon51@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
-          morrisonlandon51@gmail.com
-            </a>
-          </div>
-        </div>
-      </footer>
+          </footer>
     </div>
   );
 }
