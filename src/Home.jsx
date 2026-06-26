@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import logo from "/blogo.png";
+import agrilife from "/agrilife.jpg"
 import { HashLink } from 'react-router-hash-link';
 
 export default function Home() {
@@ -14,12 +15,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#0D1117] text-[#E2E8F0] font-sans overflow-x-hidden">
       
-  <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
-        <div className="max-w-full mx-auto px-6 h-16 flex items-center justify-between">
+<nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
+        <div className="max-w-full mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
           
           {/* Logo Link */}
-          <div className="flex items-center text-xl font-bold tracking-tighter text-white">
-            <img src={logo} alt="AgraBhi Logo" className="h-6 w-auto translate-y-[1px]" />
+          <div className="flex items-center text-lg sm:text-xl font-bold tracking-tighter text-white whitespace-nowrap">
+            <img src={logo} alt="AgraBhi Logo" className="h-5 sm:h-6 w-auto translate-y-[1px] mr-1.5" />
             <div>
               <a 
                 href="https://nathan-sharma.github.io/agrabhi-site" 
@@ -29,6 +30,10 @@ export default function Home() {
                 Agra<span className="text-emerald-400">Bhi</span>
               </a>
             </div>
+            
+            {/* Kept and styled to fit perfectly on mobile screens */}
+            <p className="px-1.5 sm:px-3 text-sm sm:text-sm font-normal text-slate-400">in collaboration with</p>
+            <img src={agrilife} alt="AgriLife Logo" className="h-8 sm:h-9 w-auto translate-y-[1px] rounded-md sm:rounded-lg" />
           </div>
     
           {/* Desktop Nav Links */}
@@ -41,8 +46,6 @@ export default function Home() {
               Home
             </a>
     
-           
-    
             <a 
               href="https://nathan-sharma.github.io/agrabhi-site/updates.html" 
               onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/updates.html"; }}
@@ -50,13 +53,15 @@ export default function Home() {
             >
              Project Updates
             </a>
-     <a 
+            
+            <a 
               href="https://nathan-sharma.github.io/agrabhi-site/about.html" 
               onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/about.html"; }}
               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
             >
               About Us
             </a>
+            
             <a 
               target="_blank" 
               rel="noopener noreferrer" 
@@ -78,7 +83,7 @@ export default function Home() {
           {/* Mobile Menu Toggle Button */}
           <button 
             onClick={toggleMenu}
-            className="md:hidden text-slate-400 hover:text-white focus:outline-none"
+            className="md:hidden text-slate-400 hover:text-white focus:outline-none ml-2"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMenuOpen ? (
@@ -101,15 +106,12 @@ export default function Home() {
               Home
             </a>
             
-            
-            
-            
             <a 
               href="https://nathan-sharma.github.io/agrabhi-site/updates.html" 
               onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/updates.html"; }}
               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
             >
-             Project Updates
+               Project Updates
             </a>
 
             <a 
@@ -120,8 +122,6 @@ export default function Home() {
               About Us
             </a>
     
-            
-    
             <a 
               href="https://github.com/nathan-sharma/AgraBhi" 
               onClick={toggleMenu}
@@ -131,15 +131,18 @@ export default function Home() {
             >
               GitHub
             </a>
+            
             <a 
               href="https://drive.google.com/file/d/1TR2aueFCylzw7Rai_YTZquHvooWqFICa/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={toggleMenu}
               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-400 transition-colors"
             >
               Poster
             </a>
-    <a 
+            
+            <a 
               href="https://nathan-sharma.github.io/agrabhi-site/data-hub.html" 
               onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/data-hub.html"; }}
               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
@@ -337,33 +340,7 @@ export default function Home() {
         <hr className="border-slate-900" />
 
         {/* NEXT STEPS & SUPPORT */}
-        <section id="support" className="py-5 scroll-mt-24">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-5">
-            Where We Need Your Help
-          </h2>
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-white font-bold mb-2">1. Access to Farm Fields</h3>
-              <p className="text-slate-400 font-light leading-relaxed max-w-7xl">
-                We are currently looking for access to small farm fields to collect data and test whether our adapative path planning and image analysis methods will actually lead to prediction improvements on real farms.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-white font-bold mb-2">2. Hardware Support</h3>
-              <p className="text-slate-400 font-light leading-relaxed max-w-7xl">
-                Some components are very expensive for us to afford. We would really appreciate any sponsorships, donations, or connections to organizations that may be willing to support the project.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-white font-bold mb-2">3. Experience in Agriculture</h3>
-              <p className="text-slate-400 font-light leading-relaxed max-w-7xl">
-                If you have experience in farming, irrigation, or precision agriculture, we would also value your feedback on the project.
-              </p>
-            </div>
-          </div>
-        </section>
+     
       </main>
 
    <footer className="border-t border-slate-800 bg-[#0D1117] py-8">

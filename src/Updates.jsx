@@ -13,6 +13,9 @@ import separate from "/batterylifeseparate.png"
 import inequation from "/batterylifeinequation.png"
 import june12datahub from "/6-12-datahub.png"
 import newfunc from "/newacquisitionfunc.png"
+import agrilife from "/agrilife.jpg"
+import meetup from "/meetup625.png"
+import selfie from "/selfie.png"
 // Structured array containing your timeline data across 2026 and 2027
 const MONTHS_DATA = [
   {
@@ -100,7 +103,46 @@ const MONTHS_DATA = [
     )
   },
   { name: "June", year: "2026", content: <div className="text-slate-500 pt-1">
+    
     <div className = "translate-y-3">
+      <p className="text-slate-400 leading-relaxed mb-3">
+        
+         
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  June 25th, 2026: The AgraBhi team (Nathan Sharma, Landon Morrison, and Adam Crossey) met with the Row Crops Committee of the Fort Bend County Texas A & M AgriLife extension to discuss ways this project could be implemented on their connected farms, funded by the committee, and supported with their data. We also used this opportunity to test the rover's drivability on a contact's farm fields.
+  </p>
+
+<div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
+  
+  {/* Image Figure */}
+  <figure className="flex flex-col flex-1">
+    <div className="w-full aspect-video overflow-hidden  bg-slate-900">
+      <img
+        src={meetup}
+        alt="Arduino and Raspberry Pi Setup"
+        className="w-full h-full object-cover"
+      />
+    </div>
+    <figcaption className="mt-4 text-sm leading-relaxed"> 
+      Photo of entire AgriLife Row Crops Committee and AgraBhi team.
+    </figcaption>
+  </figure>
+
+  {/* Video Figure */}
+  <figure className="flex flex-col flex-1">
+    <div className="w-full aspect-video overflow-hidden  bg-slate-900">
+    <img
+        src={selfie}
+        alt="Arduino and Raspberry Pi Setup"
+        className="w-full h-full object-cover"
+      />
+    </div>
+    <figcaption className="mt-4 text-sm leading-relaxed"> 
+      From left: Adam Crossey, Landon Morrison, Nathan Sharma.
+      </figcaption>
+  </figure>
+
+</div>
       <p className="text-slate-400 leading-relaxed mb-3">
         
          
@@ -329,141 +371,143 @@ export default function About() {
 
       <div className="flex-1 flex flex-col">
         {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
-            <div className="max-w-full mx-auto px-6 h-16 flex items-center justify-between">
-              
-              {/* Logo Link */}
-              <div className="flex items-center text-xl font-bold tracking-tighter text-white">
-                <img src={logo} alt="AgraBhi Logo" className="h-6 w-auto translate-y-[1px]" />
-                <div>
-                  <a 
-                    href="https://nathan-sharma.github.io/agrabhi-site" 
-                    onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site"; }}
-                    className="cursor-pointer"
-                  >
-                    Agra<span className="text-emerald-400">Bhi</span>
-                  </a>
-                </div>
-              </div>
-        
-              {/* Desktop Nav Links */}
-              <div className="hidden md:flex items-center gap-8">
-                <a 
-                  href="https://nathan-sharma.github.io/agrabhi-site" 
-                  onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site"; }}
-                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-                >
-                  Home
-                </a>
-        
+   <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
+           <div className="max-w-full mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
+             
+             {/* Logo Link */}
+             <div className="flex items-center text-lg sm:text-xl font-bold tracking-tighter text-white whitespace-nowrap">
+               <img src={logo} alt="AgraBhi Logo" className="h-5 sm:h-6 w-auto translate-y-[1px] mr-1.5" />
+               <div>
+                 <a 
+                   href="https://nathan-sharma.github.io/agrabhi-site" 
+                   onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site"; }}
+                   className="cursor-pointer"
+                 >
+                   Agra<span className="text-emerald-400">Bhi</span>
+                 </a>
+               </div>
                
-        
-                <a 
-                  href="https://nathan-sharma.github.io/agrabhi-site/updates.html" 
-                  onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/updates.html"; }}
-                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-                >
-                 Project Updates
-                </a>
-         <a 
-                  href="https://nathan-sharma.github.io/agrabhi-site/about.html" 
-                  onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/about.html"; }}
-                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-                >
-                  About Us
-                </a>
-                <a 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  href="https://github.com/nathan-sharma/AgraBhi" 
-                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-                >
-                  GitHub
-                </a>
-                   
-                <a 
-                  href="https://nathan-sharma.github.io/agrabhi-site/data-hub.html" 
-                  onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/data-hub.html"; }}
-                  className="text-xs uppercase tracking-widest font-bold px-4 py-2 rounded-full bg-blue-500 text-[#0D1117] hover:bg-blue-400 transition-all"
-                >
-                  Data Hub
-                </a>
-              </div>
-        
-              {/* Mobile Menu Toggle Button */}
-              <button 
-                onClick={toggleMenu}
-                className="md:hidden text-slate-400 hover:text-white focus:outline-none"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  {isMenuOpen ? (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                  ) : (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-                  )}
-                </svg>
-              </button>
-            </div>
-        
-            {/* Mobile Nav Links */}
-            {isMenuOpen && (
-              <div className="md:hidden bg-[#0D1117] border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
-                <a 
-                  href="https://nathan-sharma.github.io/agrabhi-site" 
-                  onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site"; }}
-                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-                >
-                  Home
-                </a>
-                
-                
-                
-                
-                <a 
-                  href="https://nathan-sharma.github.io/agrabhi-site/updates.html" 
-                  onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/updates.html"; }}
-                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-                >
-                 Project Updates
-                </a>
-    
-                <a 
-                  href="https://nathan-sharma.github.io/agrabhi-site/about.html" 
-                  onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/about.html"; }}
-                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-                >
-                  About Us
-                </a>
-        
-                
-        
-                <a 
-                  href="https://github.com/nathan-sharma/AgraBhi" 
-                  onClick={toggleMenu}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-                >
-                  GitHub
-                </a>
-                <a 
-                  href="https://drive.google.com/file/d/1TR2aueFCylzw7Rai_YTZquHvooWqFICa/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-400 transition-colors"
-                >
-                  Poster
-                </a>
-        <a 
-                  href="https://nathan-sharma.github.io/agrabhi-site/data-hub.html" 
-                  onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/data-hub.html"; }}
-                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-                >
-                  Data Hub
-                </a>
-              </div>
-            )}
-          </nav>
+               {/* Kept and styled to fit perfectly on mobile screens */}
+               <p className="px-1.5 sm:px-3 text-sm sm:text-sm font-normal text-slate-400">in collaboration with</p>
+               <img src={agrilife} alt="AgriLife Logo" className="h-8 sm:h-9 w-auto translate-y-[1px] rounded-md sm:rounded-lg" />
+             </div>
+       
+             {/* Desktop Nav Links */}
+             <div className="hidden md:flex items-center gap-8">
+               <a 
+                 href="https://nathan-sharma.github.io/agrabhi-site" 
+                 onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site"; }}
+                 className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+               >
+                 Home
+               </a>
+       
+               <a 
+                 href="https://nathan-sharma.github.io/agrabhi-site/updates.html" 
+                 onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/updates.html"; }}
+                 className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+               >
+                Project Updates
+               </a>
+               
+               <a 
+                 href="https://nathan-sharma.github.io/agrabhi-site/about.html" 
+                 onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/about.html"; }}
+                 className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+               >
+                 About Us
+               </a>
+               
+               <a 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 href="https://github.com/nathan-sharma/AgraBhi" 
+                 className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+               >
+                 GitHub
+               </a>
+                  
+               <a 
+                 href="https://nathan-sharma.github.io/agrabhi-site/data-hub.html" 
+                 onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/data-hub.html"; }}
+                 className="text-xs uppercase tracking-widest font-bold px-4 py-2 rounded-full bg-blue-500 text-[#0D1117] hover:bg-blue-400 transition-all"
+               >
+                 Data Hub
+               </a>
+             </div>
+       
+             {/* Mobile Menu Toggle Button */}
+             <button 
+               onClick={toggleMenu}
+               className="md:hidden text-slate-400 hover:text-white focus:outline-none ml-2"
+             >
+               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                 {isMenuOpen ? (
+                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                 ) : (
+                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+                 )}
+               </svg>
+             </button>
+           </div>
+       
+           {/* Mobile Nav Links */}
+           {isMenuOpen && (
+             <div className="md:hidden bg-[#0D1117] border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
+               <a 
+                 href="https://nathan-sharma.github.io/agrabhi-site" 
+                 onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site"; }}
+                 className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+               >
+                 Home
+               </a>
+               
+               <a 
+                 href="https://nathan-sharma.github.io/agrabhi-site/updates.html" 
+                 onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/updates.html"; }}
+                 className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+               >
+                  Project Updates
+               </a>
+   
+               <a 
+                 href="https://nathan-sharma.github.io/agrabhi-site/about.html" 
+                 onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/about.html"; }}
+                 className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+               >
+                 About Us
+               </a>
+       
+               <a 
+                 href="https://github.com/nathan-sharma/AgraBhi" 
+                 onClick={toggleMenu}
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+               >
+                 GitHub
+               </a>
+               
+               <a 
+                 href="https://drive.google.com/file/d/1TR2aueFCylzw7Rai_YTZquHvooWqFICa/view?usp=sharing"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 onClick={toggleMenu}
+                 className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-400 transition-colors"
+               >
+                 Poster
+               </a>
+               
+               <a 
+                 href="https://nathan-sharma.github.io/agrabhi-site/data-hub.html" 
+                 onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/data-hub.html"; }}
+                 className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+               >
+                 Data Hub
+               </a>
+             </div>
+           )}
+         </nav>
         {/* Main Content Area */}
         <main className="pt-24 px-6 max-w-6xl w-full mx-auto flex-1 flex flex-col">
           {/* Content block grows dynamically to fill space */}
