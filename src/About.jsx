@@ -6,6 +6,7 @@ import image1 from "/image1.png";
 import image2 from "/image2.png";
 import image3 from "/image3.PNG";
 import agrilife from "/agrilife.jpg"
+import adam from "/adam.png"
 export default function About() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showFullAbstract, setShowFullAbstract] = useState(false);
@@ -204,6 +205,33 @@ export default function About() {
           Hi, I'm Landon and I'm a student at Cinco Ranch High School and co-founder of AgraBhi. I've always been interested in anything related to technology, and I've created lots of 3d models and designs using various programs like CAD and Blender. In my free time, I enjoy chess, gaming, and spending time with family and friends.
             </p>
           </div>
+          
+
+        </div>
+           <div className="flex flex-col md:flex-row gap-8 items-center mt-8">
+          
+          {/* Image Placeholder */}
+          <div className="w-full md:w-1/2 h-80 rounded-2xl flex items-center justify-center text-slate-500 text-lg font-semibold">
+            <img
+         
+    src={adam}
+    alt="Placeholder 3"
+    className="h-80 w-relative mt-8"
+  />
+          </div>
+
+          {/* Paragraph Placeholder */}
+          <div className="w-full md:w-1/2">
+            <h2 className="text-2xl font-bold text-white mb-4">
+             Adam Crossey
+            </h2>
+
+            <p className="text-slate-400 leading-relaxed">
+         Hello, my name is Adam and I’m a rising Junior at Cinco Ranch High School. I’ve recently joined AgraBhi to further my involvement in STEM and to make an impact in my community. I have a passion for learning and enjoy challenging myself with new concepts or ideas.
+
+</p>
+          </div>
+          
 
         </div>
       
