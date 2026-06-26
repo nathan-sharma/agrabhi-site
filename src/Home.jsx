@@ -295,7 +295,6 @@ export default function Home() {
         We think our rovers can improve their own predictive accuracy by driving to the highest uncertainty areas in its predictions in real time. For example, the system could start with an initial set of moisture measurements across the field, generate a heatmap, then tell each rover  to go to the most uncertain point on this heatmap and take a measurement there, repeating the process until accuracy is significantly improved and uncertainty is evenly distributed.
         </p>
     </div>
-   <hr className="border-slate-900" />
     {/* Stylized Video Player Wrapper */}
     
   </div>
