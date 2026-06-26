@@ -298,10 +298,11 @@ export default function Home() {
     {/* Stylized Video Player Wrapper */}
     
   </div>
- <hr className="border-slate-900" />
+
 </section>
        
         <section id="poster" className="hidden md:block py-5 scroll-mt-24">
+           <hr className="border-slate-900 mb-3" />
           <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-6">
            Old Work (Drone Project)
           </h2>
@@ -336,7 +337,6 @@ export default function Home() {
 
         {/* RESEARCH POSTER SECTION */}
 
-        <hr className="border-slate-900" />
 
         {/* NEXT STEPS & SUPPORT */}
      
