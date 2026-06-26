@@ -33,7 +33,7 @@ export default function About() {
             </div>
             
             {/* Kept and styled to fit perfectly on mobile screens */}
-            <p className="px-1.5 sm:px-3 text-sm sm:text-sm font-normal text-slate-400">in collaboration with</p>
+            <p className="px-2.5 sm:px-3 text-sm sm:text-sm font-normal text-slate-400">in collaboration with</p>
             <img src={agrilife} alt="AgriLife Logo" className="h-8 sm:h-9 w-auto translate-y-[1px] rounded-md sm:rounded-lg" />
           </div>
     
