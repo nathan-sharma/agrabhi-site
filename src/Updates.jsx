@@ -107,7 +107,7 @@ const MONTHS_DATA = [
     <div className = "translate-y-3">
       <p className="text-slate-400 leading-relaxed mb-4">
           <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          We will implement a more refined version of the design idea we had back on May 24th. We also hope the hollow cylinder fully detaches and reattaches to the rover after data is collected using something similar to a hook mechanism.
+          June 26th, 2026: We will implement a more refined version of the design idea we had back on May 24th. We also hope the hollow cylinder fully detaches and reattaches to the rover after data is collected using something similar to a hook mechanism. We also updated our budget plan for rover equipment.
 </p>
          
       <p className="text-slate-400 leading-relaxed mb-3">
