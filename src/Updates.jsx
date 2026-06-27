@@ -107,19 +107,9 @@ const MONTHS_DATA = [
     <div className = "translate-y-3">
       <p className="text-slate-400 leading-relaxed mb-4">
           <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          June 26th, 2026: Very basic rover design idea (shown in short video below).</p>
+          We will implement a more refined version of the design idea we had back on May 24th. We also hope the hollow cylinder fully detaches and reattaches to the rover after data is collected using something similar to a hook mechanism.
+</p>
          
-          <div className="md:w-[30%] w-[70%] rounded-xl mb-4 overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl transition-all duration-300 hover:border-slate-700/80">
-      <video 
-        src="designvid1.mp4" 
-        controls 
-        muted
-        preload="metadata"
-        className="w-full h-auto aspect-video object-cover block"
-      >
-        Your browser does not support the video tag.
-      </video>
-    </div>
       <p className="text-slate-400 leading-relaxed mb-3">
         
          
