@@ -16,6 +16,7 @@ import newfunc from "/newacquisitionfunc.png"
 import agrilife from "/agrilife.jpg"
 import meetup from "/meetup625.png"
 import selfie from "/selfie.png"
+import disassembled from "/disassembled.PNG"
 // Structured array containing your timeline data across 2026 and 2027
 const MONTHS_DATA = [
   {
@@ -103,13 +104,37 @@ const MONTHS_DATA = [
     )
   },
   { name: "June", year: "2026", content: <div className="text-slate-500 pt-1">
-    
+    <div className="text-slate-400 leading-relaxed mb-4">
+  <div className="flex items-start mb-2">
+    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mt-[10px] shrink-0"></span>
+    <p>
+    June 28th, 2026: Nathan and Landon met to discuss next steps for the project. The Raspberry Pi has been wiped clean (after saving our previous code to a separate device) to prepare it for controlling the rover. As we make this final version, we will very likely reuse parts of the old code, such as the code Nathan wrote for adaptive sampling.
+    </p>
+  </div>
+  <ul className="list-disc list-inside pl-8 space-y-1">
+    <li>
+      Landon: Will now focus on coding the GPS module on the Raspberry Pi to get RTK corrections from satellites and coding the Pi to control the rover once Nathan gives it back to him.
+    </li>
+    <li>
+      Nathan: Will now focus on getting measurements of the rover, designing the sensor penetration mechanism in CAD, and testing it.
+    </li>
+     <li>
+      Adam: Will focus on creating a dashboard in the Data Hub that allows us to control the rover and see footage of the camera we will attach by connecting to the Raspberry Pi. 
+      </li>
+  </ul>
+</div>
+
+ <img
+        src={disassembled}
+        alt="Picture of disassembled rover"
+        className="md:w-[50%] w-full h-relative"
+      />
+
     <div className = "translate-y-3">
       <p className="text-slate-400 leading-relaxed mb-4">
           <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          June 26th, 2026: We will implement a more refined version of the design idea we had back on May 24th. We think the hollow cylinder will fully detach and reattach to the rover after data is collected using something similar to a hook mechanism. We have also completed our budget plan for rover equipment.
-</p>
-         
+          June 26th, 2026: Sensor insertion will be very simple, we will mount a linear actuator in the center of the rover, stick the rover to the ground (likely with augers on the corners that will drill into the ground to keep the rover fixed), and extend the sensor. Air pockets in the soil make measurements inaccurate, so we cannot drill into the ground before insertion. Additionally, design ideas such as the one we thought of on May 24th are extremely hard and complicated to feasibly build.
+        </p> 
       <p className="text-slate-400 leading-relaxed mb-3">
         
          
@@ -129,7 +154,7 @@ const MONTHS_DATA = [
       />
     </div>
     <figcaption className="mt-4 text-sm leading-relaxed"> 
-      Photo of entire AgriLife Row Crops Committee and AgraBhi team.
+      Photo of AgriLife Row Crops Committee meeting with AgraBhi team.
     </figcaption>
   </figure>
 
