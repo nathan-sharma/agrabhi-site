@@ -23,6 +23,8 @@ import platesensor from "/plate+sensor.png"
 import plate from "/plate.png"
 import papercutout from "/papercutout.png" 
 import fulldesign from "/fulldesign.png"
+import detached from "/detached.png" 
+import attached from "/attached.png" 
 // Structured array containing your timeline data across 2026 and 2027
 const MONTHS_DATA = [
   {
@@ -403,6 +405,12 @@ const MONTHS_DATA = [
     <img src={papercutout} alt="July progress 6" className="w-full h-full object-contain pointer-events-none" />
   </div>
 
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+    <img src={detached} alt="July progress 7" className="w-full h-full object-contain pointer-events-none" />
+  </div>
+    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+    <img src={attached} alt="July progress 8" className="w-full h-full object-contain pointer-events-none" />
+  </div>
 </div>
 
    </div> },
