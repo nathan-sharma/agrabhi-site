@@ -17,6 +17,12 @@ import agrilife from "/agrilife.jpg"
 import meetup from "/meetup625.png"
 import selfie from "/selfie.png"
 import disassembled from "/disassembled.PNG"
+import sensoradapter from "/sensoradapter.png" 
+import roverhole from "/roverhole.png"
+import platesensor from "/plate+sensor.png" 
+import plate from "/plate.png"
+import papercutout from "/papercutout.png" 
+import fulldesign from "/fulldesign.png"
 // Structured array containing your timeline data across 2026 and 2027
 const MONTHS_DATA = [
   {
@@ -358,7 +364,48 @@ const MONTHS_DATA = [
   
   
   </div> },
-  { name: "July", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
+  { name: "July", year: "2026", content: <div className="text-slate-500 pt-1">
+    
+  <p className="text-slate-400 leading-relaxed mb-4">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  July 1st, 2026: First rough CAD design of sensor insertion mechanism finished. Nathan also made a paper cutout of the plate that will screw onto the rover to check its dimensions which ended up fitting perfectly! (swipe left to scroll through images)
+</p> 
+
+
+<div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar">
+  
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+    <img src={fulldesign} alt="July progress 1" className="w-full h-full object-contain pointer-events-none" />
+  </div>
+
+ 
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+    <img src={platesensor} alt="July progress 2" className="w-full h-full object-contain pointer-events-none" />
+  </div>
+
+  
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+    <img src={sensoradapter} alt="July progress 3" className="w-full h-full object-contain pointer-events-none" />
+  </div>
+
+ 
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+    <img src={plate} alt="July progress 4" className="w-full h-full object-contain pointer-events-none" />
+  </div>
+
+ 
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+    <img src={roverhole} alt="July progress 5" className="w-full h-full object-contain pointer-events-none" />
+  </div>
+
+ 
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+    <img src={papercutout} alt="July progress 6" className="w-full h-full object-contain pointer-events-none" />
+  </div>
+
+</div>
+
+   </div> },
   { name: "August", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
   { name: "September", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
   { name: "October", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
@@ -373,7 +420,7 @@ const MONTHS_DATA = [
 
 export default function About() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentMonthIndex, setCurrentMonthIndex] = useState(1);
+  const [currentMonthIndex, setCurrentMonthIndex] = useState(2);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
