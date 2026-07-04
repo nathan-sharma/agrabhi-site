@@ -371,7 +371,7 @@ const MONTHS_DATA = [
   
   <p className="text-slate-400 leading-relaxed mb-6">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  July 3rd, 2026: CAD design is now finished and ready for Landon to 3d print.
+  July 3rd, 2026: CAD design is now finished and ready for Landon to 3d print for initial testing.
 </p>
 <img
          
