@@ -371,7 +371,10 @@ const MONTHS_DATA = [
   
   <p className="text-slate-400 leading-relaxed mb-6">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  July 3rd, 2026: CAD design is now finished and ready for Landon to 3d print for initial testing. Access our STL files <a target="_blank" rel="noopener noreferrer" href="https://drive.google.com/drive/folders/1GOk8_7-nP1topS2CLsfFXReJcwiVUp4u?usp=sharing" className="underline hover:text-gray-500 ">here.</a>
+  July 4th, 2026: Landon is now looking for a GPS module that can connect to the Raspberry Pi using one of its USB ports rather than its pins since we need to use the pins to connect the Pi to the rover's control board.</p>
+  <p className="text-slate-400 leading-relaxed mb-6">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  July 3rd, 2026: Nathan finished the CAD design, and it is now ready for Landon to 3d print for initial testing. Access our STL files <a target="_blank" rel="noopener noreferrer" href="https://drive.google.com/drive/folders/1GOk8_7-nP1topS2CLsfFXReJcwiVUp4u?usp=sharing" className="underline hover:text-gray-500 ">here.</a>
 </p>
 <img
          
