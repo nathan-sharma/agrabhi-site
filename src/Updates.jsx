@@ -25,6 +25,7 @@ import papercutout from "/papercutout.png"
 import fulldesign from "/fulldesign.png"
 import detached from "/detached.png" 
 import attached from "/attached.png" 
+import finisheddesign from "/roverdesign3dprint.jpg"
 // Structured array containing your timeline data across 2026 and 2027
 const MONTHS_DATA = [
   {
@@ -367,10 +368,21 @@ const MONTHS_DATA = [
   
   </div> },
   { name: "July", year: "2026", content: <div className="text-slate-500 pt-1">
-    
+  
+  <p className="text-slate-400 leading-relaxed mb-6">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  July 3rd, 2026: CAD design is now finished and ready for Landon to 3d print.
+</p>
+<img
+         
+    src={finisheddesign}
+    alt="Placeholder 1"
+    className="md:w-[20%] md:h-relative h-full w-relative mt-4 mb-4"
+  />
+
   <p className="text-slate-400 leading-relaxed mb-4">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  July 1st, 2026: First rough CAD design of sensor insertion mechanism finished. Nathan also made a paper cutout of the plate that will screw onto the rover to check its dimensions which ended up fitting perfectly! (swipe left to scroll through images)
+  July 1st, 2026: First rough CAD design of sensor insertion mechanism. Nathan also made a paper cutout of the plate that will screw onto the rover to check its dimensions which ended up fitting perfectly! (swipe left to scroll through images)
 </p> 
 
 
