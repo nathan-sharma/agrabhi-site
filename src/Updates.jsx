@@ -26,6 +26,7 @@ import fulldesign from "/fulldesign.png"
 import detached from "/detached.png" 
 import attached from "/attached.png" 
 import finisheddesign from "/roverdesign3dprint.jpg"
+import longerwires from "/longwires.png"
 // Structured array containing your timeline data across 2026 and 2027
 const MONTHS_DATA = [
   {
@@ -368,7 +369,15 @@ const MONTHS_DATA = [
   
   </div> },
   { name: "July", year: "2026", content: <div className="text-slate-500 pt-1">
-  
+  <p className="text-slate-400 leading-relaxed mb-6">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  July 5th, 2026: The rover was accidentally short circuited when a phone charger touched the board. We are now ordering a replacement. Also, Nathan made longer wires connecting to the motors, allowing the control board to be placed on top of the rover.</p>
+  <img
+         
+    src={longerwires}
+    alt="Placeholder 1"
+    className="md:w-[20%] md:h-relative h-full w-relative mt-4 mb-4"
+  />
   <p className="text-slate-400 leading-relaxed mb-6">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
   July 4th, 2026: Landon is now looking for a GPS module that can connect to the Raspberry Pi using one of its USB ports rather than its pins since we need to use the pins to connect the Pi to the rover's control board.</p>
