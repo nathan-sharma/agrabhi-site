@@ -27,6 +27,7 @@ import detached from "/detached.png"
 import attached from "/attached.png" 
 import finisheddesign from "/roverdesign3dprint.jpg"
 import longerwires from "/longwires.png"
+import printing from "/3dprint.png"
 // Structured array containing your timeline data across 2026 and 2027
 const MONTHS_DATA = [
   {
@@ -369,7 +370,18 @@ const MONTHS_DATA = [
   
   </div> },
   { name: "July", year: "2026", content: <div className="text-slate-500 pt-1">
+    <p className="text-slate-400 leading-relaxed mb-6">
+    
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  July 6th, 2026: Parts are 3d printing and will be finished tomorrow morning. </p>
+  <img
+         
+    src={printing}
+    alt="Placeholder 1"
+    className="md:w-[40%] md:h-relative h-full w-relative mt-4 mb-4"
+  />
   <p className="text-slate-400 leading-relaxed mb-6">
+    
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
   July 5th, 2026: The rover was accidentally short circuited when a phone charger touched the board. We are now ordering a replacement. Also, Nathan made longer wires connecting to the motors, allowing the control board to be placed on top of the rover.</p>
   <img
