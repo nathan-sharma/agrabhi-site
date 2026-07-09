@@ -370,6 +370,15 @@ const MONTHS_DATA = [
   
   </div> },
   { name: "July", year: "2026", content: <div className="text-slate-500 pt-1">
+     <p className="text-slate-400 leading-relaxed mb-6">
+    
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  July 8th, 2026: Landon will sand the parts so they fit, measure screw hole dimensions on the rover before we return it, and find a USB GPS module for the Raspberry Pi.</p>
+     <p className="text-slate-400 leading-relaxed mb-6">
+    
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  July 7th, 2026: Parts were printed but did not fit together perfectly.</p>
+
     <p className="text-slate-400 leading-relaxed mb-6">
     
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
