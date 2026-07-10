@@ -509,8 +509,8 @@ export default function About() {
                <img src={logo} alt="AgraBhi Logo" className="h-5 sm:h-6 w-auto translate-y-[1px] mr-1.5" />
                <div>
                  <a 
-                   href="https://nathan-sharma.github.io/agrabhi-site" 
-                   onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site"; }}
+                   href="https://agrabhi.com" 
+                   onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com"; }}
                    className="cursor-pointer"
                  >
                    Agra<span className="text-emerald-400">Bhi</span>
@@ -525,24 +525,24 @@ export default function About() {
              {/* Desktop Nav Links */}
              <div className="hidden md:flex items-center gap-8">
                <a 
-                 href="https://nathan-sharma.github.io/agrabhi-site" 
-                 onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site"; }}
+                 href="https://agrabhi.com" 
+                 onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com"; }}
                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
                >
                  Home
                </a>
        
                <a 
-                 href="https://nathan-sharma.github.io/agrabhi-site/updates.html" 
-                 onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/updates.html"; }}
+                 href="https://agrabhi.com/updates.html" 
+                 onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/updates.html"; }}
                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
                >
                 Project Updates
                </a>
                
                <a 
-                 href="https://nathan-sharma.github.io/agrabhi-site/about.html" 
-                 onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/about.html"; }}
+                 href="https://agrabhi.com/about.html" 
+                 onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/about.html"; }}
                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
                >
                  About Us
@@ -558,8 +558,8 @@ export default function About() {
                </a>
                   
                <a 
-                 href="https://nathan-sharma.github.io/agrabhi-site/data-hub.html" 
-                 onClick={(e) => { e.preventDefault(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/data-hub.html"; }}
+                 href="https://agrabhi.com/data-hub.html" 
+                 onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/data-hub.html"; }}
                  className="text-xs uppercase tracking-widest font-bold px-4 py-2 rounded-full bg-blue-500 text-[#0D1117] hover:bg-blue-400 transition-all"
                >
                  Data Hub
@@ -585,24 +585,24 @@ export default function About() {
            {isMenuOpen && (
              <div className="md:hidden bg-[#0D1117] border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
                <a 
-                 href="https://nathan-sharma.github.io/agrabhi-site" 
-                 onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site"; }}
+                 href="https://agrabhi.com" 
+                 onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com"; }}
                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
                >
                  Home
                </a>
                
                <a 
-                 href="https://nathan-sharma.github.io/agrabhi-site/updates.html" 
-                 onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/updates.html"; }}
+                 href="https://agrabhi.com/updates.html" 
+                 onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/updates.html"; }}
                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
                >
                   Project Updates
                </a>
    
                <a 
-                 href="https://nathan-sharma.github.io/agrabhi-site/about.html" 
-                 onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/about.html"; }}
+                 href="https://agrabhi.com/about.html" 
+                 onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/about.html"; }}
                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
                >
                  About Us
@@ -629,8 +629,8 @@ export default function About() {
                </a>
                
                <a 
-                 href="https://nathan-sharma.github.io/agrabhi-site/data-hub.html" 
-                 onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://nathan-sharma.github.io/agrabhi-site/data-hub.html"; }}
+                 href="https://agrabhi.com/data-hub.html" 
+                 onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/data-hub.html"; }}
                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
                >
                  Data Hub
