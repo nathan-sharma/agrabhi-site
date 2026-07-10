@@ -167,7 +167,7 @@ export default function Home() {
           AgraBhi
         </h1>
         <h2 className="text-xl md:text-3xl font-medium mb-4 tracking-tight text-slate-300 max-w-7xl mx-auto leading-tight animate-slide-slow">
-         Accurate, Low Cost Soil Moisture Mapping for <span className="text-emerald-400">Smarter Irrigation.</span>
+         Accurate, Low Cost Soil Moisture Mapping for <span className="text-emerald-400">Smarter Decisions.</span>
         </h2>
       </header>
 
@@ -236,7 +236,7 @@ export default function Home() {
             </p>
             
             <p>
-              The goal of our project is to make irrigation decisions more precise, efficient, and affordable for farmers with this data.
+              The goal of our project is to make crop decisions more precise, efficient, and affordable for farmers with this data.
             </p>
 
             <div className="pt-4">
