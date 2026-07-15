@@ -28,6 +28,9 @@ import attached from "/attached.png"
 import finisheddesign from "/roverdesign3dprint.jpg"
 import longerwires from "/longwires.png"
 import printing from "/3dprint.png"
+import printed from "/printed.jpg"
+import printed2 from "/printed2.jpg"
+import printed3 from "/printed3.jpg"
 // Structured array containing your timeline data across 2026 and 2027
 const MONTHS_DATA = [
   {
@@ -370,6 +373,65 @@ const MONTHS_DATA = [
   
   </div> },
   { name: "July", year: "2026", content: <div className="text-slate-500 pt-1">
+     <p className="text-slate-400 leading-relaxed mb-6">
+    
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  July 16th, 2026: Short circuited rover was successfully refunded and a very positive update from the AgriLife extension.</p>
+     
+<p className="text-slate-400 leading-relaxed mb-6">
+    
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  July 10th, 2026: All parts fit together, but the sensor adapter will need to be redesigned to properly hold the sensor. After the break, we will remake the sensor adapter and finally begin testing the design.</p>
+ <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
+  
+  {/* Image Figure 1 */}
+  <figure className="flex flex-col flex-1">
+    <div className="w-full aspect-video overflow-hidden bg-slate-900">
+      <img
+        src={printed}
+        alt="Arduino and Raspberry Pi Setup"
+        className="w-full h-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-4 text-sm leading-relaxed"> 
+      Design on rover plate with linear actuator.
+    </figcaption>
+  </figure>
+
+  {/* Image Figure 2 */}
+  <figure className="flex flex-col flex-1">
+    <div className="w-full aspect-video overflow-hidden bg-slate-900">
+      <img
+        src={printed2}
+        alt="Arduino and Raspberry Pi Setup"
+        className="w-full h-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-4 text-sm leading-relaxed"> 
+      Entire printed design with support rods, linear actuator, and sensor adapter.
+    </figcaption>
+  </figure>
+
+  {/* Image Figure 3 */}
+  <figure className="flex flex-col flex-1">
+    <div className="w-full aspect-video overflow-hidden bg-slate-900">
+      <img
+        src={printed3}
+        alt="Arduino and Raspberry Pi Setup"
+        className="w-full h-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-4 text-sm leading-relaxed"> 
+      Image showing printed sensor adapter being too short to hold the sensor's wire in its hole.
+    </figcaption>
+  </figure>
+
+</div>
+    
+    <p className="text-slate-400 leading-relaxed mb-6 font-bold text-xl">
+    
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  July 10th - 19th: Break period/ Vacation (there will be very little to no work being done on the project during this period)</p>
      <p className="text-slate-400 leading-relaxed mb-6">
     
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
