@@ -38,7 +38,10 @@ const MONTHS_DATA = [
     year: "2026",
     content: (
       <div className="space-y-4 mb-8">
+         <p className="text-slate-400 leading-relaxed text-sm font-bold">
          
+         Note: Links to documents and other files in the updates page will not be public until science fair season.
+          </p>
         <p className="text-slate-400 leading-relaxed">
           <p className="text-slate-400 leading-relaxed">
           <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
