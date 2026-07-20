@@ -434,7 +434,7 @@ const MONTHS_DATA = [
     <p className="text-slate-400 leading-relaxed mb-6 font-bold text-xl">
     
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  July 10th - 19th: Break period/ Vacation (there will be very little to no work being done on the project during this period)</p>
+  July 10th - 19th: Break period/ Vacation</p>
      <p className="text-slate-400 leading-relaxed mb-6">
     
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
