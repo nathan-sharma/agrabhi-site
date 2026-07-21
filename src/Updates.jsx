@@ -376,6 +376,11 @@ const MONTHS_DATA = [
   
   </div> },
   { name: "July", year: "2026", content: <div className="text-slate-500 pt-1">
+    <p className="text-slate-400 leading-relaxed mb-6">
+    
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  July 21st, 2026: Project SWARPS</p>
+     
      <p className="text-slate-400 leading-relaxed mb-6">
     
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
