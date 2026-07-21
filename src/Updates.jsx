@@ -379,7 +379,7 @@ const MONTHS_DATA = [
     <p className="text-slate-400 leading-relaxed mb-6">
     
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  July 21st, 2026: SWARPS (2028), more on this later</p>
+  July 21st, 2026: SWARPS 2028, more on this soon!</p>
      
      <p className="text-slate-400 leading-relaxed mb-6">
     
