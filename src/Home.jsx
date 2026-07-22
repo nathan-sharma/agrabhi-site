@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from "/blogo.png";
 import agrilife from "/agrilife.jpg"
 import { HashLink } from 'react-router-hash-link';
+import meetup from "/meetup625.png";
 
 export default function Home() {
   
@@ -199,29 +200,27 @@ export default function Home() {
       <main className="max-w-5xl mx-auto px-6">
         
         {/* PROJECT VIDEO SECTION */}
-        <section className="py-8 flex flex-col items-center justify-center">
-         
-         <div className="mt-6 relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black w-[70%] h-relative">
-            <iframe
-              className="absolute top-0 left-0 w-full h-full"
-              src="https://www.youtube.com/embed/DFLhrhK0u_E"
-              title="AgraBhi 2027 Overview Presentation by Nathan"
-              frameBorder="0"
-              allowFullScreen
-            ></iframe>
-          </div>
-          <div className="mt-6 relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black w-[70%] h-relative">
-            <iframe
-              className="absolute top-0 left-0 w-full h-full"
-              src="https://www.youtube.com/embed/Bgpvw7TuoMc"
-              title="AgraBhi 2026 Video"
-              frameBorder="0"
-              allowFullScreen
-            ></iframe>
-          </div>
-             
-          
-        </section>
+   <section className="py-8 flex flex-col items-center justify-center">
+    <div className="mt-6 relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black w-[70%]">
+    <img 
+      src={meetup}
+      alt="AgraBhi Presentation Visual" 
+      className="absolute top-0 left-0 w-full h-full object-cover"
+    />
+  </div>
+  <div className="mt-6 relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black w-[70%] h-relative">
+     <iframe
+       className="absolute top-0 left-0 w-full h-full"
+       src="https://www.youtube.com/embed/DFLhrhK0u_E"
+       title="AgraBhi 2027 Overview Presentation by Nathan"
+       frameBorder="0"
+       allowFullScreen
+     ></iframe>
+   </div>
+  
+
+
+</section>
 
         <hr className="border-slate-900" />
 
@@ -301,35 +300,35 @@ export default function Home() {
 
 </section>
        
-        <section id="poster" className="hidden md:block py-5 scroll-mt-24">
-           <hr className="border-slate-900 mb-3" />
-          <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-6">
-           Old Work (Drone Project)
-          </h2>
-          
-          {/* Button for smaller screens */}
-          <div className="md:hidden">
-            <a 
-              href="https://drive.google.com/file/d/1TR2aueFCylzw7Rai_YTZquHvooWqFICa/view?usp=sharing" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="block w-full text-center py-2 bg-emerald-500 hover:bg-emerald-600 text-[#0D1117] font-bold uppercase tracking-widest transition-all "
-            >
-             Open in new tab
-            </a>
-          </div>
+  <section id="poster" className="py-5 scroll-mt-24">
+  <hr className="border-slate-900 mb-3" />
+  <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-6">
+    Old Work (Drone Project)
+  </h2>
 
-          {/* Hidden on small screens, shown on md and up */}
-          <div className="hidden md:block bg-[#161B22] border border-slate-800 p-1 rounded-xl shadow-xl">
-            <div className="bg-[#0D1117] w-full h-[800px] overflow-hidden rounded-lg">
-              <iframe
-                src="/poster.pdf"
-                className="w-full h-full border-none"
-                title="AgraBhi Research Poster"
-              ></iframe>
-            </div>
-          </div>
-        </section>
+  {/* Hidden on small screens, shown on md and up */}
+   <div className="mt-6 mx-auto relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black w-full md:w-[70%]">
+    <iframe
+      className="absolute top-0 left-0 w-full h-full"
+      src="https://www.youtube.com/embed/Bgpvw7TuoMc"
+      title="AgraBhi 2026 Video"
+      frameBorder="0"
+      allowFullScreen
+    ></iframe>
+  </div>
+  <div className="hidden md:block bg-[#161B22] border border-slate-800 p-1 rounded-xl shadow-xl mt-4">
+    <div className="bg-[#0D1117] w-full h-[800px] overflow-hidden rounded-lg">
+      <iframe
+        src="/poster.pdf"
+        className="w-full h-full border-none"
+        title="AgraBhi Research Poster"
+      ></iframe>
+    </div>
+  </div>
+
+  {/* Visible on all screens, centered, with dynamic width for mobile vs desktop */}
+ 
+</section>
         {/* CURRENT DEVELOPMENT SECTION */}
       
 
