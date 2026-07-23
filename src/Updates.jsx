@@ -376,10 +376,7 @@ const MONTHS_DATA = [
   
   </div> },
   { name: "July", year: "2026", content: <div className="text-slate-500 pt-1">
-    <p className="text-slate-400 leading-relaxed mb-6">
-    
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  July 21st, 2026: SWARPS 2028, more on this soon!</p>
+  
      
      <p className="text-slate-400 leading-relaxed mb-6">
     
@@ -695,7 +692,7 @@ export default function About() {
                  onClick={toggleMenu}
                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-400 transition-colors"
                >
-                 Poster
+                 Old Poster
                </a>
                
                <a 

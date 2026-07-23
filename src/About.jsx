@@ -1,130 +1,178 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
 import logo from "/blogo.png";
 import image1 from "/image1.png";
-import image2 from "/image2.png";
 import image3 from "/image3.PNG";
-import agrilife from "/agrilife.jpg"
-import adam from "/adam.png"
+import agrilife from "/agrilife.jpg";
+import adam from "/adam.png";
+
 export default function About() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showFullAbstract, setShowFullAbstract] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <div className="min-h-screen bg-[#0D1117] text-[#E2E8F0] font-sans overflow-x-hidden">
-      
-<nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
+      {/* NAVBAR */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
         <div className="max-w-full mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
-          
           {/* Logo Link */}
           <div className="flex items-center text-lg sm:text-xl font-bold tracking-tighter text-white whitespace-nowrap">
-            <img src={logo} alt="AgraBhi Logo" className="h-5 sm:h-6 w-auto translate-y-[1px] mr-1.5" />
+            <img
+              src={logo}
+              alt="AgraBhi Logo"
+              className="h-5 sm:h-6 w-auto translate-y-[1px] mr-1.5"
+            />
             <div>
-              <a 
-                href="https://agrabhi.com" 
-                onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com"; }}
+              <a
+                href="https://agrabhi.com"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = "https://agrabhi.com";
+                }}
                 className="cursor-pointer"
               >
                 Agra<span className="text-emerald-400">Bhi</span>
               </a>
             </div>
-            
+
             {/* Kept and styled to fit perfectly on mobile screens */}
-            <p className="px-2.5 sm:px-3 text-sm sm:text-sm font-normal text-slate-400">in collaboration with</p>
-            <img src={agrilife} alt="AgriLife Logo" className="h-8 sm:h-9 w-auto translate-y-[1px] rounded-md sm:rounded-lg" />
+            <p className="px-2.5 sm:px-3 text-sm sm:text-sm font-normal text-slate-400">
+              in collaboration with
+            </p>
+            <img
+              src={agrilife}
+              alt="AgriLife Logo"
+              className="h-8 sm:h-9 w-auto translate-y-[1px] rounded-md sm:rounded-lg"
+            />
           </div>
-    
+
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-8">
-            <a 
-              href="https://agrabhi.com" 
-              onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com"; }}
+            <a
+              href="https://agrabhi.com"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "https://agrabhi.com";
+              }}
               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
             >
               Home
             </a>
-    
-            <a 
-              href="https://agrabhi.com/updates.html" 
-              onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/updates.html"; }}
+
+            <a
+              href="https://agrabhi.com/updates.html"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "https://agrabhi.com/updates.html";
+              }}
               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
             >
-             Project Updates
+              Project Updates
             </a>
-            
-            <a 
-              href="https://agrabhi.com/about.html" 
-              onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/about.html"; }}
+
+            <a
+              href="https://agrabhi.com/about.html"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "https://agrabhi.com/about.html";
+              }}
               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
             >
               About Us
             </a>
-            
-            <a 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              href="https://github.com/nathan-sharma/AgraBhi" 
+
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/nathan-sharma/AgraBhi"
               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
             >
               GitHub
             </a>
-               
-            <a 
-              href="https://agrabhi.com/data-hub.html" 
-              onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/data-hub.html"; }}
+
+            <a
+              href="https://agrabhi.com/data-hub.html"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "https://agrabhi.com/data-hub.html";
+              }}
               className="text-xs uppercase tracking-widest font-bold px-4 py-2 rounded-full bg-blue-500 text-[#0D1117] hover:bg-blue-400 transition-all"
             >
               Data Hub
             </a>
           </div>
-    
+
           {/* Mobile Menu Toggle Button */}
-          <button 
+          <button
             onClick={toggleMenu}
             className="md:hidden text-slate-400 hover:text-white focus:outline-none ml-2"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               {isMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
               )}
             </svg>
           </button>
         </div>
-    
+
         {/* Mobile Nav Links */}
         {isMenuOpen && (
           <div className="md:hidden bg-[#0D1117] border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
-            <a 
-              href="https://agrabhi.com" 
-              onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com"; }}
+            <a
+              href="https://agrabhi.com"
+              onClick={(e) => {
+                e.preventDefault();
+                toggleMenu();
+                window.location.href = "https://agrabhi.com";
+              }}
               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
             >
               Home
             </a>
-            
-            <a 
-              href="https://agrabhi.com/updates.html" 
-              onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/updates.html"; }}
+
+            <a
+              href="https://agrabhi.com/updates.html"
+              onClick={(e) => {
+                e.preventDefault();
+                toggleMenu();
+                window.location.href = "https://agrabhi.com/updates.html";
+              }}
               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
             >
-               Project Updates
+              Project Updates
             </a>
 
-            <a 
-              href="https://agrabhi.com/about.html" 
-              onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/about.html"; }}
+            <a
+              href="https://agrabhi.com/about.html"
+              onClick={(e) => {
+                e.preventDefault();
+                toggleMenu();
+                window.location.href = "https://agrabhi.com/about.html";
+              }}
               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
             >
               About Us
             </a>
-    
-            <a 
-              href="https://github.com/nathan-sharma/AgraBhi" 
+
+            <a
+              href="https://github.com/nathan-sharma/AgraBhi"
               onClick={toggleMenu}
               target="_blank"
               rel="noopener noreferrer"
@@ -132,20 +180,24 @@ export default function About() {
             >
               GitHub
             </a>
-            
-            <a 
+
+            <a
               href="https://drive.google.com/file/d/1TR2aueFCylzw7Rai_YTZquHvooWqFICa/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               onClick={toggleMenu}
               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-400 transition-colors"
             >
-              Poster
+              Old Poster
             </a>
-            
-            <a 
-              href="https://agrabhi.com/data-hub.html" 
-              onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/data-hub.html"; }}
+
+            <a
+              href="https://agrabhi.com/data-hub.html"
+              onClick={(e) => {
+                e.preventDefault();
+                toggleMenu();
+                window.location.href = "https://agrabhi.com/data-hub.html";
+              }}
               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
             >
               Data Hub
@@ -153,20 +205,18 @@ export default function About() {
           </div>
         )}
       </nav>
+
       {/* PAGE CONTENT */}
       <main className="pt-32 px-6 py-10 max-w-6xl mx-auto space-y-16">
-
         {/* GROUP 1 */}
         <div className="flex flex-col md:flex-row gap-8 items-center mb-8">
-          
           {/* Image Placeholder */}
-          <div className="w-full md:w-1/2 h-80  rounded-2xl flex items-center justify-center text-slate-500 text-lg font-semibold">
+          <div className="w-full md:w-1/2 h-80 rounded-2xl flex items-center justify-center text-slate-500 text-lg font-semibold">
             <img
-         
-    src={image1}
-    alt="Placeholder 1"
-    className="w-80 h-relative"
-  />
+              src={image1}
+              alt="Placeholder 1"
+              className="w-80 h-relative"
+            />
           </div>
 
           {/* Paragraph Placeholder */}
@@ -176,95 +226,90 @@ export default function About() {
             </h2>
 
             <p className="text-slate-400 leading-relaxed">
-           Hi, I'm Nathan, and I am the founder and team lead of AgraBhi, a project helping farmers better manage their crops with accurate soil moisture data. I am an incoming junior at Cinco Ranch High School and love research, mathematics, and science. I am very involved in and have won multiple awards in science fairs, math competitions, and TMEA and other music competitions. In my free time, I enjoy running, playing the cello, and spending time with my family.
+              Hi, I'm Nathan, and I am the founder and team lead of AgraBhi, a project helping farmers better manage their crops with accurate soil moisture data. I am an incoming junior at Cinco Ranch High School and love research, mathematics, and science. I am very involved in and have won multiple awards in science fairs, math competitions, and TMEA and other music competitions. In my free time, I enjoy running, playing the cello, and spending time with my family.
             </p>
           </div>
-
         </div>
 
         {/* GROUP 2 */}
         <div className="flex flex-col md:flex-row gap-8 items-center mt-8">
-          
           {/* Image Placeholder */}
           <div className="w-full md:w-1/2 h-80 rounded-2xl flex items-center justify-center text-slate-500 text-lg font-semibold">
             <img
-         
-    src={image3}
-    alt="Placeholder 2"
-    className="h-80 w-relative mt-8"
-  />
+              src={image3}
+              alt="Placeholder 2"
+              className="h-80 w-relative mt-8"
+            />
           </div>
 
           {/* Paragraph Placeholder */}
           <div className="w-full md:w-1/2">
             <h2 className="text-2xl font-bold text-white mb-4">
-             Landon Morrison
+              Landon Morrison
             </h2>
 
             <p className="text-slate-400 leading-relaxed">
-          Hi, I'm Landon and I'm a student at Cinco Ranch High School and co-founder of AgraBhi. I've always been interested in anything related to technology, and I've created lots of 3d models and designs using various programs like CAD and Blender. In my free time, I enjoy chess, gaming, and spending time with family and friends.
+              Hi, I'm Landon and I'm a student at Cinco Ranch High School and co-founder of AgraBhi. I've always been interested in anything related to technology, and I've created lots of 3d models and designs using various programs like CAD and Blender. In my free time, I enjoy chess, gaming, and spending time with family and friends.
             </p>
           </div>
-          
-
         </div>
-           <div className="flex flex-col md:flex-row gap-8 items-center mt-8">
-          
+
+        {/* GROUP 3 */}
+        <div className="flex flex-col md:flex-row gap-8 items-center mt-8">
           {/* Image Placeholder */}
           <div className="w-full md:w-1/2 h-80 rounded-2xl flex items-center justify-center text-slate-500 text-lg font-semibold">
             <img
-         
-    src={adam}
-    alt="Placeholder 3"
-    className="h-80 w-relative mt-8"
-  />
+              src={adam}
+              alt="Placeholder 3"
+              className="h-80 w-relative mt-8"
+            />
           </div>
 
           {/* Paragraph Placeholder */}
           <div className="w-full md:w-1/2">
             <h2 className="text-2xl font-bold text-white mb-4">
-             Adam Crossey
+              Adam Crossey
             </h2>
 
             <p className="text-slate-400 leading-relaxed">
-         Hello, my name is Adam and I’m a rising Junior at Cinco Ranch High School. I’ve recently joined AgraBhi to further my involvement in STEM and to make an impact in my community. I have a passion for learning and enjoy challenging myself with new concepts or ideas.
-
-</p>
+              Hello, my name is Adam and I’m a rising Junior at Cinco Ranch High School. I’ve recently joined AgraBhi to further my involvement in STEM and make an impact in my community. I have a passion for learning and enjoy challenging myself with new concepts or ideas.
+            </p>
           </div>
-          
-
         </div>
-      
       </main>
-  <footer className="border-t border-slate-800 bg-[#0D1117] py-8">
-      
-          <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-2 md:gap-6">
-            <div className="text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start  mb-1">
-                <img src={logo} alt="Logo" className="h-5 w-auto" />
-                <h2 className="text-lg font-bold text-white leading-none">
-                  Agra<span className="text-emerald-400">Bhi</span>
-                </h2>
-              </div>
-              <p className="text-xs text-slate-400">
-                Created by <span className="text-slate-200">Nathan Sharma & Landon Morrison</span>
-              </p>
-              
+
+      {/* FOOTER */}
+      <footer className="border-t border-slate-800 bg-[#0D1117] py-8">
+        <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-2 md:gap-6">
+          <div className="text-center md:text-left">
+            <div className="flex items-center justify-center md:justify-start mb-1">
+              <img src={logo} alt="Logo" className="h-5 w-auto" />
+              <h2 className="text-lg font-bold text-white leading-none">
+                Agra<span className="text-emerald-400">Bhi</span>
+              </h2>
             </div>
-            
-  
-            <div className="flex flex-col md:flex-row gap-x-6 gap-y-0 md:gap-y-1 text-center">
-              <a href="mailto:nathansharma007@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
-                nathansharma007@gmail.com
-              </a>
-            
-                 <a href="mailto:morrisonlandon51@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
-            morrisonlandon51@gmail.com
-              </a>
-              
-            </div>
+            <p className="text-xs text-slate-400">
+              Created by <span className="text-slate-200">Nathan Sharma & Landon Morrison</span>
+            </p>
           </div>
-        </footer>
+
+          <div className="flex flex-col md:flex-row gap-x-6 gap-y-0 md:gap-y-1 text-center">
+            <a
+              href="mailto:nathansharma007@gmail.com"
+              className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors"
+            >
+              nathansharma007@gmail.com
+            </a>
+
+            <a
+              href="mailto:morrisonlandon51@gmail.com"
+              className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors"
+            >
+              morrisonlandon51@gmail.com
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

@@ -140,7 +140,7 @@ export default function Home() {
               onClick={toggleMenu}
               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-400 transition-colors"
             >
-              Poster
+              Old Poster
             </a>
             
             <a 
@@ -201,22 +201,14 @@ export default function Home() {
         
         {/* PROJECT VIDEO SECTION */}
    <section className="py-8 flex flex-col items-center justify-center">
-    <div className="mt-6 relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black w-[70%]">
+    <div className="mt-6 relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black w-full md:w-[70%]">
     <img 
       src={meetup}
       alt="AgraBhi Presentation Visual" 
       className="absolute top-0 left-0 w-full h-full object-cover"
     />
   </div>
-  <div className="mt-6 relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black w-[70%] h-relative">
-     <iframe
-       className="absolute top-0 left-0 w-full h-full"
-       src="https://www.youtube.com/embed/DFLhrhK0u_E"
-       title="AgraBhi 2027 Overview Presentation by Nathan"
-       frameBorder="0"
-       allowFullScreen
-     ></iframe>
-   </div>
+  
   
 
 
@@ -225,13 +217,13 @@ export default function Home() {
         <hr className="border-slate-900" />
 
         {/* UPDATED ABSTRACT SECTION */}
-        <section id="abstract" className="py-10 scroll-mt-24">
+        <section id="abstract" className="py-10">
           <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-6">
             What AgraBhi Does
           </h2>
           <div className="text-base font-light text-slate-300 leading-relaxed space-y-6">
             <p>
-              AgraBhi is a low-cost system being made to help farmers better understand soil moisture patterns on their farm fields. Rather than solely relying on camera images, AgraBhi uses a physical soil sensor to measure moisture at the root level of crops, significantly improving measurement accuracy. It then uses interpolation models to predict moisture across the rest of the farm field.
+              AgraBhi is a low-cost system of autonomous rovers being made to help farmers better understand soil moisture patterns on their farm fields before planting crops. Rather than solely relying on contactless sensors, which can be easily influenced by shadows and terrain, AgraBhi uses physical soil sensors to measure moisture at the depth where crops are being planted, significantly improving measurement accuracy. It then uses interpolation models to predict moisture across the rest of the farm field.
             </p>
             
             <p>
@@ -242,12 +234,12 @@ export default function Home() {
               <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-4">
                 Why Does This Matter?
               </h2>
-              <p className="mb-4">
-                Soil moisture significantly changes across farm fields, and yet today, many farmers are simply guessing how to irrigate their crops. This leads to overwatering, underwatering, wasted resources, and low yield. 
-              </p>
+              
+              
               <p>
-                AgraBhi is being created to make moisture mapping more affordable, accurate, and practical when good agricultural tools are too expensive for many to afford.
+                Soil moisture significantly changes across farm fields, and yet today, many farmers lack the data they need to make informed decisions on where to plant their crops. With this data, they can decide whether they should wait for better conditions, if they should irrigate before planting in extremely dry areas, and the best depth for sowing seeds.
               </p>
+              
             </div>
 
            
@@ -264,7 +256,7 @@ export default function Home() {
     <div>
       <h3 className="text-white font-bold mb-3 flex items-center gap-2">
         <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
-         Drone to Swarm of Autonomous Rovers
+         Drone to Rovers
       </h3>
       <p className="text-slate-400 font-light text-sm leading-relaxed">
        An important limitation of our project last year was the drone struggled to get through the crop canopy. Its blades could easily damage crops, and designing a solution, such as lowering a pod using a tether while the drone hovers above the crops, would cost significant battery life and be very difficult to build. To fix this, we decided to switch our project to creating a swarm of five rovers. Each rover would cost ~$400, be autonomous, and would communicate with one another to take samples effectively.
@@ -290,9 +282,7 @@ export default function Home() {
      While physical moisture data will provide excellent readings on moisture across the farm field, this alone will not give farmers the entire picture. Moisture is just one of the countless factors that affect plants. To make this data as useful as possible, we are collaborating with the Fort Bend County AgriLife Extension to combine our moisture data with their data and models on farm fields. Their additional data was primarily collected through multispectral drones and includes crucial information such as historical growth patterns and canopy cover of crops across the field. Our moisture data, when combined with AgriLife's models and historical data, will provide farmers with the best actionable information on their fields.
 </p>
   <div className=" max-w-4xl">
-    <div className="mb-6">
-      
-    </div>
+ 
     {/* Stylized Video Player Wrapper */}
     
   </div>

@@ -640,7 +640,7 @@ async function syncVariogramToBackend(chosenModel) {
                 onClick={toggleMenu}
                 className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-400 transition-colors"
               >
-                Poster
+                Old Poster
               </a>
               
               <a 
