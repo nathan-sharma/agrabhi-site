@@ -217,7 +217,7 @@ export default function Home() {
         <hr className="border-slate-900" />
 
         {/* UPDATED ABSTRACT SECTION */}
-        <section id="abstract" className="py-10">
+        <section id="abstract" className="py-4">
           <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-6">
             What AgraBhi Does
           </h2>
