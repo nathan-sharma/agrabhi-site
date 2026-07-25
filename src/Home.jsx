@@ -201,8 +201,8 @@ export default function Home() {
     </div>
 
     {/* Mobile Only Caption */}
-    <p className="sm:hidden mt-3 text-center text-[8px] font-extrabold uppercase tracking-wider text-slate-300">
-      Winners at 2026 Houston and Texas Science & Engineering Fairs
+    <p className="max-w-xs sm:hidden mt-3 text-center text-[10px] font-extrabold tracking-wider text-slate-300">
+      2026 Houston and Texas Science & Engineering Fair Winners
     </p>
 
   </div>
