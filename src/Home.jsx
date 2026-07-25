@@ -168,7 +168,7 @@ export default function Home() {
     
     {/* Award 1 */}
     <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 flex-1 sm:flex-none">
-      <span className="text-2xl sm:text-3xl">🥈</span>
+      <span className="text-4xl sm:text-3xl">🥈</span>
       <div>
         <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5">
           Category Winner & Finalist
@@ -184,7 +184,7 @@ export default function Home() {
 
     {/* Award 2 */}
     <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 flex-1 sm:flex-none">
-      <span className="text-2xl sm:text-3xl">🥉</span>
+      <span className="text-4xl sm:text-3xl">🥉</span>
       <div>
         <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5">
           Category Winner
