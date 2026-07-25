@@ -154,7 +154,7 @@ export default function Home() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -z-10"></div>
 
    {/* Header / Hero Section */}
-      <header className="relative pt-32 pb-8 px-6 text-center">
+      <header className="relative pt-32 pb-2 sm:pb-8 px-6 text-center">
         <h1 className="text-6xl md:text-7xl font-extrabold mb-6 tracking-tight text-white py-2 animate-pop-slow">
           AgraBhi
         </h1>
@@ -163,8 +163,8 @@ export default function Home() {
         </h2>
       </header>
 
-<section className="relative z-10 px-4 py-1 mb-8 mt-4">
-  <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center sm:items-start justify-center gap-6 sm:gap-8 md:gap-12">
+<section className="relative z-10 px-4 py-1 mb-2 sm:mb-8 mt-2 sm:mt-4">
+  <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center sm:items-start justify-center gap-3 sm:gap-8 md:gap-12">
     
     {/* Award 1 */}
     <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 flex-1 sm:flex-none">
@@ -179,7 +179,7 @@ export default function Home() {
       </div>
     </div>
 
-    {/* Divider (Horizontal on mobile, Vertical on desktop) */}
+    {/* Divider */}
     <div className="w-12 sm:w-px h-px sm:h-8 bg-slate-600 sm:mt-1"></div>
 
     {/* Award 2 */}
@@ -200,7 +200,7 @@ export default function Home() {
       <main className="max-w-5xl mx-auto px-6">
         
         {/* PROJECT VIDEO SECTION */}
-   <section className="py-4 mt-3 flex flex-col items-center justify-center">
+   <section className="py-1 mt-0 sm:py-4 sm:mt-3 mt-6 flex flex-col items-center justify-center">
     <div className="relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black w-full md:w-[70%]">
     <img 
       src={meetup}
