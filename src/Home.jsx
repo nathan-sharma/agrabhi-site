@@ -4,8 +4,8 @@ import logo from "/blogo.png";
 import agrilife from "/agrilife.jpg"
 import { HashLink } from 'react-router-hash-link';
 import meetup from "/meetup625.png";
-import medal from "/medal.png";
-import ribbon from "/ribbon.png";
+import second from "/second.png";
+import third from "/third.png";
 
 export default function Home() {
   
@@ -174,13 +174,13 @@ export default function Home() {
       {/* Award 1 */}
       <div className="flex flex-row items-start sm:items-center text-left gap-3">
         <img 
-          src={medal} 
-          alt="Medal SEFH" 
-          className="sm:h-18 h-15 w-auto shrink-0" 
+          src={second} 
+          alt="Second Place" 
+          className="h-10 w-auto shrink-0" 
         />
         <div className="pt-1 sm:pt-0">
           <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5 sm:h-8 flex items-end">
-            Category Winner &amp; Finalist
+            Category Winner &amp; State Finalist
           </p>
           <p className="text-sm font-medium text-slate-200">
             2026 Science &amp; Engineering Fair of Houston
@@ -194,9 +194,9 @@ export default function Home() {
       {/* Award 2 */}
       <div className="flex flex-row items-start sm:items-center text-left gap-3">
         <img 
-          src={ribbon} 
-          alt="TXSEF Ribbon" 
-          className="h-20 sm:h-25 w-auto shrink-0" 
+          src={third} 
+          alt="Third Place" 
+          className="h-10 w-auto shrink-0" 
         />
         <div className="pt-1 sm:pt-0">
           <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5 sm:h-8 flex items-end">
