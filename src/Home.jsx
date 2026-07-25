@@ -165,7 +165,7 @@ export default function Home() {
         </h2>
       </header>
 
-<section className="relative z-10 px-4 py-1 mb-8 sm:mb-8 mt-8 sm:mt-4">
+<section className="animate-slide-slow relative z-10 px-4 py-1 mb-10 sm:mb-8 mt-10 sm:mt-4">
   <div className="max-w-4xl mx-auto flex flex-col items-center justify-center">
     
     {/* Medals Container */}
@@ -234,7 +234,7 @@ export default function Home() {
         {/* UPDATED ABSTRACT SECTION */}
         <section id="abstract" className="py-4">
           <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-6">
-            What AgraBhi Does
+            What AgraBhi Is
           </h2>
           <div className="text-base font-light text-slate-300 leading-relaxed space-y-6">
             <p>
@@ -247,7 +247,7 @@ export default function Home() {
 
             <div className="pt-4">
               <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-4">
-                Why Does This Matter?
+                Why This Matters
               </h2>
               
               
