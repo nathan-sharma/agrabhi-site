@@ -164,14 +164,14 @@ export default function Home() {
       </header>
 
 <section className="relative z-10 px-4 py-1 mb-8 mt-4">
-  <div className="max-w-4xl mx-auto flex flex-row items-center justify-center gap-4 sm:gap-8 md:gap-12">
+  <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center sm:items-start justify-center gap-6 sm:gap-8 md:gap-12">
     
     {/* Award 1 */}
     <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 flex-1 sm:flex-none">
       <span className="text-2xl sm:text-3xl">🥈</span>
       <div>
         <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5">
-         Category Winner & Finalist
+          Category Winner & Finalist
         </p>
         <p className="text-sm font-medium text-slate-200">
           2026 Science & Engineering Fair of Houston
@@ -179,8 +179,8 @@ export default function Home() {
       </div>
     </div>
 
-    {/* Divider */}
-    <div className="w-px h-8 bg-slate-600"></div>
+    {/* Divider (Horizontal on mobile, Vertical on desktop) */}
+    <div className="w-12 sm:w-px h-px sm:h-8 bg-slate-600 sm:mt-1"></div>
 
     {/* Award 2 */}
     <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 flex-1 sm:flex-none">
