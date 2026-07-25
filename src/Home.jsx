@@ -157,7 +157,7 @@ export default function Home() {
 
    {/* Header / Hero Section */}
       <header className="relative pt-32 pb-2 sm:pb-8 px-6 text-center">
-        <h1 className="text-6xl md:text-7xl font-extrabold mb-4 tracking-tight text-white py-2 animate-pop-slow">
+        <h1 className="text-6xl md:text-7xl font-extrabold mb-2 sm:mb-4 tracking-tight text-white py-2 animate-pop-slow">
           AgraBhi
         </h1>
         <h2 className="text-xl md:text-3xl font-medium tracking-tight text-slate-300 max-w-7xl mx-auto leading-tight animate-slide-slow">
