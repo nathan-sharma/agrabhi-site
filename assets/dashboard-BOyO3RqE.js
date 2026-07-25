@@ -1,0 +1,1 @@
+import{c as e,i as t,s as n,t as r,u as i}from"./jsx-runtime-DxR--soF.js";import{t as a}from"./DataHub-DT1cto9i.js";var o=i(e(),1),s=i(n(),1),c=r();s.createRoot(document.getElementById(`root`)).render((0,c.jsx)(o.StrictMode,{children:(0,c.jsx)(t,{basename:`/`,children:(0,c.jsx)(a,{})})}));
