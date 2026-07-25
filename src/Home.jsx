@@ -98,7 +98,7 @@ export default function Home() {
         {/* Mobile Nav Links */}
         {isMenuOpen && (
           <div className="md:hidden bg-[#0D1117] border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
-            
+           
             
             <a 
               href="https://agrabhi.com/updates.html" 
@@ -157,29 +157,29 @@ export default function Home() {
 
    {/* Header / Hero Section */}
       <header className="relative pt-32 pb-2 sm:pb-8 px-6 text-center">
-        <h1 className="text-6xl md:text-7xl font-extrabold mb-6 tracking-tight text-white py-2 animate-pop-slow">
+        <h1 className="text-6xl md:text-7xl font-extrabold mb-4 tracking-tight text-white py-2 animate-pop-slow">
           AgraBhi
         </h1>
         <h2 className="text-xl md:text-3xl font-medium tracking-tight text-slate-300 max-w-7xl mx-auto leading-tight animate-slide-slow">
-          Accurate, Low Cost Soil Moisture Mapping for <span className="text-emerald-400">Smarter Decisions.</span>
+         Accurate, Low Cost Soil Moisture Mapping for <span className="text-emerald-400">Smarter Decisions.</span>
         </h2>
       </header>
 
-<section className="relative z-10 px-4 py-1 mb-10 sm:mb-8 mt-5 sm:mt-4">
+<section className="relative z-10 px-4 py-1 mb-12 mt-8">
   <div className="max-w-4xl mx-auto flex flex-col items-center justify-center">
     
     {/* Medals Container */}
-    <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 md:gap-12">
+    <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-8 md:gap-12">
       
       {/* Award 1 */}
-      <div className="animate-slide-slow flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-3" style={{ animationDelay: '1s' }}>
+      <div className="animate-slide-slow flex flex-row items-start sm:items-center text-left gap-3" style={{ animationDelay: '1s' }}>
         <img 
           src={second} 
           alt="Second Place" 
           className="h-10 w-auto shrink-0" 
         />
         <div className="pt-1 sm:pt-0">
-          <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5 sm:h-8 flex items-center sm:items-end justify-center sm:justify-start">
+          <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5 sm:h-8 flex items-end">
             Category Winner &amp; State Finalist
           </p>
           <p className="text-sm font-medium text-slate-200">
@@ -192,14 +192,14 @@ export default function Home() {
       <div className="hidden sm:block w-px h-12 bg-slate-600 self-center"></div>
 
       {/* Award 2 */}
-      <div className="animate-slide-slow flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-3" style={{ animationDelay: '1500ms' }}>
+      <div className="animate-slide-slow flex flex-row items-start sm:items-center text-left gap-3" style={{ animationDelay: '1500ms' }}>
         <img 
           src={third} 
           alt="Third Place" 
           className="h-10 w-auto shrink-0" 
         />
         <div className="pt-1 sm:pt-0">
-          <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5 sm:h-8 flex items-center sm:items-end justify-center sm:justify-start">
+          <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5 sm:h-8 flex items-end">
             Category Winner
           </p>
           <p className="text-sm font-medium text-slate-200">
@@ -303,7 +303,7 @@ export default function Home() {
   </div>
 
 </section>
-        
+       
   <section id="poster" className="py-2 scroll-mt-24">
   <hr className="border-slate-900 mb-3" />
   <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-6">
@@ -342,7 +342,7 @@ export default function Home() {
 
 
         {/* NEXT STEPS & SUPPORT */}
-      
+     
       </main>
 
    <footer className="border-t border-slate-800 bg-[#0D1117] py-8">
@@ -368,7 +368,7 @@ export default function Home() {
             </a>
           
                <a href="mailto:morrisonlandon51@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
-              morrisonlandon51@gmail.com
+          morrisonlandon51@gmail.com
             </a>
              
           </div>
