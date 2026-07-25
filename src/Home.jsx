@@ -4,6 +4,8 @@ import logo from "/blogo.png";
 import agrilife from "/agrilife.jpg"
 import { HashLink } from 'react-router-hash-link';
 import meetup from "/meetup625.png";
+import medal from "/medal.png";
+import ribbon from "/ribbon.png";
 
 export default function Home() {
   
@@ -163,37 +165,45 @@ export default function Home() {
         </h2>
       </header>
 
-<section className="relative z-10 px-4 py-1 mb-2 sm:mb-8 mt-2 sm:mt-4">
-  <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center sm:items-start justify-center gap-3 sm:gap-8 md:gap-12">
+<section className="relative z-10 px-4 py-1 mb-5 sm:mb-8 mt-5 sm:mt-4">
+  <div className="max-w-4xl mx-auto flex flex-col items-center justify-center">
     
-    {/* Award 1 */}
-    <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 flex-1 sm:flex-none">
-      <span className="text-4xl sm:text-3xl">🥈</span>
-      <div>
-        <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5">
-          Category Winner & Finalist
-        </p>
-        <p className="text-sm font-medium text-slate-200">
-          2026 Science & Engineering Fair of Houston
-        </p>
+    {/* Medals Container: Added sm:items-start here */}
+    <div className="flex flex-row items-center sm:items-start justify-center gap-6 sm:gap-8 md:gap-12">
+      {/* Award 1 */}
+      <div className="flex flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3">
+        <img src={medal} alt="Medal SEFH" className="sm:h-20 h-30 w-auto shrink-0 self-center" />
+        <div className="hidden sm:block">
+          <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5 sm:h-8 flex sm:items-end">
+            Category Winner & Finalist
+          </p>
+          <p className="text-sm font-medium text-slate-200">
+            2026 Science & Engineering Fair of Houston
+          </p>
+        </div>
+      </div>
+
+      {/* Vertical Divider for Desktop Only */}
+      <div className="hidden sm:block w-px h-12 bg-slate-600 self-center"></div>
+
+      {/* Award 2 */}
+      <div className="flex flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3">
+        <img src={ribbon} alt="TXSEF Ribbon" className="sm:h-25 h-35 w-auto shrink-0 self-center" />
+        <div className="hidden sm:block">
+          <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5 sm:h-8 flex sm:items-end">
+            Category Winner
+          </p>
+          <p className="text-sm font-medium text-slate-200">
+            2026 Texas Science & Engineering Fair
+          </p>
+        </div>
       </div>
     </div>
 
-    {/* Divider */}
-    <div className="w-12 sm:w-px h-px sm:h-8 bg-slate-600 sm:mt-1"></div>
-
-    {/* Award 2 */}
-    <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 flex-1 sm:flex-none">
-      <span className="text-4xl sm:text-3xl">🥉</span>
-      <div>
-        <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5">
-          Category Winner
-        </p>
-        <p className="text-sm font-medium text-slate-200">
-          2026 Texas Science & Engineering Fair
-        </p>
-      </div>
-    </div>
+    {/* Mobile Only Caption */}
+    <p className="sm:hidden mt-3 text-center text-[11px] font-semibold uppercase tracking-wider text-slate-300">
+      Winners at 2026 Houston and Texas Science & Engineering Fairs
+    </p>
 
   </div>
 </section>
