@@ -376,13 +376,20 @@ const MONTHS_DATA = [
   
   </div> },
   { name: "July", year: "2026", content: <div className="text-slate-500 pt-1">
-  
+       <p className="text-slate-400 leading-relaxed mb-6">
+    
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  July 24th, 2026: Rover was successfully refunded, a replacement rover has been ordered. Until the new rover arrives, we will focus on our methodology for collecting data on farms.</p>
      
      <p className="text-slate-400 leading-relaxed mb-6">
     
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  July 16th, 2026: Short circuited rover was successfully refunded and a very positive update from the AgriLife extension.</p>
-     
+  July 16th, 2026: Short circuited rover was sent for refund and a very positive update from the AgriLife extension.</p>
+
+      <p className="text-slate-400 leading-relaxed mb-6 font-bold text-xl">
+    
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  July 10th - 19th: Break period/ Vacation</p>   
 <p className="text-slate-400 leading-relaxed mb-6">
     
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
@@ -433,10 +440,7 @@ const MONTHS_DATA = [
 
 </div>
     
-    <p className="text-slate-400 leading-relaxed mb-6 font-bold text-xl">
-    
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  July 10th - 19th: Break period/ Vacation</p>
+
      <p className="text-slate-400 leading-relaxed mb-6">
     
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
