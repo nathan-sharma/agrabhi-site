@@ -172,7 +172,7 @@ export default function Home() {
     <div className="flex flex-row items-center sm:items-start justify-center gap-6 sm:gap-8 md:gap-12">
       {/* Award 1 */}
       <div className="flex flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3">
-        <img src={medal} alt="Medal SEFH" className="sm:h-20 h-30 w-auto shrink-0 self-center" />
+        <img src={medal} alt="Medal SEFH" className="sm:h-20 h-20 w-auto shrink-0 self-center" />
         <div className="hidden sm:block">
           <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5 sm:h-8 flex sm:items-end">
             Category Winner & Finalist
@@ -188,7 +188,7 @@ export default function Home() {
 
       {/* Award 2 */}
       <div className="flex flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3">
-        <img src={ribbon} alt="TXSEF Ribbon" className="sm:h-25 h-35 w-auto shrink-0 self-center" />
+        <img src={ribbon} alt="TXSEF Ribbon" className="sm:h-25 h-25 w-auto shrink-0 self-center" />
         <div className="hidden sm:block">
           <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5 sm:h-8 flex sm:items-end">
             Category Winner
@@ -201,7 +201,7 @@ export default function Home() {
     </div>
 
     {/* Mobile Only Caption */}
-    <p className="sm:hidden mt-3 text-center text-[11px] font-semibold uppercase tracking-wider text-slate-300">
+    <p className="sm:hidden mt-3 text-center text-[9px] font-semibold uppercase tracking-wider text-slate-300">
       Winners at 2026 Houston and Texas Science & Engineering Fairs
     </p>
 
