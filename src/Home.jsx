@@ -165,11 +165,11 @@ export default function Home() {
         </h2>
       </header>
 
-<section className="relative z-10 px-4 py-1 mb-5 sm:mb-8 mt-8 sm:mt-4">
+<section className="relative z-10 px-4 py-1 mb-8 sm:mb-8 mt-8 sm:mt-4">
   <div className="max-w-4xl mx-auto flex flex-col items-center justify-center">
     
     {/* Medals Container */}
-    <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-6 sm:gap-8 md:gap-12">
+    <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2 sm:gap-8 md:gap-12">
       
       {/* Award 1 */}
       <div className="flex flex-row items-start sm:items-center text-left gap-3">
