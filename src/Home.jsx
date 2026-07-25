@@ -246,7 +246,7 @@ export default function Home() {
           </div>
         </section>
            <hr className="border-slate-900" />
- <section id="development" className="mt-4 scroll-mt-24">
+ <section id="development" className="py-4 scroll-mt-24">
   <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-8">
     Current work (Rover project)
   </h2>
@@ -289,7 +289,7 @@ export default function Home() {
 
 </section>
        
-  <section id="poster" className="mt-2 scroll-mt-24">
+  <section id="poster" className="py-2 scroll-mt-24">
   <hr className="border-slate-900 mb-3" />
   <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-6">
     Old Work (Drone Project)
