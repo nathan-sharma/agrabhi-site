@@ -158,41 +158,50 @@ export default function Home() {
         <h1 className="text-6xl md:text-7xl font-extrabold mb-6 tracking-tight text-white py-2 animate-pop-slow">
           AgraBhi
         </h1>
-        <h2 className="text-xl md:text-3xl font-medium mb-4 tracking-tight text-slate-300 max-w-7xl mx-auto leading-tight animate-slide-slow">
+        <h2 className="text-xl md:text-3xl font-medium tracking-tight text-slate-300 max-w-7xl mx-auto leading-tight animate-slide-slow">
          Accurate, Low Cost Soil Moisture Mapping for <span className="text-emerald-400">Smarter Decisions.</span>
         </h2>
       </header>
 
-      {/* AWARDS BAR */}
-      <section className="relative z-10 px-6 mb-4">
-        <div className="max-w-4xl mx-auto flex flex-wrap gap-6 justify-center">
-          
-          {/* Award 1 */}
-          <div className="flex items-center gap-4 bg-slate-900/50 border-l-2 border-emerald-500/50 px-6 py-3 rounded-r-xl">
-            <span className="text-3xl">🥈</span>
-            <div className="text-left">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-emerald-400/80 font-bold mb-0.5">State Finalist</p>
-              <p className="text-sm font-semibold text-slate-100">2026 Science & Engineering Fair of Houston</p>
-            </div>
-          </div>
-          
-          {/* Award 2 */}
-          <div className="flex items-center gap-4 bg-slate-900/50 border-l-2 border-emerald-500/50 px-6 py-3 rounded-r-xl">
-            <span className="text-3xl">🥉</span>
-            <div className="text-left">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-emerald-400/80 font-bold mb-0.5">Category Winner</p>
-              <p className="text-sm font-semibold text-slate-100">2026 Texas Science & Engineering Fair</p>
-            </div>
-          </div>
+<section className="relative z-10 px-4 py-1">
+  <div className="max-w-4xl mx-auto flex flex-row items-center justify-center gap-4 sm:gap-8 md:gap-12">
+    
+    {/* Award 1 */}
+    <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 flex-1 sm:flex-none">
+      <span className="text-2xl sm:text-3xl">🥈</span>
+      <div>
+        <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5">
+         Category Winner & Finalist
+        </p>
+        <p className="text-sm font-medium text-slate-200">
+          2026 Science & Engineering Fair of Houston
+        </p>
+      </div>
+    </div>
 
-        </div>
-      </section>
+    {/* Divider */}
+    <div className="w-px h-8 bg-slate-600"></div>
 
+    {/* Award 2 */}
+    <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 flex-1 sm:flex-none">
+      <span className="text-2xl sm:text-3xl">🥉</span>
+      <div>
+        <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5">
+          Category Winner
+        </p>
+        <p className="text-sm font-medium text-slate-200">
+          2026 Texas Science & Engineering Fair
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
       <main className="max-w-5xl mx-auto px-6">
         
         {/* PROJECT VIDEO SECTION */}
-   <section className="py-8 flex flex-col items-center justify-center">
-    <div className="mt-6 relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black w-full md:w-[70%]">
+   <section className="py-4 mt-3 flex flex-col items-center justify-center">
+    <div className="relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black w-full md:w-[70%]">
     <img 
       src={meetup}
       alt="AgraBhi Presentation Visual" 
@@ -237,7 +246,7 @@ export default function Home() {
           </div>
         </section>
            <hr className="border-slate-900" />
- <section id="development" className="py-5 scroll-mt-24">
+ <section id="development" className="mt-4 scroll-mt-24">
   <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-8">
     Current work (Rover project)
   </h2>
@@ -246,7 +255,7 @@ export default function Home() {
   <div className="grid md:grid-cols-2 gap-12 mb-12">
     <div>
       <h3 className="text-white font-bold mb-3 flex items-center gap-2">
-        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+
          Drone to Rovers
       </h3>
       <p className="text-slate-400 font-light text-sm leading-relaxed">
@@ -255,7 +264,7 @@ export default function Home() {
     </div>
     <div>
       <h3 className="text-white font-bold mb-3 flex items-center gap-2">
-        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+
         Adaptive Path Planning
       </h3>
       <p className="text-slate-400 font-light text-sm leading-relaxed">
@@ -266,7 +275,7 @@ export default function Home() {
 
   </div>
 <h3 className="text-white font-bold mb-3 flex items-center gap-2">
-        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+
         Combining Data with Additional Models
       </h3>
       <p className="text-slate-400 font-light text-sm leading-relaxed">
@@ -280,7 +289,7 @@ export default function Home() {
 
 </section>
        
-  <section id="poster" className="py-5 scroll-mt-24">
+  <section id="poster" className="mt-2 scroll-mt-24">
   <hr className="border-slate-900 mb-3" />
   <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-6">
     Old Work (Drone Project)
@@ -296,7 +305,7 @@ export default function Home() {
       allowFullScreen
     ></iframe>
   </div>
-  <div className="hidden md:block bg-[#161B22] border border-slate-800 p-1 rounded-xl shadow-xl mt-4">
+  <div className="hidden md:block bg-[#161B22] border border-slate-800 p-1 rounded-xl shadow-xl mt-4 mb-4">
     <div className="bg-[#0D1117] w-full h-[800px] overflow-hidden rounded-lg">
       <iframe
         src="/poster.pdf"
