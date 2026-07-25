@@ -165,20 +165,25 @@ export default function Home() {
         </h2>
       </header>
 
-<section className="relative z-10 px-4 py-1 mb-5 sm:mb-8 mt-5 sm:mt-4">
+<section className="relative z-10 px-4 py-1 mb-5 sm:mb-8 mt-8 sm:mt-4">
   <div className="max-w-4xl mx-auto flex flex-col items-center justify-center">
     
-    {/* Medals Container: Added sm:items-start here */}
-    <div className="flex flex-row items-center sm:items-start justify-center gap-6 sm:gap-8 md:gap-12">
+    {/* Medals Container */}
+    <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-6 sm:gap-8 md:gap-12">
+      
       {/* Award 1 */}
-      <div className="flex flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3">
-        <img src={medal} alt="Medal SEFH" className="sm:h-20 h-20 w-auto shrink-0 self-center" />
-        <div className="hidden sm:block">
-          <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5 sm:h-8 flex sm:items-end">
-            Category Winner & Finalist
+      <div className="flex flex-row items-start sm:items-center text-left gap-3">
+        <img 
+          src={medal} 
+          alt="Medal SEFH" 
+          className="sm:h-18 h-15 w-auto shrink-0" 
+        />
+        <div className="pt-1 sm:pt-0">
+          <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5 sm:h-8 flex items-end">
+            Category Winner &amp; Finalist
           </p>
           <p className="text-sm font-medium text-slate-200">
-            2026 Science & Engineering Fair of Houston
+            2026 Science &amp; Engineering Fair of Houston
           </p>
         </div>
       </div>
@@ -187,23 +192,23 @@ export default function Home() {
       <div className="hidden sm:block w-px h-12 bg-slate-600 self-center"></div>
 
       {/* Award 2 */}
-      <div className="flex flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3">
-        <img src={ribbon} alt="TXSEF Ribbon" className="sm:h-25 h-25 w-auto shrink-0 self-center" />
-        <div className="hidden sm:block">
-          <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5 sm:h-8 flex sm:items-end">
+      <div className="flex flex-row items-start sm:items-center text-left gap-3">
+        <img 
+          src={ribbon} 
+          alt="TXSEF Ribbon" 
+          className="h-20 sm:h-25 w-auto shrink-0" 
+        />
+        <div className="pt-1 sm:pt-0">
+          <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-0.5 sm:h-8 flex items-end">
             Category Winner
           </p>
           <p className="text-sm font-medium text-slate-200">
-            2026 Texas Science & Engineering Fair
+            2026 Texas Science &amp; Engineering Fair
           </p>
         </div>
       </div>
-    </div>
 
-    {/* Mobile Only Caption */}
-    <p className="max-w-[180px] sm:hidden mt-3 text-center text-[10px] font-extrabold tracking-wider text-slate-300">
-      2026 Houston and Texas Science & Engineering Fair Winners
-    </p>
+    </div>
 
   </div>
 </section>
