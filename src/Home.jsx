@@ -165,7 +165,7 @@ export default function Home() {
         </h2>
       </header>
 
-<section className="relative z-10 px-4 py-1 mb-12 mt-8">
+<section className="relative z-10 px-4 py-1 mb-12 mt-8 sm:mt-3">
   <div className="max-w-4xl mx-auto flex flex-col items-center justify-center">
     
     {/* Medals Container */}
