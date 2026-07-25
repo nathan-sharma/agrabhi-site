@@ -163,7 +163,7 @@ export default function Home() {
         </h2>
       </header>
 
-<section className="relative z-10 px-4 py-1">
+<section className="relative z-10 px-4 py-1 mb-8 mt-4">
   <div className="max-w-4xl mx-auto flex flex-row items-center justify-center gap-4 sm:gap-8 md:gap-12">
     
     {/* Award 1 */}
