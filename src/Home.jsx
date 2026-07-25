@@ -165,14 +165,14 @@ export default function Home() {
         </h2>
       </header>
 
-<section className="animate-slide-slow relative z-10 px-4 py-1 mb-10 sm:mb-8 mt-10 sm:mt-4">
+<section className="relative z-10 px-4 py-1 mb-10 sm:mb-8 mt-5 sm:mt-4">
   <div className="max-w-4xl mx-auto flex flex-col items-center justify-center">
     
     {/* Medals Container */}
-    <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2 sm:gap-8 md:gap-12">
+    <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-8 md:gap-12">
       
       {/* Award 1 */}
-      <div className="flex flex-row items-start sm:items-center text-left gap-3">
+      <div className="animate-slide-slow flex flex-row items-start sm:items-center text-left gap-3" style={{ animationDelay: '1s' }}>
         <img 
           src={second} 
           alt="Second Place" 
@@ -192,7 +192,7 @@ export default function Home() {
       <div className="hidden sm:block w-px h-12 bg-slate-600 self-center"></div>
 
       {/* Award 2 */}
-      <div className="flex flex-row items-start sm:items-center text-left gap-3">
+      <div className="animate-slide-slow flex flex-row items-start sm:items-center text-left gap-3" style={{ animationDelay: '1500ms' }}>
         <img 
           src={third} 
           alt="Third Place" 
