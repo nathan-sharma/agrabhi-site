@@ -12,7 +12,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         about: resolve(__dirname, 'about.html'),
         updates: resolve(__dirname, 'updates.html'),
-        'data-hub': resolve(__dirname, 'data-hub.html'),
+        'dashboard': resolve(__dirname, 'dashboard.html'),
       },
     },
   },

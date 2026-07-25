@@ -17,7 +17,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
 
         {/* DataHub page */}
-        <Route path="/data-hub" element={<DataHub />} />
+        <Route path="/dashboard" element={<DataHub />} />
         <Route path="/about" element={<About />} />
         <Route path="/updates" element={<Updates />} />
       </Routes>

@@ -76,7 +76,7 @@ export default function About() {
                 e.preventDefault();
                 window.location.href = "https://agrabhi.com/about.html";
               }}
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+              className="text-xs uppercase tracking-widest font-bold text-emerald-500 transition-colors"
             >
               About Us
             </a>
@@ -91,14 +91,14 @@ export default function About() {
             </a>
 
             <a
-              href="https://agrabhi.com/data-hub.html"
+              href="https://agrabhi.com/dashboard.html"
               onClick={(e) => {
                 e.preventDefault();
-                window.location.href = "https://agrabhi.com/data-hub.html";
+                window.location.href = "https://agrabhi.com/dashboard.html";
               }}
-              className="text-xs uppercase tracking-widest font-bold px-4 py-2 rounded-full bg-blue-500 text-[#0D1117] hover:bg-blue-400 transition-all"
-            >
-              Data Hub
+             className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+             >
+              Dashboard
             </a>
           </div>
 
@@ -166,7 +166,7 @@ export default function About() {
                 toggleMenu();
                 window.location.href = "https://agrabhi.com/about.html";
               }}
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+              className="text-xs uppercase tracking-widest font-bold text-emerald-500 transition-colors"
             >
               About Us
             </a>
@@ -192,15 +192,15 @@ export default function About() {
             </a>
 
             <a
-              href="https://agrabhi.com/data-hub.html"
+              href="https://agrabhi.com/dashboard.html"
               onClick={(e) => {
                 e.preventDefault();
                 toggleMenu();
-                window.location.href = "https://agrabhi.com/data-hub.html";
+                window.location.href = "https://agrabhi.com/dashboard.html";
               }}
               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
             >
-              Data Hub
+              Dashboard
             </a>
           </div>
         )}

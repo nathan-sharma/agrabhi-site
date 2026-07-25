@@ -136,7 +136,7 @@ const MONTHS_DATA = [
       Nathan: Will now focus on getting measurements of the rover, designing the sensor penetration mechanism in CAD, and testing it.
     </li>
      <li>
-      Adam: Will focus on creating a dashboard in the Data Hub that allows us to control the rover and see footage of the camera we will attach by connecting to the Raspberry Pi. 
+      Adam: Will focus on creating a dashboard that allows us to control the rover and see footage of the camera we will attach by connecting to the Raspberry Pi. 
       </li>
   </ul>
 </div>
@@ -216,15 +216,15 @@ const MONTHS_DATA = [
  </p>
  <img
         src={newfunc}
-        alt="Multiple simulated rovers shown on data hub!"
+        alt="Multiple simulated rovers shown on dashboard!"
         className="md:w-[50%] w-full h-relative mb-3"
       />
       <p className="text-slate-400 leading-relaxed mb-3">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  June 13th, 2026: The alpha weight in the acquisition function and the variogram model can now be adjusted from the data hub. The alpha weight decides 
+  June 13th, 2026: The alpha weight in the acquisition function and the variogram model can now be adjusted from the dashboard. The alpha weight decides 
   whether to prioritize kriging variance or local moisture variance, and the variogram model is important 
   because we need to make sure it fits the data well so we have an accurate kriging variance to use in our acquisition function.
-  We download logs from the Pi using the Data Hub and run the data in our computer program to visually look at the variogram and make sure it fits the experimental variogram well before calculating the optimal points.
+  We download logs from the Pi using the dashboard and run the data in our computer program to visually look at the variogram and make sure it fits the experimental variogram well before calculating the optimal points.
  </p>
      <p className="text-slate-400 leading-relaxed mb-3">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
@@ -232,7 +232,7 @@ const MONTHS_DATA = [
  </p>
   <img
         src={newformula}
-        alt="Multiple simulated rovers shown on data hub!"
+        alt="Multiple simulated rovers shown on dashboard!"
         className="md:w-[50%] w-full h-relative mb-3"
       />
   
@@ -271,10 +271,10 @@ const MONTHS_DATA = [
   </figure>
 
 </div> 
-    <li className = "mb-5"><span className = "font-bold">Data Hub: </span>Fixed the battery life calculation. Before, it was deducting a lot of battery even though the rover would only travel a few meters. The acquisition function was also updated and tested successfully. </li>
+    <li className = "mb-5"><span className = "font-bold">Dashboard: </span>Fixed the battery life calculation. Before, it was deducting a lot of battery even though the rover would only travel a few meters. The acquisition function was also updated and tested successfully. </li>
   <img
         src={june12datahub}
-        alt="June 12th, 2026 Updated Data Hub"
+        alt="June 12th, 2026 Updated Dashboard"
         className="md:w-[50%] w-full h-relative"
       />
   <li className = "mt-5"><span className = "font-bold">Heatmap: </span>3D Ordinary Kriging also turned out to be inconvenient and unnecessarily complicated. Because it doesn't have perfect resolution, sometimes we can't slice the map at perfect depths. For example, we end up slicing the map at 4.8 centimeters deep when we wanted to slice is at 5.0 centimeters deep because it doesn't have detailed enough resolution to have data at exactly 5 centimeters. Additionally, if we were to use 3D ordinary kriging, we would have to account for vertical anisotropy, or the fact that moisture changes more quickly vertically than it does horizontally. But this value cannot be directly measured with our rover setup and varies depending on the field, making it hard to use. We will instead create discrete 2D Ordinary Kriging heatmaps at multiple depths. </li>
@@ -282,18 +282,18 @@ const MONTHS_DATA = [
 </div>
  <p className="text-slate-400 leading-relaxed mb-6">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
- June 7th, 2026: Data Hub code is making great progess! It essentially calculates the optimal path for the five rovers in our swarm to follow. It looks at where the rovers currently are, finds the areas on the farm that either haven't been measured or have a lot of variability in nearby moisture measurements, and calculates an "optimal" point for each rover to measure at in these areas (this is what our acquisition function calculates, but it only does this for one individual rover.) We then collect data at those "optimal" spots, update the code, and let it calculate the next 5 optimal points for the rovers to take measurements at until we have enough points sampled. This is the last major thing to finish before the farm visit!
+ June 7th, 2026: Dashboard code is making great progess! It essentially calculates the optimal path for the five rovers in our swarm to follow. It looks at where the rovers currently are, finds the areas on the farm that either haven't been measured or have a lot of variability in nearby moisture measurements, and calculates an "optimal" point for each rover to measure at in these areas (this is what our acquisition function calculates, but it only does this for one individual rover.) We then collect data at those "optimal" spots, update the code, and let it calculate the next 5 optimal points for the rovers to take measurements at until we have enough points sampled. This is the last major thing to finish before the farm visit!
  </p>
   
       <img
         src={multiplerovers}
-        alt="Multiple simulated rovers shown on data hub!"
+        alt="Multiple simulated rovers shown on dashboard!"
         className="md:w-[50%] w-full h-relative"
       />
   
   <p className="text-slate-400 leading-relaxed mb-6">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px] mt-6"></span>
-  June 6th, 2026: Full setup! Arduino connects to the new soil sensor which connects to the pi to send its data. The acquisition function is also now coded on the raspberry pi and returns this information to the AgraBhi Data Hub. All we need to do now is make it work for multiple rovers, simulate battery life in the code, update the rover's location variable to be where the Pi is in real time, and make a way for us to manually input the charging station's GPS coordinates.
+  June 6th, 2026: Full setup! Arduino connects to the new soil sensor which connects to the pi to send its data. The acquisition function is also now coded on the raspberry pi and returns this information to the AgraBhi Dashboard. All we need to do now is make it work for multiple rovers, simulate battery life in the code, update the rover's location variable to be where the Pi is in real time, and make a way for us to manually input the charging station's GPS coordinates.
 </p>
 
 {/* Container to handle horizontal layout on medium screens and larger */}
@@ -327,7 +327,7 @@ const MONTHS_DATA = [
       </video>
     </div>
     <figcaption className="mt-4 text-sm leading-relaxed"> 
-      This is a video of our data hub finding the best point to sample at using our acquisition function process, just like our Python code, only now the calculation is being done on the raspberry pi and can be recalculated every time we log a new point. However, this still only assumes there is a single rover on the field, we still need to code it to work for a swarm of rovers.
+      This is a video of our dashboard finding the best point to sample at using our acquisition function process, just like our Python code, only now the calculation is being done on the raspberry pi and can be recalculated every time we log a new point. However, this still only assumes there is a single rover on the field, we still need to code it to work for a swarm of rovers.
     </figcaption>
   </figure>
 
@@ -606,7 +606,7 @@ export default function About() {
                <a 
                  href="https://agrabhi.com/updates.html" 
                  onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/updates.html"; }}
-                 className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+                 className="text-xs uppercase tracking-widest font-bold text-emerald-500 transition-colors"
                >
                 Project Updates
                </a>
@@ -628,13 +628,16 @@ export default function About() {
                  GitHub
                </a>
                   
-               <a 
-                 href="https://agrabhi.com/data-hub.html" 
-                 onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/data-hub.html"; }}
-                 className="text-xs uppercase tracking-widest font-bold px-4 py-2 rounded-full bg-blue-500 text-[#0D1117] hover:bg-blue-400 transition-all"
-               >
-                 Data Hub
-               </a>
+              <a
+              href="https://agrabhi.com/dashboard.html"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "https://agrabhi.com/dashboard.html";
+              }}
+             className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+             >
+              Dashboard
+            </a>
              </div>
        
              {/* Mobile Menu Toggle Button */}
@@ -666,7 +669,7 @@ export default function About() {
                <a 
                  href="https://agrabhi.com/updates.html" 
                  onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/updates.html"; }}
-                 className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+                 className="text-xs uppercase tracking-widest font-bold text-emerald-500 transition-colors"
                >
                   Project Updates
                </a>
@@ -700,11 +703,11 @@ export default function About() {
                </a>
                
                <a 
-                 href="https://agrabhi.com/data-hub.html" 
-                 onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/data-hub.html"; }}
+                 href="https://agrabhi.com/dashboard.html" 
+                 onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/dashboard.html"; }}
                  className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
                >
-                 Data Hub
+                 Dashboard
                </a>
              </div>
            )}

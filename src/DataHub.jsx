@@ -572,13 +572,16 @@ async function syncVariogramToBackend(chosenModel) {
                 GitHub
               </a>
                  
-              <a 
-                href="https://agrabhi.com/data-hub.html" 
-                onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/data-hub.html"; }}
-                className="text-xs uppercase tracking-widest font-bold px-4 py-2 rounded-full bg-blue-500 text-[#0D1117] hover:bg-blue-400 transition-all"
-              >
-                Data Hub
-              </a>
+             <a
+              href="https://agrabhi.com/dashboard.html"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "https://agrabhi.com/dashboard.html";
+              }}
+             className="text-xs uppercase tracking-widest font-bold text-emerald-500 transition-colors"
+             >
+              Dashboard
+            </a>
             </div>
       
             {/* Mobile Menu Toggle Button */}
@@ -644,18 +647,18 @@ async function syncVariogramToBackend(chosenModel) {
               </a>
               
               <a 
-                href="https://agrabhi.com/data-hub.html" 
-                onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/data-hub.html"; }}
+                href="https://agrabhi.com/dashboard.html" 
+                onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/dashboard.html"; }}
                 className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
               >
-                Data Hub
+                Dashboard
               </a>
             </div>
           )}
         </nav>
       {/* INFO */}
       <div className="mb-6">
-        <h2 className="text-3xl font-bold mb-3 text-white">AgraBhi Data Hub</h2>
+        <h2 className="text-3xl font-bold mb-3 text-white">AgraBhi Dashboard</h2>
         <p className="text-sm text-gray-300">We will be using this page to collect our project data on farm fields.</p>
       </div>
 
