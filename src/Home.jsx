@@ -238,7 +238,7 @@ export default function Home() {
           </h2>
           <div className="text-base font-light text-slate-300 leading-relaxed space-y-6">
             <p>
-              AgraBhi is a low-cost swarm of autonomous rovers being made to help farmers better understand soil moisture patterns on their farm fields before planting crops. Rather than relying on cameras or other contactless sensors, which can be easily influenced by shadows and terrain, AgraBhi uses physical soil sensors to measure moisture at the depth where crops are being planted, significantly improving measurement accuracy. We then use interpolation models to predict moisture across the rest of the farm field.
+              AgraBhi is a project being made to help farmers better understand soil moisture patterns on their farm fields before planting crops. Rather than relying on cameras or other contactless sensors, which can be easily influenced by shadows and terrain, AgraBhi uses physical sensors to measure moisture at the depth where crops are being planted, significantly improving measurement accuracy. We then use interpolation models to predict moisture across the rest of the farm field.
             </p>
             
             <p>
