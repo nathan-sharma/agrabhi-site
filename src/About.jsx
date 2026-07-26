@@ -207,76 +207,74 @@ export default function About() {
       </nav>
 
       {/* PAGE CONTENT */}
-      <main className="pt-32 px-6 py-10 max-w-6xl mx-auto space-y-16">
-        {/* GROUP 1 */}
-        <div className="flex flex-col md:flex-row gap-8 items-center sm:mb-17">
-          {/* Image Placeholder */}
-          <div className="w-full md:w-1/2 h-80 rounded-2xl flex items-center justify-center text-slate-500 text-lg font-semibold">
-            <img
-              src={image1}
-              alt="Placeholder 1"
-              className="w-80 h-relative"
-            />
-          </div>
+{/* PAGE CONTENT */}
+<main className="pt-24 md:pt-32 px-6 py-10 max-w-6xl mx-auto space-y-8 md:space-y-16">
+  {/* GROUP 1 */}
+  <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
+    {/* Image Container */}
+    <div className="w-full md:w-1/2 flex items-center justify-center">
+      <img
+        src={image1}
+        alt="Nathan Sharma"
+        className="w-72 md:w-80 h-auto object-cover"
+      />
+    </div>
 
-          {/* Paragraph Placeholder */}
-          <div className="w-full md:w-1/2">
-            <h2 className="text-2xl font-bold text-white mb-4 mt-2">
-              Nathan Sharma
-            </h2>
+    {/* Text Container */}
+    <div className="w-full md:w-1/2">
+      <h2 className="text-2xl font-bold text-white mb-2">
+        Nathan Sharma
+      </h2>
+      <p className="text-slate-400 leading-relaxed">
+        Hi, I'm Nathan, and I am the founder and team lead of AgraBhi, a project helping farmers better manage their crops with accurate soil moisture data. I am a junior at Cinco Ranch High School and love research, mathematics, and science. I am very involved in and have won multiple awards in science fairs, math competitions, and TMEA and other music competitions. In my free time, I enjoy running, playing the cello, and spending time with my family.
+      </p>
+    </div>
+  </div>
 
-            <p className="text-slate-400 leading-relaxed">
-              Hi, I'm Nathan, and I am the founder and team lead of AgraBhi, a project helping farmers better manage their crops with accurate soil moisture data. I am a junior at Cinco Ranch High School and love research, mathematics, and science. I am very involved in and have won multiple awards in science fairs, math competitions, and TMEA and other music competitions. In my free time, I enjoy running, playing the cello, and spending time with my family.
-            </p>
-          </div>
-        </div>
+  {/* GROUP 2 */}
+  <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
+    {/* Image Container */}
+    <div className="w-full md:w-1/2 flex items-center justify-center">
+      <img
+        src={image3}
+        alt="Landon Morrison"
+        className="w-72 md:w-80 h-auto object-cover"
+      />
+    </div>
 
-        {/* GROUP 2 */}
-        <div className="flex flex-col md:flex-row gap-8 items-center mt-8">
-          {/* Image Placeholder */}
-          <div className="w-full md:w-1/2 h-80 rounded-2xl flex items-center justify-center text-slate-500 text-lg font-semibold">
-            <img
-              src={image3}
-              alt="Placeholder 2"
-              className="h-80 w-relative mt-8"
-            />
-          </div>
+    {/* Text Container */}
+    <div className="w-full md:w-1/2">
+      <h2 className="text-2xl font-bold text-white mb-2">
+        Landon Morrison
+      </h2>
+      <p className="text-slate-400 leading-relaxed">
+        Hi, I'm Landon, and I'm a student at Cinco Ranch High School and co-founder of AgraBhi. I've always been interested in anything related to technology, and I've created lots of 3d models and designs using various programs like CAD and Blender. In my free time, I enjoy chess, gaming, and spending time with family and friends.
+      </p>
+    </div>
+  </div>
 
-          {/* Paragraph Placeholder */}
-          <div className="w-full md:w-1/2">
-            <h2 className="text-2xl font-bold text-white mb-4">
-              Landon Morrison
-            </h2>
+  {/* GROUP 3 */}
+  <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
+    {/* Image Container */}
+    <div className="w-full md:w-1/2 flex items-center justify-center">
+      <img
+        src={adam}
+        alt="Adam Crossey"
+        className="w-72 md:w-80 h-auto object-cover"
+      />
+    </div>
 
-            <p className="text-slate-400 leading-relaxed">
-              Hi, I'm Landon and I'm a student at Cinco Ranch High School and co-founder of AgraBhi. I've always been interested in anything related to technology, and I've created lots of 3d models and designs using various programs like CAD and Blender. In my free time, I enjoy chess, gaming, and spending time with family and friends.
-            </p>
-          </div>
-        </div>
-
-        {/* GROUP 3 */}
-        <div className="flex flex-col md:flex-row gap-8 items-center mt-8">
-          {/* Image Placeholder */}
-          <div className="w-full md:w-1/2 h-80 rounded-2xl flex items-center justify-center text-slate-500 text-lg font-semibold">
-            <img
-              src={adam}
-              alt="Placeholder 3"
-              className="h-80 w-relative mt-8"
-            />
-          </div>
-
-          {/* Paragraph Placeholder */}
-          <div className="w-full md:w-1/2">
-            <h2 className="text-2xl font-bold text-white mb-4">
-              Adam Crossey
-            </h2>
-
-            <p className="text-slate-400 leading-relaxed">
-              Hello, my name is Adam and I’m a rising Junior at Cinco Ranch High School. I’ve recently joined AgraBhi to further my involvement in STEM and make an impact in my community. I have a passion for learning and enjoy challenging myself with new concepts or ideas.
-            </p>
-          </div>
-        </div>
-      </main>
+    {/* Text Container */}
+    <div className="w-full md:w-1/2">
+      <h2 className="text-2xl font-bold text-white mb-2">
+        Adam Crossey
+      </h2>
+      <p className="text-slate-400 leading-relaxed">
+        Hello, my name is Adam, and I’m a Junior at Cinco Ranch High School. I’ve recently joined AgraBhi to further my involvement in STEM and make an impact in my community. I have a passion for learning and enjoy challenging myself with new concepts or ideas.
+      </p>
+    </div>
+  </div>
+</main>
 
       {/* FOOTER */}
       <footer className="border-t border-slate-800 bg-[#0D1117] py-8">
