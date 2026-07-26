@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "/blogo.png";
-import image1 from "/image1.png";
+import image1 from "/image1.jpeg";
 import image3 from "/image3.PNG";
 import agrilife from "/agrilife.jpg";
 import adam from "/adam.png";
@@ -209,7 +209,7 @@ export default function About() {
       {/* PAGE CONTENT */}
       <main className="pt-32 px-6 py-10 max-w-6xl mx-auto space-y-16">
         {/* GROUP 1 */}
-        <div className="flex flex-col md:flex-row gap-8 items-center mb-8">
+        <div className="flex flex-col md:flex-row gap-8 items-center sm:mb-17">
           {/* Image Placeholder */}
           <div className="w-full md:w-1/2 h-80 rounded-2xl flex items-center justify-center text-slate-500 text-lg font-semibold">
             <img
@@ -221,12 +221,12 @@ export default function About() {
 
           {/* Paragraph Placeholder */}
           <div className="w-full md:w-1/2">
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-2xl font-bold text-white mb-4 mt-2">
               Nathan Sharma
             </h2>
 
             <p className="text-slate-400 leading-relaxed">
-              Hi, I'm Nathan, and I am the founder and team lead of AgraBhi, a project helping farmers better manage their crops with accurate soil moisture data. I am an incoming junior at Cinco Ranch High School and love research, mathematics, and science. I am very involved in and have won multiple awards in science fairs, math competitions, and TMEA and other music competitions. In my free time, I enjoy running, playing the cello, and spending time with my family.
+              Hi, I'm Nathan, and I am the founder and team lead of AgraBhi, a project helping farmers better manage their crops with accurate soil moisture data. I am a junior at Cinco Ranch High School and love research, mathematics, and science. I am very involved in and have won multiple awards in science fairs, math competitions, and TMEA and other music competitions. In my free time, I enjoy running, playing the cello, and spending time with my family.
             </p>
           </div>
         </div>
