@@ -530,7 +530,16 @@ const MONTHS_DATA = [
 </div>
 
    </div> },
-  { name: "August", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
+  { name: "August", year: "2026", content: <div className="text-slate-500 pt-1">
+
+<p className="text-slate-400 leading-relaxed mb-4">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  August 3rd, 2026: Spoke with Mr. Taylor on next steps for the project and attending Dr. Lee's CASS (Configurable, Adaptive, Scalable Swarm System for Smart Agriculture) and ShaRE (Shared Robotic Ecosystem for Collaborative Farming) conferences next Friday at TAMU. Replacement rover kit is still on its way.
+ </p>
+
+
+
+  </div> },
   { name: "September", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
   { name: "October", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
   { name: "November", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
@@ -544,7 +553,7 @@ const MONTHS_DATA = [
 
 export default function About() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentMonthIndex, setCurrentMonthIndex] = useState(2);
+  const [currentMonthIndex, setCurrentMonthIndex] = useState(3);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
