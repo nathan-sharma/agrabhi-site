@@ -274,7 +274,7 @@ export default function Home() {
          Drone to Rovers
       </h3>
       <p className="text-slate-400 font-light text-sm leading-relaxed">
-       An important limitation of our project last year was the drone struggled to get through the crop canopy. Its blades could easily damage crops, and designing a solution, such as lowering a pod using a tether while the drone hovers above the crops, would cost significant battery life and be very difficult to build. To fix this, we decided to switch our project to creating a swarm of five rovers. Each rover would cost ~$400, be autonomous, and would communicate with one another to take samples effectively.
+       An important limitation of our project last year was the drone struggled to get through the crop canopy. Its blades could easily damage crops, and designing a solution, such as lowering a pod using a tether while the drone hovers above the crops, would cost significant battery life and be very difficult to build. To fix this, we decided to switch our project to a swarm of rovers (we will only build 3 this year due to funding limitations). Each rover costs ~$1050, is autonomous, and communicates with one another to take samples effectively.
       </p>
     </div>
     <div>
