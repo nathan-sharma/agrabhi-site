@@ -542,8 +542,8 @@ const MONTHS_DATA = [
 
  <p className="text-slate-400 leading-relaxed mb-4">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  August 6th, 2026: Bought the RTK GPS, Raspberry Pi + SD card, and radios for communication after finally completing the rover parts list. The new estimated cost per rover is $1030, so we will only have enough funding to build three. Unlike last year (where we tried getting spotty RTK corrections from a cheap module), this year's module from SparkFun will be significantly more reliable.
-  </p>
+  August 6th, 2026: Bought the RTK GPS, Raspberry Pi + SD card, and radios for communication after finally completing the rover parts list. The new estimated cost per rover is $ 1,030, so we will only have enough funding to build three, instead of five, as previously planned. Also, unlike last year (when we attempted to obtain spotty RTK corrections from a low-cost module), this year's module from SparkFun will be significantly more reliable.
+  </p>
 <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
   
   {/* Image Figure 1 */}
