@@ -31,6 +31,9 @@ import printing from "/3dprint.png"
 import printed from "/printed.jpg"
 import printed2 from "/printed2.jpg"
 import printed3 from "/printed3.jpg"
+import pi5 from "/pi5.png"
+import radios from "/waveshareradios.jpg"
+import sparkfunrtk from "/sparkfunrtk.png"
 // Structured array containing your timeline data across 2026 and 2027
 const MONTHS_DATA = [
   {
@@ -536,6 +539,54 @@ const MONTHS_DATA = [
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
   August 3rd, 2026: Spoke with Mr. Taylor on next steps for the project and attending Dr. Lee's CASS (Configurable, Adaptive, Scalable Swarm System for Smart Agriculture) and ShaRE (Shared Robotic Ecosystem for Collaborative Farming) conferences next Friday at TAMU. Replacement rover kit is still on its way.
  </p>
+
+ <p className="text-slate-400 leading-relaxed mb-4">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  August 6th, 2026: Bought the RTK GPS, Raspberry Pi + SD card, and radios for communication after finally completing the rover parts list. The new estimated cost per rover is $1030, so we will only have enough funding to build three. Unlike last year (where we tried getting spotty RTK corrections from a cheap module), this year's module from SparkFun will be significantly more reliable.
+  </p>
+<div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
+  
+  {/* Image Figure 1 */}
+  <figure className="flex flex-col flex-1">
+    <div className="w-full aspect-video overflow-hidden bg-slate-900">
+      <img
+        src={radios}
+        alt="Arduino and Raspberry Pi Setup"
+        className="w-full h-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-4 text-sm leading-relaxed"> 
+      Waveshare USB LoRa Data Transfer Modules
+    </figcaption>
+  </figure>
+
+  {/* Image Figure 2 */}
+  <figure className="flex flex-col flex-1">
+    <div className="w-full aspect-video overflow-hidden bg-slate-900">
+      <img
+        src={sparkfunrtk}
+        alt="Arduino and Raspberry Pi Setup"
+        className="w-full h-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-4 text-sm leading-relaxed"> 
+    SparkFun RTK GPS board
+    </figcaption>
+  </figure>
+
+  
+
+</div>
+   <p className="text-slate-400 leading-relaxed mb-4">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  August 7th, 2026: The Raspberry Pi and cooling fan arrived. The SD card and radios should arrive tomorrow, and the RTK GPS should be here by the end of next week. After that, consistent work on the project will finally continue. Also got an update from Dr. Landivar today, who said it may not be worth it to attend the workshops since it will mostly be a meeting for other researchers updating each other on their projects. We're still deciding whether we should go or not.
+  </p>
+  <img
+         
+    src={pi5}
+    alt="Raspberry Pi 5 and cooling fan"
+    className="md:w-[20%] md:h-relative h-full w-relative mb-4 mt-4"
+  />
 
 
 
