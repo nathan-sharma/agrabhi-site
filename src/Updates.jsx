@@ -133,14 +133,12 @@ const MONTHS_DATA = [
   </div>
   <ul className="list-disc list-inside pl-8 space-y-1">
     <li>
-      Landon: Will now focus on coding the GPS module on the Raspberry Pi to get RTK corrections from satellites and coding the Pi to control the rover once Nathan gives it back to him.
+      Landon: Will now focus on coding the GPS module on the Raspberry Pi to get RTK corrections from satellites and coding the Pi to control the rover once Nathan gives it back to him. If this doesn't work, Nathan will a buy a more expensive GPS and code it instead.
     </li>
     <li>
       Nathan: Will now focus on getting measurements of the rover, designing the sensor penetration mechanism in CAD, and testing it.
     </li>
-     <li>
-      Adam: Will focus on creating a dashboard that allows us to control the rover and see footage of the camera we will attach by connecting to the Raspberry Pi. 
-      </li>
+     
   </ul>
 </div>
 
@@ -535,15 +533,92 @@ const MONTHS_DATA = [
    </div> },
   { name: "August", year: "2026", content: <div className="text-slate-500 pt-1">
 
+  <p className="text-slate-400 leading-relaxed mb-4">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  August 11th, 2026: Last day of our summer! 
+  
+  The plan for the next month (8/20 - 9/20): 
+
+<ul className="list-disc list-inside pl-8 space-y-1">
+    <li>
+      Landon: Will prototype the penetration mechanism once the rover arrives and code the Raspberry Pi to control the rover manually. He will also work on the LIDAR sensors and getting the camera set up.
+    </li>
+    <li>
+      Nathan: Will code the RTK GPS and radio communication between the raspberry Pis on the rovers. He will also work with Landon later to make sure the rover can autonomously drive to a specified GPS waypoint on its own.
+    </li>
+     
+  </ul>
+
+
+  
+  </p>
+
 <p className="text-slate-400 leading-relaxed mb-4">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  August 3rd, 2026: Spoke with Mr. Taylor on next steps for the project and attending Dr. Lee's CASS (Configurable, Adaptive, Scalable Swarm System for Smart Agriculture) and ShaRE (Shared Robotic Ecosystem for Collaborative Farming) conferences next Friday at TAMU. Replacement rover kit is still on its way.
- </p>
+  August 10th, 2026: On a video call with Dr. Pal today, we learned that integration into the model is much simpler than we thought and can be beneficial to him. Dr. Pal also offered to help us if we ever run into issues with our soil sensor (such as calibration) and offered additional project ideas.
+  </p>
+
+<p className="text-slate-400 leading-relaxed mb-4">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  August 8th, 2026: RTK GPS should be here by Thursday, and we will be going to CASS and ShaRE next Friday.
+  </p>
 
  <p className="text-slate-400 leading-relaxed mb-4">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  August 7th, 2026: The Raspberry Pi and cooling fan arrived. The SD card and radios should arrive tomorrow, and the RTK GPS should be here by the end of next week. After that, consistent work on the project will finally continue. Also got an update from Dr. Landivar today, who said it may not be worth it to attend the workshops since it will mostly be a meeting for other researchers updating each other on their projects. We're still deciding whether we should go or not.
+  </p>
+  <img
+         
+    src={pi5}
+    alt="Raspberry Pi 5 and cooling fan"
+    className="md:w-[20%] md:h-relative h-full w-relative mb-4 mt-4"
+  />
+
+<p className="text-slate-400 leading-relaxed mb-4">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
   August 6th, 2026: Bought the RTK GPS, Raspberry Pi + SD card, and radios for communication after finally completing the rover parts list. The new estimated cost per rover is $ 1,030, so we will only have enough funding to build three, instead of five, as previously planned. Also, unlike last year (when we attempted to obtain spotty RTK corrections from a low-cost module), this year's module from SparkFun will be significantly more reliable.
   </p>
+<ul className="list-disc list-inside pl-8 space-y-1 mb-6">
+  <p className="font-bold">New budget (per rover):</p> 
+    <li>
+      DFRobot soil sensor: $30
+      </li>
+    <li>
+      Arduino mega: $25
+      </li>
+          <li>
+      Raspberry Pi 5 kit: $180
+      </li>
+
+      <li>
+        Radios: $25
+      </li>
+
+      <li>
+        SD card: $26
+      </li>
+
+      <li>
+        RTK: $250
+      </li>
+
+      <li>
+        Rover kit: $230
+      </li>
+      <li>
+        LIDAR: $70
+      </li>
+      <li>
+        Camera: $40
+      </li>
+      <li>
+        Linear Acuator: $120
+        </li>
+        <li>
+          Control board for linear actuator: $30
+        </li>
+   <p>Total cost: <span className="font-extrabold">~$1030</span></p>  
+  </ul>
 <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
   
   {/* Image Figure 1 */}
@@ -577,18 +652,11 @@ const MONTHS_DATA = [
   
 
 </div>
-   <p className="text-slate-400 leading-relaxed mb-4">
+
+  <p className="text-slate-400 leading-relaxed mb-4">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  August 7th, 2026: The Raspberry Pi and cooling fan arrived. The SD card and radios should arrive tomorrow, and the RTK GPS should be here by the end of next week. After that, consistent work on the project will finally continue. Also got an update from Dr. Landivar today, who said it may not be worth it to attend the workshops since it will mostly be a meeting for other researchers updating each other on their projects. We're still deciding whether we should go or not.
-  </p>
-  <img
-         
-    src={pi5}
-    alt="Raspberry Pi 5 and cooling fan"
-    className="md:w-[20%] md:h-relative h-full w-relative mb-4 mt-4"
-  />
-
-
+  August 3rd, 2026: Spoke with Mr. Taylor on integration with AgriLife's models and attending Dr. Lee's CASS (Configurable, Adaptive, Scalable Swarm System for Smart Agriculture) and ShaRE (Shared Robotic Ecosystem for Collaborative Farming) conferences next Friday at TAMU. Replacement rover kit is still on its way.
+ </p>
 
   </div> },
   { name: "September", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
