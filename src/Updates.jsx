@@ -42,6 +42,7 @@ import workshop1 from "/cassshare1.PNG"
 import workshop2 from "/cassshare2.PNG"
 import workshop3 from "/cassshare3.PNG"
 import workshop4 from "/cassshare4.PNG"
+import workshop0 from "/landonandnathanatworkshop.PNG"
 const MONTHS_DATA = [
   {
     name: "May",
@@ -575,6 +576,9 @@ const MONTHS_DATA = [
 
 <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar">
   
+    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+    <img src={workshop0} alt="Landon and Nathan at the workshop learning about rovers being developed in the TAMU A.R.T. Lab" className="w-full h-full object-contain pointer-events-none" />
+  </div>
   <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
     <img src={workshop1} alt="Workshop 1" className="w-full h-full object-contain pointer-events-none" />
   </div>
