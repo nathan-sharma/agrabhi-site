@@ -3,7 +3,6 @@ import logo from "/blogo.png";
 import image1 from "/image1.jpeg";
 import image3 from "/image3.PNG";
 import agrilife from "/agrilife.jpg";
-import adam from "/adam.png";
 
 export default function About() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
