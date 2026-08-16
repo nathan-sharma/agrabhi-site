@@ -160,7 +160,7 @@ export default function About() {
 
       {/* PAGE CONTENT */}
 {/* PAGE CONTENT */}
-<main className="pt-24 md:pt-32 px-6 py-10 max-w-6xl mx-auto space-y-8 md:space-y-16">
+<main className="pt-24 md:pt-32 px-6 md:py-8 py-4 max-w-6xl mx-auto space-y-8 md:space-y-16">
   {/* GROUP 1 */}
   <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
     {/* Image Container */}
