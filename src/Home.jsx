@@ -233,7 +233,7 @@ export default function Home() {
 
         {/* UPDATED ABSTRACT SECTION */}
         <section id="abstract" className="py-4">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-6">
+          <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-4">
             What AgraBhi Is
           </h2>
           <div className="text-base font-light text-slate-300 leading-relaxed space-y-2">
