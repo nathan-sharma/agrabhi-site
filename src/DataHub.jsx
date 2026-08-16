@@ -547,6 +547,13 @@ async function syncVariogramToBackend(chosenModel) {
              
      
              <a 
+               href="https://agrabhi.com/" 
+               onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/"; }}
+               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+             >
+             Home
+             </a>
+             <a 
                href="https://agrabhi.com/updates.html" 
                onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/updates.html"; }}
                className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
@@ -577,7 +584,7 @@ async function syncVariogramToBackend(chosenModel) {
                  e.preventDefault();
                  window.location.href = "https://agrabhi.com/dashboard.html";
                }}
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+              className="text-xs uppercase tracking-widest font-bold text-emerald-400 hover:text-emerald-500 transition-colors"
               >
                Dashboard
              </a>
@@ -603,6 +610,13 @@ async function syncVariogramToBackend(chosenModel) {
            <div className="md:hidden bg-[#0D1117] border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
             
              
+             <a 
+               href="https://agrabhi.com" 
+               onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/"; }}
+               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+             >
+              Home
+             </a>
              <a 
                href="https://agrabhi.com/updates.html" 
                onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/updates.html"; }}
@@ -642,7 +656,7 @@ async function syncVariogramToBackend(chosenModel) {
              <a 
                href="https://agrabhi.com/dashboard.html" 
                onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/dashboard.html"; }}
-               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+               className="text-xs uppercase tracking-widest font-bold text-emerald-400 hover:text-emerald-500 transition-colors"
              >
                Dashboard
              </a>
