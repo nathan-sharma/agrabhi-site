@@ -253,27 +253,7 @@ export default function About() {
     </div>
   </div>
 
-  {/* GROUP 3 */}
-  <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
-    {/* Image Container */}
-    <div className="w-full md:w-1/2 flex items-center justify-center">
-      <img
-        src={adam}
-        alt="Adam Crossey"
-        className="w-72 md:w-80 h-auto object-cover"
-      />
-    </div>
 
-    {/* Text Container */}
-    <div className="w-full md:w-1/2">
-      <h2 className="text-2xl font-bold text-white mb-2">
-        Adam Crossey
-      </h2>
-      <p className="text-slate-400 leading-relaxed">
-        Hello, my name is Adam, and I’m a Junior at Cinco Ranch High School. I’ve recently joined AgraBhi to further my involvement in STEM and make an impact in my community. I have a passion for learning and enjoy challenging myself with new concepts or ideas.
-      </p>
-    </div>
-  </div>
 </main>
 
       {/* FOOTER */}

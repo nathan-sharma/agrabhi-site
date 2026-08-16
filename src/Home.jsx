@@ -238,7 +238,7 @@ export default function Home() {
           </h2>
           <div className="text-base font-light text-slate-300 leading-relaxed space-y-6">
             <p>
-              AgraBhi is a project being made to help farmers better understand soil moisture patterns on their farm fields before planting crops. Rather than relying on cameras or other contactless sensors, which can be easily influenced by shadows and terrain, AgraBhi uses physical sensors to measure moisture at the depth where crops are being planted, significantly improving measurement accuracy. We then use interpolation models to predict moisture across the rest of the farm field.
+              AgraBhi is a project being made to help farmers better understand soil moisture patterns on their farm fields before planting crops. Rather than relying on cameras or other contactless sensors, which can provide uncertain data, AgraBhi uses physical sensors to measure moisture at the depth where crops are being planted, significantly improving measurement accuracy. We then use interpolation models to predict moisture across the rest of the farm field.
             </p>
             
             <p>
@@ -262,40 +262,40 @@ export default function Home() {
         </section>
            <hr className="border-slate-900" />
  <section id="development" className="py-4 scroll-mt-24">
-  <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-8">
+  <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-6">
     Current work (Rover project)
   </h2>
   
   {/* The 2-column grid now holds the first two balanced items */}
-  <div className="grid md:grid-cols-2 gap-12 mb-12">
+  <div className="grid md:grid-cols-2 gap-12 mb-4">
     <div>
       <h3 className="text-white font-bold mb-3 flex items-center gap-2">
 
          Drone to Rovers
       </h3>
       <p className="text-slate-400 font-light text-sm leading-relaxed">
-       An important limitation of our project last year was the drone struggled to get through the crop canopy. Its blades could easily damage crops, and designing a solution, such as lowering a pod using a tether while the drone hovers above the crops, would cost significant battery life and be very difficult to build. To fix this, we decided to switch our project to a swarm of rovers (we will only build 3 this year due to funding limitations). Each rover costs ~$1000, is autonomous, and communicates with one another to take samples effectively.
+      An important limitation of our project last year was that the drone struggled to get through the crop canopy, and its blades could easily damage crops. To fix this, we decided to switch our project to a swarm of rovers. Each rover costs ~$1000, is autonomous, and communicates with one another to take samples effectively.
       </p>
     </div>
     <div>
       <h3 className="text-white font-bold mb-3 flex items-center gap-2">
 
-        Adaptive Path Planning
+        Adaptive Sampling
       </h3>
       <p className="text-slate-400 font-light text-sm leading-relaxed">
-        We think our rovers can improve their own predictive accuracy by driving to the highest uncertainty areas in its predictions in real time. For example, the system could start with an initial set of moisture measurements across the field, generate a heatmap, then tell each rover  to go to the most uncertain point on this heatmap and take a measurement there, repeating the process until accuracy is significantly improved and uncertainty is evenly distributed.
-        </p>
+       Our rovers can improve their own predictive accuracy by driving to the most uncertain or unexplored parts of the fields in real time. The swarm starts by randomly taking moisture measurements across the farm field and generates a heatmap. Then, a mother rover receives all data from the other rovers to calculate the most unexplored or uncertain spots each rover should sample. 
+       </p>
     </div>
     
 
   </div>
 <h3 className="text-white font-bold mb-3 flex items-center gap-2">
 
-        Combining Data with Additional Models
+        Implementation on Farms
       </h3>
       <p className="text-slate-400 font-light text-sm leading-relaxed">
-     While physical moisture data will provide excellent readings on moisture across the farm field, this alone will not give farmers the entire picture. Moisture is just one of the countless factors that affect plants. To make this data as useful as possible, we are collaborating with the Fort Bend County AgriLife Extension to combine our moisture data with their data and models on farm fields. Their additional data was primarily collected through multispectral drones and includes crucial information such as historical growth patterns and canopy cover of crops across the field. Our moisture data, when combined with AgriLife's models and historical data, will provide farmers with the best actionable information on their fields.
-</p>
+     Our rovers are being implemented in collaboration with the Texas A&M AgriLife Extension and their partner farms. Our moisture data will inform farmers' planting decisions and help the analytical models AgriLife uses to predict crop yield with ground-truth moisture measurements.
+     </p>
   <div className=" max-w-4xl">
  
     {/* Stylized Video Player Wrapper */}

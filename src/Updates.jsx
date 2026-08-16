@@ -164,7 +164,7 @@ const MONTHS_DATA = [
         
          
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  June 25th, 2026: The AgraBhi team (Nathan Sharma, Landon Morrison, and Adam Crossey) met with the Row Crops Committee of the Fort Bend County Texas A & M AgriLife extension to discuss ways this project could be implemented on their connected farms, funded by the committee, and supported with their data. We also used this opportunity to test the rover's drivability on a contact's farm fields.
+  June 25th, 2026: The AgraBhi team met with the Row Crops Committee of the Fort Bend County Texas A & M AgriLife extension to discuss ways this project could be implemented on their connected farms, funded by the committee, and supported with their data. We also used this opportunity to test the rover's drivability on a contact's farm fields.
   </p>
 
 <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
