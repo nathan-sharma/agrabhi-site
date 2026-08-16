@@ -271,7 +271,7 @@ export default function Home() {
   {/* The 2-column grid now holds the first two balanced items */}
 <div className="grid gap-6">
   <div>
-    <h3 className="text-white font-bold flex items-center gap-2">
+    <h3 className="text-white font-bold flex items-center gap-2 mb-3">
       Drone to Rovers
     </h3>
     <p className="text-slate-400 font-light text-sm leading-relaxed">
