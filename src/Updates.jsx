@@ -34,7 +34,14 @@ import printed3 from "/printed3.jpg"
 import pi5 from "/pi5.png"
 import radios from "/waveshareradios.jpg"
 import sparkfunrtk from "/sparkfunrtk.png"
-// Structured array containing your timeline data across 2026 and 2027
+import pygpsclient1 from "/pygpsclient1.png"
+import receiverscreenshot from "/laptopreceiverscreenshot.png"
+import pirtkpic from "/pi5withrtkboard.png"
+import laptopmodule from "/radiomoduleonlaptop.png"
+import workshop1 from "/cassshare1.PNG"
+import workshop2 from "/cassshare2.PNG"
+import workshop3 from "/cassshare3.PNG"
+import workshop4 from "/cassshare4.PNG"
 const MONTHS_DATA = [
   {
     name: "May",
@@ -535,9 +542,68 @@ const MONTHS_DATA = [
 
   <p className="text-slate-400 leading-relaxed mb-4">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  August 15th, 2026: We programmed the Raspberry Pi to receive online RTK GPS corrections and transmit its location to the Waveshare radios, which then sent the GPS data to our laptop. This tests how two rovers would send their logged moisture and GPS data to a mother rover, which would use them to decide where to sample next. The GPS was in RTK float mode instead of RTK fix, likely because it was indoors. See images below.
+  </p>
+
+
+
+<div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar">
+  
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+    <img src={pygpsclient1} alt="PyGPS client screenshot on Raspberry Pi 5" className="w-full h-full object-contain pointer-events-none" />
+  </div>
+
+ 
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+    <img  src={pirtkpic} alt="Picture of the Raspberry Pi and RTK module"  className="w-full h-full object-contain pointer-events-none" />
+  </div>
+
+  
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+    <img src={receiverscreenshot} alt="Screenshot of the GPS data being received from the Pi onto our laptop" className="w-full h-full object-contain pointer-events-none" />
+  </div>
+
+ 
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+    <img src={laptopmodule} alt="Picture of the USB receiver module plugged into our laptop" className="w-full h-full object-contain pointer-events-none" />
+  </div>
+</div>
+  <p className="text-slate-400 leading-relaxed mb-4">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  August 14th, 2026: Went to the CASS-ShaRE project workshop with Dr. Kiju Lee and Jody Taylor at Texas A&M University. We listened to four hours of presentations and spoke with the researchers working in the ART Lab and the CASS-ShaRE joint project about their work and our project. We made many connections while also learning a lot about the research being done today in this field!
+  </p>
+
+<div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar">
+  
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+    <img src={workshop1} alt="Workshop 1" className="w-full h-full object-contain pointer-events-none" />
+  </div>
+
+ 
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+    <img src={workshop2} alt="Workshop 2" className="w-full h-full object-contain pointer-events-none" />
+  </div>
+
+  
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+    <img src={workshop3} alt="Workshop 3" className="w-full h-full object-contain pointer-events-none" />
+  </div>
+
+ 
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+    <img src={workshop4} alt="Workshop 4" className="w-full h-full object-contain pointer-events-none" />
+  </div>
+
+ 
+  
+
+  
+</div>
+  <p className="text-slate-400 leading-relaxed mb-4">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
   August 11th, 2026: Last day of our summer! 
   
-  The plan for the next month (8/20 - 9/20): 
+  Plans for this month (8/20 - 9/20): 
 
 <ul className="list-disc list-inside pl-8 space-y-1">
     <li>
@@ -576,7 +642,7 @@ const MONTHS_DATA = [
 
 <p className="text-slate-400 leading-relaxed mb-4">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  August 6th, 2026: Bought the RTK GPS, Raspberry Pi + SD card, and radios for communication after finally completing the rover parts list. The new estimated cost per rover is $ 1,030, so we will only have enough funding to build three, instead of five, as previously planned. Also, unlike last year (when we attempted to obtain spotty RTK corrections from a low-cost module), this year's module from SparkFun will be significantly more reliable.
+  August 6th, 2026: Bought the RTK GPS, Raspberry Pi + SD card, and radios for communication after finally completing the rover parts list. The new estimated cost per rover is $ 930, so we will only have enough funding to build three, instead of five, as previously planned. Also, unlike last year (when we attempted to obtain spotty RTK corrections from a low-cost module), this year's module from SparkFun will be significantly more reliable.
   </p>
 <ul className="list-disc list-inside pl-8 space-y-1 mb-6">
   <p className="font-bold">New budget (per rover):</p> 
@@ -599,7 +665,7 @@ const MONTHS_DATA = [
       </li>
 
       <li>
-        RTK: $250
+        RTK: $150
       </li>
 
       <li>
@@ -617,7 +683,7 @@ const MONTHS_DATA = [
         <li>
           Control board for linear actuator: $30
         </li>
-   <p>Total cost: <span className="font-extrabold">~$1030</span></p>  
+   <p>Total cost: <span className="font-extrabold">~$930</span></p>  
   </ul>
 <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
   
