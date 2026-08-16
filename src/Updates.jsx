@@ -542,7 +542,7 @@ const MONTHS_DATA = [
 
   <p className="text-slate-400 leading-relaxed mb-4">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  August 15th, 2026: We programmed the Raspberry Pi to receive online RTK GPS corrections and transmit its location to the Waveshare radios, which then sent the GPS data to our laptop. This tests how two rovers would send their logged moisture and GPS data to a mother rover, which would use them to decide where to sample next. The GPS was in RTK float mode instead of RTK fix, likely because it was indoors. See images below.
+  August 15th, 2026: We programmed the Raspberry Pi to receive online RTK GPS corrections and transmit its location over the Waveshare radios to send the GPS data to our laptop. This tests how two rovers would send their logged moisture and GPS data to a mother rover, which would use this data to decide where to sample next. The GPS was in RTK float mode instead of RTK fix, likely because the antenna was indoors. See images below (swipe left to scroll).
   </p>
 
 
