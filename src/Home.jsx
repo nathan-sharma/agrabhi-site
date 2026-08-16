@@ -247,7 +247,7 @@ export default function Home() {
             </p>
     
 
-            <div className="pt-4">
+            <div className="pt-6">
               <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-4">
                 Why This Matters
               </h2>
