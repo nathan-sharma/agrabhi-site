@@ -243,7 +243,7 @@ export default function Home() {
           </h2>
           <div className="text-base font-light text-slate-300 leading-relaxed">
             <p>
-              AgraBhi is a project being made to help farmers better understand soil moisture patterns on their farm fields before planting crops. Rather than relying on cameras or other contactless sensors, which can provide uncertain data, AgraBhi uses physical sensors to measure moisture at the depth where crops are being planted, significantly improving measurement accuracy. We then use interpolation models to predict moisture across the rest of the farm field.               The goal of our project is to make crop decisions more precise, efficient, and affordable for farmers with this data.
+              AgraBhi is a project being made to help farmers better understand soil moisture patterns on their farm fields before planting crops. Rather than relying on cameras or other contactless sensors, which can provide uncertain data, AgraBhi uses physical sensors to measure moisture at the depth where crops are being planted, significantly improving measurement accuracy. We then use interpolation models to predict moisture across the rest of the farm field. The goal of our project is to make crop decisions more informed and affordable for farmers with this data.
             </p>
     
 
