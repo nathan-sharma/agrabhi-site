@@ -267,35 +267,33 @@ export default function Home() {
   </h2>
   
   {/* The 2-column grid now holds the first two balanced items */}
-  <div className="grid md:grid-cols-2 gap-12 mb-4">
-    <div>
-      <h3 className="text-white font-bold mb-3 flex items-center gap-2">
-
-         Drone to Rovers
-      </h3>
-      <p className="text-slate-400 font-light text-sm leading-relaxed">
+<div className="grid gap-6">
+  <div>
+    <h3 className="text-white font-bold flex items-center gap-2">
+      Drone to Rovers
+    </h3>
+    <p className="text-slate-400 font-light text-sm leading-relaxed">
       An important limitation of our project last year was that the drone struggled to get through the crop canopy, and its blades could easily damage crops. To fix this, we decided to switch our project to a swarm of rovers. Each rover costs ~$1000, is autonomous, and communicates with one another to take samples effectively.
-      </p>
-    </div>
-    <div>
-      <h3 className="text-white font-bold mb-3 flex items-center gap-2">
-
-        Adaptive Sampling
-      </h3>
-      <p className="text-slate-400 font-light text-sm leading-relaxed">
-       Our rovers can improve their own predictive accuracy by driving to the most uncertain or unexplored parts of the fields in real time. The swarm starts by randomly taking moisture measurements across the farm field and generates a heatmap. Then, a mother rover receives all data from the other rovers to calculate the most unexplored or uncertain spots each rover should sample. 
-       </p>
-    </div>
-    
-
+    </p>
   </div>
-<h3 className="text-white font-bold mb-3 flex items-center gap-2">
-
-        Implementation on Farms
-      </h3>
-      <p className="text-slate-400 font-light text-sm leading-relaxed">
-     Our rovers are being implemented in collaboration with the Texas A&M AgriLife Extension and their partner farms. Our moisture data will inform farmers' planting decisions and help the analytical models AgriLife uses to predict crop yield with ground-truth moisture measurements.
+  <div>
+    <h3 className="text-white font-bold mb-3 flex items-center gap-2">
+      Adaptive Sampling
+    </h3>
+    <p className="text-slate-400 font-light text-sm leading-relaxed">
+      Our rovers can improve their own predictive accuracy by driving to the most uncertain or unexplored parts of the fields in real time. The swarm starts by randomly taking moisture measurements across the farm field and generates a heatmap. Then, a mother rover receives all data from the other rovers to calculate the most unexplored or uncertain spots each rover should sample.
+    </p>
+  </div>
+   <div>
+    <h3 className="text-white font-bold mb-3 flex items-center gap-2">
+      Implementation on Farms
+    </h3>
+    <p className="text-slate-400 font-light text-sm leading-relaxed">
+       AgraBhi is being implemented in collaboration with the Texas A&M AgriLife Extension and their partner farms. Our moisture data will inform farmers' planting decisions and help the analytical models AgriLife uses to predict crop yield with ground-truth moisture measurements.
      </p>
+  </div>
+</div>
+
   <div className=" max-w-4xl">
  
     {/* Stylized Video Player Wrapper */}
