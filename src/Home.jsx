@@ -23,20 +23,25 @@ export default function Home() {
           
           {/* Logo Link */}
           <div className="flex items-center text-lg sm:text-xl font-bold tracking-tighter text-white whitespace-nowrap">
-            <img src={logo} alt="AgraBhi Logo" className="h-5 sm:h-6 w-auto translate-y-[1px] mr-1.5" />
+           
             <div>
               <a 
                 href="https://agrabhi.com" 
                 onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com"; }}
                 className="cursor-pointer"
               >
+                 <div className="flex items-center justify-center md:justify-start">
+              <img src={logo} alt="Logo" className="h-6 w-auto" />
+              <h2 className="text-xl font-bold text-white leading-none">
                 Agra<span className="text-emerald-400">Bhi</span>
+              </h2>
+            </div>
               </a>
             </div>
             
             {/* Kept and styled to fit perfectly on mobile screens */}
             <p className="px-2.5 sm:px-3 text-sm sm:text-sm font-normal text-slate-400">in collaboration with</p>
-            <img src={agrilife} alt="AgriLife Logo" className="h-8 sm:h-9 w-auto translate-y-[1px] rounded-md sm:rounded-lg" />
+            <img src={agrilife} alt="AgriLife Logo" className="h-8 sm:h-9 w-auto translate-y-[1px]" />
           </div>
     
           {/* Desktop Nav Links */}
@@ -158,10 +163,10 @@ export default function Home() {
    {/* Header / Hero Section */}
       <header className="relative pt-32 pb-2 sm:pb-8 px-6 text-center">
         <h1 className="text-6xl md:text-7xl font-extrabold mb-2 sm:mb-4 tracking-tight text-white py-2 animate-pop-slow">
-          AgraBhi
+          Agra<span className="text-emerald-400">Bhi</span>
         </h1>
         <h2 className="text-xl md:text-3xl font-medium tracking-tight text-slate-300 max-w-7xl mx-auto leading-tight animate-slide-slow">
-         Accurate, Low Cost Soil Moisture Mapping for <span className="text-emerald-400">Smarter Decisions.</span>
+         Accurate, Low Cost Soil Moisture Mapping for Smarter Decisions.
         </h2>
       </header>
 
