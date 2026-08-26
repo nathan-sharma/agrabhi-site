@@ -4,7 +4,7 @@ import image1 from "/image1.jpeg";
 import image3 from "/image3.PNG";
 import agrilife from "/agrilife.jpg";
 
-export default function About() {
+export default function ArmCam() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
