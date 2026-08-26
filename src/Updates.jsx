@@ -550,7 +550,7 @@ const MONTHS_DATA = [
 
 <p className="text-slate-400 leading-relaxed mb-4">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  August 25th, 2026: Basic radio communication works (Pis transmit their locations to our laptop, the laptop sends back the optimal point calculated from our acquisition function we made back in June).
+  August 25th, 2026: Basic radio communication works (Pis transmit their locations to our laptop, the laptop sends back the optimal point calculated from our acquisition function we made back in June). Landon also did extensive research today on how the rover would navigate using an RGB camera.
 </p>
 <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
   
@@ -627,7 +627,7 @@ const MONTHS_DATA = [
       />
     </div>
     <figcaption className="mt-4 text-sm leading-relaxed"> 
-    Tracked rover. We thought it was much more expensive because we only looked at the Amazon listing of $600 (which included a bunch of accessories), but on the official website it's listed for $200 without the accessories, which was close to how much we were paying for the untracked rover.
+    Tracked rover. We thought it was much more expensive because we only looked at the Amazon listing of $600 (which included a bunch of accessories), but on the official website it's listed for $200 without the accessories, which was close to how much we were paying for the untracked rover. After we found this out, we decided to switch to the tracked version instead.
     </figcaption>
   </figure>
 
@@ -918,7 +918,7 @@ export default function About() {
 <a 
               href="https://agrabhi.com/armcam.html" 
               onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/armcam.html"; }}
-              className="text-sm tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
             >
               ArmCam
             </a>
