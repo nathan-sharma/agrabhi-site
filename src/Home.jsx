@@ -47,7 +47,13 @@ export default function Home() {
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-8">
             
-    
+       <a 
+              href="https://agrabhi.com/armcam.html" 
+              onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/armcam.html"; }}
+              className="text-sm tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+            >
+              ArmCam
+            </a>
             <a 
               href="https://agrabhi.com/updates.html" 
               onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/updates.html"; }}
@@ -104,7 +110,13 @@ export default function Home() {
         {isMenuOpen && (
           <div className="md:hidden bg-[#0D1117] border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
            
-            
+            <a 
+              href="https://agrabhi.com/armcam.html" 
+              onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/armcam.html"; }}
+              className="text-sm tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+            >
+              ArmCam
+            </a>
             <a 
               href="https://agrabhi.com/updates.html" 
               onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/updates.html"; }}

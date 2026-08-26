@@ -46,6 +46,9 @@ import workshop0 from "/landonandnathanatworkshop.PNG"
 import roversim1 from "/rover1sim.png"
 import roversim2 from "/rover2sim.png"
 import hubsim from "/hubsim.png"
+import itworked from "/itworked.PNG"
+import roarm from "/roarm.jpg"
+import tracked from "/ugvtracked.jpg"
 const MONTHS_DATA = [
   {
     name: "May",
@@ -556,7 +559,7 @@ const MONTHS_DATA = [
     <div className="w-full aspect-video overflow-hidden bg-slate-900">
       <img
         src={roversim1}
-        alt="Arduino and Raspberry Pi Setup"
+        alt="Rover 1 simulation"
         className="w-full h-full object-contain"
       />
     </div>
@@ -570,7 +573,7 @@ const MONTHS_DATA = [
     <div className="w-full aspect-video overflow-hidden bg-slate-900">
       <img
         src={roversim2}
-        alt="Arduino and Raspberry Pi Setup"
+        alt="Rover 2 simulation"
         className="w-full h-full object-contain"
       />
     </div>
@@ -582,7 +585,7 @@ const MONTHS_DATA = [
     <div className="w-full aspect-video overflow-hidden bg-slate-900">
       <img
         src={hubsim}
-        alt="Arduino and Raspberry Pi Setup"
+        alt="Hub/Laptop simulation"
         className="w-full h-full object-contain"
       />
     </div>
@@ -596,12 +599,51 @@ const MONTHS_DATA = [
 </div>
 <p className="text-slate-400 leading-relaxed mb-4">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  August 21st, 2026: ArmCam was created and parts were ordered. 
+  August 21st, 2026: ArmCam was created and parts were ordered. We're also switching to a tracked rover.
   </p>
+   <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
+  
+  {/* Image Figure 1 */}
+  <figure className="flex flex-col flex-1">
+    <div className="w-full aspect-video overflow-hidden bg-slate-900">
+      <img
+        src={roarm}
+        alt="Robotic arm"
+        className="w-full h-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-4 text-sm leading-relaxed"> 
+      Arm that will hold the camera for inspecting crops.
+    </figcaption>
+  </figure>
+
+  {/* Image Figure 2 */}
+  <figure className="flex flex-col flex-1">
+    <div className="w-full aspect-video overflow-hidden bg-slate-900">
+      <img
+        src={tracked}
+        alt="Tracked rover"
+        className="w-full h-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-4 text-sm leading-relaxed"> 
+    Tracked rover. We thought it was much more expensive because we only looked at the Amazon listing of $600 (which included a bunch of accessories), but on the official website it's listed for $200 without the accessories, which was close to how much we were paying for the untracked rover.
+    </figcaption>
+  </figure>
+
+  
+
+</div>
   <p className="text-slate-400 leading-relaxed mb-4">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
   August 18th, 2026: Landon began coding the rover's functions with the Raspberry Pi. 
   </p>
+    <img
+         
+    src={itworked}
+    alt="Rover image"
+    className="md:w-[20%] md:h-relative h-full w-relative mb-4 mt-4"
+  />
    <p className="text-slate-400 leading-relaxed mb-4">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
   August 16th, 2026: alpha in the acquisition function was updated to 1 - (current sample #)/(total # of samples). </p>
@@ -873,7 +915,13 @@ export default function About() {
              >
              Home
              </a>
-
+<a 
+              href="https://agrabhi.com/armcam.html" 
+              onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/armcam.html"; }}
+              className="text-sm tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+            >
+              ArmCam
+            </a>
             <a 
               href="https://agrabhi.com/updates.html" 
               onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/updates.html"; }}
@@ -937,7 +985,13 @@ export default function About() {
              >
              Home
              </a>
-
+<a 
+              href="https://agrabhi.com/armcam.html" 
+              onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/armcam.html"; }}
+              className="text-sm tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+            >
+              ArmCam
+            </a>
             <a 
               href="https://agrabhi.com/updates.html" 
               onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/updates.html"; }}

@@ -48,6 +48,13 @@ export default function ArmCam() {
              >
               Home
              </a>
+             <a 
+              href="https://agrabhi.com/armcam.html" 
+              onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/armcam.html"; }}
+              className="text-sm tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+            >
+              ArmCam
+            </a>
             <a 
               href="https://agrabhi.com/updates.html" 
               onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/updates.html"; }}
@@ -111,6 +118,13 @@ export default function ArmCam() {
              >
               Home
              </a>
+             <a 
+              href="https://agrabhi.com/armcam.html" 
+              onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/armcam.html"; }}
+              className="text-sm tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+            >
+              ArmCam
+            </a>
             <a 
               href="https://agrabhi.com/updates.html" 
               onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/updates.html"; }}
