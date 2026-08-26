@@ -541,6 +541,15 @@ const MONTHS_DATA = [
    </div> },
   { name: "August", year: "2026", content: <div className="text-slate-500 pt-1">
 
+
+<p className="text-slate-400 leading-relaxed mb-4">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  August 25th, 2026: Basic radio communication works (Pis transmit their locations to our laptop, the laptop sends back the optimal point calculated from our acquisition function we made back in June).
+</p>
+<p className="text-slate-400 leading-relaxed mb-4">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  August 21st, 2026: ArmCam was created and parts were ordered. 
+  </p>
   <p className="text-slate-400 leading-relaxed mb-4">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
   August 15th, 2026: We programmed the Raspberry Pi to receive online RTK GPS corrections and transmit its location over the Waveshare radios to send the GPS data to our laptop. This tests how two rovers would send their logged moisture and GPS data to a mother rover, which would use this data to decide where to sample next. The GPS was in RTK float mode instead of RTK fix, likely because the antenna was indoors. See images below (swipe left to scroll).

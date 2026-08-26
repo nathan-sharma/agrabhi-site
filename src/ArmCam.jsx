@@ -4,7 +4,7 @@ import image1 from "/image1.jpeg";
 import image3 from "/image3.PNG";
 import agrilife from "/agrilife.jpg";
 
-export default function ArmCam() {
+export default function About() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -48,6 +48,14 @@ export default function ArmCam() {
              >
               Home
              </a>
+
+                  <a 
+              href="https://agrabhi.com/armcam.html" 
+              onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/armcam.html"; }}
+              className="text-sm tracking-widest font-bold text-emerald-400 hover:text-emerald-500 transition-colors"
+            >
+              ArmCam
+            </a>
             <a 
               href="https://agrabhi.com/updates.html" 
               onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/updates.html"; }}
@@ -59,10 +67,11 @@ export default function ArmCam() {
             <a 
               href="https://agrabhi.com/about.html" 
               onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/about.html"; }}
-              className="text-xs uppercase tracking-widest font-bold text-emerald-400 hover:text-emerald-500 transition-colors"
+              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
             >
               About Us
             </a>
+        
             
             <a 
               target="_blank" 
@@ -111,6 +120,13 @@ export default function ArmCam() {
              >
               Home
              </a>
+                              <a 
+              href="https://agrabhi.com/armcam.html" 
+              onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/armcam.html"; }}
+              className="text-sm tracking-widest font-bold text-emerald-400 hover:text-emerald-500 transition-colors"
+            >
+              ArmCam
+            </a>
             <a 
               href="https://agrabhi.com/updates.html" 
               onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/updates.html"; }}
@@ -122,10 +138,11 @@ export default function ArmCam() {
             <a 
               href="https://agrabhi.com/about.html" 
               onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/about.html"; }}
-              className="text-xs uppercase tracking-widest font-bold text-emerald-400 hover:text-emerald-500 transition-colors"
+              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
             >
               About Us
             </a>
+      
     
             <a 
               href="https://github.com/nathan-sharma/AgraBhi" 
@@ -161,50 +178,19 @@ export default function ArmCam() {
       {/* PAGE CONTENT */}
 {/* PAGE CONTENT */}
 <main className="pt-24 md:pt-32 px-6 md:py-8 py-4 max-w-6xl mx-auto space-y-8 md:space-y-16">
-  {/* GROUP 1 */}
-  <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
-    {/* Image Container */}
-    <div className="w-full md:w-1/2 flex items-center justify-center">
-      <img
-        src={image1}
-        alt="Nathan Sharma"
-        className="w-72 md:w-80 h-auto object-cover"
-      />
-    </div>
+  <h2 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-4">
+                Overview
+              </h2>  
+<p className="text-slate-400 leading-relaxed">
+   AgraBhi ArmCam allows AgraBhi to be helpful for the entire growing season. This new subproject was founded in August 2026 by Landon Morrison.
 
-    {/* Text Container */}
-    <div className="w-full md:w-1/2">
-      <h2 className="text-2xl font-bold text-white mb-2">
-        Nathan Sharma
-      </h2>
-      <p className="text-slate-400 leading-relaxed">
-        Hi, I'm Nathan, and I am the founder and team lead of AgraBhi, a project helping farmers better manage their crops with accessible, highly accurate soil moisture data. I am a junior at Cinco Ranch High School and love research, mathematics, and science. I am very involved in and have won multiple awards in science fairs, math competitions, and TMEA and other music competitions. In my free time, I enjoy running, playing the cello, and spending time with my family.
-      </p>
-    </div>
-  </div>
+   ArmCam is a version of AgraBhi with a robotic arm containing a camera mounted to the rover in place of the penetration tower. It will use a YOLO image detection model to count cotton bolls (this data will also be used to validate AgriLife's digital twin predictions) and detect signs of potential disease on cotton crops.
 
-  {/* GROUP 2 */}
-  <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
-    {/* Image Container */}
-    <div className="w-full md:w-1/2 flex items-center justify-center">
-      <img
-        src={image3}
-        alt="Landon Morrison"
-        className="w-72 md:w-80 h-auto object-cover"
-      />
-    </div>
 
-    {/* Text Container */}
-    <div className="w-full md:w-1/2">
-      <h2 className="text-2xl font-bold text-white mb-2">
-        Landon Morrison
-      </h2>
-      <p className="text-slate-400 leading-relaxed">
-        Hi, I'm Landon, and I'm a student at Cinco Ranch High School and co-founder of AgraBhi. I've always been interested in anything related to technology, and I've created lots of 3d models and designs using various programs like CAD and Blender. In my free time, I enjoy chess, gaming, and spending time with family and friends.
-      </p>
-    </div>
-  </div>
+ This page will be updated as we continue to make progress on ArmCam. Our first parts for this should be arriving by August 29th, 2026.
+       </p>
 
+     
 
 </main>
 
