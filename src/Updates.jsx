@@ -43,6 +43,9 @@ import workshop2 from "/cassshare2.PNG"
 import workshop3 from "/cassshare3.PNG"
 import workshop4 from "/cassshare4.PNG"
 import workshop0 from "/landonandnathanatworkshop.PNG"
+import roversim1 from "/rover1sim.png"
+import roversim2 from "/rover2sim.png"
+import hubsim from "/hubsim.png"
 const MONTHS_DATA = [
   {
     name: "May",
@@ -546,10 +549,62 @@ const MONTHS_DATA = [
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
   August 25th, 2026: Basic radio communication works (Pis transmit their locations to our laptop, the laptop sends back the optimal point calculated from our acquisition function we made back in June).
 </p>
+<div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
+  
+  {/* Image Figure 1 */}
+  <figure className="flex flex-col flex-1">
+    <div className="w-full aspect-video overflow-hidden bg-slate-900">
+      <img
+        src={roversim1}
+        alt="Arduino and Raspberry Pi Setup"
+        className="w-full h-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-4 text-sm leading-relaxed"> 
+      Rover 1 simulation
+    </figcaption>
+  </figure>
+
+  {/* Image Figure 2 */}
+  <figure className="flex flex-col flex-1">
+    <div className="w-full aspect-video overflow-hidden bg-slate-900">
+      <img
+        src={roversim2}
+        alt="Arduino and Raspberry Pi Setup"
+        className="w-full h-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-4 text-sm leading-relaxed"> 
+    Rover 2 simulation
+    </figcaption>
+  </figure>
+   <figure className="flex flex-col flex-1">
+    <div className="w-full aspect-video overflow-hidden bg-slate-900">
+      <img
+        src={hubsim}
+        alt="Arduino and Raspberry Pi Setup"
+        className="w-full h-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-4 text-sm leading-relaxed"> 
+    Hub/laptop simulation
+    </figcaption>
+  </figure>
+
+  
+
+</div>
 <p className="text-slate-400 leading-relaxed mb-4">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
   August 21st, 2026: ArmCam was created and parts were ordered. 
   </p>
+  <p className="text-slate-400 leading-relaxed mb-4">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  August 18th, 2026: Landon began coding the rover's functions with the Raspberry Pi. 
+  </p>
+   <p className="text-slate-400 leading-relaxed mb-4">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  August 16th, 2026: alpha in the acquisition function was updated to 1 - (current sample #)/(total # of samples). </p>
   <p className="text-slate-400 leading-relaxed mb-4">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
   August 15th, 2026: We programmed the Raspberry Pi to receive online RTK GPS corrections and transmit its location over the Waveshare radios to send the GPS data to our laptop. This tests how two rovers would send their logged moisture and GPS data to a mother rover, which would use this data to decide where to sample next. The GPS was in RTK float mode instead of RTK fix, likely because the antenna was indoors. See images below (swipe left to scroll).
