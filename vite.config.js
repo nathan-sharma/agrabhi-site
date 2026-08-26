@@ -10,7 +10,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        armcam: resolve(__dirname, 'armcam.html'),
+        'armcam': resolve(__dirname, 'armcam.html'),
         about: resolve(__dirname, 'about.html'),
         updates: resolve(__dirname, 'updates.html'),
         'dashboard': resolve(__dirname, 'dashboard.html'),
