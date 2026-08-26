@@ -556,7 +556,7 @@ const MONTHS_DATA = [
   
   {/* Image Figure 1 */}
   <figure className="flex flex-col flex-1">
-    <div className="w-full aspect-video overflow-hidden bg-slate-900">
+    <div className="w-full aspect-video overflow-hidden">
       <img
         src={roversim1}
         alt="Rover 1 simulation"
@@ -570,7 +570,7 @@ const MONTHS_DATA = [
 
   {/* Image Figure 2 */}
   <figure className="flex flex-col flex-1">
-    <div className="w-full aspect-video overflow-hidden bg-slate-900">
+    <div className="w-full aspect-video overflow-hidden">
       <img
         src={roversim2}
         alt="Rover 2 simulation"
@@ -582,7 +582,7 @@ const MONTHS_DATA = [
     </figcaption>
   </figure>
    <figure className="flex flex-col flex-1">
-    <div className="w-full aspect-video overflow-hidden bg-slate-900">
+    <div className="w-full aspect-video overflow-hidden">
       <img
         src={hubsim}
         alt="Hub/Laptop simulation"
@@ -988,7 +988,7 @@ export default function About() {
 <a 
               href="https://agrabhi.com/armcam.html" 
               onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/armcam.html"; }}
-              className="text-sm tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
             >
               ArmCam
             </a>
