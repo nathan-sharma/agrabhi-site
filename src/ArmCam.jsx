@@ -3,8 +3,9 @@ import logo from "/blogo.png";
 import image1 from "/image1.jpeg";
 import image3 from "/image3.PNG";
 import agrilife from "/agrilife.jpg";
-
-export default function ArmCam() {
+import tower from "/tower.JPG"; 
+import armcam from "/armcam.PNG"
+export default function About() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -52,7 +53,7 @@ export default function ArmCam() {
                   <a 
               href="https://agrabhi.com/armcam.html" 
               onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/armcam.html"; }}
-              className="text-xs uppercase tracking-widest font-bold text-emerald-400 hover:text-emerald-500 transition-colors"
+              className="text-sm tracking-widest font-bold text-emerald-400 hover:text-emerald-500 transition-colors"
             >
               ArmCam
             </a>
@@ -123,7 +124,7 @@ export default function ArmCam() {
                               <a 
               href="https://agrabhi.com/armcam.html" 
               onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/armcam.html"; }}
-              className="text-xs uppercase tracking-widest font-bold text-emerald-400 hover:text-emerald-500 transition-colors"
+              className="text-sm tracking-widest font-bold text-emerald-400 hover:text-emerald-500 transition-colors"
             >
               ArmCam
             </a>
@@ -189,7 +190,39 @@ export default function ArmCam() {
 
  This page will be updated as we continue to make progress on ArmCam. Our first parts for this should be arriving by August 29th, 2026.
        </p>
+<div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
+  
+  {/* Image Figure 1 */}
+  <figure className="flex flex-col flex-1">
+    <div className="w-full aspect-video overflow-hidden">
+      <img
+        src={tower}
+        alt="Tower"
+        className="w-full h-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-4 text-sm leading-relaxed text-slate-400"> 
+      AgraBhi (before planting, measures soil moisture across field)
+    </figcaption>
+  </figure>
 
+  {/* Image Figure 2 */}
+  <figure className="flex flex-col flex-1">
+    <div className="w-full aspect-video overflow-hidden">
+      <img
+        src={armcam}
+        alt="ArmCam"
+        className="w-full h-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-4 text-sm leading-relaxed text-slate-400"> 
+   AgraBhi (during the growing season, uses arm to analyze crops)
+    </figcaption>
+  </figure>
+
+  
+
+</div>
      
 
 </main>
