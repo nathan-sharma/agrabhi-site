@@ -183,12 +183,12 @@ export default function About() {
                 Overview
               </h2>  
 <p className="text-slate-400 leading-relaxed">
-   AgraBhi ArmCam allows AgraBhi to be helpful for the entire growing season. This new subproject was founded in August 2026 by Landon Morrison.
+   AgraBhi ArmCam allows AgraBhi to be helpful for the entire growing season.
 
    ArmCam is a version of AgraBhi with a robotic arm containing a camera mounted to the rover in place of the penetration tower. It will use a YOLO image detection model to count cotton bolls (this data will also be used to validate AgriLife's digital twin predictions) and detect signs of potential disease on cotton crops.
 
 
- This page will be updated as we continue to make progress on ArmCam. Our first parts for this should be arriving by August 29th, 2026.
+ This page will be updated as we continue to make progress on ArmCam. Our first parts for this should be arriving by September 2nd, 2026.
        </p>
 <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
   

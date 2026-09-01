@@ -49,6 +49,17 @@ import hubsim from "/hubsim.png"
 import itworked from "/itworked.PNG"
 import roarm from "/roarm.jpg"
 import tracked from "/ugvtracked.jpg"
+import landondatahub1 from "/landondatahub1.png"
+import landondatahub2 from "/landondatahub2.png"
+import landondatahub3 from "/landondatahub3.png"
+import landondatahub4 from "/landondatahub4.png"
+import landondatahub5 from "/landondatahub5.png"
+import locationchecker from "/locationchecker.png"
+import optimalpoint from "/optimalpoint.png" 
+import twotowers from "/twotowers.png"
+import v2tower from "/v2tower.PNG"
+import v3printing from "/v3printing.jpeg"
+
 const MONTHS_DATA = [
   {
     name: "May",
@@ -547,6 +558,136 @@ const MONTHS_DATA = [
    </div> },
   { name: "August", year: "2026", content: <div className="text-slate-500 pt-1">
 
+
+<p className="text-slate-400 leading-relaxed mb-2">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  August 31st, 2026: 
+
+</p>
+<ul className="text-slate-400 list-disc pl-6 space-y-2 mb-2">
+1. Nathan finally got an RTK fix after taking the GPS outdoors.
+</ul>
+<ul className="text-slate-400 list-disc pl-6 space-y-2 mb-2">
+2. We finished coding for the September farm visit. The plan is to walk around the field with the Pi and sensor probe and take readings manually for preliminary data. A Raspberry Pi sends sensor and RTK GPS data to our laptop over radio, then our laptop outputs the optimal point to go to (we are simulating the rovers by walking around). A separate file continuously checks the Pi's current location against the target location as we walk around with it in the field (we need to check the Pi's GPS because our phone's GPS is only precise within 1-2 meters; RTK is precise within 1-3 centimeters). 
+</ul>
+<ul className="text-slate-400 list-disc pl-6 space-y-2 mb-2">
+3. Landon made a full template for the Data Hub (pictures shown below). 
+</ul>
+<ul className="text-slate-400 list-disc pl-6 space-y-2 mb-2">
+
+4. We reprinted a second version of the penetration tower that was taller and had a larger opening for the sensor in the plate. Then, we realized that the rods bent too much and the top mount for the actuator didn't print properly, so Nathan sent it to Landon to print a third (and hopefully final) version.
+</ul>
+
+<ul className="text-slate-400 list-disc pl-6 space-y-2 mb-6">
+  (Swipe left to scroll through the images below.)
+  </ul>
+
+
+
+  <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar">
+  {/* Embedded YouTube Video */}
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+      <iframe
+        className="w-full h-full"
+        src="https://www.youtube.com/embed/wvQsMUUPDuo"
+        title="August 31st, 2026 update"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    </div>
+    <p className="mt-2 text-xs text-slate-400 text-center">
+      Nathan explaining his GPS achieving RTK fix
+      </p>
+  </div>
+
+  {/* Image 1 */}
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+      <img src={optimalpoint} alt="August progress 1" className="w-full h-full object-contain pointer-events-none" />
+    </div>
+    <p className="mt-2 text-xs text-slate-400 text-center">
+      Screenshot of the laptop receiving moisture and GPS data from the Pi and calculating the next optimal point to sample at.
+      </p>
+  </div>
+
+  {/* Image 2 */}
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+      <img src={locationchecker} alt="August progress 2" className="w-full h-full object-contain pointer-events-none" />
+    </div>
+    <p className="mt-2 text-xs text-slate-400 text-center">
+      Screenshot of the laptop receiving data from the Pi continously calculating its distance from the most recently calculated optimal point and its current location (this is a simulation so the distances shown in the image are not actually real)
+      </p>
+  </div>
+
+  {/* Image 3 */}
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+      <img src={v2tower} alt="August progress 3" className="w-full h-full object-contain pointer-events-none" />
+    </div>
+    <p className="mt-2 text-xs text-slate-400 text-center">
+     Version 2 of the penetration tower
+      </p>
+  </div>
+
+    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+      <img src={twotowers} alt="August progress 3" className="w-full h-full object-contain pointer-events-none" />
+    </div>
+    <p className="mt-2 text-xs text-slate-400 text-center">
+     Versions 1 and 2 next to each other for comparison
+      </p>
+  </div>
+    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+      <img src={v3printing} alt="August progress 3" className="w-full h-full object-contain pointer-events-none" />
+    </div>
+    <p className="mt-2 text-xs text-slate-400 text-center">
+     Version 3 printing
+      </p>
+  </div>
+    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+      <img src={landondatahub1} alt="August progress 3" className="w-full h-full object-contain pointer-events-none" />
+    </div>
+    <p className="mt-2 text-xs text-slate-400 text-center">
+     Data Hub map (uses a Google Maps API key). This will visually show us where our rovers are as they drive through the field.
+      </p>
+  </div>
+    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+      <img src={landondatahub2} alt="August progress 3" className="w-full h-full object-contain pointer-events-none" />
+    </div>
+    <p className="mt-2 text-xs text-slate-400 text-center">
+     Data Hub dashboard
+      </p>
+  </div>
+    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+      <img src={landondatahub3} alt="August progress 3" className="w-full h-full object-contain pointer-events-none" />
+    </div>
+    <p className="mt-2 text-xs text-slate-400 text-center">
+   Page where we see rover data after uploading them to our laptop
+      </p>
+  </div>
+    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+      <img src={landondatahub4} alt="August progress 3" className="w-full h-full object-contain pointer-events-none" />
+    </div>
+    <p className="mt-2 text-xs text-slate-400 text-center">
+    RF communication page (receives radio data and displays it here)
+      </p>
+  </div>
+    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+      <img src={landondatahub5} alt="August progress 3" className="w-full h-full object-contain pointer-events-none" />
+    </div>
+    <p className="mt-2 text-xs text-slate-400 text-center">
+   Data Hub settings
+      </p>
+  </div>
+</div>
 
 <p className="text-slate-400 leading-relaxed mb-4">
   <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
