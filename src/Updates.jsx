@@ -577,6 +577,10 @@ const MONTHS_DATA = [
 
 4. We reprinted a second version of the penetration tower that was taller and had a larger opening for the sensor in the plate. Then, we realized that the rods bent too much and the top mount for the actuator didn't print properly, so Nathan sent it to Landon to print a third (and hopefully final) version.
 </ul>
+<ul className="text-slate-400 list-disc pl-6 space-y-2 mb-2">
+
+5. Landon realized his RTK GPS wasn't working properly, so we're now ordering a replacement. Nathan's GPS module still works fine and will be used in the meantime.
+</ul>
 
 <ul className="text-slate-400 list-disc pl-6 space-y-2 mb-6">
   (Swipe left to scroll through the images below.)
