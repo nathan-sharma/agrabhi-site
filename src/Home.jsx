@@ -287,7 +287,7 @@ export default function Home() {
       Drone to Rovers
     </h3>
     <p className="text-slate-400 font-light text-sm leading-relaxed">
-      An important limitation of our project last year was that the drone struggled to get through the crop canopy, and its blades could easily damage crops. To fix this, we decided to switch our project to a swarm of rovers. Each rover costs ~$1000, is autonomous, and communicates with one another to take samples effectively.
+      An important limitation of our project last year was that the drone struggled to get through the crop canopy, and its blades could easily damage crops. To fix this, we decided to switch our project to a swarm of rovers. Each rover costs ~$1500, is autonomous, and adaptively samples the field.
     </p>
   </div>
   <div>
@@ -295,7 +295,7 @@ export default function Home() {
       Adaptive Sampling
     </h3>
     <p className="text-slate-400 font-light text-sm leading-relaxed">
-      Our rovers can improve their own predictive accuracy by driving to the most uncertain or unexplored parts of the fields in real time. The swarm starts by randomly taking moisture measurements across the farm field and generates a heatmap. Then, a mother rover receives all data from the other rovers to calculate the most unexplored or uncertain spots each rover should sample.
+      Our rovers can improve their own predictive accuracy by driving to the most uncertain or unexplored parts of the fields in real time. The swarm starts by taking evenly distributed moisture measurements across the farm field and generates a heatmap. Then, our app receives all data from the other rovers to calculate the most unexplored or uncertain spots each of them should sample, transmitting assignments over LoRa radio.
     </p>
   </div>
    <div>
@@ -303,7 +303,7 @@ export default function Home() {
       Implementation on Farms
     </h3>
     <p className="text-slate-400 font-light text-sm leading-relaxed">
-       AgraBhi is being implemented in collaboration with the Texas A&M AgriLife Extension and their partner farms. Our moisture data will inform farmers' planting decisions and help the analytical models AgriLife uses to predict crop yield with ground-truth moisture measurements.
+       AgraBhi is being implemented in collaboration with the Texas A&M AgriLife Extension and their partner farms. Our soil moisture data will help farmers' planting decisions, and our visual crop data with ArmCam (more on this soon) will help the analytical models AgriLife uses to predict crop yield by providing cotton boll counts.
      </p>
   </div>
 </div>
