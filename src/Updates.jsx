@@ -607,7 +607,7 @@ const MONTHS_DATA = [
       <img src={optimalpoint} alt="August progress 1" className="w-full h-full object-contain pointer-events-none" />
     </div>
     <p className="mt-2 text-xs text-slate-400 text-center">
-      Screenshot of the laptop receiving moisture and GPS data from the Pi and calculating the next optimal point to sample at.
+      Screenshot of the laptop receiving moisture and GPS data from the Pi and calculating the next optimal point to sample at using our acquisition function.
       </p>
   </div>
 
