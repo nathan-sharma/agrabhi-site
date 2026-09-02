@@ -59,6 +59,7 @@ import optimalpoint from "/optimalpoint.png"
 import twotowers from "/twotowers.png"
 import v2tower from "/v2tower.PNG"
 import v3printing from "/v3printing.jpeg"
+import towerv3rover from "/towerv3rover.PNG"
 
 const MONTHS_DATA = [
   {
@@ -983,7 +984,74 @@ const MONTHS_DATA = [
  </p>
 
   </div> },
-  { name: "September", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
+  { name: "September", year: "2026", content: <div className="text-slate-500 pt-1">
+
+
+ <p className="text-slate-400 leading-relaxed mb-4">
+  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+  September 1st, 2026: Version 3 of the penetration tower was successfully printed and tested. The rover was able to fully push the sensor into dry soil. Our tracked rover and robotic arm for ArmCam also arrived today.
+  </p>
+
+  <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar">
+ 
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+      <video 
+        src="penetrationsuccess.MOV" 
+        controls 
+        muted
+        preload="metadata"
+        className="w-full h-auto object-cover block"
+      >
+        Your browser does not support the video tag.
+      </video>
+    <p className="mt-2 text-xs text-slate-400 text-center">
+     Video of successful penetration over dry soil (no holes were predug).
+     </p>
+  </div>
+  {/* Image 1 */}
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+      <img src={towerv3rover} alt="August progress 1" className="w-full h-full object-contain pointer-events-none" />
+    </div>
+ 
+  </div>
+
+  {/* Image 2 */}
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+      <video 
+        src="roverv3towervid.MOV" 
+        controls 
+        muted
+        preload="metadata"
+        className="w-full h-auto aspect-video object-cover block"
+      >
+        Your browser does not support the video tag.
+      </video>
+    <p className="mt-2 text-xs text-slate-400 text-center">
+     Tower v3
+     </p>
+  </div>
+
+  {/* Image 3 */}
+  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+      <video 
+        src="testingroboarm.MOV" 
+        controls 
+        muted
+        preload="metadata"
+        className="w-full h-auto aspect-video object-cover block"
+      >
+        Your browser does not support the video tag.
+      </video>
+    <p className="mt-2 text-xs text-slate-400 text-center">
+     Testing robotic arm
+     </p>
+  </div>
+
+
+</div>
+
+  </div> },
   { name: "October", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
   { name: "November", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
   { name: "December", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
@@ -996,7 +1064,7 @@ const MONTHS_DATA = [
 
 export default function About() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentMonthIndex, setCurrentMonthIndex] = useState(3);
+  const [currentMonthIndex, setCurrentMonthIndex] = useState(4);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 

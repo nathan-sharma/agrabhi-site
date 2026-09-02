@@ -5,6 +5,7 @@ import image3 from "/image3.PNG";
 import agrilife from "/agrilife.jpg";
 import tower from "/tower.JPG"; 
 import armcam from "/armcam.PNG"
+import armcammoisture from "/armcammoisture.png"
 export default function About() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -220,6 +221,18 @@ export default function About() {
     </figcaption>
   </figure>
 
+ <figure className="flex flex-col flex-1">
+    <div className="w-full aspect-video overflow-hidden">
+      <img
+        src={armcammoisture}
+        alt="ArmCam and moisture rover"
+        className="w-full h-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-4 text-sm text-center leading-relaxed text-slate-400"> 
+Both of our prototypes
+    </figcaption>
+  </figure>
   
 
 </div>
