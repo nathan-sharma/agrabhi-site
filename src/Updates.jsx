@@ -1029,7 +1029,7 @@ const MONTHS_DATA = [
                     <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
                     August 26th, 2026: Landon created a Figma mock-up for a program to store, display, and communicate with the rovers all in one place. It will be called the “AgraBhi Data Hub”. 
                 </p>
-                <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
+                  <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar">
                     {/* Image Figure 1 */}
                     <figure className="flex flex-col flex-1">
                         <div className="w-full aspect-video overflow-hidden">
