@@ -2,1360 +2,1954 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "/blogo.png";
 import api from "/api.png";
-import map from "/3dslices.png"
-import funct from "/acquisitionfunction.png"
-import formula from "/formula.png"
-import setup from "/fullsetup.png"
-import roverfromamazon from "/wavesharerover.png"
-import multiplerovers from "/multiplerovers.png"
-import newformula from "/newformula.png"
-import separate from "/batterylifeseparate.png" 
-import inequation from "/batterylifeinequation.png"
-import june12datahub from "/6-12-datahub.png"
-import newfunc from "/newacquisitionfunc.png"
-import agrilife from "/agrilife.jpg"
-import meetup from "/meetup625.png"
-import selfie from "/selfie.png"
-import disassembled from "/disassembled.PNG"
-import sensoradapter from "/sensoradapter.png" 
-import roverhole from "/roverhole.png"
-import platesensor from "/plate+sensor.png" 
-import plate from "/plate.png"
-import papercutout from "/papercutout.png" 
-import fulldesign from "/fulldesign.png"
-import detached from "/detached.png" 
-import attached from "/attached.png" 
-import finisheddesign from "/roverdesign3dprint.jpg"
-import longerwires from "/longwires.png"
-import printing from "/3dprint.png"
-import printed from "/printed.jpg"
-import printed2 from "/printed2.jpg"
-import printed3 from "/printed3.jpg"
-import pi5 from "/pi5.png"
-import radios from "/waveshareradios.jpg"
-import sparkfunrtk from "/sparkfunrtk.png"
-import pygpsclient1 from "/pygpsclient1.png"
-import receiverscreenshot from "/laptopreceiverscreenshot.png"
-import pirtkpic from "/pi5withrtkboard.png"
-import laptopmodule from "/radiomoduleonlaptop.png"
-import workshop1 from "/cassshare1.PNG"
-import workshop2 from "/cassshare2.PNG"
-import workshop3 from "/cassshare3.PNG"
-import workshop4 from "/cassshare4.PNG"
-import workshop0 from "/landonandnathanatworkshop.PNG"
-import roversim1 from "/rover1sim.png"
-import roversim2 from "/rover2sim.png"
-import hubsim from "/hubsim.png"
-import itworked from "/itworked.PNG"
-import roarm from "/roarm.jpg"
-import tracked from "/ugvtracked.jpg"
-import landondatahub1 from "/landondatahub1.png"
-import landondatahub2 from "/landondatahub2.png"
-import landondatahub3 from "/landondatahub3.png"
-import landondatahub4 from "/landondatahub4.png"
-import landondatahub5 from "/landondatahub5.png"
-import locationchecker from "/locationchecker.png"
-import optimalpoint from "/optimalpoint.png" 
-import twotowers from "/twotowers.png"
-import v2tower from "/v2tower.PNG"
-import v3printing from "/v3printing.jpeg"
-import towerv3rover from "/towerv3rover.PNG"
+import map from "/3dslices.png";
+import funct from "/acquisitionfunction.png";
+import formula from "/formula.png";
+import setup from "/fullsetup.png";
+import roverfromamazon from "/wavesharerover.png";
+import multiplerovers from "/multiplerovers.png";
+import newformula from "/newformula.png";
+import separate from "/batterylifeseparate.png";
+import inequation from "/batterylifeinequation.png";
+import june12datahub from "/6-12-datahub.png";
+import newfunc from "/newacquisitionfunc.png";
+import agrilife from "/agrilife.jpg";
+import meetup from "/meetup625.png";
+import selfie from "/selfie.png";
+import disassembled from "/disassembled.PNG";
+import sensoradapter from "/sensoradapter.png";
+import roverhole from "/roverhole.png";
+import platesensor from "/plate+sensor.png";
+import plate from "/plate.png";
+import papercutout from "/papercutout.png";
+import fulldesign from "/fulldesign.png";
+import detached from "/detached.png";
+import attached from "/attached.png";
+import finisheddesign from "/roverdesign3dprint.jpg";
+import longerwires from "/longwires.png";
+import printing from "/3dprint.png";
+import printed from "/printed.jpg";
+import printed2 from "/printed2.jpg";
+import printed3 from "/printed3.jpg";
+import pi5 from "/pi5.png";
+import radios from "/waveshareradios.jpg";
+import sparkfunrtk from "/sparkfunrtk.png";
+import pygpsclient1 from "/pygpsclient1.png";
+import receiverscreenshot from "/laptopreceiverscreenshot.png";
+import pirtkpic from "/pi5withrtkboard.png";
+import laptopmodule from "/radiomoduleonlaptop.png";
+import workshop1 from "/cassshare1.PNG";
+import workshop2 from "/cassshare2.PNG";
+import workshop3 from "/cassshare3.PNG";
+import workshop4 from "/cassshare4.PNG";
+import workshop0 from "/landonandnathanatworkshop.PNG";
+import roversim1 from "/rover1sim.png";
+import roversim2 from "/rover2sim.png";
+import hubsim from "/hubsim.png";
+import itworked from "/itworked.PNG";
+import roarm from "/roarm.jpg";
+import tracked from "/ugvtracked.jpg";
+import landondatahub1 from "/landondatahub1.png";
+import landondatahub2 from "/landondatahub2.png";
+import landondatahub3 from "/landondatahub3.png";
+import landondatahub4 from "/landondatahub4.png";
+import landondatahub5 from "/landondatahub5.png";
+import locationchecker from "/locationchecker.png";
+import optimalpoint from "/optimalpoint.png";
+import twotowers from "/twotowers.png";
+import v2tower from "/v2tower.PNG";
+import v3printing from "/v3printing.jpeg";
+import towerv3rover from "/towerv3rover.PNG";
 
 const MONTHS_DATA = [
-  {
-    name: "May",
-    year: "2026",
-    content: (
-      <div className="space-y-4 mb-8">
-         <p className="text-slate-400 leading-relaxed text-sm font-bold">
-         
-         Note: Links to documents and other files in the updates page will not be public until science fair season.
-          </p>
-        <p className="text-slate-400 leading-relaxed">
-          <p className="text-slate-400 leading-relaxed">
-          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          May 31st, 2026: Finished coding the 3D Ordinary Kriging heatmap. The idea is we take multiple slices at specific depths and then analyze each of those 2d heatmaps individually. Check out the full code on the github!
-          </p>
-
- <img
-         
-    src={map}
-    alt="Placeholder 1"
-    className="md:w-[50%] md:h-relative h-full w-relative mb-4 mt-4"
-  />
-   <p className="text-slate-400 leading-relaxed mb-4">
-          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          May 29th, 2026: GPR is extremely complicated and hard for us to code ourselves. Additionally, our farm field will likely not have proper sprinkler heads, so irrigation proximity becomes difficult to use as a covariate. Satellite data is outdated by weeks (the most recent satellite data we can find online for our field is from May 13th), so it can't be used reliably either. We think the best way to move forward is to switch our model to 3D Ordinary Kriging. There are examples online to help us code it, it doesn't need to worry about other covariates, and we think it will still offer significantly more information on moisture patterns than multispectral imagery to use for irrigation.
-          </p>
-
-            <p className="text-slate-400 leading-relaxed">
-          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          May 24th, 2026: Final copy of research plan finished. See it <span> </span> 
-            <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1VkqSs9pfrUfAJ6HdsIUOUExkudNJI-WOK1dk6pclt1k/edit?usp=sharing" className="underline hover:text-gray-500 ">here.</a>
-          </p>
- <p className="text-slate-400 leading-relaxed mb-4">
-          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          May 24th, 2026: Pre drilling holes can cause the sensor we are using to give us faulty moisture measurements because of air pockets. We created a design that fixes this issue that could be used on the rovers after they pre-drill a hole into the ground (short video is shown below). The rover would drill a hole, then insert a hollow cylinder tube with a soil sensor and motors inside of it to sample at multiple depths without needing to worry about air pockets affecting results. The video below uses linear actuators to demonstrate our idea.
-         </p>
-         
-          <div className="md:w-[30%] w-[70%] rounded-xl mb-4 overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl transition-all duration-300 hover:border-slate-700/80">
-      <video 
-        src="droneidea2.mp4" 
-        controls 
-        muted
-        preload="metadata"
-        className="w-full h-auto aspect-video object-cover block"
-      >
-        Your browser does not support the video tag.
-      </video>
-    </div>
-   <p className="text-slate-400 leading-relaxed mb-4">
-          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          May 23rd, 2026: Idea to switch the project from a drone  to a swarm of five rovers that can communicate with one another. Rovers will be autonomous and will still adaptively sample the field. Each rover would cost approximately $400 for a total cost of $2000. The data and math are still the same, we're just changing the way data is being collected.
-          </p>
-          <p className="text-slate-400 leading-relaxed mb-4">
-          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          May 22nd, 2026: Nathan made an acquisition function for adaptive sampling. Learn more about it<span> </span>
-          <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1o6kB64x-la7LfA9-zpvW1XvdDKNfi7HZQpoSRrUACMo/edit?tab=t.0" className="underline hover:text-gray-500 ">here.</a>
-        </p>
-        
-       
-        <p className="flex items-center gap-3 text-slate-400 leading-relaxed mb-4">
-          <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
-          May 18th, 2026: Rover-Drone Hybrid design idea (scrapped 5/23), bought a better soil sensor.
-        </p>
- <p className="flex items-center gap-3 text-slate-400 leading-relaxed mb-4">
-          <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
-          May 17th, 2026: Two important ideas were thought of today that we may implement in our project:
-        </p>
-        <p className="flex items-center gap-3 text-slate-400 leading-relaxed pl-5 mb-4">
-          Idea #1 (scrapped 5/29): Use Gaussian Process Regression instead of Regression Kriging so we don't have to eyeball the variogram. Uncertainty is also much more adaptable to our data because it optimizes its parameters automatically, while Kriging mostly relies on the fixed sill, nugget, and range.
-        </p>
-        <p className="flex items-center gap-3 text-slate-400 leading-relaxed pl-5 mb-4">
-          Idea #2: Have the drone create a path to sample at points it thinks will contribute the most information to the heatmap model, while also flying the shortest distance to minimize battery usage. This could be achieved by calculating an acquisition function with a travel cost penalty to sample the most optimal areas as it flies through the field.
-        </p>
-          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          May 11th, 2026: Project research plan and deadlines draft finished.
-        </p>
-       
-        
-        
-        
-          
-           
-           
-            
-
-      </div>
-    )
-  },
-  { name: "June", year: "2026", content: <div className="text-slate-500 pt-1">
-    <div className="text-slate-400 leading-relaxed mb-4">
-  <div className="flex items-start mb-2">
-    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mt-[10px] shrink-0"></span>
-    <p>
-    June 28th, 2026: Nathan and Landon met to discuss next steps for the project. The Raspberry Pi has been wiped clean (after saving our previous code to a separate device) to prepare it for controlling the rover. As we make this final version, we will very likely reuse parts of the old code, such as the code Nathan wrote for adaptive sampling.
-    </p>
-  </div>
-  <ul className="list-disc list-inside pl-8 space-y-1">
-    <li>
-      Landon: Will now focus on coding the GPS module on the Raspberry Pi to get RTK corrections from satellites and coding the Pi to control the rover once Nathan gives it back to him. If this doesn't work, Nathan will a buy a more expensive GPS and code it instead.
-    </li>
-    <li>
-      Nathan: Will now focus on getting measurements of the rover, designing the sensor penetration mechanism in CAD, and testing it.
-    </li>
-     
-  </ul>
-</div>
-
- <img
-        src={disassembled}
-        alt="Picture of disassembled rover"
-        className="md:w-[50%] w-full h-relative"
-      />
-
-    <div className = "translate-y-3">
-      <p className="text-slate-400 leading-relaxed mb-4">
-          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          June 26th, 2026: Sensor insertion will be very simple, we will mount a linear actuator in the center of the rover, stick the rover to the ground (likely with augers on the corners that will drill into the ground to keep the rover fixed), and extend the sensor. Air pockets in the soil make measurements inaccurate, so we cannot drill into the ground before insertion. Additionally, design ideas such as the one we thought of on May 24th are extremely hard and complicated to feasibly build.
-        </p> 
-      <p className="text-slate-400 leading-relaxed mb-3">
-        
-         
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  June 25th, 2026: The AgraBhi team met with the Row Crops Committee of the Fort Bend County Texas A & M AgriLife extension to discuss ways this project could be implemented on their connected farms, funded by the committee, and supported with their data. We also used this opportunity to test the rover's drivability on a contact's farm fields.
-  </p>
-
-<div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
-  
-  {/* Image Figure */}
-  <figure className="flex flex-col flex-1">
-    <div className="w-full aspect-video overflow-hidden  bg-slate-900">
-      <img
-        src={meetup}
-        alt="Arduino and Raspberry Pi Setup"
-        className="w-full h-full object-cover"
-      />
-    </div>
-    <figcaption className="mt-4 text-sm leading-relaxed"> 
-      Photo of AgriLife Row Crops Committee meeting with AgraBhi team.
-    </figcaption>
-  </figure>
-
-  {/* Video Figure */}
-  <figure className="flex flex-col flex-1">
-    <div className="w-full aspect-video overflow-hidden  bg-slate-900">
-    <img
-        src={selfie}
-        alt="Arduino and Raspberry Pi Setup"
-        className="w-full h-full object-cover"
-      />
-    </div>
-    <figcaption className="mt-4 text-sm leading-relaxed"> 
-      From left: Adam Crossey, Landon Morrison, Nathan Sharma.
-      </figcaption>
-  </figure>
-
-</div>
-      <p className="text-slate-400 leading-relaxed mb-3">
-        
-         
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  June 22nd, 2026: Rover kit was delivered to Landon, and our first farm visit has been scheduled for Thursday with AgriLife.
-  </p>
-
-  <div className="md:w-[30%] w-[70%] rounded-xl mb-4 overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl transition-all duration-300 hover:border-slate-700/80">
-      <video 
-        src="kit.mov" 
-        controls 
-        muted
-        preload="metadata"
-        className="w-full h-auto aspect-video object-cover block"
-      >
-        Your browser does not support the video tag.
-      </video>
-    </div>
-      <p className="text-slate-400 leading-relaxed mb-3">
-        
-         
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  June 14th, 2026:  We updated the acquisition function to replace the moisture variance of the N closest points with the magnitude of the moisture gradient vector. Essentially, it more clearly tells us the boundaries of the map (the areas where moisture is changing quickly). The moisture variance didn't specifically tell us about a point where moisture was changing quickly, it only told us that there were a lot of differences in moisture between the sampled points. The gradient uses the heatmap's predictions to calculate the exact points where moisture is changing the most. The updated acquisition function is further explained in <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1o6kB64x-la7LfA9-zpvW1XvdDKNfi7HZQpoSRrUACMo/edit?usp=sharing" className="underline hover:text-gray-500 "> this </a>document.
- </p>
- <img
-        src={newfunc}
-        alt="Multiple simulated rovers shown on dashboard!"
-        className="md:w-[50%] w-full h-relative mb-3"
-      />
-      <p className="text-slate-400 leading-relaxed mb-3">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  June 13th, 2026: The alpha weight in the acquisition function and the variogram model can now be adjusted from the dashboard. The alpha weight decides 
-  whether to prioritize kriging variance or local moisture variance, and the variogram model is important 
-  because we need to make sure it fits the data well so we have an accurate kriging variance to use in our acquisition function.
-  We download logs from the Pi using the dashboard and run the data in our computer program to visually look at the variogram and make sure it fits the experimental variogram well before calculating the optimal points.
- </p>
-     <p className="text-slate-400 leading-relaxed mb-3">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  June 12th, 2026:
- </p>
-  <img
-        src={newformula}
-        alt="Multiple simulated rovers shown on dashboard!"
-        className="md:w-[50%] w-full h-relative mb-3"
-      />
-  
-  <ul className="text-slate-400 list-disc pl-6 space-y-2 mb-6 text-sm">
-    <li><span className = "font-bold mb-1 mt-1">Acquisition Function: </span> The acquisition function (shown above) will not consider battery life in each calculation anymore. Instead, the 5 points will be calculated only using kriging and local moisture variance. Then, once these 5 points are selected, the program will consider battery life costs separately. Rovers will be ordered from least to most battery life, and the ones with the smallest battery lives will be assigned to the closest points. This will reduce the amount of distance each rover has to travel because it always adjusts to find the closest points after the calculations (a visual of this is shown below.) Also, the a and (1-a) weights in the acquisition function formula will dynamically change as we sample the farm field. a will start at a larger value to give less priority to local moisture variance since there haven't been many points measured, so everything is spaced apart and local variance matters less. As more points get sampled, a will gradually decrease until moisture variance is prioritized. This is because local moisture variance loses its meaning if we are too far away from any sampled point.
-    
-    </li>
-    <p className = "font-bold mb-5">Maroon = rover's current locations, blue = previously measured points, green = calculated optimal points, line = path of rovers</p>
-    <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
-  
-  {/* Image Figure */}
-  <figure className="flex flex-col flex-1">
-    <div className="w-full aspect-video overflow-hidden  bg-slate-900">
-      <img
-        src={inequation}
-        alt="Arduino and Raspberry Pi Setup"
-        className="w-full h-full object-cover"
-      />
-    </div>
-    <figcaption className="mt-4 text-sm leading-relaxed text-slate-500"> 
-      When battery life penalties are calculated in the equation and each rover is assigned to their calculated spot, they can end up stretching across the field unnecessarily, which makes the battery life penalty essentially useless.
-    </figcaption>
-  </figure>
-
-  <figure className="flex flex-col flex-1">
-    <div className="w-full aspect-video overflow-hidden  bg-slate-900">
-   <img
-        src={separate}
-        alt="Arduino and Raspberry Pi Setup"
-        className="w-full h-full object-cover"
-      />
-    </div>
-    <figcaption className="mt-4 text-sm leading-relaxed text-slate-500"> 
-      When the optimal points are calculated first and battery life is considered separately afterwards, rovers are assigned to the closest optimal point, reducing the distance each rover needs to drive.
-    </figcaption>
-  </figure>
-
-</div> 
-    <li className = "mb-5"><span className = "font-bold">Dashboard: </span>Fixed the battery life calculation. Before, it was deducting a lot of battery even though the rover would only travel a few meters. The acquisition function was also updated and tested successfully. </li>
-  <img
-        src={june12datahub}
-        alt="June 12th, 2026 Updated Dashboard"
-        className="md:w-[50%] w-full h-relative"
-      />
-  <li className = "mt-5"><span className = "font-bold">Heatmap: </span>3D Ordinary Kriging also turned out to be inconvenient and unnecessarily complicated. Because it doesn't have perfect resolution, sometimes we can't slice the map at perfect depths. For example, we end up slicing the map at 4.8 centimeters deep when we wanted to slice is at 5.0 centimeters deep because it doesn't have detailed enough resolution to have data at exactly 5 centimeters. Additionally, if we were to use 3D ordinary kriging, we would have to account for vertical anisotropy, or the fact that moisture changes more quickly vertically than it does horizontally. But this value cannot be directly measured with our rover setup and varies depending on the field, making it hard to use. We will instead create discrete 2D Ordinary Kriging heatmaps at multiple depths. </li>
-  </ul>
-</div>
- <p className="text-slate-400 leading-relaxed mb-6">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
- June 7th, 2026: Dashboard code is making great progess! It essentially calculates the optimal path for the five rovers in our swarm to follow. It looks at where the rovers currently are, finds the areas on the farm that either haven't been measured or have a lot of variability in nearby moisture measurements, and calculates an "optimal" point for each rover to measure at in these areas (this is what our acquisition function calculates, but it only does this for one individual rover.) We then collect data at those "optimal" spots, update the code, and let it calculate the next 5 optimal points for the rovers to take measurements at until we have enough points sampled. This is the last major thing to finish before the farm visit!
- </p>
-  
-      <img
-        src={multiplerovers}
-        alt="Multiple simulated rovers shown on dashboard!"
-        className="md:w-[50%] w-full h-relative"
-      />
-  
-  <p className="text-slate-400 leading-relaxed mb-6">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px] mt-6"></span>
-  June 6th, 2026: Full setup! Arduino connects to the new soil sensor which connects to the pi to send its data. The acquisition function is also now coded on the raspberry pi and returns this information to the AgraBhi Dashboard. All we need to do now is make it work for multiple rovers, simulate battery life in the code, update the rover's location variable to be where the Pi is in real time, and make a way for us to manually input the charging station's GPS coordinates.
-</p>
-
-{/* Container to handle horizontal layout on medium screens and larger */}
-<div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
-  
-  {/* Image Figure */}
-  <figure className="flex flex-col flex-1">
-    <div className="w-full aspect-video overflow-hidden  bg-slate-900">
-      <img
-        src={setup}
-        alt="Arduino and Raspberry Pi Setup"
-        className="w-full h-full object-cover"
-      />
-    </div>
-    <figcaption className="mt-4 text-sm leading-relaxed"> 
-      This is the arduino + raspberry pi + GPS antenna + soil sensor setup we will be using to collect data on the farms next week!
-    </figcaption>
-  </figure>
-
-  {/* Video Figure */}
-  <figure className="flex flex-col flex-1">
-    <div className="w-full aspect-video overflow-hidden  bg-slate-900">
-      <video 
-        src="datahubvid.mp4" 
-        controls 
-        muted
-        preload="metadata"
-        className="w-full h-full"
-      >
-        Your browser does not support the video tag.
-      </video>
-    </div>
-    <figcaption className="mt-4 text-sm leading-relaxed"> 
-      This is a video of our dashboard finding the best point to sample at using our acquisition function process, just like our Python code, only now the calculation is being done on the raspberry pi and can be recalculated every time we log a new point. However, this still only assumes there is a single rover on the field, we still need to code it to work for a swarm of rovers.
-    </figcaption>
-  </figure>
-
-</div>
-<p className="text-slate-400 leading-relaxed mb-6">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  June 5th, 2026: Landon found a rover kit to use to start building the first prototype. It's around $230 and is very customizable! He also plans to use a LIDAR scanner on the rover.
-</p>
-<img
-         
-    src={roverfromamazon}
-    alt="Placeholder 1"
-    className="md:w-[50%] md:h-relative h-full w-relative mt-4 mb-4"
-  />
-      <p className="text-slate-400 leading-relaxed">
-          <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-          June 3rd, 2026: Coded the basic parts of the acquisition function process. The code loops through all points on the field and finds the one with the highest A(x) value. A higher A(x) value means that point will offer the most information, so rovers prefer to go there to take a sample. Some code output is shown below (based on simulated data). Our function in the code assumes every term has a weight of 1, we will later run tests to see if it will realistically work in different scenarios on the farm and how we should optimize our weights so it does.
-        </p>
-
-      
-        
-
-  <img
-         
-    src={funct}
-    alt="Placeholder 1"
-    className="md:w-[50%] md:h-relative h-full w-relative mt-4 mb-4"
-  />
- 
-<figure>
-  <img
-         
-    src={formula}
-    alt="Placeholder 1"
-    className="md:w-[50%] md:h-relative h-full w-relative mt-4 mb-4"
-  />
-  <figcaption className = "mb-4 text-sm"> 
-    Our acquisition function formula is shown above. The variables and how this will be used in the project are explained  <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1o6kB64x-la7LfA9-zpvW1XvdDKNfi7HZQpoSRrUACMo/edit?usp=sharing" className="underline hover:text-gray-500 ">here.</a>
-  </figcaption>
-</figure>
-  
-  
- 
-  
-  
-  
-  </div> },
-  { name: "July", year: "2026", content: <div className="text-slate-500 pt-1">
-       <p className="text-slate-400 leading-relaxed mb-6">
-    
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  July 24th, 2026: Rover was successfully refunded, a replacement rover has been ordered. Until the new rover arrives, we will focus on our methodology for collecting data on farms.</p>
-     
-     <p className="text-slate-400 leading-relaxed mb-6">
-    
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  July 16th, 2026: Short circuited rover was sent for refund and a very positive update from the AgriLife extension.</p>
-
-      <p className="text-slate-400 leading-relaxed mb-6 font-bold text-xl">
-    
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  July 10th - 19th: Break period/ Vacation</p>   
-<p className="text-slate-400 leading-relaxed mb-6">
-    
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  July 10th, 2026: All parts fit together, but the sensor adapter will need to be redesigned to properly hold the sensor. After the break, we will remake the sensor adapter and finally begin testing the design.</p>
- <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
-  
-  {/* Image Figure 1 */}
-  <figure className="flex flex-col flex-1">
-    <div className="w-full aspect-video overflow-hidden bg-slate-900">
-      <img
-        src={printed}
-        alt="Arduino and Raspberry Pi Setup"
-        className="w-full h-full object-contain"
-      />
-    </div>
-    <figcaption className="mt-4 text-sm leading-relaxed"> 
-      Design on rover plate with linear actuator.
-    </figcaption>
-  </figure>
-
-  {/* Image Figure 2 */}
-  <figure className="flex flex-col flex-1">
-    <div className="w-full aspect-video overflow-hidden bg-slate-900">
-      <img
-        src={printed2}
-        alt="Arduino and Raspberry Pi Setup"
-        className="w-full h-full object-contain"
-      />
-    </div>
-    <figcaption className="mt-4 text-sm leading-relaxed"> 
-      Entire printed design with support rods, linear actuator, and sensor adapter.
-    </figcaption>
-  </figure>
-
-  {/* Image Figure 3 */}
-  <figure className="flex flex-col flex-1">
-    <div className="w-full aspect-video overflow-hidden bg-slate-900">
-      <img
-        src={printed3}
-        alt="Arduino and Raspberry Pi Setup"
-        className="w-full h-full object-contain"
-      />
-    </div>
-    <figcaption className="mt-4 text-sm leading-relaxed"> 
-      Image showing printed sensor adapter being too short to hold the sensor's wire in its hole.
-    </figcaption>
-  </figure>
-
-</div>
-    
-
-     <p className="text-slate-400 leading-relaxed mb-6">
-    
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  July 8th, 2026: Landon will sand the parts so they fit, measure screw hole dimensions on the rover before we return it, and find a USB GPS module for the Raspberry Pi.</p>
-     <p className="text-slate-400 leading-relaxed mb-6">
-    
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  July 7th, 2026: Parts were printed but did not fit together perfectly.</p>
-
-    <p className="text-slate-400 leading-relaxed mb-6">
-    
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  July 6th, 2026: Parts are 3d printing and will be finished tomorrow morning. </p>
-  <img
-         
-    src={printing}
-    alt="Placeholder 1"
-    className="md:w-[40%] md:h-relative h-full w-relative mt-4 mb-4"
-  />
-  <p className="text-slate-400 leading-relaxed mb-6">
-    
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  July 5th, 2026: The rover was accidentally short circuited when a phone charger touched the board. We are now ordering a replacement. Also, Nathan made longer wires connecting to the motors, allowing the control board to be placed on top of the rover.</p>
-  <img
-         
-    src={longerwires}
-    alt="Placeholder 1"
-    className="md:w-[20%] md:h-relative h-full w-relative mt-4 mb-4"
-  />
-  <p className="text-slate-400 leading-relaxed mb-6">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  July 4th, 2026: Landon is now looking for a GPS module that can connect to the Raspberry Pi using one of its USB ports rather than its pins since we need to use the pins to connect the Pi to the rover's control board.</p>
-  <p className="text-slate-400 leading-relaxed mb-6">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  July 3rd, 2026: Nathan finished the CAD design, and it is now ready for Landon to 3d print for initial testing. Access our STL files <a target="_blank" rel="noopener noreferrer" href="https://drive.google.com/drive/folders/1GOk8_7-nP1topS2CLsfFXReJcwiVUp4u?usp=sharing" className="underline hover:text-gray-500 ">here.</a>
-</p>
-<img
-         
-    src={finisheddesign}
-    alt="Placeholder 1"
-    className="md:w-[20%] md:h-relative h-full w-relative mt-4 mb-4"
-  />
-
-  <p className="text-slate-400 leading-relaxed mb-4">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  July 1st, 2026: First rough CAD design of sensor insertion mechanism. Nathan also made a paper cutout of the plate that will screw onto the rover to check its dimensions which ended up fitting perfectly! (swipe left to scroll through images)
-</p> 
-
-
-<div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar">
-  
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-    <img src={fulldesign} alt="July progress 1" className="w-full h-full object-contain pointer-events-none" />
-  </div>
-
- 
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-    <img src={platesensor} alt="July progress 2" className="w-full h-full object-contain pointer-events-none" />
-  </div>
-
-  
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-    <img src={sensoradapter} alt="July progress 3" className="w-full h-full object-contain pointer-events-none" />
-  </div>
-
- 
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-    <img src={plate} alt="July progress 4" className="w-full h-full object-contain pointer-events-none" />
-  </div>
-
- 
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-    <img src={roverhole} alt="July progress 5" className="w-full h-full object-contain pointer-events-none" />
-  </div>
-
- 
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-    <img src={papercutout} alt="July progress 6" className="w-full h-full object-contain pointer-events-none" />
-  </div>
-
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-    <img src={detached} alt="July progress 7" className="w-full h-full object-contain pointer-events-none" />
-  </div>
-    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-    <img src={attached} alt="July progress 8" className="w-full h-full object-contain pointer-events-none" />
-  </div>
-</div>
-
-   </div> },
-  { name: "August", year: "2026", content: <div className="text-slate-500 pt-1">
-
-
-<p className="text-slate-400 leading-relaxed mb-2">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  August 31st, 2026: 
-
-</p>
-<ul className="text-slate-400 list-disc pl-6 space-y-2 mb-2">
-1. Nathan finally got an RTK fix after taking the GPS outdoors.
-</ul>
-<ul className="text-slate-400 list-disc pl-6 space-y-2 mb-2">
-2. We finished coding for the September farm visit. The plan is to walk around the field with the Pi and sensor probe and take readings manually for preliminary data. A Raspberry Pi sends sensor and RTK GPS data to our laptop over radio, then our laptop outputs the optimal point to go to (we are simulating the rovers by walking around). A separate file continuously checks the Pi's current location against the target location as we walk around with it in the field (we need to check the Pi's GPS because our phone's GPS is only precise within 1-2 meters; RTK is precise within 1-3 centimeters). 
-</ul>
-<ul className="text-slate-400 list-disc pl-6 space-y-2 mb-2">
-3. Landon made a full template for the Data Hub (pictures shown below). 
-</ul>
-<ul className="text-slate-400 list-disc pl-6 space-y-2 mb-2">
-
-4. We reprinted a second version of the penetration tower that was taller and had a larger opening for the sensor in the plate. Then, we realized that the rods bent too much and the top mount for the actuator didn't print properly, so Nathan sent it to Landon to print a third (and hopefully final) version.
-</ul>
-<ul className="text-slate-400 list-disc pl-6 space-y-2 mb-2">
-
-5. Landon realized his RTK GPS wasn't working properly, so we're now ordering a replacement. Nathan's GPS module still works fine and will be used in the meantime.
-</ul>
-
-<ul className="text-slate-400 list-disc pl-6 space-y-2 mb-6">
-  (Swipe left to scroll through the images below.)
-  </ul>
-
-
-
-  <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar">
-  {/* Embedded YouTube Video */}
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
-    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-      <iframe
-        className="w-full h-full"
-        src="https://www.youtube.com/embed/wvQsMUUPDuo"
-        title="August 31st, 2026 update"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
-    </div>
-    <p className="mt-2 text-xs text-slate-400 text-center">
-      Nathan explaining his GPS achieving RTK fix
-      </p>
-  </div>
-
-  {/* Image 1 */}
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
-    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-      <img src={optimalpoint} alt="August progress 1" className="w-full h-full object-contain pointer-events-none" />
-    </div>
-    <p className="mt-2 text-xs text-slate-400 text-center">
-      Screenshot of the laptop receiving moisture and GPS data from the Pi and calculating the next optimal point to sample at using our acquisition function.
-      </p>
-  </div>
-
-  {/* Image 2 */}
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
-    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-      <img src={locationchecker} alt="August progress 2" className="w-full h-full object-contain pointer-events-none" />
-    </div>
-    <p className="mt-2 text-xs text-slate-400 text-center">
-      Screenshot of the laptop receiving data from the Pi continously calculating its distance from the most recently calculated optimal point and its current location (this is a simulation so the distances shown in the image are not actually real)
-      </p>
-  </div>
-
-  {/* Image 3 */}
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
-    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-      <img src={v2tower} alt="August progress 3" className="w-full h-full object-contain pointer-events-none" />
-    </div>
-    <p className="mt-2 text-xs text-slate-400 text-center">
-     Version 2 of the penetration tower
-      </p>
-  </div>
-
-    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
-    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-      <img src={twotowers} alt="August progress 3" className="w-full h-full object-contain pointer-events-none" />
-    </div>
-    <p className="mt-2 text-xs text-slate-400 text-center">
-     Versions 1 and 2 next to each other for comparison
-      </p>
-  </div>
-    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
-    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-      <img src={v3printing} alt="August progress 3" className="w-full h-full object-contain pointer-events-none" />
-    </div>
-    <p className="mt-2 text-xs text-slate-400 text-center">
-     Version 3 printing
-      </p>
-  </div>
-    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
-    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-      <img src={landondatahub1} alt="August progress 3" className="w-full h-full object-contain pointer-events-none" />
-    </div>
-    <p className="mt-2 text-xs text-slate-400 text-center">
-     Data Hub map (uses a Google Maps API key). This will visually show us where our rovers are as they drive through the field.
-      </p>
-  </div>
-    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
-    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-      <img src={landondatahub2} alt="August progress 3" className="w-full h-full object-contain pointer-events-none" />
-    </div>
-    <p className="mt-2 text-xs text-slate-400 text-center">
-     Data Hub dashboard
-      </p>
-  </div>
-    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
-    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-      <img src={landondatahub3} alt="August progress 3" className="w-full h-full object-contain pointer-events-none" />
-    </div>
-    <p className="mt-2 text-xs text-slate-400 text-center">
-   Page where we see rover data after uploading them to our laptop
-      </p>
-  </div>
-    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
-    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-      <img src={landondatahub4} alt="August progress 3" className="w-full h-full object-contain pointer-events-none" />
-    </div>
-    <p className="mt-2 text-xs text-slate-400 text-center">
-    RF communication page (receives radio data and displays it here)
-      </p>
-  </div>
-    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
-    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-      <img src={landondatahub5} alt="August progress 3" className="w-full h-full object-contain pointer-events-none" />
-    </div>
-    <p className="mt-2 text-xs text-slate-400 text-center">
-   Data Hub settings
-      </p>
-  </div>
-</div>
-
-<p className="text-slate-400 leading-relaxed mb-4">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  August 25th, 2026: Basic radio communication works (Pis transmit their locations to our laptop, the laptop sends back the optimal point calculated from our acquisition function we made back in June). Landon also did extensive research today on how the rover would navigate using an RGB camera.
-</p>
-<div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
-  
-  {/* Image Figure 1 */}
-  <figure className="flex flex-col flex-1">
-    <div className="w-full aspect-video overflow-hidden">
-      <img
-        src={roversim1}
-        alt="Rover 1 simulation"
-        className="w-full h-full object-contain"
-      />
-    </div>
-    <figcaption className="mt-4 text-sm leading-relaxed"> 
-      Rover 1 simulation
-    </figcaption>
-  </figure>
-
-  {/* Image Figure 2 */}
-  <figure className="flex flex-col flex-1">
-    <div className="w-full aspect-video overflow-hidden">
-      <img
-        src={roversim2}
-        alt="Rover 2 simulation"
-        className="w-full h-full object-contain"
-      />
-    </div>
-    <figcaption className="mt-4 text-sm leading-relaxed"> 
-    Rover 2 simulation
-    </figcaption>
-  </figure>
-   <figure className="flex flex-col flex-1">
-    <div className="w-full aspect-video overflow-hidden">
-      <img
-        src={hubsim}
-        alt="Hub/Laptop simulation"
-        className="w-full h-full object-contain"
-      />
-    </div>
-    <figcaption className="mt-4 text-sm leading-relaxed"> 
-    Hub/laptop simulation
-    </figcaption>
-  </figure>
-
-  
-
-</div>
-<p className="text-slate-400 leading-relaxed mb-4">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  August 21st, 2026: ArmCam was created and parts were ordered. We're also switching to a tracked rover.
-  </p>
-   <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
-  
-  {/* Image Figure 1 */}
-  <figure className="flex flex-col flex-1">
-    <div className="w-full aspect-video overflow-hidden bg-slate-900">
-      <img
-        src={roarm}
-        alt="Robotic arm"
-        className="w-full h-full object-contain"
-      />
-    </div>
-    <figcaption className="mt-4 text-sm leading-relaxed"> 
-      Arm that will hold the camera for inspecting crops.
-    </figcaption>
-  </figure>
-
-  {/* Image Figure 2 */}
-  <figure className="flex flex-col flex-1">
-    <div className="w-full aspect-video overflow-hidden bg-slate-900">
-      <img
-        src={tracked}
-        alt="Tracked rover"
-        className="w-full h-full object-contain"
-      />
-    </div>
-    <figcaption className="mt-4 text-sm leading-relaxed"> 
-    Tracked rover. We thought it was much more expensive because we only looked at the Amazon listing of $600 (which included a bunch of accessories), but on the official website it's listed for $200 without the accessories, which was close to how much we were paying for the untracked rover. After we found this out, we decided to switch to the tracked version instead.
-    </figcaption>
-  </figure>
-
-  
-
-</div>
-  <p className="text-slate-400 leading-relaxed mb-4">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  August 18th, 2026: Landon began coding the rover's functions with the Raspberry Pi. 
-  </p>
-    <img
-         
-    src={itworked}
-    alt="Rover image"
-    className="md:w-[20%] md:h-relative h-full w-relative mb-4 mt-4"
-  />
-   <p className="text-slate-400 leading-relaxed mb-4">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  August 16th, 2026: alpha in the acquisition function was updated to 1 - (current sample #)/(total # of samples). </p>
-  <p className="text-slate-400 leading-relaxed mb-4">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  August 15th, 2026: We programmed the Raspberry Pi to receive online RTK GPS corrections and transmit its location over the Waveshare radios to send the GPS data to our laptop. This tests how two rovers would send their logged moisture and GPS data to a mother rover, which would use this data to decide where to sample next. The GPS was in RTK float mode instead of RTK fix, likely because the antenna was indoors. See images below (swipe left to scroll).
-  </p>
-
-
-
-<div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar">
-  
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-    <img src={pygpsclient1} alt="PyGPS client screenshot on Raspberry Pi 5" className="w-full h-full object-contain pointer-events-none" />
-  </div>
-
- 
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-    <img  src={pirtkpic} alt="Picture of the Raspberry Pi and RTK module"  className="w-full h-full object-contain pointer-events-none" />
-  </div>
-
-  
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-    <img src={receiverscreenshot} alt="Screenshot of the GPS data being received from the Pi onto our laptop" className="w-full h-full object-contain pointer-events-none" />
-  </div>
-
- 
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-    <img src={laptopmodule} alt="Picture of the USB receiver module plugged into our laptop" className="w-full h-full object-contain pointer-events-none" />
-  </div>
-</div>
-  <p className="text-slate-400 leading-relaxed mb-4">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  August 14th, 2026: Went to the CASS-ShaRE project workshop with Dr. Kiju Lee and Jody Taylor at Texas A&M University. We listened to four hours of presentations and spoke with the researchers working in the ART Lab and the CASS-ShaRE joint project about their work and our project. We made many connections while also learning a lot about the research being done today in this field!
-  </p>
-
-<div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar">
-  
-    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-    <img src={workshop0} alt="Landon and Nathan at the workshop learning about rovers being developed in the TAMU A.R.T. Lab" className="w-full h-full object-contain pointer-events-none" />
-  </div>
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-    <img src={workshop1} alt="Workshop 1" className="w-full h-full object-contain pointer-events-none" />
-  </div>
-
- 
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-    <img src={workshop2} alt="Workshop 2" className="w-full h-full object-contain pointer-events-none" />
-  </div>
-
-  
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-    <img src={workshop3} alt="Workshop 3" className="w-full h-full object-contain pointer-events-none" />
-  </div>
-
- 
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-    <img src={workshop4} alt="Workshop 4" className="w-full h-full object-contain pointer-events-none" />
-  </div>
-
- 
-  
-
-  
-</div>
-  <p className="text-slate-400 leading-relaxed mb-4">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  August 11th, 2026: Last day of our summer! 
-  
-  Plans for this month (8/20 - 9/20): 
-
-<ul className="list-disc list-inside pl-8 space-y-1">
-    <li>
-      Landon: Will prototype the penetration mechanism once the rover arrives and code the Raspberry Pi to control the rover manually. He will also work on the LIDAR sensors and getting the camera set up.
-    </li>
-    <li>
-      Nathan: Will code the RTK GPS and radio communication between the raspberry Pis on the rovers. He will also work with Landon later to make sure the rover can autonomously drive to a specified GPS waypoint on its own.
-    </li>
-     
-  </ul>
-
-
-  
-  </p>
-
-<p className="text-slate-400 leading-relaxed mb-4">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  August 10th, 2026: On a video call with Dr. Pal today, we learned that integration into the model is much simpler than we thought and can be beneficial to him. Dr. Pal also offered to help us if we ever run into issues with our soil sensor (such as calibration) and offered additional project ideas.
-  </p>
-
-<p className="text-slate-400 leading-relaxed mb-4">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  August 8th, 2026: RTK GPS should be here by Thursday, and we will be going to CASS and ShaRE next Friday.
-  </p>
-
- <p className="text-slate-400 leading-relaxed mb-4">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  August 7th, 2026: The Raspberry Pi and cooling fan arrived. The SD card and radios should arrive tomorrow, and the RTK GPS should be here by the end of next week. After that, consistent work on the project will finally continue. Also got an update from Dr. Landivar today, who said it may not be worth it to attend the workshops since it will mostly be a meeting for other researchers updating each other on their projects. We're still deciding whether we should go or not.
-  </p>
-  <img
-         
-    src={pi5}
-    alt="Raspberry Pi 5 and cooling fan"
-    className="md:w-[20%] md:h-relative h-full w-relative mb-4 mt-4"
-  />
-
-<p className="text-slate-400 leading-relaxed mb-4">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  August 6th, 2026: Bought the RTK GPS, Raspberry Pi + SD card, and radios for communication after finally completing the rover parts list. The new estimated cost per rover is $1070, so we will only have enough funding to build three, instead of five, as previously planned. Also, unlike last year (when we attempted to obtain spotty RTK corrections from a low-cost module), this year's module from SparkFun will be significantly more reliable.
-  </p>
-<ul className="list-disc list-inside pl-8 space-y-1 mb-6">
-  <p className="font-bold">New budget (per rover):</p> 
-    <li>
-      DFRobot soil sensor: $30
-      </li>
-    <li>
-      Arduino mega: $25
-      </li>
-          <li>
-      Raspberry Pi 5 kit: $180
-      </li>
-
-      <li>
-        Radios: $25
-      </li>
-
-      <li>
-        SD card: $26
-      </li>
-
-      <li>
-        RTK: $150
-      </li>
-
-      <li>
-        Rover kit: $230
-      </li>
-      <li>
-        LIDAR: $70
-      </li>
-      <li>
-        Camera: $40
-      </li>
-      <li>
-        Linear Acuator: $120
-        </li>
-        <li>
-          Control board for linear actuator: $30
-        </li>
-         <li>
-          4G/LTE cellular modem: $140
-        </li>
-   <p>Total cost: <span className="font-extrabold">~$1070</span></p>  
-  </ul>
-<div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
-  
-  {/* Image Figure 1 */}
-  <figure className="flex flex-col flex-1">
-    <div className="w-full aspect-video overflow-hidden bg-slate-900">
-      <img
-        src={radios}
-        alt="Arduino and Raspberry Pi Setup"
-        className="w-full h-full object-contain"
-      />
-    </div>
-    <figcaption className="mt-4 text-sm leading-relaxed"> 
-      Waveshare USB LoRa Data Transfer Modules
-    </figcaption>
-  </figure>
-
-  {/* Image Figure 2 */}
-  <figure className="flex flex-col flex-1">
-    <div className="w-full aspect-video overflow-hidden bg-slate-900">
-      <img
-        src={sparkfunrtk}
-        alt="Arduino and Raspberry Pi Setup"
-        className="w-full h-full object-contain"
-      />
-    </div>
-    <figcaption className="mt-4 text-sm leading-relaxed"> 
-    SparkFun RTK GPS board
-    </figcaption>
-  </figure>
-
-  
-
-</div>
-
-  <p className="text-slate-400 leading-relaxed mb-4">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  August 3rd, 2026: Spoke with Mr. Taylor on integration with AgriLife's models and attending Dr. Lee's CASS (Configurable, Adaptive, Scalable Swarm System for Smart Agriculture) and ShaRE (Shared Robotic Ecosystem for Collaborative Farming) conferences next Friday at TAMU. Replacement rover kit is still on its way.
- </p>
-
-  </div> },
-  { name: "September", year: "2026", content: <div className="text-slate-500 pt-1">
-
-
- <p className="text-slate-400 leading-relaxed mb-4">
-  <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
-  September 1st, 2026: Version 3 of the penetration tower was successfully printed and tested. The rover was able to fully push the sensor into dry soil. Our tracked rover and robotic arm for ArmCam also arrived today.
-  </p>
-
-  <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar">
- 
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
-      <video 
-        src="penetrationsuccess.MOV" 
-        controls 
-        muted
-        preload="metadata"
-        className="w-full h-auto object-cover block"
-      >
-        Your browser does not support the video tag.
-      </video>
-    <p className="mt-2 text-xs text-slate-400 text-center">
-     Video of successful penetration over dry soil (no holes were predug).
-     </p>
-  </div>
-  {/* Image 1 */}
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
-    <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
-      <img src={towerv3rover} alt="August progress 1" className="w-full h-full object-contain pointer-events-none" />
-    </div>
- 
-  </div>
-
-  {/* Image 2 */}
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
-      <video 
-        src="roverv3towervid.MOV" 
-        controls 
-        muted
-        preload="metadata"
-        className="w-full h-auto aspect-video object-cover block"
-      >
-        Your browser does not support the video tag.
-      </video>
-    <p className="mt-2 text-xs text-slate-400 text-center">
-     Tower v3
-     </p>
-  </div>
-
-  {/* Image 3 */}
-  <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
-      <video 
-        src="testingroboarm.MOV" 
-        controls 
-        muted
-        preload="metadata"
-        className="w-full h-auto aspect-video object-cover block"
-      >
-        Your browser does not support the video tag.
-      </video>
-    <p className="mt-2 text-xs text-slate-400 text-center">
-     Testing robotic arm
-     </p>
-  </div>
-
-
-</div>
-
-  </div> },
-  { name: "October", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
-  { name: "November", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
-  { name: "December", year: "2026", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
-  { name: "January", year: "2027", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
-  { name: "February", year: "2027", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
-  { name: "March", year: "2027", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
-  { name: "April", year: "2027", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> },
-  { name: "May", year: "2027", content: <div className="text-slate-500 italic pt-1">No updates yet.</div> }
+    {
+        name: "May",
+        year: "2026",
+        content: (
+            <div className="space-y-4 mb-8">
+                <p className="text-slate-400 leading-relaxed text-sm font-bold">
+                    Note: Links to documents and other files in the updates page
+                    will not be public until science fair season.
+                </p>
+                <p className="text-slate-400 leading-relaxed">
+                    <p className="text-slate-400 leading-relaxed">
+                        <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                        May 31st, 2026: Finished coding the 3D Ordinary Kriging
+                        heatmap. The idea is we take multiple slices at specific
+                        depths and then analyze each of those 2d heatmaps
+                        individually. Check out the full code on the github!
+                    </p>
+                    <img
+                        src={map}
+                        alt="Placeholder 1"
+                        className="md:w-[50%] md:h-relative h-full w-relative mb-4 mt-4"
+                    />
+                    <p className="text-slate-400 leading-relaxed mb-4">
+                        <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                        May 29th, 2026: GPR is extremely complicated and hard
+                        for us to code ourselves. Additionally, our farm field
+                        will likely not have proper sprinkler heads, so
+                        irrigation proximity becomes difficult to use as a
+                        covariate. Satellite data is outdated by weeks (the most
+                        recent satellite data we can find online for our field
+                        is from May 13th), so it can't be used reliably either.
+                        We think the best way to move forward is to switch our
+                        model to 3D Ordinary Kriging. There are examples online
+                        to help us code it, it doesn't need to worry about other
+                        covariates, and we think it will still offer
+                        significantly more information on moisture patterns than
+                        multispectral imagery to use for irrigation.
+                    </p>
+                    <p className="text-slate-400 leading-relaxed">
+                        <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                        May 24th, 2026: Final copy of research plan finished.
+                        See it <span> </span>
+                        <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://docs.google.com/document/d/1VkqSs9pfrUfAJ6HdsIUOUExkudNJI-WOK1dk6pclt1k/edit?usp=sharing"
+                            className="underline hover:text-gray-500 "
+                        >
+                            here.
+                        </a>
+                    </p>
+                    <p className="text-slate-400 leading-relaxed mb-4">
+                        <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                        May 24th, 2026: Pre drilling holes can cause the sensor
+                        we are using to give us faulty moisture measurements
+                        because of air pockets. We created a design that fixes
+                        this issue that could be used on the rovers after they
+                        pre-drill a hole into the ground (short video is shown
+                        below). The rover would drill a hole, then insert a
+                        hollow cylinder tube with a soil sensor and motors
+                        inside of it to sample at multiple depths without
+                        needing to worry about air pockets affecting results.
+                        The video below uses linear actuators to demonstrate our
+                        idea.
+                    </p>
+                    <div className="md:w-[30%] w-[70%] rounded-xl mb-4 overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl transition-all duration-300 hover:border-slate-700/80">
+                        <video
+                            src="droneidea2.mp4"
+                            controls
+                            muted
+                            preload="metadata"
+                            className="w-full h-auto aspect-video object-cover block"
+                        >
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <p className="text-slate-400 leading-relaxed mb-4">
+                        <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                        May 23rd, 2026: Idea to switch the project from a drone
+                        to a swarm of five rovers that can communicate with one
+                        another. Rovers will be autonomous and will still
+                        adaptively sample the field. Each rover would cost
+                        approximately $400 for a total cost of $2000. The data
+                        and math are still the same, we're just changing the way
+                        data is being collected.
+                    </p>
+                    <p className="text-slate-400 leading-relaxed mb-4">
+                        <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                        May 22nd, 2026: Nathan made an acquisition function for
+                        adaptive sampling. Learn more about it<span> </span>
+                        <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://docs.google.com/document/d/1o6kB64x-la7LfA9-zpvW1XvdDKNfi7HZQpoSRrUACMo/edit?tab=t.0"
+                            className="underline hover:text-gray-500 "
+                        >
+                            here.
+                        </a>
+                    </p>
+                    <p className="flex items-center gap-3 text-slate-400 leading-relaxed mb-4">
+                        <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
+                        May 18th, 2026: Rover-Drone Hybrid design idea (scrapped
+                        5/23), bought a better soil sensor.
+                    </p>
+                    <p className="flex items-center gap-3 text-slate-400 leading-relaxed mb-4">
+                        <span className="inline-block w-2 h-2 bg-white rounded-full shrink-0"></span>
+                        May 17th, 2026: Two important ideas were thought of
+                        today that we may implement in our project:
+                    </p>
+                    <p className="flex items-center gap-3 text-slate-400 leading-relaxed pl-5 mb-4">
+                        Idea #1 (scrapped 5/29): Use Gaussian Process Regression
+                        instead of Regression Kriging so we don't have to
+                        eyeball the variogram. Uncertainty is also much more
+                        adaptable to our data because it optimizes its
+                        parameters automatically, while Kriging mostly relies on
+                        the fixed sill, nugget, and range.
+                    </p>
+                    <p className="flex items-center gap-3 text-slate-400 leading-relaxed pl-5 mb-4">
+                        Idea #2: Have the drone create a path to sample at
+                        points it thinks will contribute the most information to
+                        the heatmap model, while also flying the shortest
+                        distance to minimize battery usage. This could be
+                        achieved by calculating an acquisition function with a
+                        travel cost penalty to sample the most optimal areas as
+                        it flies through the field.
+                    </p>
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    May 11th, 2026: Project research plan and deadlines draft
+                    finished.
+                </p>
+            </div>
+        ),
+    },
+    {
+        name: "June",
+        year: "2026",
+        content: (
+            <div className="text-slate-500 pt-1">
+                <div className="text-slate-400 leading-relaxed mb-4">
+                    <div className="flex items-start mb-2">
+                        <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mt-[10px] shrink-0"></span>
+                        <p>
+                            June 28th, 2026: Nathan and Landon met to discuss
+                            next steps for the project. The Raspberry Pi has
+                            been wiped clean (after saving our previous code to
+                            a separate device) to prepare it for controlling the
+                            rover. As we make this final version, we will very
+                            likely reuse parts of the old code, such as the code
+                            Nathan wrote for adaptive sampling.
+                        </p>
+                    </div>
+                    <ul className="list-disc list-inside pl-8 space-y-1">
+                        <li>
+                            Landon: Will now focus on coding the GPS module on
+                            the Raspberry Pi to get RTK corrections from
+                            satellites and coding the Pi to control the rover
+                            once Nathan gives it back to him. If this doesn't
+                            work, Nathan will a buy a more expensive GPS and
+                            code it instead.
+                        </li>
+                        <li>
+                            Nathan: Will now focus on getting measurements of
+                            the rover, designing the sensor penetration
+                            mechanism in CAD, and testing it.
+                        </li>
+                    </ul>
+                </div>
+
+                <img
+                    src={disassembled}
+                    alt="Picture of disassembled rover"
+                    className="md:w-[50%] w-full h-relative"
+                />
+
+                <div className="translate-y-3">
+                    <p className="text-slate-400 leading-relaxed mb-4">
+                        <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                        June 26th, 2026: Sensor insertion will be very simple,
+                        we will mount a linear actuator in the center of the
+                        rover, stick the rover to the ground (likely with augers
+                        on the corners that will drill into the ground to keep
+                        the rover fixed), and extend the sensor. Air pockets in
+                        the soil make measurements inaccurate, so we cannot
+                        drill into the ground before insertion. Additionally,
+                        design ideas such as the one we thought of on May 24th
+                        are extremely hard and complicated to feasibly build.
+                    </p>
+                    <p className="text-slate-400 leading-relaxed mb-3">
+                        <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                        June 25th, 2026: The AgraBhi team met with the Row Crops
+                        Committee of the Fort Bend County Texas A & M AgriLife
+                        extension to discuss ways this project could be
+                        implemented on their connected farms, funded by the
+                        committee, and supported with their data. We also used
+                        this opportunity to test the rover's drivability on a
+                        contact's farm fields.
+                    </p>
+
+                    <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
+                        {/* Image Figure */}
+                        <figure className="flex flex-col flex-1">
+                            <div className="w-full aspect-video overflow-hidden  bg-slate-900">
+                                <img
+                                    src={meetup}
+                                    alt="Arduino and Raspberry Pi Setup"
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                            <figcaption className="mt-4 text-sm leading-relaxed">
+                                Photo of AgriLife Row Crops Committee meeting
+                                with AgraBhi team.
+                            </figcaption>
+                        </figure>
+
+                        {/* Video Figure */}
+                        <figure className="flex flex-col flex-1">
+                            <div className="w-full aspect-video overflow-hidden  bg-slate-900">
+                                <img
+                                    src={selfie}
+                                    alt="Arduino and Raspberry Pi Setup"
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                            <figcaption className="mt-4 text-sm leading-relaxed">
+                                From left: Adam Crossey, Landon Morrison, Nathan
+                                Sharma.
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <p className="text-slate-400 leading-relaxed mb-3">
+                        <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                        June 22nd, 2026: Rover kit was delivered to Landon, and
+                        our first farm visit has been scheduled for Thursday
+                        with AgriLife.
+                    </p>
+
+                    <div className="md:w-[30%] w-[70%] rounded-xl mb-4 overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl transition-all duration-300 hover:border-slate-700/80">
+                        <video
+                            src="kit.mov"
+                            controls
+                            muted
+                            preload="metadata"
+                            className="w-full h-auto aspect-video object-cover block"
+                        >
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <p className="text-slate-400 leading-relaxed mb-3">
+                        <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                        June 14th, 2026: We updated the acquisition function to
+                        replace the moisture variance of the N closest points
+                        with the magnitude of the moisture gradient vector.
+                        Essentially, it more clearly tells us the boundaries of
+                        the map (the areas where moisture is changing quickly).
+                        The moisture variance didn't specifically tell us about
+                        a point where moisture was changing quickly, it only
+                        told us that there were a lot of differences in moisture
+                        between the sampled points. The gradient uses the
+                        heatmap's predictions to calculate the exact points
+                        where moisture is changing the most. The updated
+                        acquisition function is further explained in{" "}
+                        <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://docs.google.com/document/d/1o6kB64x-la7LfA9-zpvW1XvdDKNfi7HZQpoSRrUACMo/edit?usp=sharing"
+                            className="underline hover:text-gray-500 "
+                        >
+                            {" "}
+                            this{" "}
+                        </a>
+                        document.
+                    </p>
+                    <img
+                        src={newfunc}
+                        alt="Multiple simulated rovers shown on dashboard!"
+                        className="md:w-[50%] w-full h-relative mb-3"
+                    />
+                    <p className="text-slate-400 leading-relaxed mb-3">
+                        <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                        June 13th, 2026: The alpha weight in the acquisition
+                        function and the variogram model can now be adjusted
+                        from the dashboard. The alpha weight decides whether to
+                        prioritize kriging variance or local moisture variance,
+                        and the variogram model is important because we need to
+                        make sure it fits the data well so we have an accurate
+                        kriging variance to use in our acquisition function. We
+                        download logs from the Pi using the dashboard and run
+                        the data in our computer program to visually look at the
+                        variogram and make sure it fits the experimental
+                        variogram well before calculating the optimal points.
+                    </p>
+                    <p className="text-slate-400 leading-relaxed mb-3">
+                        <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                        June 12th, 2026:
+                    </p>
+                    <img
+                        src={newformula}
+                        alt="Multiple simulated rovers shown on dashboard!"
+                        className="md:w-[50%] w-full h-relative mb-3"
+                    />
+
+                    <ul className="text-slate-400 list-disc pl-6 space-y-2 mb-6 text-sm">
+                        <li>
+                            <span className="font-bold mb-1 mt-1">
+                                Acquisition Function:{" "}
+                            </span>{" "}
+                            The acquisition function (shown above) will not
+                            consider battery life in each calculation anymore.
+                            Instead, the 5 points will be calculated only using
+                            kriging and local moisture variance. Then, once
+                            these 5 points are selected, the program will
+                            consider battery life costs separately. Rovers will
+                            be ordered from least to most battery life, and the
+                            ones with the smallest battery lives will be
+                            assigned to the closest points. This will reduce the
+                            amount of distance each rover has to travel because
+                            it always adjusts to find the closest points after
+                            the calculations (a visual of this is shown below.)
+                            Also, the a and (1-a) weights in the acquisition
+                            function formula will dynamically change as we
+                            sample the farm field. a will start at a larger
+                            value to give less priority to local moisture
+                            variance since there haven't been many points
+                            measured, so everything is spaced apart and local
+                            variance matters less. As more points get sampled, a
+                            will gradually decrease until moisture variance is
+                            prioritized. This is because local moisture variance
+                            loses its meaning if we are too far away from any
+                            sampled point.
+                        </li>
+                        <p className="font-bold mb-5">
+                            Maroon = rover's current locations, blue =
+                            previously measured points, green = calculated
+                            optimal points, line = path of rovers
+                        </p>
+                        <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
+                            {/* Image Figure */}
+                            <figure className="flex flex-col flex-1">
+                                <div className="w-full aspect-video overflow-hidden  bg-slate-900">
+                                    <img
+                                        src={inequation}
+                                        alt="Arduino and Raspberry Pi Setup"
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                <figcaption className="mt-4 text-sm leading-relaxed text-slate-500">
+                                    When battery life penalties are calculated
+                                    in the equation and each rover is assigned
+                                    to their calculated spot, they can end up
+                                    stretching across the field unnecessarily,
+                                    which makes the battery life penalty
+                                    essentially useless.
+                                </figcaption>
+                            </figure>
+
+                            <figure className="flex flex-col flex-1">
+                                <div className="w-full aspect-video overflow-hidden  bg-slate-900">
+                                    <img
+                                        src={separate}
+                                        alt="Arduino and Raspberry Pi Setup"
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                <figcaption className="mt-4 text-sm leading-relaxed text-slate-500">
+                                    When the optimal points are calculated first
+                                    and battery life is considered separately
+                                    afterwards, rovers are assigned to the
+                                    closest optimal point, reducing the distance
+                                    each rover needs to drive.
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <li className="mb-5">
+                            <span className="font-bold">Dashboard: </span>Fixed
+                            the battery life calculation. Before, it was
+                            deducting a lot of battery even though the rover
+                            would only travel a few meters. The acquisition
+                            function was also updated and tested
+                            successfully.{" "}
+                        </li>
+                        <img
+                            src={june12datahub}
+                            alt="June 12th, 2026 Updated Dashboard"
+                            className="md:w-[50%] w-full h-relative"
+                        />
+                        <li className="mt-5">
+                            <span className="font-bold">Heatmap: </span>3D
+                            Ordinary Kriging also turned out to be inconvenient
+                            and unnecessarily complicated. Because it doesn't
+                            have perfect resolution, sometimes we can't slice
+                            the map at perfect depths. For example, we end up
+                            slicing the map at 4.8 centimeters deep when we
+                            wanted to slice is at 5.0 centimeters deep because
+                            it doesn't have detailed enough resolution to have
+                            data at exactly 5 centimeters. Additionally, if we
+                            were to use 3D ordinary kriging, we would have to
+                            account for vertical anisotropy, or the fact that
+                            moisture changes more quickly vertically than it
+                            does horizontally. But this value cannot be directly
+                            measured with our rover setup and varies depending
+                            on the field, making it hard to use. We will instead
+                            create discrete 2D Ordinary Kriging heatmaps at
+                            multiple depths.{" "}
+                        </li>
+                    </ul>
+                </div>
+                <p className="text-slate-400 leading-relaxed mb-6">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    June 7th, 2026: Dashboard code is making great progess! It
+                    essentially calculates the optimal path for the five rovers
+                    in our swarm to follow. It looks at where the rovers
+                    currently are, finds the areas on the farm that either
+                    haven't been measured or have a lot of variability in nearby
+                    moisture measurements, and calculates an "optimal" point for
+                    each rover to measure at in these areas (this is what our
+                    acquisition function calculates, but it only does this for
+                    one individual rover.) We then collect data at those
+                    "optimal" spots, update the code, and let it calculate the
+                    next 5 optimal points for the rovers to take measurements at
+                    until we have enough points sampled. This is the last major
+                    thing to finish before the farm visit!
+                </p>
+
+                <img
+                    src={multiplerovers}
+                    alt="Multiple simulated rovers shown on dashboard!"
+                    className="md:w-[50%] w-full h-relative"
+                />
+
+                <p className="text-slate-400 leading-relaxed mb-6">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px] mt-6"></span>
+                    June 6th, 2026: Full setup! Arduino connects to the new soil
+                    sensor which connects to the pi to send its data. The
+                    acquisition function is also now coded on the raspberry pi
+                    and returns this information to the AgraBhi Dashboard. All
+                    we need to do now is make it work for multiple rovers,
+                    simulate battery life in the code, update the rover's
+                    location variable to be where the Pi is in real time, and
+                    make a way for us to manually input the charging station's
+                    GPS coordinates.
+                </p>
+
+                {/* Container to handle horizontal layout on medium screens and larger */}
+                <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
+                    {/* Image Figure */}
+                    <figure className="flex flex-col flex-1">
+                        <div className="w-full aspect-video overflow-hidden  bg-slate-900">
+                            <img
+                                src={setup}
+                                alt="Arduino and Raspberry Pi Setup"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+                        <figcaption className="mt-4 text-sm leading-relaxed">
+                            This is the arduino + raspberry pi + GPS antenna +
+                            soil sensor setup we will be using to collect data
+                            on the farms next week!
+                        </figcaption>
+                    </figure>
+
+                    {/* Video Figure */}
+                    <figure className="flex flex-col flex-1">
+                        <div className="w-full aspect-video overflow-hidden  bg-slate-900">
+                            <video
+                                src="datahubvid.mp4"
+                                controls
+                                muted
+                                preload="metadata"
+                                className="w-full h-full"
+                            >
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <figcaption className="mt-4 text-sm leading-relaxed">
+                            This is a video of our dashboard finding the best
+                            point to sample at using our acquisition function
+                            process, just like our Python code, only now the
+                            calculation is being done on the raspberry pi and
+                            can be recalculated every time we log a new point.
+                            However, this still only assumes there is a single
+                            rover on the field, we still need to code it to work
+                            for a swarm of rovers.
+                        </figcaption>
+                    </figure>
+                </div>
+                <p className="text-slate-400 leading-relaxed mb-6">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    June 5th, 2026: Landon found a rover kit to use to start
+                    building the first prototype. It's around $230 and is very
+                    customizable! He also plans to use a LIDAR scanner on the
+                    rover.
+                </p>
+                <img
+                    src={roverfromamazon}
+                    alt="Placeholder 1"
+                    className="md:w-[50%] md:h-relative h-full w-relative mt-4 mb-4"
+                />
+                <p className="text-slate-400 leading-relaxed">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    June 3rd, 2026: Coded the basic parts of the acquisition
+                    function process. The code loops through all points on the
+                    field and finds the one with the highest A(x) value. A
+                    higher A(x) value means that point will offer the most
+                    information, so rovers prefer to go there to take a sample.
+                    Some code output is shown below (based on simulated data).
+                    Our function in the code assumes every term has a weight of
+                    1, we will later run tests to see if it will realistically
+                    work in different scenarios on the farm and how we should
+                    optimize our weights so it does.
+                </p>
+
+                <img
+                    src={funct}
+                    alt="Placeholder 1"
+                    className="md:w-[50%] md:h-relative h-full w-relative mt-4 mb-4"
+                />
+
+                <figure>
+                    <img
+                        src={formula}
+                        alt="Placeholder 1"
+                        className="md:w-[50%] md:h-relative h-full w-relative mt-4 mb-4"
+                    />
+                    <figcaption className="mb-4 text-sm">
+                        Our acquisition function formula is shown above. The
+                        variables and how this will be used in the project are
+                        explained{" "}
+                        <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://docs.google.com/document/d/1o6kB64x-la7LfA9-zpvW1XvdDKNfi7HZQpoSRrUACMo/edit?usp=sharing"
+                            className="underline hover:text-gray-500 "
+                        >
+                            here.
+                        </a>
+                    </figcaption>
+                </figure>
+            </div>
+        ),
+    },
+    {
+        name: "July",
+        year: "2026",
+        content: (
+            <div className="text-slate-500 pt-1">
+                <p className="text-slate-400 leading-relaxed mb-6">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    July 24th, 2026: Rover was successfully refunded, a
+                    replacement rover has been ordered. Until the new rover
+                    arrives, we will focus on our methodology for collecting
+                    data on farms.
+                </p>
+
+                <p className="text-slate-400 leading-relaxed mb-6">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    July 16th, 2026: Short circuited rover was sent for refund
+                    and a very positive update from the AgriLife extension.
+                </p>
+
+                <p className="text-slate-400 leading-relaxed mb-6 font-bold text-xl">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    July 10th - 19th: Break period/ Vacation
+                </p>
+                <p className="text-slate-400 leading-relaxed mb-6">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    July 10th, 2026: All parts fit together, but the sensor
+                    adapter will need to be redesigned to properly hold the
+                    sensor. After the break, we will remake the sensor adapter
+                    and finally begin testing the design.
+                </p>
+                <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
+                    {/* Image Figure 1 */}
+                    <figure className="flex flex-col flex-1">
+                        <div className="w-full aspect-video overflow-hidden bg-slate-900">
+                            <img
+                                src={printed}
+                                alt="Arduino and Raspberry Pi Setup"
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                        <figcaption className="mt-4 text-sm leading-relaxed">
+                            Design on rover plate with linear actuator.
+                        </figcaption>
+                    </figure>
+
+                    {/* Image Figure 2 */}
+                    <figure className="flex flex-col flex-1">
+                        <div className="w-full aspect-video overflow-hidden bg-slate-900">
+                            <img
+                                src={printed2}
+                                alt="Arduino and Raspberry Pi Setup"
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                        <figcaption className="mt-4 text-sm leading-relaxed">
+                            Entire printed design with support rods, linear
+                            actuator, and sensor adapter.
+                        </figcaption>
+                    </figure>
+
+                    {/* Image Figure 3 */}
+                    <figure className="flex flex-col flex-1">
+                        <div className="w-full aspect-video overflow-hidden bg-slate-900">
+                            <img
+                                src={printed3}
+                                alt="Arduino and Raspberry Pi Setup"
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                        <figcaption className="mt-4 text-sm leading-relaxed">
+                            Image showing printed sensor adapter being too short
+                            to hold the sensor's wire in its hole.
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <p className="text-slate-400 leading-relaxed mb-6">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    July 8th, 2026: Landon will sand the parts so they fit,
+                    measure screw hole dimensions on the rover before we return
+                    it, and find a USB GPS module for the Raspberry Pi.
+                </p>
+                <p className="text-slate-400 leading-relaxed mb-6">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    July 7th, 2026: Parts were printed but did not fit together
+                    perfectly.
+                </p>
+
+                <p className="text-slate-400 leading-relaxed mb-6">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    July 6th, 2026: Parts are 3d printing and will be finished
+                    tomorrow morning.{" "}
+                </p>
+                <img
+                    src={printing}
+                    alt="Placeholder 1"
+                    className="md:w-[40%] md:h-relative h-full w-relative mt-4 mb-4"
+                />
+                <p className="text-slate-400 leading-relaxed mb-6">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    July 5th, 2026: The rover was accidentally short circuited
+                    when a phone charger touched the board. We are now ordering
+                    a replacement. Also, Nathan made longer wires connecting to
+                    the motors, allowing the control board to be placed on top
+                    of the rover.
+                </p>
+                <img
+                    src={longerwires}
+                    alt="Placeholder 1"
+                    className="md:w-[20%] md:h-relative h-full w-relative mt-4 mb-4"
+                />
+                <p className="text-slate-400 leading-relaxed mb-6">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    July 4th, 2026: Landon is now looking for a GPS module that
+                    can connect to the Raspberry Pi using one of its USB ports
+                    rather than its pins since we need to use the pins to
+                    connect the Pi to the rover's control board.
+                </p>
+                <p className="text-slate-400 leading-relaxed mb-6">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    July 3rd, 2026: Nathan finished the CAD design, and it is
+                    now ready for Landon to 3d print for initial testing. Access
+                    our STL files{" "}
+                    <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://drive.google.com/drive/folders/1GOk8_7-nP1topS2CLsfFXReJcwiVUp4u?usp=sharing"
+                        className="underline hover:text-gray-500 "
+                    >
+                        here.
+                    </a>
+                </p>
+                <img
+                    src={finisheddesign}
+                    alt="Placeholder 1"
+                    className="md:w-[20%] md:h-relative h-full w-relative mt-4 mb-4"
+                />
+
+                <p className="text-slate-400 leading-relaxed mb-4">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    July 1st, 2026: First rough CAD design of sensor insertion
+                    mechanism. Nathan also made a paper cutout of the plate that
+                    will screw onto the rover to check its dimensions which
+                    ended up fitting perfectly! (swipe left to scroll through
+                    images)
+                </p>
+
+                <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar">
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                        <img
+                            src={fulldesign}
+                            alt="July progress 1"
+                            className="w-full h-full object-contain pointer-events-none"
+                        />
+                    </div>
+
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                        <img
+                            src={platesensor}
+                            alt="July progress 2"
+                            className="w-full h-full object-contain pointer-events-none"
+                        />
+                    </div>
+
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                        <img
+                            src={sensoradapter}
+                            alt="July progress 3"
+                            className="w-full h-full object-contain pointer-events-none"
+                        />
+                    </div>
+
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                        <img
+                            src={plate}
+                            alt="July progress 4"
+                            className="w-full h-full object-contain pointer-events-none"
+                        />
+                    </div>
+
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                        <img
+                            src={roverhole}
+                            alt="July progress 5"
+                            className="w-full h-full object-contain pointer-events-none"
+                        />
+                    </div>
+
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                        <img
+                            src={papercutout}
+                            alt="July progress 6"
+                            className="w-full h-full object-contain pointer-events-none"
+                        />
+                    </div>
+
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                        <img
+                            src={detached}
+                            alt="July progress 7"
+                            className="w-full h-full object-contain pointer-events-none"
+                        />
+                    </div>
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                        <img
+                            src={attached}
+                            alt="July progress 8"
+                            className="w-full h-full object-contain pointer-events-none"
+                        />
+                    </div>
+                </div>
+            </div>
+        ),
+    },
+    {
+        name: "August",
+        year: "2026",
+        content: (
+            <div className="text-slate-500 pt-1">
+                <p className="text-slate-400 leading-relaxed mb-2">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    August 31st, 2026:
+                </p>
+                <ul className="text-slate-400 list-disc pl-6 space-y-2 mb-2">
+                    1. Nathan finally got an RTK fix after taking the GPS
+                    outdoors.
+                </ul>
+                <ul className="text-slate-400 list-disc pl-6 space-y-2 mb-2">
+                    2. We finished coding for the September farm visit. The plan
+                    is to walk around the field with the Pi and sensor probe and
+                    take readings manually for preliminary data. A Raspberry Pi
+                    sends sensor and RTK GPS data to our laptop over radio, then
+                    our laptop outputs the optimal point to go to (we are
+                    simulating the rovers by walking around). A separate file
+                    continuously checks the Pi's current location against the
+                    target location as we walk around with it in the field (we
+                    need to check the Pi's GPS because our phone's GPS is only
+                    precise within 1-2 meters; RTK is precise within 1-3
+                    centimeters).
+                </ul>
+                <ul className="text-slate-400 list-disc pl-6 space-y-2 mb-2">
+                    3. Landon made a full template for the Data Hub (pictures
+                    shown below).
+                </ul>
+                <ul className="text-slate-400 list-disc pl-6 space-y-2 mb-2">
+                    4. We reprinted a second version of the penetration tower
+                    that was taller and had a larger opening for the sensor in
+                    the plate. Then, we realized that the rods bent too much and
+                    the top mount for the actuator didn't print properly, so
+                    Nathan sent it to Landon to print a third (and hopefully
+                    final) version.
+                </ul>
+                <ul className="text-slate-400 list-disc pl-6 space-y-2 mb-2">
+                    5. Landon realized his RTK GPS wasn't working properly, so
+                    we're now ordering a replacement. Nathan's GPS module still
+                    works fine and will be used in the meantime.
+                </ul>
+
+                <ul className="text-slate-400 list-disc pl-6 space-y-2 mb-6">
+                    (Swipe left to scroll through the images below.)
+                </ul>
+
+                <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar">
+                    {/* Embedded YouTube Video */}
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+                        <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                            <iframe
+                                className="w-full h-full"
+                                src="https://www.youtube.com/embed/wvQsMUUPDuo"
+                                title="August 31st, 2026 update"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            ></iframe>
+                        </div>
+                        <p className="mt-2 text-xs text-slate-400 text-center">
+                            Nathan explaining his GPS achieving RTK fix
+                        </p>
+                    </div>
+
+                    {/* Image 1 */}
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+                        <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                            <img
+                                src={optimalpoint}
+                                alt="August progress 1"
+                                className="w-full h-full object-contain pointer-events-none"
+                            />
+                        </div>
+                        <p className="mt-2 text-xs text-slate-400 text-center">
+                            Screenshot of the laptop receiving moisture and GPS
+                            data from the Pi and calculating the next optimal
+                            point to sample at using our acquisition function.
+                        </p>
+                    </div>
+
+                    {/* Image 2 */}
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+                        <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                            <img
+                                src={locationchecker}
+                                alt="August progress 2"
+                                className="w-full h-full object-contain pointer-events-none"
+                            />
+                        </div>
+                        <p className="mt-2 text-xs text-slate-400 text-center">
+                            Screenshot of the laptop receiving data from the Pi
+                            continously calculating its distance from the most
+                            recently calculated optimal point and its current
+                            location (this is a simulation so the distances
+                            shown in the image are not actually real)
+                        </p>
+                    </div>
+
+                    {/* Image 3 */}
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+                        <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                            <img
+                                src={v2tower}
+                                alt="August progress 3"
+                                className="w-full h-full object-contain pointer-events-none"
+                            />
+                        </div>
+                        <p className="mt-2 text-xs text-slate-400 text-center">
+                            Version 2 of the penetration tower
+                        </p>
+                    </div>
+
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+                        <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                            <img
+                                src={twotowers}
+                                alt="August progress 3"
+                                className="w-full h-full object-contain pointer-events-none"
+                            />
+                        </div>
+                        <p className="mt-2 text-xs text-slate-400 text-center">
+                            Versions 1 and 2 next to each other for comparison
+                        </p>
+                    </div>
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+                        <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                            <img
+                                src={v3printing}
+                                alt="August progress 3"
+                                className="w-full h-full object-contain pointer-events-none"
+                            />
+                        </div>
+                        <p className="mt-2 text-xs text-slate-400 text-center">
+                            Version 3 printing
+                        </p>
+                    </div>
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+                        <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                            <img
+                                src={landondatahub1}
+                                alt="August progress 3"
+                                className="w-full h-full object-contain pointer-events-none"
+                            />
+                        </div>
+                        <p className="mt-2 text-xs text-slate-400 text-center">
+                            Data Hub map (uses a Google Maps API key). This will
+                            visually show us where our rovers are as they drive
+                            through the field.
+                        </p>
+                    </div>
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+                        <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                            <img
+                                src={landondatahub2}
+                                alt="August progress 3"
+                                className="w-full h-full object-contain pointer-events-none"
+                            />
+                        </div>
+                        <p className="mt-2 text-xs text-slate-400 text-center">
+                            Data Hub dashboard
+                        </p>
+                    </div>
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+                        <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                            <img
+                                src={landondatahub3}
+                                alt="August progress 3"
+                                className="w-full h-full object-contain pointer-events-none"
+                            />
+                        </div>
+                        <p className="mt-2 text-xs text-slate-400 text-center">
+                            Page where we see rover data after uploading them to
+                            our laptop
+                        </p>
+                    </div>
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+                        <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                            <img
+                                src={landondatahub4}
+                                alt="August progress 3"
+                                className="w-full h-full object-contain pointer-events-none"
+                            />
+                        </div>
+                        <p className="mt-2 text-xs text-slate-400 text-center">
+                            RF communication page (receives radio data and
+                            displays it here)
+                        </p>
+                    </div>
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+                        <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                            <img
+                                src={landondatahub5}
+                                alt="August progress 3"
+                                className="w-full h-full object-contain pointer-events-none"
+                            />
+                        </div>
+                        <p className="mt-2 text-xs text-slate-400 text-center">
+                            Data Hub settings
+                        </p>
+                    </div>
+                </div>
+
+              <p className="text-slate-400 leading-relaxed mb-4">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    August 26th, 2026: Landon created a Figma mock-up for a program to store, display, and communicate with the rovers all in one place. It will be called the “AgraBhi Data Hub”. 
+                </p>
+                <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
+                    {/* Image Figure 1 */}
+                    <figure className="flex flex-col flex-1">
+                        <div className="w-full aspect-video overflow-hidden">
+                            <img
+                                src={figma1}
+                                alt="Dashboard"
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                    </figure>
+
+                    {/* Image Figure 2 */}
+                    <figure className="flex flex-col flex-1">
+                        <div className="w-full aspect-video overflow-hidden">
+                            <img
+                                src={figma2}
+                                alt="Map"
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                    </figure>
+
+                    {/* Image Figure 3 */}
+                    <figure className="flex flex-col flex-1">
+                        <div className="w-full aspect-video overflow-hidden">
+                            <img
+                                src={figma3}
+                                alt="Data"
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                    </figure>
+                  
+                    {/* Image Figure 4 */}
+                    <figure className="flex flex-col flex-1">
+                        <div className="w-full aspect-video overflow-hidden">
+                            <img
+                                src={figma4}
+                                alt="Communication"
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                    </figure>
+
+                    {/* Image Figure 5 */}
+                    <figure className="flex flex-col flex-1">
+                        <div className="w-full aspect-video overflow-hidden">
+                            <img
+                                src={figma5}
+                                alt="Alerts"
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                    </figure>
+
+                    {/* Image Figure 6 */}
+                    <figure className="flex flex-col flex-1">
+                        <div className="w-full aspect-video overflow-hidden">
+                            <img
+                                src={figma6}
+                                alt="Settings"
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                    </figure>
+                </div>
+              
+                <p className="text-slate-400 leading-relaxed mb-4">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    August 25th, 2026: Basic radio communication works (Pis
+                    transmit their locations to our laptop, the laptop sends
+                    back the optimal point calculated from our acquisition
+                    function we made back in June). Landon also did extensive
+                    research today on how the rover would navigate using an RGB
+                    camera.
+                </p>
+                <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
+                    {/* Image Figure 1 */}
+                    <figure className="flex flex-col flex-1">
+                        <div className="w-full aspect-video overflow-hidden">
+                            <img
+                                src={roversim1}
+                                alt="Rover 1 simulation"
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                        <figcaption className="mt-4 text-sm leading-relaxed">
+                            Rover 1 simulation
+                        </figcaption>
+                    </figure>
+
+                    {/* Image Figure 2 */}
+                    <figure className="flex flex-col flex-1">
+                        <div className="w-full aspect-video overflow-hidden">
+                            <img
+                                src={roversim2}
+                                alt="Rover 2 simulation"
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                        <figcaption className="mt-4 text-sm leading-relaxed">
+                            Rover 2 simulation
+                        </figcaption>
+                    </figure>
+                    <figure className="flex flex-col flex-1">
+                        <div className="w-full aspect-video overflow-hidden">
+                            <img
+                                src={hubsim}
+                                alt="Hub/Laptop simulation"
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                        <figcaption className="mt-4 text-sm leading-relaxed">
+                            Hub/laptop simulation
+                        </figcaption>
+                    </figure>
+                </div>
+                <p className="text-slate-400 leading-relaxed mb-4">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    August 21st, 2026: ArmCam was created and parts were
+                    ordered. We're also switching to a tracked rover.
+                </p>
+                <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
+                    {/* Image Figure 1 */}
+                    <figure className="flex flex-col flex-1">
+                        <div className="w-full aspect-video overflow-hidden bg-slate-900">
+                            <img
+                                src={roarm}
+                                alt="Robotic arm"
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                        <figcaption className="mt-4 text-sm leading-relaxed">
+                            Arm that will hold the camera for inspecting crops.
+                        </figcaption>
+                    </figure>
+
+                    {/* Image Figure 2 */}
+                    <figure className="flex flex-col flex-1">
+                        <div className="w-full aspect-video overflow-hidden bg-slate-900">
+                            <img
+                                src={tracked}
+                                alt="Tracked rover"
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                        <figcaption className="mt-4 text-sm leading-relaxed">
+                            Tracked rover. We thought it was much more expensive
+                            because we only looked at the Amazon listing of $600
+                            (which included a bunch of accessories), but on the
+                            official website it's listed for $200 without the
+                            accessories, which was close to how much we were
+                            paying for the untracked rover. After we found this
+                            out, we decided to switch to the tracked version
+                            instead.
+                        </figcaption>
+                    </figure>
+                </div>
+                <p className="text-slate-400 leading-relaxed mb-4">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    August 18th, 2026: Landon began coding the rover's functions
+                    with the Raspberry Pi.
+                </p>
+                <img
+                    src={itworked}
+                    alt="Rover image"
+                    className="md:w-[20%] md:h-relative h-full w-relative mb-4 mt-4"
+                />
+                <p className="text-slate-400 leading-relaxed mb-4">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    August 16th, 2026: alpha in the acquisition function was
+                    updated to 1 - (current sample #)/(total # of samples).{" "}
+                </p>
+                <p className="text-slate-400 leading-relaxed mb-4">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    August 15th, 2026: We programmed the Raspberry Pi to receive
+                    online RTK GPS corrections and transmit its location over
+                    the Waveshare radios to send the GPS data to our laptop.
+                    This tests how two rovers would send their logged moisture
+                    and GPS data to a mother rover, which would use this data to
+                    decide where to sample next. The GPS was in RTK float mode
+                    instead of RTK fix, likely because the antenna was indoors.
+                    See images below (swipe left to scroll).
+                </p>
+
+                <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar">
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                        <img
+                            src={pygpsclient1}
+                            alt="PyGPS client screenshot on Raspberry Pi 5"
+                            className="w-full h-full object-contain pointer-events-none"
+                        />
+                    </div>
+
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                        <img
+                            src={pirtkpic}
+                            alt="Picture of the Raspberry Pi and RTK module"
+                            className="w-full h-full object-contain pointer-events-none"
+                        />
+                    </div>
+
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                        <img
+                            src={receiverscreenshot}
+                            alt="Screenshot of the GPS data being received from the Pi onto our laptop"
+                            className="w-full h-full object-contain pointer-events-none"
+                        />
+                    </div>
+
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                        <img
+                            src={laptopmodule}
+                            alt="Picture of the USB receiver module plugged into our laptop"
+                            className="w-full h-full object-contain pointer-events-none"
+                        />
+                    </div>
+                </div>
+                <p className="text-slate-400 leading-relaxed mb-4">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    August 14th, 2026: Went to the CASS-ShaRE project workshop
+                    with Dr. Kiju Lee and Jody Taylor at Texas A&M University.
+                    We listened to four hours of presentations and spoke with
+                    the researchers working in the ART Lab and the CASS-ShaRE
+                    joint project about their work and our project. We made many
+                    connections while also learning a lot about the research
+                    being done today in this field!
+                </p>
+
+                <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar">
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                        <img
+                            src={workshop0}
+                            alt="Landon and Nathan at the workshop learning about rovers being developed in the TAMU A.R.T. Lab"
+                            className="w-full h-full object-contain pointer-events-none"
+                        />
+                    </div>
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                        <img
+                            src={workshop1}
+                            alt="Workshop 1"
+                            className="w-full h-full object-contain pointer-events-none"
+                        />
+                    </div>
+
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                        <img
+                            src={workshop2}
+                            alt="Workshop 2"
+                            className="w-full h-full object-contain pointer-events-none"
+                        />
+                    </div>
+
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                        <img
+                            src={workshop3}
+                            alt="Workshop 3"
+                            className="w-full h-full object-contain pointer-events-none"
+                        />
+                    </div>
+
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 aspect-video snap-start rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                        <img
+                            src={workshop4}
+                            alt="Workshop 4"
+                            className="w-full h-full object-contain pointer-events-none"
+                        />
+                    </div>
+                </div>
+                <p className="text-slate-400 leading-relaxed mb-4">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    August 11th, 2026: Last day of our summer! Plans for this
+                    month (8/20 - 9/20):
+                    <ul className="list-disc list-inside pl-8 space-y-1">
+                        <li>
+                            Landon: Will prototype the penetration mechanism
+                            once the rover arrives and code the Raspberry Pi to
+                            control the rover manually. He will also work on the
+                            LIDAR sensors and getting the camera set up.
+                        </li>
+                        <li>
+                            Nathan: Will code the RTK GPS and radio
+                            communication between the raspberry Pis on the
+                            rovers. He will also work with Landon later to make
+                            sure the rover can autonomously drive to a specified
+                            GPS waypoint on its own.
+                        </li>
+                    </ul>
+                </p>
+
+                <p className="text-slate-400 leading-relaxed mb-4">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    August 10th, 2026: On a video call with Dr. Pal today, we
+                    learned that integration into the model is much simpler than
+                    we thought and can be beneficial to him. Dr. Pal also
+                    offered to help us if we ever run into issues with our soil
+                    sensor (such as calibration) and offered additional project
+                    ideas.
+                </p>
+
+                <p className="text-slate-400 leading-relaxed mb-4">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    August 8th, 2026: RTK GPS should be here by Thursday, and we
+                    will be going to CASS and ShaRE next Friday.
+                </p>
+
+                <p className="text-slate-400 leading-relaxed mb-4">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    August 7th, 2026: The Raspberry Pi and cooling fan arrived.
+                    The SD card and radios should arrive tomorrow, and the RTK
+                    GPS should be here by the end of next week. After that,
+                    consistent work on the project will finally continue. Also
+                    got an update from Dr. Landivar today, who said it may not
+                    be worth it to attend the workshops since it will mostly be
+                    a meeting for other researchers updating each other on their
+                    projects. We're still deciding whether we should go or not.
+                </p>
+                <img
+                    src={pi5}
+                    alt="Raspberry Pi 5 and cooling fan"
+                    className="md:w-[20%] md:h-relative h-full w-relative mb-4 mt-4"
+                />
+
+                <p className="text-slate-400 leading-relaxed mb-4">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    August 6th, 2026: Bought the RTK GPS, Raspberry Pi + SD
+                    card, and radios for communication after finally completing
+                    the rover parts list. The new estimated cost per rover is
+                    $1070, so we will only have enough funding to build three,
+                    instead of five, as previously planned. Also, unlike last
+                    year (when we attempted to obtain spotty RTK corrections
+                    from a low-cost module), this year's module from SparkFun
+                    will be significantly more reliable.  {" "}
+                </p>
+                <ul className="list-disc list-inside pl-8 space-y-1 mb-6">
+                    <p className="font-bold">New budget (per rover):</p>
+                    <li>DFRobot soil sensor: $30</li>
+                    <li>Arduino mega: $25</li>
+                    <li>Raspberry Pi 5 kit: $180</li>
+
+                    <li>Radios: $25</li>
+
+                    <li>SD card: $26</li>
+
+                    <li>RTK: $150</li>
+
+                    <li>Rover kit: $230</li>
+                    <li>LIDAR: $70</li>
+                    <li>Camera: $40</li>
+                    <li>Linear Acuator: $120</li>
+                    <li>Control board for linear actuator: $30</li>
+                    <li>4G/LTE cellular modem: $140</li>
+                    <p>
+                        Total cost:{" "}
+                        <span className="font-extrabold">~$1070</span>
+                    </p>
+                </ul>
+                <div className="flex flex-col md:flex-row gap-6 items-stretch w-full mb-4">
+                    {/* Image Figure 1 */}
+                    <figure className="flex flex-col flex-1">
+                        <div className="w-full aspect-video overflow-hidden bg-slate-900">
+                            <img
+                                src={radios}
+                                alt="Arduino and Raspberry Pi Setup"
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                        <figcaption className="mt-4 text-sm leading-relaxed">
+                            Waveshare USB LoRa Data Transfer Modules
+                        </figcaption>
+                    </figure>
+
+                    {/* Image Figure 2 */}
+                    <figure className="flex flex-col flex-1">
+                        <div className="w-full aspect-video overflow-hidden bg-slate-900">
+                            <img
+                                src={sparkfunrtk}
+                                alt="Arduino and Raspberry Pi Setup"
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                        <figcaption className="mt-4 text-sm leading-relaxed">
+                            SparkFun RTK GPS board
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <p className="text-slate-400 leading-relaxed mb-4">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    August 3rd, 2026: Spoke with Mr. Taylor on integration with
+                    AgriLife's models and attending Dr. Lee's CASS
+                    (Configurable, Adaptive, Scalable Swarm System for Smart
+                    Agriculture) and ShaRE (Shared Robotic Ecosystem for
+                    Collaborative Farming) conferences next Friday at TAMU.
+                    Replacement rover kit is still on its way.
+                </p>
+            </div>
+        ),
+    },
+    {
+        name: "September",
+        year: "2026",
+        content: (
+            <div className="text-slate-500 pt-1">
+                <p className="text-slate-400 leading-relaxed mb-4">
+                    <span className="inline-block w-2 h-2 bg-white rounded-full mr-3 mb-[2px]"></span>
+                    September 1st, 2026: Version 3 of the penetration tower was
+                    successfully printed and tested. The rover was able to fully
+                    push the sensor into dry soil. Our tracked rover and robotic
+                    arm for ArmCam also arrived today.
+                </p>
+
+                <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar">
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+                        <video
+                            src="penetrationsuccess.MOV"
+                            controls
+                            muted
+                            preload="metadata"
+                            className="w-full h-auto object-cover block"
+                        >
+                            Your browser does not support the video tag.
+                        </video>
+                        <p className="mt-2 text-xs text-slate-400 text-center">
+                            Video of successful penetration over dry soil (no
+                            holes were predug).
+                        </p>
+                    </div>
+                    {/* Image 1 */}
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+                        <div className="w-full aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+                            <img
+                                src={towerv3rover}
+                                alt="August progress 1"
+                                className="w-full h-full object-contain pointer-events-none"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Image 2 */}
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+                        <video
+                            src="roverv3towervid.MOV"
+                            controls
+                            muted
+                            preload="metadata"
+                            className="w-full h-auto aspect-video object-cover block"
+                        >
+                            Your browser does not support the video tag.
+                        </video>
+                        <p className="mt-2 text-xs text-slate-400 text-center">
+                            Tower v3
+                        </p>
+                    </div>
+
+                    {/* Image 3 */}
+                    <div className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0 snap-start flex flex-col">
+                        <video
+                            src="testingroboarm.MOV"
+                            controls
+                            muted
+                            preload="metadata"
+                            className="w-full h-auto aspect-video object-cover block"
+                        >
+                            Your browser does not support the video tag.
+                        </video>
+                        <p className="mt-2 text-xs text-slate-400 text-center">
+                            Testing robotic arm
+                        </p>
+                    </div>
+                </div>
+            </div>
+        ),
+    },
+    {
+        name: "October",
+        year: "2026",
+        content: (
+            <div className="text-slate-500 italic pt-1">No updates yet.</div>
+        ),
+    },
+    {
+        name: "November",
+        year: "2026",
+        content: (
+            <div className="text-slate-500 italic pt-1">No updates yet.</div>
+        ),
+    },
+    {
+        name: "December",
+        year: "2026",
+        content: (
+            <div className="text-slate-500 italic pt-1">No updates yet.</div>
+        ),
+    },
+    {
+        name: "January",
+        year: "2027",
+        content: (
+            <div className="text-slate-500 italic pt-1">No updates yet.</div>
+        ),
+    },
+    {
+        name: "February",
+        year: "2027",
+        content: (
+            <div className="text-slate-500 italic pt-1">No updates yet.</div>
+        ),
+    },
+    {
+        name: "March",
+        year: "2027",
+        content: (
+            <div className="text-slate-500 italic pt-1">No updates yet.</div>
+        ),
+    },
+    {
+        name: "April",
+        year: "2027",
+        content: (
+            <div className="text-slate-500 italic pt-1">No updates yet.</div>
+        ),
+    },
+    {
+        name: "May",
+        year: "2027",
+        content: (
+            <div className="text-slate-500 italic pt-1">No updates yet.</div>
+        ),
+    },
 ];
 
 export default function About() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentMonthIndex, setCurrentMonthIndex] = useState(4);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [currentMonthIndex, setCurrentMonthIndex] = useState(4);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  const handlePrev = () => {
-    if (currentMonthIndex > 0) {
-      setCurrentMonthIndex(currentMonthIndex - 1);
-    }
-  };
+    const handlePrev = () => {
+        if (currentMonthIndex > 0) {
+            setCurrentMonthIndex(currentMonthIndex - 1);
+        }
+    };
 
-  const handleNext = () => {
-    if (currentMonthIndex < MONTHS_DATA.length - 1) {
-      setCurrentMonthIndex(currentMonthIndex + 1);
-    }
-  };
+    const handleNext = () => {
+        if (currentMonthIndex < MONTHS_DATA.length - 1) {
+            setCurrentMonthIndex(currentMonthIndex + 1);
+        }
+    };
 
-  const activeMonth = MONTHS_DATA[currentMonthIndex];
+    const activeMonth = MONTHS_DATA[currentMonthIndex];
 
-  return (
-    <div className="min-h-screen bg-[#0D1117] text-[#E2E8F0] font-sans overflow-x-hidden flex flex-col justify-between">
-      {/* Dynamic style tag to ensure scrollbar hiding behaves cleanly on all mobile web views */}
-      <style>{`
+    return (
+        <div className="min-h-screen bg-[#0D1117] text-[#E2E8F0] font-sans overflow-x-hidden flex flex-col justify-between">
+            {/* Dynamic style tag to ensure scrollbar hiding behaves cleanly on all mobile web views */}
+            <style>{`
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
 
-      <div className="flex-1 flex flex-col">
-        {/* Navigation Bar */}
-<nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
-        <div className="max-w-full mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
-          
-          {/* Logo Link */}
-          <div className="flex items-center text-lg sm:text-xl font-bold tracking-tighter text-white whitespace-nowrap">
-           
-            <div>
-              <a 
-                href="https://agrabhi.com" 
-                onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com"; }}
-                className="cursor-pointer"
-              >
-                 <div className="flex items-center justify-center md:justify-start">
-              <img src={logo} alt="Logo" className="h-6 w-auto" />
-              <h2 className="text-xl font-bold text-white leading-none">
-                Agra<span className="text-emerald-400">Bhi</span>
-              </h2>
+            <div className="flex-1 flex flex-col">
+                {/* Navigation Bar */}
+                <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117]/80 backdrop-blur-md border-b border-slate-800">
+                    <div className="max-w-full mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
+                        {/* Logo Link */}
+                        <div className="flex items-center text-lg sm:text-xl font-bold tracking-tighter text-white whitespace-nowrap">
+                            <div>
+                                <a
+                                    href="https://agrabhi.com"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        window.location.href =
+                                            "https://agrabhi.com";
+                                    }}
+                                    className="cursor-pointer"
+                                >
+                                    <div className="flex items-center justify-center md:justify-start">
+                                        <img
+                                            src={logo}
+                                            alt="Logo"
+                                            className="h-6 w-auto"
+                                        />
+                                        <h2 className="text-xl font-bold text-white leading-none">
+                                            Agra
+                                            <span className="text-emerald-400">
+                                                Bhi
+                                            </span>
+                                        </h2>
+                                    </div>
+                                </a>
+                            </div>
+
+                            {/* Kept and styled to fit perfectly on mobile screens */}
+                            <p className="px-2.5 sm:px-3 text-sm sm:text-sm font-normal text-slate-400">
+                                in collaboration with
+                            </p>
+                            <img
+                                src={agrilife}
+                                alt="AgriLife Logo"
+                                className="h-8 sm:h-9 w-auto translate-y-[1px]"
+                            />
+                        </div>
+
+                        {/* Desktop Nav Links */}
+                        <div className="hidden md:flex items-center gap-8">
+                            <a
+                                href="https://agrabhi.com/"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    window.location.href =
+                                        "https://agrabhi.com/";
+                                }}
+                                className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+                            >
+                                Home
+                            </a>
+                            <a
+                                href="https://agrabhi.com/armcam.html"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    window.location.href =
+                                        "https://agrabhi.com/armcam.html";
+                                }}
+                                className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+                            >
+                                ArmCam
+                            </a>
+                            <a
+                                href="https://agrabhi.com/updates.html"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    window.location.href =
+                                        "https://agrabhi.com/updates.html";
+                                }}
+                                className="text-xs uppercase tracking-widest font-bold text-emerald-400 hover:text-emerald-500 transition-colors"
+                            >
+                                Project Updates
+                            </a>
+
+                            <a
+                                href="https://agrabhi.com/about.html"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    window.location.href =
+                                        "https://agrabhi.com/about.html";
+                                }}
+                                className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+                            >
+                                About Us
+                            </a>
+
+                            <a
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href="https://github.com/nathan-sharma/AgraBhi"
+                                className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+                            >
+                                GitHub
+                            </a>
+
+                            <a
+                                href="https://agrabhi.com/dashboard.html"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    window.location.href =
+                                        "https://agrabhi.com/dashboard.html";
+                                }}
+                                className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+                            >
+                                Dashboard
+                            </a>
+                        </div>
+
+                        {/* Mobile Menu Toggle Button */}
+                        <button
+                            onClick={toggleMenu}
+                            className="md:hidden text-slate-400 hover:text-white focus:outline-none ml-2"
+                        >
+                            <svg
+                                className="w-6 h-6"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                {isMenuOpen ? (
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M6 18L18 6M6 6l12 12"
+                                    />
+                                ) : (
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M4 6h16M4 12h16m-7 6h7"
+                                    />
+                                )}
+                            </svg>
+                        </button>
+                    </div>
+
+                    {/* Mobile Nav Links */}
+                    {isMenuOpen && (
+                        <div className="md:hidden bg-[#0D1117] border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
+                            <a
+                                href="https://agrabhi.com/"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    window.location.href =
+                                        "https://agrabhi.com/";
+                                }}
+                                className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+                            >
+                                Home
+                            </a>
+                            <a
+                                href="https://agrabhi.com/armcam.html"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    window.location.href =
+                                        "https://agrabhi.com/armcam.html";
+                                }}
+                                className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+                            >
+                                ArmCam
+                            </a>
+                            <a
+                                href="https://agrabhi.com/updates.html"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    toggleMenu();
+                                    window.location.href =
+                                        "https://agrabhi.com/updates.html";
+                                }}
+                                className="text-xs uppercase tracking-widest font-bold text-emerald-400 hover:text-emerald-500 transition-colors"
+                            >
+                                Project Updates
+                            </a>
+
+                            <a
+                                href="https://agrabhi.com/about.html"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    toggleMenu();
+                                    window.location.href =
+                                        "https://agrabhi.com/about.html";
+                                }}
+                                className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+                            >
+                                About Us
+                            </a>
+
+                            <a
+                                href="https://github.com/nathan-sharma/AgraBhi"
+                                onClick={toggleMenu}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+                            >
+                                GitHub
+                            </a>
+
+                            <a
+                                href="https://drive.google.com/file/d/1TR2aueFCylzw7Rai_YTZquHvooWqFICa/view?usp=sharing"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={toggleMenu}
+                                className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-400 transition-colors"
+                            >
+                                Old Poster
+                            </a>
+
+                            <a
+                                href="https://agrabhi.com/dashboard.html"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    toggleMenu();
+                                    window.location.href =
+                                        "https://agrabhi.com/dashboard.html";
+                                }}
+                                className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
+                            >
+                                Dashboard
+                            </a>
+                        </div>
+                    )}
+                </nav>
+                {/* Main Content Area */}
+                <main className="pt-24 px-6 max-w-6xl w-full mx-auto flex-1 flex flex-col">
+                    {/* Content block grows dynamically to fill space */}
+                    <div className="flex-1 flex flex-col">
+                        {/* Header Title Section for Active Month */}
+                        <div className="flex items-center gap-3 mb-6 shrink-0">
+                            <h2 className="text-3xl font-bold text-white">
+                                {activeMonth.name}
+                            </h2>
+                        </div>
+
+                        {/* Dynamic content rendering */}
+                        <div className="transition-all duration-300 ease-in-out">
+                            {activeMonth.content}
+                        </div>
+                    </div>
+
+                    {/* Tight Controls Section - Spacing variables match your original exact settings */}
+                    <div className="flex flex-col items-center justify-center border-t border-slate-800/60 shrink-0 py-3 gap-1">
+                        <div className="flex items-center gap-6 max-w-full justify-center">
+                            {/* Previous Arrow Button */}
+                            <button
+                                onClick={handlePrev}
+                                disabled={currentMonthIndex === 0}
+                                className={`flex items-center justify-center p-2 rounded-full border transition-all shrink-0 ${
+                                    currentMonthIndex === 0
+                                        ? "border-slate-800 text-slate-600 cursor-not-allowed"
+                                        : "border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-emerald-400"
+                                }`}
+                                aria-label="Previous Month"
+                            >
+                                <svg
+                                    className="w-5 h-5"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2.5"
+                                        d="M15 19l-7-7 7-7"
+                                    />
+                                </svg>
+                            </button>
+
+                            {/* Pagination Dots - Constrained to prevent device window blowout */}
+                            <div className="flex items-center gap-2.5 max-w-[145px] xs:max-w-[200px] sm:max-w-md overflow-x-auto py-1 px-2 no-scrollbar flex-nowrap">
+                                {MONTHS_DATA.map((month, idx) => (
+                                    <button
+                                        key={`${month.name}-${month.year}-${idx}`}
+                                        onClick={() =>
+                                            setCurrentMonthIndex(idx)
+                                        }
+                                        title={`${month.name} ${month.year}`}
+                                        className={`h-2.5 rounded-full transition-all duration-300 shrink-0 ${
+                                            idx === currentMonthIndex
+                                                ? "w-6 bg-emerald-400"
+                                                : "w-2.5 bg-slate-600 hover:bg-slate-400"
+                                        }`}
+                                    />
+                                ))}
+                            </div>
+
+                            {/* Next Arrow Button */}
+                            <button
+                                onClick={handleNext}
+                                disabled={
+                                    currentMonthIndex === MONTHS_DATA.length - 1
+                                }
+                                className={`flex items-center justify-center p-2 rounded-full border transition-all shrink-0 ${
+                                    currentMonthIndex === MONTHS_DATA.length - 1
+                                        ? "border-slate-800 text-slate-600 cursor-not-allowed"
+                                        : "border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-emerald-400"
+                                }`}
+                                aria-label="Next Month"
+                            >
+                                <svg
+                                    className="w-5 h-5"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2.5"
+                                        d="M9 5l7 7-7 7"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
+
+                        {/* Contextual indicator label right below the dots */}
+                        <span className="text-xs tracking-wider font-semibold uppercase text-slate-500 select-none">
+                            {activeMonth.name} {activeMonth.year}
+                        </span>
+                    </div>
+                </main>
             </div>
-              </a>
-            </div>
-            
-            {/* Kept and styled to fit perfectly on mobile screens */}
-            <p className="px-2.5 sm:px-3 text-sm sm:text-sm font-normal text-slate-400">in collaboration with</p>
-            <img src={agrilife} alt="AgriLife Logo" className="h-8 sm:h-9 w-auto translate-y-[1px]" />
-          </div>
-    
-          {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-8">
-            
-       <a 
-               href="https://agrabhi.com/" 
-               onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/"; }}
-               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-             >
-             Home
-             </a>
-<a 
-              href="https://agrabhi.com/armcam.html" 
-              onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/armcam.html"; }}
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-            >
-              ArmCam
-            </a>
-            <a 
-              href="https://agrabhi.com/updates.html" 
-              onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/updates.html"; }}
-              className="text-xs uppercase tracking-widest font-bold text-emerald-400 hover:text-emerald-500 transition-colors"
-            >
-             Project Updates
-            </a>
-            
-            <a 
-              href="https://agrabhi.com/about.html" 
-              onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/about.html"; }}
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-            >
-              About Us
-            </a>
-            
-            <a 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              href="https://github.com/nathan-sharma/AgraBhi" 
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-            >
-              GitHub
-            </a>
-               
-           <a
-              href="https://agrabhi.com/dashboard.html"
-              onClick={(e) => {
-                e.preventDefault();
-                window.location.href = "https://agrabhi.com/dashboard.html";
-              }}
-             className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-             >
-              Dashboard
-            </a>
-          </div>
-    
-          {/* Mobile Menu Toggle Button */}
-          <button 
-            onClick={toggleMenu}
-            className="md:hidden text-slate-400 hover:text-white focus:outline-none ml-2"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {isMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-              )}
-            </svg>
-          </button>
-        </div>
-    
-        {/* Mobile Nav Links */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-[#0D1117] border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
-           
-               <a 
-               href="https://agrabhi.com/" 
-               onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/"; }}
-               className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-             >
-             Home
-             </a>
-<a 
-              href="https://agrabhi.com/armcam.html" 
-              onClick={(e) => { e.preventDefault(); window.location.href = "https://agrabhi.com/armcam.html"; }}
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-            >
-              ArmCam
-            </a>
-            <a 
-              href="https://agrabhi.com/updates.html" 
-              onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/updates.html"; }}
-              className="text-xs uppercase tracking-widest font-bold text-emerald-400 hover:text-emerald-500 transition-colors"
-            >
-               Project Updates
-            </a>
 
-            <a 
-              href="https://agrabhi.com/about.html" 
-              onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/about.html"; }}
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-            >
-              About Us
-            </a>
-    
-            <a 
-              href="https://github.com/nathan-sharma/AgraBhi" 
-              onClick={toggleMenu}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-            >
-              GitHub
-            </a>
-            
-            <a 
-              href="https://drive.google.com/file/d/1TR2aueFCylzw7Rai_YTZquHvooWqFICa/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={toggleMenu}
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-400 transition-colors"
-            >
-              Old Poster
-            </a>
-            
-            <a 
-              href="https://agrabhi.com/dashboard.html" 
-              onClick={(e) => { e.preventDefault(); toggleMenu(); window.location.href = "https://agrabhi.com/dashboard.html"; }}
-              className="text-xs uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-500 transition-colors"
-            >
-              Dashboard
-            </a>
-          </div>
-        )}
-      </nav>
-        {/* Main Content Area */}
-        <main className="pt-24 px-6 max-w-6xl w-full mx-auto flex-1 flex flex-col">
-          {/* Content block grows dynamically to fill space */}
-          <div className="flex-1 flex flex-col">
-            {/* Header Title Section for Active Month */}
-            <div className="flex items-center gap-3 mb-6 shrink-0">
-              <h2 className="text-3xl font-bold text-white">{activeMonth.name}</h2>
-            </div>
+            {/* Tighter Bottom Footer */}
+            <footer className="border-t border-slate-800 bg-[#0D1117] py-8">
+                <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-2 md:gap-6">
+                    <div className="text-center md:text-left">
+                        <div className="flex items-center justify-center md:justify-start  mb-1">
+                            <img src={logo} alt="Logo" className="h-5 w-auto" />
+                            <h2 className="text-lg font-bold text-white leading-none">
+                                Agra
+                                <span className="text-emerald-400">Bhi</span>
+                            </h2>
+                        </div>
+                        <p className="text-xs text-slate-400">
+                            Created by{" "}
+                            <span className="text-slate-200">
+                                Nathan Sharma & Landon Morrison
+                            </span>
+                        </p>
+                    </div>
 
-            {/* Dynamic content rendering */}
-            <div className="transition-all duration-300 ease-in-out">
-              {activeMonth.content}
-            </div>
-          </div>
+                    <div className="flex flex-col md:flex-row gap-x-6 gap-y-0 md:gap-y-1 text-center">
+                        <a
+                            href="mailto:nathansharma007@gmail.com"
+                            className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors"
+                        >
+                            nathansharma007@gmail.com
+                        </a>
 
-          {/* Tight Controls Section - Spacing variables match your original exact settings */}
-          <div className="flex flex-col items-center justify-center border-t border-slate-800/60 shrink-0 py-3 gap-1">
-            <div className="flex items-center gap-6 max-w-full justify-center">
-              {/* Previous Arrow Button */}
-              <button 
-                onClick={handlePrev} 
-                disabled={currentMonthIndex === 0}
-                className={`flex items-center justify-center p-2 rounded-full border transition-all shrink-0 ${
-                  currentMonthIndex === 0 
-                    ? "border-slate-800 text-slate-600 cursor-not-allowed" 
-                    : "border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-emerald-400"
-                }`}
-                aria-label="Previous Month"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-
-              {/* Pagination Dots - Constrained to prevent device window blowout */}
-              <div className="flex items-center gap-2.5 max-w-[145px] xs:max-w-[200px] sm:max-w-md overflow-x-auto py-1 px-2 no-scrollbar flex-nowrap">
-                {MONTHS_DATA.map((month, idx) => (
-                  <button
-                    key={`${month.name}-${month.year}-${idx}`}
-                    onClick={() => setCurrentMonthIndex(idx)}
-                    title={`${month.name} ${month.year}`}
-                    className={`h-2.5 rounded-full transition-all duration-300 shrink-0 ${
-                      idx === currentMonthIndex 
-                        ? "w-6 bg-emerald-400" 
-                        : "w-2.5 bg-slate-600 hover:bg-slate-400"
-                    }`}
-                  />
-                ))}
-              </div>
-
-              {/* Next Arrow Button */}
-              <button 
-                onClick={handleNext} 
-                disabled={currentMonthIndex === MONTHS_DATA.length - 1}
-                className={`flex items-center justify-center p-2 rounded-full border transition-all shrink-0 ${
-                  currentMonthIndex === MONTHS_DATA.length - 1 
-                    ? "border-slate-800 text-slate-600 cursor-not-allowed" 
-                    : "border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-emerald-400"
-                }`}
-                aria-label="Next Month"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-            
-            {/* Contextual indicator label right below the dots */}
-            <span className="text-xs tracking-wider font-semibold uppercase text-slate-500 select-none">
-              {activeMonth.name} {activeMonth.year}
-            </span>
-          </div>
-        </main>
-      </div>
-
-      {/* Tighter Bottom Footer */}
-    <footer className="border-t border-slate-800 bg-[#0D1117] py-8">
-        
-            <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-2 md:gap-6">
-              <div className="text-center md:text-left">
-                <div className="flex items-center justify-center md:justify-start  mb-1">
-                  <img src={logo} alt="Logo" className="h-5 w-auto" />
-                  <h2 className="text-lg font-bold text-white leading-none">
-                    Agra<span className="text-emerald-400">Bhi</span>
-                  </h2>
+                        <a
+                            href="mailto:morrisonlandon51@gmail.com"
+                            className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors"
+                        >
+                            morrisonlandon51@gmail.com
+                        </a>
+                    </div>
                 </div>
-                <p className="text-xs text-slate-400">
-                  Created by <span className="text-slate-200">Nathan Sharma & Landon Morrison</span>
-                </p>
-                
-              </div>
-              
-    
-              <div className="flex flex-col md:flex-row gap-x-6 gap-y-0 md:gap-y-1 text-center">
-                <a href="mailto:nathansharma007@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
-                  nathansharma007@gmail.com
-                </a>
-              
-                   <a href="mailto:morrisonlandon51@gmail.com" className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
-              morrisonlandon51@gmail.com
-                </a>
-                
-              </div>
-            </div>
-          </footer>
-    </div>
-  );
+            </footer>
+        </div>
+    );
 }
